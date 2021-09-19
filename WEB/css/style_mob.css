@@ -1,0 +1,16 @@
+/* ==== mob ==== */
+@media screen and (max-width:767px){
+body,th,td,input,select,textarea,button {font-size:12px; line-height:1.5;}
+.inner {width:100%; padding:0 3%;}
+.pc {display:none !important;}
+.tab {display:none}
+.mob {display:block !important;}
+.pc_img {display:none;}
+.mob_img {display:block;}
+
+body,th,td,input,select,textarea,button {font-size:13px; line-height:20px;}
+
+
+
+
+}
