@@ -12,6 +12,8 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import ScrapButton from './ScrapButton';
 
 export default function SecretsTableRow(props) {
+
+
   const {
     id,
     title,
@@ -51,6 +53,7 @@ export default function SecretsTableRow(props) {
           handleScrap={() => scrapArticle(id)}
           isAlreadyScrapped={isAlreadyScrapped}
         />
+
       </TableCell>
     </TableRow>
   );

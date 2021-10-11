@@ -36,7 +36,7 @@ export default function useSeacrh() {
       });
       
 
-    const searchUrl = `/static/SecretData.example1.json`;
+    const searchUrl = `/static/SecretData.example.json`;
     async function fetchSearch() {
       axios.get(searchUrl).then((data) => {
         setSearchList(data.data);

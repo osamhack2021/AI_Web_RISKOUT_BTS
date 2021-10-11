@@ -14,7 +14,10 @@ import { searchListState } from '../../atoms/searchListState';
 
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
   const searchList = useRecoilValue(searchListState);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(7);
+  
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   return (
     <TableContainer component={Paper} elevation={1}>
       <Table>
@@ -46,7 +49,11 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             />
           ))}
         </TableBody>
-        
+        <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        paginate={paginate}
+      />
       </Table>
     </TableContainer>
   );
