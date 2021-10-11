@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
+import axios from 'axios';
 import { Grid, Typography } from '@mui/material';
 
 import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
@@ -44,11 +46,14 @@ export default function DetectionStatus() {
   };
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-
+  const { enqueueSnackbar } = useSnackbar();
   const scrapArticle = (id) => {
     addCart(id);
-    console.log('TODO: scrap article ', id);
-    alert('TODO: scrap article ' + id + ' ' + getCart());
+    // const article = searchResults.contents.filter((x) => x.id == id).pop();
+    // enqueueSnackbar('Scrapped article | ' + article.title, {
+    //   variant: 'success',
+    //   autoHideDuration: 10000,
+    // });
   };
 
   const analyzePage = (id) => {

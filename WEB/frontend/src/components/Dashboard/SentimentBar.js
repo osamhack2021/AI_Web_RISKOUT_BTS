@@ -10,9 +10,9 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 const SentimentBar = ({ colors }) => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/sentiment-bar`
-  );
+  const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
+    method: 'POST',
+  });
 
   return (
     <Card style={{ height: '400px' }}>

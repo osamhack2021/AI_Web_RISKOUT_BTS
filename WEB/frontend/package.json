@@ -18,6 +18,9 @@
     "@nivo/geo": "^0.73.0",
     "@nivo/line": "^0.73.0",
     "@nivo/pie": "^0.73.0",
+    "@progress/kendo-drawing": "^1.14.0",
+    "@progress/kendo-licensing": "^1.2.0",
+    "@progress/kendo-react-pdf": "^4.9.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -25,6 +28,7 @@
     "draft-js": "^0.11.7",
     "immer": "^9.0.6",
     "moment": "^2.29.1",
+    "notistack": "^2.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
@@ -69,7 +73,7 @@
   "bugs": {
     "url": "https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues"
   },
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:8002",
   "devDependencies": {
     "json-server": "^0.16.3",
     "prettier": "^2.4.1"

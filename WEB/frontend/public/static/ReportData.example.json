@@ -1,9 +1,17 @@
 {
   "overview": "오늘의 이야기에는 KISA가 발표한 랜섬웨어 공격과 D-Dos 공격에 대한 내용이 주로 포함되어 있다. 글로벌 랜섬웨어 공격 증가 트랜드와 D-Dos 공격 기술의 발전을 기반으로 리포트가 생성되었다.\n대기업들은 Windows, Linux 서버 시스템을 서비스 운영 목적으로 사용하므로 최근 랜섬웨어 공격자들은 Windows 뿐만 아니라 Linux로 랜섬웨어 버전이다.",
-  "dateRange": "1yr",
-  "startDate": "2001-01-01",
-  "endDate": "2021-12-31",
-  "contents": [
+  "period": 24,
+  "briefingGraphData": {
+    "secretsCount": 15,
+    "fakeNewsCount": 24,
+    "negativeSentiment": 0.74,
+    "tagRatio": {
+      "악의성": 0.25,
+      "클릭베이트": 0.3,
+      "허위성": 0.65
+    }
+  },
+  "briefingContents": [
     {
       "id": 1,
       "title": "랜섬웨어 역사",
@@ -30,6 +38,32 @@
       "sourceName": "연합뉴스",
       "url": "http://ytn.co.kr",
       "datetime": "2021-10-01 12:41 PM"
+    }
+  ],
+  "majorEvents": [
+    {
+      "imageUrl": "https://via.placeholder.com/400x1200/09f/fff.png",
+      "title": "문재인: 이명박, 박근혜가 5.18 민주화운동 기념식에 참석하지 않았다고 주장",
+      "threatType": "허위뉴스",
+      "sourceName": "연합뉴스",
+      "url": "http://ytn.co.kr",
+      "datetime": "2021-10-03 10:33PM"
+    },
+    {
+      "imageUrl": "https://via.placeholder.com/400x150/09f/fff.png",
+      "title": "문재인: 이명박, 박근혜가 5.18 민주화운동 기념식에 참석하지 않았다고 주장",
+      "threatType": "대외비 기밀",
+      "sourceName": "연합뉴스",
+      "url": "http://ytn.co.kr",
+      "datetime": "2021-10-03 10:33PM"
+    },
+    {
+      "imageUrl": "https://via.placeholder.com/600x150/09f/fff.png",
+      "title": "문재인: 이명박, 박근혜가 5.18 민주화운동 기념식에 참석하지 않았다고 주장",
+      "threatType": "3급 비밀",
+      "sourceName": "연합뉴스",
+      "url": "http://ytn.co.kr",
+      "datetime": "2021-10-03 10:33PM"
     }
   ]
 }
