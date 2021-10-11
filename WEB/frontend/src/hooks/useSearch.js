@@ -11,9 +11,9 @@ export default function useSeacrh() {
   let token = localStorage.getItem("token");
   const data = {
     "category": "news",
-    "period": 0,
+    "period": 72,
     "tags": {"PER": ["김정은"], "LOC": ["북한"] },
-    "search_text": "",
+    "search_text": "노동신문",
     "limit": 7,
     "offset": 0
 }

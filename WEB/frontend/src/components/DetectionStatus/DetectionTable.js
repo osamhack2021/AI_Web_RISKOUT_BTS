@@ -46,6 +46,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             />
           ))}
         </TableBody>
+        
       </Table>
     </TableContainer>
   );
