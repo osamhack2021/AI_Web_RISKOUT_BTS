@@ -154,9 +154,9 @@ class AnalyzedDataView(generics.CreateAPIView):
         for tag in tags:
             tags[tag] = dict(sorted(tags[tag].items(), key=lambda x:x[1], reverse=True))
         
-        for tag in tags:
-            if not tags[tag]:
-                tags[tag] = None
+        # for tag in tags:
+        #     if not tags[tag]:
+        #         tags[tag] = None
 
         return tags
 
