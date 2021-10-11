@@ -26,6 +26,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.22.0",
     "draft-js": "^0.11.7",
+    "immer": "^9.0.6",
     "moment": "^2.29.1",
     "notistack": "^2.0.2",
     "react": "^17.0.2",

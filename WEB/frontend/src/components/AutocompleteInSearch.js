@@ -1,113 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-export default function AutocompleteInSearch(){
-  const searchInputRef = useRef(null);
+import { useRecoilState } from 'recoil';
+import { appliedFilterMapState } from '../atoms/appliedFilterMapState';
+import { useFilterTags } from '../atoms/searchState';
 
-  return(    
-    <Autocomplete
-      multiple
-      freeSolo
-      ref={searchInputRef}
-      id="search-query-input"
-      options={people}
-      sx={{ width: '100%'}}
-      getOptionLabel={(option) => option.name}
-      //defaultValue={} 첫 렌더링 시 기본으로 설정될 필터
-      renderInput={(params) => <TextField {...params} type="text" variant="outlined" margin="dense"/>}
-    / >
+export default function AutocompleteInSearch() {
+  const [inputValue, setInputValue] = useState('');
+  const [appliedFilterMap, setAppliedFilterMap] = useRecoilState(
+    appliedFilterMapState
   );
-};
 
-const people = [
-  {
-    name: '이원빈',
-    age: '22',
-  },
-  {
-    name: '서종찬',
-    age: '22',
-  },
-  {
-    name: '서명근',
-    age: '22',
-  },
-  {
-    name: '김태원',
-    age: '20',
-  },
-  {
-    name: '이민식',
-    age: '25',
-  },
-  {
-    name: '박용준',
-    age: '20',
-  },
-  {
-    name: '조정환',
-    age: '23',
-  },
-  {
-    name: '김선균',
-    age: '22',
-  },
-  {
-    name: '오정도',
-    age: '22',
-  },
-  {
-    name: '최원용',
-    age: '22',
-  },
-  {
-    name: '김태완',
-    age: '20',
-  },
-  {
-    name: '박도범',
-    age: '25',
-  },
-  {
-    name: '손의섭',
-    age: '20',
-  },
-  {
-    name: '손정호',
-    age: '23',
-  },
-  {
-    name: '오희호',
-    age: '23',
-  },
-  {
-    name: '문자석',
-    age: '22',
-  },
-  {
-    name: '홍길동',
-    age: '22',
-  },
-  {
-    name: '신해진',
-    age: '22',
-  },
-  {
-    name: '한정진',
-    age: '20',
-  },
-  {
-    name: '이정빈',
-    age: '25',
-  },
-  {
-    name: '손길동',
-    age: '20',
-  },
-  {
-    name: '윤세준',
-    age: '23',
-  },
-];
+  const addItem = () => {
+    setAppliedFilterMap((oldfilterMap) => [...oldfilterMap, inputValue]);
+    setInputValue('');
+  };
 
+  const onChange = ({ target: { value } }) => {
+    setInputValue(value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={inputValue} onChange={onChange} />
+      <button onClick={addItem}>search</button>
+    </div>
+  );
+}

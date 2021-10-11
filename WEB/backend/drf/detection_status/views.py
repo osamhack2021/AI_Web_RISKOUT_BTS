@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 import requests
 import json
 import random
+import base64
 
 # SERVER_URL = 'http://localhost:8000/'
 SERVER_URL = 'http://host.docker.internal:8000/'
@@ -153,9 +154,9 @@ class AnalyzedDataView(generics.CreateAPIView):
         for tag in tags:
             tags[tag] = dict(sorted(tags[tag].items(), key=lambda x:x[1], reverse=True))
         
-        for tag in tags:
-            if not tags[tag]:
-                tags[tag] = None
+        # for tag in tags:
+        #     if not tags[tag]:
+        #         tags[tag] = None
 
         return tags
 
@@ -738,8 +739,8 @@ class ReportDataView(generics.CreateAPIView):
                 if content["title"] == key_sentence:
                     random.seed(content["_id"])
                     data = {
-                            "imageUrl": content["thumbnail_url"],
-                            "title":  content["title"],
+                            "imageUrl": self.imageEncoder(content["thumbnail_url"]),
+                            "title": content["title"],
                             "threatType": self.tagSelector(
                                 seed=content["_id"],
                                 arr=["허위뉴스", "대외비 기밀", "1급 비밀", "2급 비밀", "3급 비밀"], 
@@ -838,3 +839,12 @@ class ReportDataView(generics.CreateAPIView):
                     break
         
         return result
+
+
+    def imageEncoder(self, url):
+        source_url = url
+        response = requests.get(source_url)
+        data = str(base64.b64encode(response.content).decode("UTF-8"))
+        image_uri = (f"data:{response.headers['Content-Type']};base64,{data}")
+        
+        return image_uri

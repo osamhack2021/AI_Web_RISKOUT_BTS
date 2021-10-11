@@ -41,26 +41,33 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
+const test = styled('.sidebarBackground')(() => ({
+  background: 'gray',
+}));
+
 export default function SideNavigation(props) {
+  const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    setSidebarBackground('sidebarBackground');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setSidebarBackground('miniSidebarBackground');
   };
 
   return (
     <>
       <Box
         sx={{
-          position: 'fixed',
           background: 'rgb(29, 28, 26)',
           minHeight: '100%',
+          position: 'fixed',
         }}
       >
         <IconButton
@@ -71,14 +78,12 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon
-            sx={{ color: '#fff', fontSize: '1.3em', position: 'fixed' }}
-          />
+          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
         </IconButton>
         <Box sx={{ position: 'fixed' }}>
           <SidebarLinkMini
             icon={InfoIcon}
-            text="언론동향"
+            text="언론 동향"
             href="/presstrends"
             className="a"
           />

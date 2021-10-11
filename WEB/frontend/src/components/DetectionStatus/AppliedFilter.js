@@ -1,14 +1,14 @@
 import { Chip, Grid } from '@mui/material';
 
-import { useRecoilState } from 'recoil';
-import { filterListState } from '../../atoms/filterListState';
+import { useRecoilValue } from 'recoil';
+import {
+  appliedFilterMapState,
+  useAppliedFilterMapActions,
+} from '../../atoms/appliedFilterMapState';
 
 export default function AppliedFilter() {
-  const [filterList, setFilterList] = useRecoilState(filterListState);
-
-  const handleDelete = (filterToDelete) => () => {
-    setFilterList(filterList.filter((filter) => filter !== filterToDelete));
-  };
+  const appliedFilterMap = useRecoilValue(appliedFilterMapState);
+  const { remove } = useAppliedFilterMapActions();
 
   return (
     <Grid
@@ -22,16 +22,22 @@ export default function AppliedFilter() {
       }}
       spacing={1}
     >
-      {filterList.map((data, id) => (
-        <Grid item>
-          <Chip
-            key={id}
-            sx={{ borderRadius: '5px', fontFamily: "Noto sans KR"}}
-            label={data}
-            onDelete={handleDelete(data)}
-          />
-        </Grid>
-      ))}
+      {appliedFilterMap &&
+        Object.entries(appliedFilterMap).map(([label, words], id) => {
+          return (
+            <>
+              {words.map((word) => (
+                <Grid item>
+                  <Chip
+                    sx={{ borderRadius: '5px' }}
+                    label={word}
+                    onDelete={() => remove(label, word)}
+                  />
+                </Grid>
+              ))}
+            </>
+          );
+        })}
     </Grid>
   );
 }
