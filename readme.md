@@ -122,7 +122,7 @@
 
 <h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
 
-![techstack](https://user-images.githubusercontent.com/55467050/136718715-29a72910-3edf-4b2a-93ce-0f567d166a65.PNG)
+![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
 
 <br />
 
