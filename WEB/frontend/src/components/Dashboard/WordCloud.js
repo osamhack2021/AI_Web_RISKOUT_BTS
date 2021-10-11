@@ -17,7 +17,7 @@ const WordCloud = ({ options }) => {
   const { data, isPending, error } = useFetch(`/data/wordCloud.json`);
 
   return (
-    <Card style={{ height: '400px' }}>
+    <Card style={{ height: '400px', fontFamily: "Noto sans KR", fontSize: "2rem" }}>
       <CardHeader title="오늘의 키워드" />
       <Divider />
       {isPending ? (

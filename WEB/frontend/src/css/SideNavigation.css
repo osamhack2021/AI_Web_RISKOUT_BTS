@@ -23,7 +23,7 @@ body::-webkit-scrollbar {
 .iconMenuBox {
   padding: 3em 0em 0em;
   position: relative;
-  top: 6.1em;
+  top: 8.1em;
   left: 0.7em;
 }
 
@@ -33,25 +33,14 @@ body::-webkit-scrollbar {
   color: #3e90ff;
 }
 
-/* side bar를 열었을 때 background color */
-.sidebarBackground {
-  background: gray;
-}
-
-/* side bar를 닫았을 때 background color */
-.miniSidebarBackground {
-  background: white;
-}
-
 .sub_header .image {
+  /*로고 크기는 정해진 크기 입력*/
   position: absolute;
   top: 1em;
   left: 1.3em;
-}
-.sub_header .image {
-  /*로고 크기는 정해진 크기 입력*/
-  width: 95px;
-  height: 30px;
+  color: #fff;
+  width: 105px;
+  height: 22px;
 }
 
 .sub_header .image:hover {
@@ -65,7 +54,7 @@ body::-webkit-scrollbar {
 
 /*미니 사이드바 메뉴 버튼과 아이콘 위치*/
 .sub_header .sub_menu {
-  padding: 6em 1em 0em;
+  padding: 6.0em 1em 0em;
 }
 
 .sub_header .sub_menu .list {
@@ -83,6 +72,7 @@ body::-webkit-scrollbar {
 .sub_header .sub_menu .list .link {
   color: #fff;
   display: block;
+  font-size: 1.1em;
 }
 
 .sub_header .sub_menu .list.on *,
@@ -91,11 +81,15 @@ body::-webkit-scrollbar {
   color: #3e90ff;
 }
 
+.closeButton{
+  padding: 8px 13px 20px 200px;
+}
+
 .sub_header .sub_menu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
   /*메뉴*/
   bottom: 1.1em;
   right: 0.4em;
-  padding: 2.0em 1.5em 0em;
+  padding: 2.0em 2.2em 0em;
 }
 
 .sub_header .sub_menu [class$='MuiTypography-root'] {
@@ -112,7 +106,7 @@ body::-webkit-scrollbar {
 .sub_header .copyright {
   /*Copyright position*/
   position: absolute;
-  top: 20em;
+  top: 30em;
   color: #fff;
 }
 

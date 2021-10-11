@@ -14,6 +14,7 @@ import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
 import moment from 'moment';
 import ProgressBar from '../Common/ProgressBar';
 import useFetch from '../../hooks/useFetch';
+import "../../css/pageStyle.css"
 
 const columns = [
   {

@@ -11,3 +11,10 @@ class AnalyzedDataSerializer(serializers.Serializer):
     search_text = serializers.CharField(required=False, allow_blank=True)
     limit = serializers.IntegerField(required=True)
     offset = serializers.IntegerField(required=True)
+
+
+# Report Data Serializer
+class ReportDataSerializer(serializers.Serializer):
+
+    articleIds = serializers.ListField(required=True)
+    period = serializers.IntegerField(required=True)

@@ -12,11 +12,12 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     entrypoint: ["/bin/bash","-c"]
-    command:
-      - |
-        pip install --no-cache-dir -r /analyzer/requirements.txt
-        python -u /crawler/main.py
-        python -u /analyzer/analyzer.py
+    # dev only
+    # command:
+    #   - |
+    #     pip install --no-cache-dir -r /analyzer/requirements.txt
+    #     python -u /crawler/main.py
+    #     python -u /analyzer/analyzer.py
     depends_on:
       - mongo
       - mongo-seed
@@ -37,9 +38,10 @@ services:
     depends_on:
       - mongo
 
-  analyzer-restarter:
-    container_name: analyzer-restarter_service
-    image: docker
-    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
-    command: ["/bin/sh", "-c", "while true; do sleep 3600; docker restart analyzer_service; done"]
-    restart: unless-stopped
+  # dev only
+  # analyzer-restarter:
+  #   container_name: analyzer-restarter_service
+  #   image: docker
+  #   volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+  #   command: ["/bin/sh", "-c", "while true; do sleep 3600; docker restart analyzer_service; done"]
+  #   restart: unless-stopped

@@ -48,46 +48,8 @@ const test = styled('.sidebarBackground')(() => ({
 export default function SideNavigation(props) {
   const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
-  let [userprofile, setUserprofile] = useState(false);
-  let [userPhoto, setUserPhoto] = useState();
-  let [currentUser_pk, setCurrentUser_pk] = useState();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/user/current/', {
-      headers: {
-        Authorization: `JWT ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        // 현재 유저 정보 받아왔다면, 로그인 상태로 state 업데이트 하고
-        if (json.id) {
-          //유저정보를 받아왔으면 해당 user의 프로필을 받아온다.
-        }
-        fetch(
-          'http://localhost:8000/user/auth/profile/' + json.id + '/update/',
-          {
-            method: 'PATCH',
-            headers: {
-              Authorization: `JWT ${localStorage.getItem('token')}`,
-            },
-          }
-        )
-          .then((res) => res.json())
-          .then((userData) => {
-            setUserPhoto(userData.photo);
-            setCurrentUser_pk(userData.user_pk);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [userPhoto]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -157,7 +119,7 @@ export default function SideNavigation(props) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            background: 'rgb(29, 28, 26)',
+            background: 'rgb(40, 40, 40)',
             left: 0,
             top: 0,
             width: drawerWidth,
@@ -165,9 +127,13 @@ export default function SideNavigation(props) {
           },
         }}
       >
-        <DrawerHeader>
+        <Box className="closeButton">
           <Link href="/">
-            <img src={logoImage} alt="홈" className="image" />
+            <img
+              src="https://riskout.ithosting.repl.co/images/main/logo_w.png"
+              alt="홈"
+              className="image"
+            />
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
@@ -176,9 +142,9 @@ export default function SideNavigation(props) {
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
           </IconButton>
-        </DrawerHeader>
+        </Box>
         <List className="sub_menu">
-          <SidebarLink icon={InfoIcon} text="언론 동향" href="/presstrends" />
+          <SidebarLink icon={InfoIcon} text="언론동향" href="/presstrends" />
           <SidebarLink
             icon={SearchIcon}
             text="탐지현황"
@@ -186,7 +152,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/" />
         </List>
         <ListItem>
           <ListItemText

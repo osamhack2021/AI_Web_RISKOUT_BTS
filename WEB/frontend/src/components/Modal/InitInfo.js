@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import '../../css/LoginModal.css';
+import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const InitInfo = (props) => {
   let [useremail, setUserEamil] = useState();
@@ -10,69 +14,45 @@ const InitInfo = (props) => {
     setUserEamil(e.target.value);
   };
 
+  const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto"}
+  const avatarStyle={backgroundColor:'#1bbd7e'}
+  const btnstyle={margin:'10px 0'}
   const history = useHistory();
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <div className="exit">
-          <button
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-            </svg>
-          </button>
-        </div>
-        <span>비밀번호 찾기</span>
-        <center>
-          <input
-            type="text"
-            placeholder="이메일을 입력하세요."
-            onChange={handleEmailChange}
-          />
-          <br></br>
-          <div>
-            <span>이메일로 임시 비밀번호를 보내 드립니다.</span>
-          </div>
-          <br></br>
-          <button
-            className="JoinLoign-button"
-            onClick={(e) => {
-              e.preventDefault();
-
-              fetch('http://localhost:8000/initpwd/', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-              });
-            }}
-          >
-            전송
-          </button>
-          <br></br>
-          <div
-            className="foot-link"
-            onClick={(e) => {
-              e.preventDefault();
-              history.push('/login');
-            }}
-          >
-            로그인
-          </div>
-        </center>
-      </div>
-    </div>
+    <>
+    <br></br>
+    <br></br>
+    <br></br>
+     <Grid>
+            <Paper elevation={10} style={paperStyle}>
+                <Grid align='center'>
+                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
+                    <h2>비밀번호 찾기</h2>
+                </Grid>
+                <TextField label='이메일' placeholder='가입할 때 사용한 이메일을 입력해 주세요.' fullWidth required onChange={handleEmailChange}/>
+                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button" onClick={(e)=>{
+                  e.preventDefault()
+                  alert(JSON.stringify(data))
+                    fetch('/api/password-reset/', {
+                      method: 'POST',
+                      headers:{
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(data)
+                    });
+                  }
+                  }
+                 
+                >전송</Button>
+                <Typography >
+                <br></br>
+                     <Link href="/login" >
+                        로그인
+                </Link>
+                </Typography>
+            </Paper>
+        </Grid>
+        </>
   );
 };
 
