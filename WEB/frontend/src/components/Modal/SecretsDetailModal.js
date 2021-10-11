@@ -36,7 +36,7 @@ export default function SecretsDetailModal(props) {
   const { isOpen, setOpen, data, scrapArticle, analyzePage } = props;
   const { isSaved, setSaved } = useState(false);
   const entityNames = Object.entries(data.entities).flatMap((x) => x[1]);
-  console.log(entityNames, getHighlightedText);
+  // console.log(entityNames, getHighlightedText);
 
   const handleClose = () => {
     setOpen(false);

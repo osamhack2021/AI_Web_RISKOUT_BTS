@@ -41,23 +41,35 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
+const test = styled('.sidebarBackground')(() => ({
+  background: 'gray',
+}));
+
 export default function SideNavigation(props) {
+  const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-
   const handleDrawerOpen = () => {
     setOpen(true);
+    setSidebarBackground('sidebarBackground');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setSidebarBackground('miniSidebarBackground');
   };
 
   return (
     <>
-      <Box sx={{ position:'fixed', background: 'rgb(29, 28, 26)', minHeight: '100%'}}>
+      <Box
+        sx={{
+          background: 'rgb(29, 28, 26)',
+          minHeight: '100%',
+          position: 'fixed',
+        }}
+      >
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -66,10 +78,15 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: '#fff', fontSize:'1.3em', position:'fixed'}} />
+          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
         </IconButton>
-        <Box sx={{position: 'fixed'}}>
-          <SidebarLinkMini icon={InfoIcon} text="언론동향" href="/presstrends" className="a" />
+        <Box sx={{ position: 'fixed' }}>
+          <SidebarLinkMini
+            icon={InfoIcon}
+            text="언론 동향"
+            href="/presstrends"
+            className="a"
+          />
           <SidebarLinkMini
             icon={SearchIcon}
             text="탐지현황"
@@ -83,7 +100,12 @@ export default function SideNavigation(props) {
             href="/riskreport"
             className="c"
           />
-          <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" className="d" />
+          <SidebarLinkMini
+            icon={LogoutIcon}
+            text="로그아웃"
+            href="/logout"
+            className="d"
+          />
         </Box>
       </Box>
 
@@ -107,11 +129,15 @@ export default function SideNavigation(props) {
       >
         <Box className="closeButton">
           <Link href="/">
-            <img src="https://riskout.ithosting.repl.co/images/main/logo_w.png" alt="홈" className="image" />
+            <img
+              src="https://riskout.ithosting.repl.co/images/main/logo_w.png"
+              alt="홈"
+              className="image"
+            />
           </Link>
-          <IconButton onClick={handleDrawerClose}  >
+          <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'white' }}  />
+              <ChevronLeftIcon sx={{ color: 'white' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -126,7 +152,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/"/>
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/" />
         </List>
         <ListItem>
           <ListItemText
