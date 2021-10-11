@@ -56,6 +56,23 @@ export const filterTagsState = selector({
   get: ({ get }) => get(searchState).filterTags,
 });
 
+export const autoCompleteFilterState = selector({
+  key: 'autoCompleteFilterState',
+  get: ({ get }) => {
+    const filterTags = get(searchState).filterTags;
+    if (!filterTags) return [];
+    let autoCompleteFilter = [];
+    console.log(filterTags);
+    for (let [label, wordCount] of Object.entries(filterTags))
+      for (let word of Object.keys(wordCount))
+        autoCompleteFilter = [
+          ...autoCompleteFilter,
+          { word: word, label: label },
+        ];
+    return autoCompleteFilter;
+  },
+});
+
 export function useTotalContentsLength() {
   return useRecoilValue(searchState).totalContentsLength;
 }

@@ -13,8 +13,8 @@ import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import PasswordResetModal from './components/Modal/PasswordResetModal';
 import InitInfo from './components/Modal/InitInfo';
-import Search from './components/Search';
-import DynamicRoutes from "./DynamicRoutes";
+import SearchBar from './components/SearchBar';
+import DynamicRoutes from './DynamicRoutes';
 
 import './App.css';
 // import './css/style.css';
@@ -23,27 +23,27 @@ const mdTheme = createTheme();
 
 export default function App() {
   const [modal, setModal] = useState(false);
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState([]);
 
-  let [isAuthenticated, setisAuthenticated] = useState(localStorage.getItem('token') ? true : false)
+  let [isAuthenticated, setisAuthenticated] = useState(
+    localStorage.getItem('token') ? true : false
+  );
 
   const userHasAuthenticated = (authenticated, username, token) => {
-    setisAuthenticated(authenticated)
-    setUser(username)
-    console.log("토큰 저장됨");
+    setisAuthenticated(authenticated);
+    setUser(username);
+    console.log('토큰 저장됨');
     localStorage.setItem('token', token);
-  } //회원가입이나 로그인이 성공했을 때 토큰을 저장
+  }; //회원가입이나 로그인이 성공했을 때 토큰을 저장
 
   const handleLogout = () => {
-    setisAuthenticated(false)
-    setUser("")
+    setisAuthenticated(false);
+    setUser('');
     localStorage.removeItem('token');
-    setModal(false)
-  } //로그아웃
+    setModal(false);
+  }; //로그아웃
 
-
-  console.log(isAuthenticated)
-
+  console.log(isAuthenticated);
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -77,19 +77,22 @@ export default function App() {
         </Route>
 
         <Route exact path="/login">
-              <LoginModal setModal={setModal} userHasAuthenticated={userHasAuthenticated} />
-            </Route>
-            <Route exact path="/register">
-              <RegisterModal setModal={setModal}/>
-            </Route>
-  
-            <Route exact path="/init">
-              <InitInfo setModal={setModal}/>
-            </Route>
-  
-            <Route exact path="/password_reset">
-              <PasswordResetModal setModal={setModal}/>
-            </Route>
+          <LoginModal
+            setModal={setModal}
+            userHasAuthenticated={userHasAuthenticated}
+          />
+        </Route>
+        <Route exact path="/register">
+          <RegisterModal setModal={setModal} />
+        </Route>
+
+        <Route exact path="/init">
+          <InitInfo setModal={setModal} />
+        </Route>
+
+        <Route exact path="/password_reset">
+          <PasswordResetModal setModal={setModal} />
+        </Route>
       </Layout>
     </ThemeProvider>
   );

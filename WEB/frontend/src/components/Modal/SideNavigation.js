@@ -11,16 +11,13 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
 
 // Custom Components
 import SidebarLink from '../SidebarLink';
 import SidebarLinkMini from '../SidebarLinkMini';
 
 // Icons and Images
-import logoImage from '../../images/sub/logo_w.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -30,7 +27,6 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import '../../css/SideNavigation.css';
-import { getRadioUtilityClass } from '@mui/material';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',

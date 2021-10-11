@@ -4,7 +4,7 @@ import { Grid, Typography } from '@mui/material';
 import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
 import DetectionTable from '../components/DetectionStatus/DetectionTable';
 import FilterBar from '../components/DetectionStatus/FilterBar';
-import Search from '../components/Search';
+import SearchBar from '../components/SearchBar';
 import SecretsDetailModal from '../components/Modal/SecretsDetailModal';
 import { useSessionStorage } from '../js/util';
 
@@ -63,7 +63,7 @@ export default function DetectionStatus() {
           <Typography mt={1} variant="h5" sx={{ fontFamily: "Noto sans KR", fontSize: "2rem", fontWeight: "600"}}>
             탐지 현황
           </Typography>
-          <Search />
+          <SearchBar />
           <Typography mt={3} color="primary">
             {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
