@@ -7,6 +7,7 @@ import { styled, useTheme } from '@mui/material/styles';
 // MUI Components
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -105,7 +106,7 @@ export default function SideNavigation(props) {
         </Box>
       </Box>
 
-      <Drawer
+      <SwipeableDrawer
         variant="persistent"
         anchor="left"
         open={open}
@@ -156,7 +157,7 @@ export default function SideNavigation(props) {
             className="copyright"
           />
         </ListItem>
-      </Drawer>
+      </SwipeableDrawer>
     </>
   );
 }
