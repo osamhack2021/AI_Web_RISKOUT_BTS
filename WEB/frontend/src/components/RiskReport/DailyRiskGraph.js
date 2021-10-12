@@ -8,7 +8,7 @@ import {
   Divider,
 } from '@mui/material';
 
-const SentimentBar = ({ colors, data }) => {
+const DailyRiskGraph = ({ colors, data }) => {
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="일일 리스크 현황" />

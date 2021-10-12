@@ -1,5 +1,5 @@
-import SentimentBar from './SentimentBar';
-import SentimentPie from './SentimentPie';
+import DailyRiskGraph from './DailyRiskGraph';
+import RiskTypeGraph from './RiskTypeGraph';
 
 import { Container, Box, Grid, Stack } from '@mui/material';
 
@@ -30,10 +30,10 @@ export default function Graphs({ data }) {
   return (
     <Stack direction="column" container spacing={2}>
       <Grid item xs={12}>
-        <SentimentBar colors={options.colors} data={barData} />
+        <DailyRiskGraph colors={options.colors} data={barData} />
       </Grid>
       <Grid item xs={12}>
-        <SentimentPie colors={options.colors} data={pieData} />
+        <RiskTypeGraph colors={options.colors} data={pieData} />
       </Grid>
     </Stack>
   );

@@ -8,7 +8,7 @@ import {
   Divider,
 } from '@mui/material';
 
-export const SentimentPie = ({ colors, data }) => {
+export const RiskTypeGraph = ({ colors, data }) => {
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="리스크 종류별 비율 (%)" />

@@ -30,19 +30,7 @@ const RiskReport = (props) => {
   const [data, setData] = React.useState({});
   const [isPending, setPending] = React.useState(true);
   const error = false;
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
-      period: 24,
-    }),
-  };
-  // const { data, isPending, error } = useFetch('/api/nlp/report/', options);
 
-  // => search
   useEffect(() => {
     const searchUrl = '/api/nlp/report/';
     const exampleSearchUrl = '/static/ReportData.example.json';
@@ -54,7 +42,11 @@ const RiskReport = (props) => {
       //     articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
       //     period: 24,
       //     time: new Date().toTimeString(), // "uniqueness parameter"
-      //   })
+      //   }).then((data) => {
+      //   console.log(data.data);
+      //   setData(data.data);
+      //   setPending(false);
+      // });
       axios.get(exampleSearchUrl).then((data) => {
         console.log(data.data);
         setData(data.data);
