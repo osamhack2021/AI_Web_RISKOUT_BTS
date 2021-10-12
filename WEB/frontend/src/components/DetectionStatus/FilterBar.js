@@ -30,7 +30,7 @@ import {
               RESET
             </Button>
           }
-          titleTypographyProps={{ variant: 'body1' }}
+          titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600  }}
           title="FILTER"
           sx={{ fontFamily: "Noto sans KR", fontSize: "1.5em", fontWeight: "600"}}
         />
@@ -39,7 +39,7 @@ import {
         {Object.entries(namedEntityMap).map(([filterLabel, filterCode]) => {
           const filterTags = Object.entries(searchList.filterTags[filterCode]);
           return (
-            <CardContent style={{ marginBottom: '35px' }}>
+            <CardContent style={{ marginBottom: '16px', fontFamily: "Noto sans KR" }}>
               <Box className="filter_con" sx={{lineHeight: "2.8"}}>
                 <Stack
                   direction="row"
