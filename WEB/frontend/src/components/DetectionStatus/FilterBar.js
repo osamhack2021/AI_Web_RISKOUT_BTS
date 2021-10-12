@@ -54,7 +54,7 @@ export default function FilterBar() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>글에서 찾은 {labelToKorMap[label]}</Typography>
+                    <Typography sx={{ fontFamily: 'Noto sans KR', fontWeight: 500, }} >글에서 찾은 {labelToKorMap[label]}</Typography>
                     <Typography>{Object.keys(wordCount).length}</Typography>
                   </Stack>
                   <Box>
