@@ -16,7 +16,8 @@ const ArticleVolumeLine = () => {
 
   return (
     <Card style={{ height: '400px' }}>
-      <CardHeader title="기사 변화량" />
+      <CardHeader title="기사 변화량" 
+      titleTypographyProps={{ fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
       {isPending ? (
         <Box sx={{ width: '100%', color: 'grey.500' }}>
