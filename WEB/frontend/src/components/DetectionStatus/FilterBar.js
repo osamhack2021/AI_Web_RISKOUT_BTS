@@ -20,7 +20,7 @@ import {
   
     return (
       <Card
-        sx={{ right: 0, marginTop: '38px', minHeight: '100%', marginRight: '5em' }}
+        sx={{ right: 0, marginTop: '35px', minHeight: '100%', marginRight: '5em' }}
         elevation={1}
         spacing={3}
       >
