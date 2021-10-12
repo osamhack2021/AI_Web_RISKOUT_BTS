@@ -9,6 +9,7 @@ import {
   Box,
   IconButton,
   TablePagination,
+  TableFooter,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 import * as React from 'react';
@@ -22,7 +23,6 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import TableFooter from '@mui/material/TableFooter';
 
 function TablePaginationActions(props) {
   const theme = useTheme();
