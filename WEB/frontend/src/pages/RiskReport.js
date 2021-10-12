@@ -45,12 +45,14 @@ const RiskReport = (props) => {
   // => search
   useEffect(() => {
     const searchUrl = '/api/nlp/report/';
+
     async function fetchSearch() {
       setPending(true);
       axios
         .post(searchUrl, {
           articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
           period: 24,
+          time: new Date().toTimeString(), // "uniqueness parameter"
         })
         .then((data) => {
           console.log(data.data);
