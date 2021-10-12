@@ -62,7 +62,6 @@ export const autoCompleteFilterState = selector({
     const filterTags = get(searchState).filterTags;
     if (!filterTags) return [];
     let autoCompleteFilter = [];
-    console.log(filterTags);
     for (let [label, wordCount] of Object.entries(filterTags))
       for (let word of Object.keys(wordCount))
         autoCompleteFilter = [

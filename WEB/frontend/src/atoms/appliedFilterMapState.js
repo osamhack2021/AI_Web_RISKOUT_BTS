@@ -7,7 +7,6 @@ import {
   useResetRecoilState,
   useSetRecoilState,
 } from 'recoil';
-import produce from 'immer';
 
 // 검색에 사용되는 적용된 필터
 const initialState = {
@@ -48,7 +47,7 @@ export const appliedAutoCompleteFilterState = selector({
     let autocompleteList = [];
     for (let [key, values] of Object.entries(appliedFilterMap)) {
       for (let value of values) {
-        autocompleteList.push({ word: value, labe: key });
+        autocompleteList.push({ word: value, label: key });
       }
     }
     return autocompleteList;
