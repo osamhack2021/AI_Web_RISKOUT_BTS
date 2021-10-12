@@ -5,9 +5,13 @@ import {
   TableCell,
   TableRow,
 } from '@mui/material';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ForumIcon from '@mui/icons-material/Forum';
 import DescriptionIcon from '@mui/icons-material/Description';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import InfoIcon from '@mui/icons-material/Info';
 
 import ScrapButton from './ScrapButton';
 
@@ -30,7 +34,7 @@ export default function SecretsTableRow(props) {
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          <DescriptionIcon color="action" />
+          {id % 2 === 0 ? <ListItemIcon><WarningAmberIcon color="action" /><DescriptionIcon color="action" /></ListItemIcon>  : <ListItemIcon><TheaterComedyIcon color="action" /></ListItemIcon>}
         </Link>
       </TableCell>
       <TableCell

@@ -41,24 +41,17 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const test = styled('.sidebarBackground')(() => ({
-  background: 'gray',
-}));
-
 export default function SideNavigation(props) {
-  const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    setSidebarBackground('sidebarBackground');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
-    setSidebarBackground('miniSidebarBackground');
   };
 
   return (
@@ -85,34 +78,30 @@ export default function SideNavigation(props) {
             icon={InfoIcon}
             text="언론 동향"
             href="/presstrends"
-            className="a"
           />
           <SidebarLinkMini
             icon={SearchIcon}
             text="탐지현황"
             href="/detectionstatus"
             isOn={true}
-            className="b"
           />
           <SidebarLinkMini
             icon={AssessmentIcon}
             text="리포트"
             href="/riskreport"
-            className="c"
           />
           <SidebarLinkMini
             icon={LogoutIcon}
             text="로그아웃"
             href="/logout"
-            className="d"
           />
         </Box>
       </Box>
 
-      <Drawer
-        variant="persistent"
+      <Drawer  
         anchor="left"
         open={open}
+        onClick={handleDrawerClose}
         className="sub_header"
         sx={{
           width: drawerWidth,
@@ -137,7 +126,7 @@ export default function SideNavigation(props) {
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'white' }} />
+              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -152,7 +141,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/" />
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
         </List>
         <ListItem>
           <ListItemText

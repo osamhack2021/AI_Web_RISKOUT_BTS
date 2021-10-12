@@ -19,15 +19,15 @@ body::-webkit-scrollbar {
   width: 2em;
 }
 
-/*모든 아이콘 메뉴 위치*/
+/*모든 미니 아이콘 메뉴 위치*/
 .iconMenuBox {
-  padding: 3em 0em 0em;
+  padding: 3.5em 0.1em 0em;
   position: relative;
-  top: 8.1em;
+  top: 6.1em;
   left: 0.7em;
 }
 
-/*아이콘 메뉴에 마우스를 올렸을 때 css*/
+/* 미니 아이콘 메뉴에 마우스를 올렸을 때 css*/
 .iconMenuBox .inconMenuLink .iconMenu:hover {
   cursor: pointer;
   color: #3e90ff;
@@ -52,7 +52,7 @@ body::-webkit-scrollbar {
   width: 1.5em;
 }
 
-/*미니 사이드바 메뉴 버튼과 아이콘 위치*/
+/* 사이드바 메뉴 버튼과 아이콘 위치*/
 .sub_header .sub_menu {
   padding: 6.0em 1em 0em;
 }
@@ -61,16 +61,19 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
+/* 사이드바 메뉴 아이콘 색감 */
 .sub_header .sub_menu .icon {
-  color: #fff;
+  color: rgb(248, 246, 240);
   text-align: center;
 }
 
 .sub_header .sub_menu .list:last-child {
   margin-bottom: 0;
 }
+
+/* 사이드바 메뉴 글자 색감 */
 .sub_header .sub_menu .list .link {
-  color: #fff;
+  color: rgb(248, 246, 240);
   display: block;
   font-size: 1.1em;
 }
@@ -81,15 +84,18 @@ body::-webkit-scrollbar {
   color: #3e90ff;
 }
 
+/*홈 버튼과 사이드바 닫기 버튼 padding*/
 .closeButton{
   padding: 8px 13px 20px 200px;
 }
 
 .sub_header .sub_menu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
-  /*메뉴*/
-  bottom: 1.1em;
-  right: 0.4em;
-  padding: 2.0em 2.2em 0em;
+  /*메뉴 위치*/
+  bottom: 1.2em;
+  right: 0.9em;
+  left: 0.1em;
+  /*padding: 2.2em 2.2em 0em;*/
+  padding: 1.2em 1.9em 1.3em;
 }
 
 .sub_header .sub_menu [class$='MuiTypography-root'] {
@@ -106,11 +112,13 @@ body::-webkit-scrollbar {
 .sub_header .copyright {
   /*Copyright position*/
   position: absolute;
+  left: 1.4em;
   top: 30em;
-  color: #fff;
+  color: rgb(248, 246, 240);
 }
 
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
-  font-size: 0.5rem;
+  font-size: 0.7rem;
+  font-family: 'Montserrat';
 }
