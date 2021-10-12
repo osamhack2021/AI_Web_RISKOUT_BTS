@@ -19,7 +19,7 @@ export default function FilterCheckbox(props) {
   return (
     <Stack direction="row" alignItems="center" justifyContent="space-between">
       <Stack direction="row" justifyContent="space-between" spacing={0.5}>
-        <input type="checkbox" onChange={onChange} checked={checked} />
+        <input type="checkbox" onChange={onChange} checked={checked} style={{}}/>
         <p>{hashtag}</p>
       </Stack>
       <em>{count > 10 ? '10+' : count}</em>

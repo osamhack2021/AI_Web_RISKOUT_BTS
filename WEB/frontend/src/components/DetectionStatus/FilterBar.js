@@ -59,7 +59,6 @@ import {
                         hashtag={hashtag}
                         key={hashtag}
                         checked={filterList.includes(hashtag)}
-                        sx={{lineHeight: "-4.1em"}}
                       />
                     ))}
                   <Button
