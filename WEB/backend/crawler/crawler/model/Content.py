@@ -51,7 +51,6 @@ def contents_factory(site, contents_page_url, urlinfo, soup):
     except AttributeError:
         title = "제목이 없습니다."
 
-    # 영어 기사인데 제목이 없는 경우는??
     if re.search("[가-힣]", title) is None:
         raise englishContentError
 
