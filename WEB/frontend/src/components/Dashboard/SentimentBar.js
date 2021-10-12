@@ -10,15 +10,21 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 const SentimentBar = ({ colors }) => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/sentiment-bar`
-  );
+  const { data, error, isPending } = useFetch(`/data/sentimentBar.json`);
 
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="출처별 감정 통계" />
       <Divider />
-      {data ? (
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
         <CardContent>
           <Box
             sx={{
@@ -27,7 +33,7 @@ const SentimentBar = ({ colors }) => {
             }}
           >
             <ResponsiveBar
-              data={data}
+              data={data.response}
               keys={['positive', 'neutral', 'negative']}
               indexBy="category"
               margin={{ top: 0, right: 100, bottom: 100, left: 80 }}
@@ -86,10 +92,6 @@ const SentimentBar = ({ colors }) => {
             />
           </Box>
         </CardContent>
-      ) : (
-        <Box sx={{ width: '100%', color: 'grey.500' }}>
-          <LinearProgress color="inherit" />
-        </Box>
       )}
     </Card>
   );

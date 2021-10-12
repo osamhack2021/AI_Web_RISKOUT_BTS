@@ -10,16 +10,21 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 export const SentimentPie = ({ colors }) => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/sentiment-pie`
-  );
+  const { data, error, isPending } = useFetch(`/data/sentimentPie.json`);
 
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="감정 통계" />
       <Divider />
-
-      {data ? (
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
         <CardContent>
           <Box
             sx={{
@@ -28,7 +33,7 @@ export const SentimentPie = ({ colors }) => {
             }}
           >
             <ResponsivePie
-              data={data}
+              data={data.response}
               margin={{ top: 0, right: 80, bottom: 100, left: 80 }}
               innerRadius={0.5}
               padAngle={0.7}
@@ -141,10 +146,6 @@ export const SentimentPie = ({ colors }) => {
             />
           </Box>
         </CardContent>
-      ) : (
-        <Box sx={{ width: '100%', color: 'grey.500' }}>
-          <LinearProgress color="inherit" />
-        </Box>
       )}
     </Card>
   );
