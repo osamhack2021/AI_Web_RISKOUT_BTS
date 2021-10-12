@@ -12,11 +12,11 @@ export default function Graphs({ data }) {
 
   let total = 0;
   let pieData = Object.entries(data.tagRatio).map(([id, value]) => {
-    total += value * 50;
+    total += value * 70;
     return {
       id: id,
       label: id,
-      value: Math.round(value * 50 * 10) / 10,
+      value: Math.round(value * 70 * 10) / 10,
     };
   });
   pieData = [
