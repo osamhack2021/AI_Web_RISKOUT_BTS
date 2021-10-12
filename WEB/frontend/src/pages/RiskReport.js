@@ -24,25 +24,6 @@ import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 // import { Box } from '@mui/system';
 
-const timeBefore = (today: Date, timelength: String) => {
-  const [d, m, y] = [today.getDate(), today.getMonth(), today.getFullYear()];
-  if (timelength === '1d') {
-    return new Date(y, m, d - 1);
-  }
-  if (timelength === '1wk') {
-    return new Date(y, m, d - 7);
-  }
-  if (timelength === '1m') {
-    return new Date(y, m - 1, d);
-  }
-  if (timelength === '1y') {
-    return new Date(y - 1, m, d);
-  }
-  if (timelength === 'all') {
-    return new Date(2000, 0, 1);
-  }
-};
-
 const RiskReport = (props) => {
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
@@ -100,7 +81,7 @@ const RiskReport = (props) => {
   const loadingScreen = (
     <section id="sub_contents" style={{ width: '100vw', height: '100vh' }}>
       <div className="sub01_wrap">
-        <h2 className="h2_tit2">Loading...</h2>
+        <h2 className="h2_tit2">리스크 보고서 생성 중...</h2>
       </div>
       <div className="content clfix">
         {Array.from({ length: 20 }).map((_, i) => (
@@ -175,7 +156,7 @@ const RiskReport = (props) => {
                 alignItems="flex-start"
               >
                 <Grid item xs={12} md={6}>
-                  {/* <Graphs /> */}
+                  <Graphs />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Grid container direction="column" spacing={3}>

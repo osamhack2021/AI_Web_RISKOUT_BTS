@@ -29,7 +29,8 @@ export default function ThreatMediaCard(props) {
           sx={{
             mt: '1em',
             mb: '1em',
-            lineHeight: '1.67',
+            fontSize: '1.3rem',
+            lineHeight: '1.5',
             display: '-webkit-box',
             WebkitLineClamp: '2',
             overflow: 'hidden',
