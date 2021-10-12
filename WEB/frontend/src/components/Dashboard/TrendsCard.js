@@ -3,7 +3,7 @@ import {
   CardHeader,
   CardContent,
   Box,
-  CircularProgress,
+  LinearProgress,
   Divider,
   Chip,
   Pagination,
@@ -14,6 +14,7 @@ import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
 import moment from 'moment';
 import ProgressBar from '../Common/ProgressBar';
 import useFetch from '../../hooks/useFetch';
+import "../../css/pageStyle.css"
 
 const columns = [
   {
@@ -76,19 +77,15 @@ function CustomPagination() {
 }
 
 export default function TrendsCard() {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/trends`
-  );
+  const { data, error, isPending } = useFetch();
 
   return (
     <Card style={{ width: '100%', height: '400px' }}>
       <CardHeader title="트렌드" />
       <Divider />
-      <CardContent>
-        <Box sx={{ width: '100%', height: 300 }}>
-          {error && <div>{error} </div>}
-          {isPending && <div>Loading...</div>}
-          {data && (
+      {data ? (
+        <CardContent>
+          <Box sx={{ width: '100%', height: 300 }}>
             <DataGrid
               rows={data}
               columns={columns}
@@ -99,9 +96,13 @@ export default function TrendsCard() {
                 Pagination: CustomPagination,
               }}
             />
-          )}
+          </Box>
+        </CardContent>
+      ) : (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
         </Box>
-      </CardContent>
+      )}
     </Card>
   );
 }

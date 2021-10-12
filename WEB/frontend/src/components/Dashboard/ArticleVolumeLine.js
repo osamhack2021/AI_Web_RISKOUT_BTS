@@ -5,36 +5,37 @@ import {
   CardHeader,
   CardContent,
   Box,
-  Button,
+  Skeleton,
   Divider,
+  LinearProgress,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
 const ArticleVolumeLine = () => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/article-volume`
-  );
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const { data, isPending, error } = useFetch(`/data/articleVolume.json`);
 
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="기사 변화량" />
       <Divider />
-      <CardContent>
-        <Box
-          sx={{
-            height: 300,
-            position: 'relative',
-          }}
-        >
-          {error && <div>{error} </div>}
-          {isPending && <div>Loading...</div>}
-          {data && (
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
+        <CardContent>
+          <Box
+            sx={{
+              height: 300,
+              position: 'relative',
+            }}
+          >
             <ResponsiveLine
-              data={data}
+              data={data.response}
               margin={{ top: 10, right: 110, bottom: 50, left: 60 }}
               xScale={{ type: 'point' }}
               yScale={{
@@ -99,9 +100,9 @@ const ArticleVolumeLine = () => {
                 },
               ]}
             />
-          )}
-        </Box>
-      </CardContent>
+          </Box>
+        </CardContent>
+      )}
     </Card>
   );
 };

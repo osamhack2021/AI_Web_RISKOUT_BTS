@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
+import axios from 'axios';
+import { Grid, Typography } from '@mui/material';
 
+import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
+import DetectionTable from '../components/DetectionStatus/DetectionTable';
+import FilterBar from '../components/DetectionStatus/FilterBar';
 import Search from '../components/Search';
-import TableRow from '../components/SecretsTableRow';
-import FilterCheckbox from '../components/FilterCheckbox';
-import AppliedFilter from '../components/AppliedFilter';
-
-import filtersCloseIcon from '../images/sub/filters_close.png';
 import SecretsDetailModal from '../components/Modal/SecretsDetailModal';
 import { useSessionStorage } from '../js/util';
 
-function Secret() {
-  const [isDetailModalOpen, setDetailModalOpen] = React.useState(false);
-  const [detailModalData, setDetailModalData] = React.useState({
+import { useRecoilValue } from 'recoil';
+import { searchState } from '../atoms/searchState';
+import useSeacrhEffect from '../hooks/useSearchEffect';
+import { appliedFilterListState } from '../atoms/appliedFilterMapState';
+
+export default function DetectionStatus() {
+  useSeacrhEffect(); // filterMap 변경될 때마다 검색.
+
+  const search = useRecoilValue(searchState);
+  const appliedFilterList = useRecoilValue(appliedFilterListState);
+  const [isDetailModalOpen, setDetailModalOpen] = useState(false);
+  const [detailModalData, setDetailModalData] = useState({
     id: 0,
     created_at: '',
     site_url: '',
@@ -23,59 +33,27 @@ function Secret() {
     positivity: 0,
     entities: {},
   });
-  const [appliedFilters, setAppliedFilters] = useState([
-    '전투시행세부규칙',
-    'GP/GOP',
-  ]);
-  const [searchResults, setSearchResults] = useState({
-    contentsLength: 0,
-    contents: [],
-    filterTags: {
-      ORG: {},
-      CVL: {},
-      TIM: {},
-    },
-  });
-
-  const toggleFilter = (hashtag) => {
-    // console.log(`toggle ${hashtag}`, appliedFilters);
-    if (appliedFilters.includes(hashtag)) {
-      setAppliedFilters(appliedFilters.filter((val) => val != hashtag));
-    } else {
-      appliedFilters.push(hashtag);
-      setAppliedFilters([...appliedFilters]);
-    }
-  };
-
-  const search = () => {
-    // console.log(`search options: `);
-    fetch('/static/SecretData.example.json')
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setSearchResults(data);
-      });
-  };
-
-  useEffect(search, [appliedFilters]); // changing filters automatically triggers search
 
   const showDetailModal = (id) => {
-    const data = searchResults.contents.filter((x) => x.id == id).pop(0); // popping doesn't affect original array
+    const data = search.contents.filter((x) => x.id == id).pop(0); // popping doesn't affect original array
     console.log(
       data,
-      searchResults.contents.filter((x) => x.id == id),
-      searchResults
+      search.contents.filter((x) => x.id == id),
+      search
     );
     setDetailModalData(data);
     setDetailModalOpen(true);
   };
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-
+  const { enqueueSnackbar } = useSnackbar();
   const scrapArticle = (id) => {
     addCart(id);
-    console.log('TODO: scrap article ', id);
-    alert('TODO: scrap article ' + id + ' ' + getCart());
+    // const article = searchResults.contents.filter((x) => x.id == id).pop();
+    // enqueueSnackbar('Scrapped article | ' + article.title, {
+    //   variant: 'success',
+    //   autoHideDuration: 10000,
+    // });
   };
 
   const analyzePage = (id) => {
@@ -84,132 +62,37 @@ function Secret() {
   };
 
   return (
-    <section id="sub_contents2">
-      <div className="sub02_wrap clfix">
-        <div className="sub02_con">
-          <div className="top_box">
-            <h2>탐지 현황</h2>
-            {/* <div className="search clfix">
-                            <input type="text" placeholder="EX. 전투 세부 시행규칙" />
-                            <button onClick={search}><img src={searchIcon} alt="" /></button>
-                        </div> */}
-            <Search />
-          </div>
-
-          <h3>
-            {searchResults.contentsLength}개 결과, {appliedFilters.length}개
+    <Grid container spacing={3} sx={{marginLeft: "2em"}}>
+      <Grid item xs={12} md={10} container spacing={3} direction="column">
+        <Grid width="100%" item>
+          <Typography mt={1} variant="h5" sx={{ fontFamily: "Noto sans KR", fontSize: "2rem", fontWeight: "600"}}>
+            탐지 현황
+          </Typography>
+          <Search />
+          <Typography mt={3} color="primary">
+            {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
-          </h3>
-          <ul className="filter_keyword clfix">
-            {appliedFilters.map((filter, i) => (
-              <AppliedFilter
-                hashtag={filter}
-                onRemoveHashtag={toggleFilter}
-                key={filter + i}
-              />
-            ))}
-          </ul>
-
-          {/* <div>{JSON.stringify(searchResults)}</div> */}
-
-          <table
-            border="0"
-            cellPadding="0"
-            cellSpacing="0"
-            className="tbl_type01"
-          >
-            <colgroup>
-              <col width="7%" />
-              <col width="65%" />
-              <col width="20%" />
-              <col width="8%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th>유형</th>
-                <th>제목</th>
-                <th>글쓴이</th>
-                <th>스크랩</th>
-              </tr>
-            </thead>
-            <tbody>
-              {searchResults.contents.map((article, i) => (
-                <TableRow
-                  id={article.id}
-                  title={article.title}
-                  preview={article.summarized}
-                  author={article.author}
-                  href={article.site_url}
-                  showDetailModal={showDetailModal}
-                  scrapArticle={scrapArticle}
-                  isAlreadyScrapped={getCart().includes(article.id)}
-                />
-              ))}
-              <TableRow
-                id="2"
-                title="해군 참모총장 만난 썰 푼다"
-                preview="나 사이버 작전센터에서 근무하는데 갑자기 참모총장이 와서 나랑 악수하는거임... 사진도 하나 찍혔어. 대박이더라. ㄷㄷ 그리고 끝나니까 무슨 동전같이 생긴거 받았는데 이게 참모총장?"
-                author="김남춘123"
-                href="naver.com"
-                showDetailModal={showDetailModal}
-                scrapArticle={scrapArticle}
-              />
-            </tbody>
-          </table>
-        </div>
-
-        <div className="sub02_filter">
-          <h4>Filters</h4>
-          <button>
-            <img src={filtersCloseIcon} alt="" className="close_btn" />
-          </button>
-
-          {/* example
-                    글에서 찾은 인물 
-                    - [ ] 피해자
-                    - [ ] 문재인
-                    - [ ] 조정환
-                    */}
-          {[
-            ['단체', 'ORG'],
-            ['인물', 'CVL'],
-            ['시간대', 'TIM'],
-          ].map(([filterLabel, filterCode]) => {
-            const filterTags = Object.entries(
-              searchResults.filterTags[filterCode]
-            );
-            return (
-              <div className="filter_con">
-                <h5>글에서 찾은 {filterLabel}</h5>
-                <span>{filterTags.length}</span>
-                <ul className="keyword">
-                  {/* <FilterCheckbox count={10} hashtag="myHashtag" key="myHashtag" onToggle={toggleFilter} /> */}
-                  {filterTags
-                    .sort(([_, a], [__, b]) => (a < b ? 1 : -1))
-                    .map(([hashtag, freq], i) => (
-                      <FilterCheckbox
-                        count={freq}
-                        hashtag={hashtag}
-                        key={hashtag}
-                        onToggle={toggleFilter}
-                        checked={appliedFilters.includes(hashtag)}
-                      />
-                    ))}
-                </ul>
-                <button className="more_btn">더보기</button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+          </Typography>
+        </Grid>
+        <Grid width="100%" item justify="center">
+          <AppliedFilters />
+        </Grid>
+        <Grid item justify="center">
+          <DetectionTable
+            showDetailModal={showDetailModal}
+            scrapArticle={scrapArticle}
+          />
+        </Grid>
+      </Grid>
+      <Grid item xs={0} md={2} display={{ xs: 'none', md: 'block' }}>
+        <FilterBar />
+      </Grid>
       <SecretsDetailModal
         isOpen={isDetailModalOpen}
         setOpen={setDetailModalOpen}
         scrapArticle={scrapArticle}
         data={detailModalData}
       />
-    </section>
+    </Grid>
   );
 }
-
-export default Secret;

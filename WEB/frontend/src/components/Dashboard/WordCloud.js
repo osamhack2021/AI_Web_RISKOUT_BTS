@@ -4,35 +4,42 @@ import {
   CardHeader,
   CardContent,
   Box,
-  Button,
+  LinearProgress,
   Divider,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
+import { useEffect } from 'react';
 
 const WordCloud = ({ options }) => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/wordcloud`
-  );
+  const { data, isPending, error } = useFetch(`/data/wordCloud.json`);
 
   return (
-    <Card style={{ height: '400px' }}>
+    <Card style={{ height: '400px', fontFamily: "Noto sans KR", fontSize: "2rem" }}>
       <CardHeader title="오늘의 키워드" />
       <Divider />
-      <CardContent>
-        <Box
-          sx={{
-            height: 300,
-            position: 'relative',
-          }}
-        >
-          {error && <div>{error} </div>}
-          {isPending && <div>Loading...</div>}
-          {data && <ReactWordcloud options={options} words={data} />}
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
         </Box>
-      </CardContent>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
+        <CardContent>
+          <Box
+            sx={{
+              height: 300,
+              position: 'relative',
+            }}
+          >
+            <ReactWordcloud options={options} words={data.response} />
+          </Box>
+        </CardContent>
+      )}
     </Card>
   );
 };

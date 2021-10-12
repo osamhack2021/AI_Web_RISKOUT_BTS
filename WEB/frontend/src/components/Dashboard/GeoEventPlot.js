@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardContent,
   Box,
-  Button,
+  LinearProgress,
   Divider,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
@@ -19,16 +19,15 @@ const GeoEventPlot = ({ colors }) => {
     <Card style={{ height: '400px' }}>
       <CardHeader title="나라별 이벤트" />
       <Divider />
-      <CardContent>
-        <Box
-          sx={{
-            height: 350,
-            position: 'relative',
-          }}
-        >
-          {error && <div>{error} </div>}
-          {isPending && <div>Loading...</div>}
-          {data && (
+
+      {data ? (
+        <CardContent>
+          <Box
+            sx={{
+              height: 350,
+              position: 'relative',
+            }}
+          >
             <ResponsiveChoropleth
               data={data}
               features={countries.features}
@@ -71,9 +70,13 @@ const GeoEventPlot = ({ colors }) => {
                 },
               ]}
             />
-          )}
+          </Box>
+        </CardContent>
+      ) : (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
         </Box>
-      </CardContent>
+      )}
     </Card>
   );
 };

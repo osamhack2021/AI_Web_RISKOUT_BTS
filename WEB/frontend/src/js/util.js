@@ -24,10 +24,35 @@ function getHighlightedText(text, highlight) {
 }
 
 function getLineBreakText(text) {
-  console.log('getlinebreak', text, ReactDOMServer.renderToString(text));
-  return ReactDOMServer.renderToString(text)
-    .split('\n')
-    .map((str) => <div>{str}</div>);
+  // console.log('getlinebreak', text, ReactDOMServer.renderToString(text));
+  // return ReactDOMServer.renderToString(text)
+  return text.split('\n').map((str, i) => (
+    <span key={i} style={{ display: 'block' }}>
+      {str}
+    </span>
+  ));
+}
+
+var desanitizeText = (function () {
+  var translate_re = /&(nbsp|amp|quot|lt|gt);/g,
+    translate = {
+      nbsp: String.fromCharCode(160),
+      amp: '&',
+      quot: '"',
+      lt: '<',
+      gt: '>',
+    },
+    translator = function ($0, $1) {
+      return translate[$1];
+    };
+
+  return function (s) {
+    return s.replace(translate_re, translator);
+  };
+})();
+
+function debackslash(text) {
+  return text.replace(/\\/g, '');
 }
 
 /**
@@ -49,7 +74,8 @@ function decodeNewline(text, multiplier) {
 // sessionStorage를 쉽게 사용하게 해주는 함수
 // ex) const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
 const useSessionStorage = (key) => {
-  const getStorage = () => JSON.parse(sessionStorage.getItem(key)) || [];
+  const getStorage = () =>
+    sessionStorage.getItem(key) ? JSON.parse(sessionStorage.getItem(key)) : [];
   const addStorage = (item) => {
     const sto = getStorage();
     sto.push(item);
@@ -64,4 +90,6 @@ export {
   getNodeText,
   decodeNewline as replaceNewline,
   useSessionStorage,
+  desanitizeText,
+  debackslash,
 };

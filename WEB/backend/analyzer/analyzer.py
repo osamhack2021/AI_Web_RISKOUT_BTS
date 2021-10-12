@@ -29,9 +29,8 @@ class Content:
         self.content_dict = extracted
         """
         id: (mongoDB에 insert 되기 직전에 생성됨)
-        created_at: (mongoDB에 insert 되기 직전에 생성됨)
 
-        site_url, thumbnail_url, category, title, contentBody, author: extracted 에서 추출
+        site_url, thumbnail_url, category, title, contentBody, author, created_at: extracted 에서 추출
 
         summarized, positivity, entities: analyze 호출 이후 할당
         """
@@ -39,6 +38,7 @@ class Content:
         self.getSummarized()
         self.getPositivity()
         self.getEntities()
+        self.getTrueScore()
         self.content_dict['isAnalyzed'] = True
     
 
@@ -113,10 +113,39 @@ class Content:
         except Exception as e:
             print(f"Error occured while fetching entities : {e}")
             self.content_dict['entities'] = None
+    
+
+    def getTrueScore(self):
+        if self.content_dict['category'] == 'news':
+            url = SERVER_URL + 'fakenews'
+            document = {"document": self.content_dict['contentBody']}
+            document = json.dumps(document)
+
+            try:
+                true_score = requests.post(url, data=document, timeout=20)
+
+                if true_score.status_code == 200:
+                    try:
+                        self.content_dict['true_score'] = json.loads(true_score.text)['true_score']
+                    except Exception as e:
+                        print(f"Error occured while true_score data : {e}")
+                        self.content_dict['true_score'] = None
+
+                else:
+                    print(f"Error occured while fetching true_score data : {true_score.status_code}")
+                    self.content_dict['true_score'] = None
+
+            except Exception as e:
+                print(f"Error occured while fetching true_score data : {e}")
+                self.content_dict['true_score'] = None
+
+        else:
+            self.content_dict['true_score'] = None
 
 
 class DBHandler:
     def __init__(self):
+        # host = "localhost"
         host = "host.docker.internal"
         port = "8001"
         self.client = MongoClient(host, int(port))
@@ -216,8 +245,6 @@ def extractor(data):
         conn.close()
         quit()
 
-    contents = []
-
     for idx, tup in enumerate(data):
         extracted = {}
         extracted['title'] = tup[0]
@@ -225,50 +252,49 @@ def extractor(data):
         extracted['thumbnail_url'] = tup[2]
         extracted['contentBody'] = unicodedata.normalize('NFKC', tup[3]) # 공백 문자가 \xa0 로 인식되는 문제 해결
         extracted['category'] = tup[4]
+        extracted['created_at'] = datetime.strptime(tup[9].strip(), "%y_%m_%d")
         extracted['author'] = tup[10]
 
         content = Content(extracted)
-        contents.append(content.content_dict)
-        
         cur.execute("UPDATE CrawlContents SET isAnalyzed = 1 WHERE id = ?", (tup[7], ))
         conn.commit()
 
-        print(f"[+] Extractor: {idx + 1}/{len(data)}")
+        if dbInserter(content.content_dict):
+            print(f"[+] Extractor: {idx + 1}/{len(data)}")
 
-    return contents
+    return None
 
 
-def dbInserter(contents):
-    validated_contents= []
+def dbInserter(content):
     mongo = DBHandler()
+    hasNone = False
 
-    for i in range(len(contents)):
-        hasNone = False
+    for key in content:
+        if key in ['title', 'site_url', 'thumbnail_url', 'summarized', 'true_score']:
+            if content['category'] == 'news' and content[key] == None:
+                hasNone = True
+                break
 
-        for key in contents[i]:
-            if key in ['summarized', 'title', 'site_url', 'thumbnail_url']:
-                if contents[i]['category'] == 'news' and contents[i][key] == None:
-                    hasNone = True
-                    break
+        else:
+            if content[key] is None:
+                hasNone = True
+                break
 
-            else:
-                if contents[i][key] is None:
-                    hasNone = True
-                    break
+    if not hasNone:
+        content['_id'] = mongo.get_next_sequence('analyzed_counter', 'riskout', 'counter')
 
-        if not hasNone:
-            contents[i]['_id'] = mongo.get_next_sequence('analyzed_counter', 'riskout', 'counter')
-            contents[i]['created_at'] = (datetime.utcnow() + timedelta(hours=9))
-            validated_contents.append(contents[i])
-
-    try:
-        mongo.insert_item_many(validated_contents, "riskout", "analyzed")
-        print('DB insertion success')
-        mongo.client.close()
-        return True
+        try:
+            mongo.insert_item_one(content, "riskout", "analyzed")
+            mongo.client.close()
+            return True
+        
+        except Exception as e:
+            print("DB insert error occured :", e)
+            mongo.client.close()
+            return False
     
-    except Exception as e:
-        print("DB insert error occured :", e)
+    else:
+        print("DB insert error occured : null found!")
         mongo.client.close()
         return False
         
@@ -285,22 +311,23 @@ def main():
     for tup in raw_data:
         if tup[9] not in date_list:
             date_list.append(tup[9])
-    
-    today = (datetime.utcnow() + timedelta(hours=9)).strftime('%y_%m_%d')
 
     for date in date_list:
-        cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0 AND created_at = ?", (date,))
-        if date != today:
-            important_data_list.extend(dataRanker(cur.fetchall()))
-            cur.execute("UPDATE CrawlContents SET isAnalyzed = 1 WHERE isAnalyzed = 0 AND created_at = ?", (date,))
+        cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0 AND category = 'news' AND created_at = ?", (date,))
+        ranked_list = dataRanker(cur.fetchall())
+        
+        if ranked_list:
+            important_data_list.extend(ranked_list)
+            cur.execute("UPDATE CrawlContents SET isAnalyzed = 1 WHERE isAnalyzed = 0 AND category = 'news' AND created_at = ?", (date,))
             conn.commit()
-        else:
-            important_data_list.extend(dataRanker(cur.fetchall()))
+    
+    cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0") # news는 이미 analyzed 되었기 때문에 sns와 community만 남는다
+    important_data_list.extend(cur.fetchall())
+
 
     print(f"[*] Serving {len(important_data_list)} pages to Extractor...")
 
-    contents = extractor(important_data_list)
-    dbInserter(contents)
+    extractor(important_data_list)
 
     cur.close()
     conn.close()

@@ -4,30 +4,29 @@ import {
   CardHeader,
   CardContent,
   Box,
-  Button,
+  LinearProgress,
   Divider,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
 export const SentimentPie = ({ colors }) => {
-  const { data, error, isPending } = useFetch(
-    `https://playff-osamhack2021-ai-web-riskout-bts-45v7rgwx3j4vq-8000.githubpreview.dev/sentiment-pie`
-  );
+  const { data, error, isPending } = useFetch(`/api/nlp/sentiment/pie/`, {
+    method: 'POST',
+  });
 
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="감정 통계" />
       <Divider />
-      <CardContent>
-        <Box
-          sx={{
-            height: 350,
-            position: 'relative',
-          }}
-        >
-          {error && <div>{error} </div>}
-          {isPending && <div>Loading...</div>}
-          {data && (
+
+      {data ? (
+        <CardContent>
+          <Box
+            sx={{
+              height: 350,
+              position: 'relative',
+            }}
+          >
             <ResponsivePie
               data={data}
               margin={{ top: 0, right: 80, bottom: 100, left: 80 }}
@@ -140,9 +139,13 @@ export const SentimentPie = ({ colors }) => {
                 },
               ]}
             />
-          )}
+          </Box>
+        </CardContent>
+      ) : (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
         </Box>
-      </CardContent>
+      )}
     </Card>
   );
 };

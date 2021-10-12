@@ -30,8 +30,7 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import '../../css/SideNavigation.css';
-
-// 맨 아래 Box 컴포넌트 바로 위에 넣어서 사용 (보류)
+import { getRadioUtilityClass } from '@mui/material';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -42,55 +41,24 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft(props) {
+const test = styled('.sidebarBackground')(() => ({
+  background: 'gray',
+}));
+
+export default function SideNavigation(props) {
+  const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
-  let [userprofile, setUserprofile] = useState(false);
-  let [userPhoto, setUserPhoto] = useState();
-  let [currentUser_pk, setCurrentUser_pk] = useState();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/user/current/', {
-      headers: {
-        Authorization: `JWT ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        // 현재 유저 정보 받아왔다면, 로그인 상태로 state 업데이트 하고
-        if (json.id) {
-          //유저정보를 받아왔으면 해당 user의 프로필을 받아온다.
-        }
-        fetch(
-          'http://localhost:8000/user/auth/profile/' + json.id + '/update/',
-          {
-            method: 'PATCH',
-            headers: {
-              Authorization: `JWT ${localStorage.getItem('token')}`,
-            },
-          }
-        )
-          .then((res) => res.json())
-          .then((userData) => {
-            setUserPhoto(userData.photo);
-            setCurrentUser_pk(userData.user_pk);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [userPhoto]);
-
   const handleDrawerOpen = () => {
     setOpen(true);
+    setSidebarBackground('sidebarBackground');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setSidebarBackground('miniSidebarBackground');
   };
 
   return (
@@ -98,7 +66,7 @@ export default function PersistentDrawerLeft(props) {
       <Box
         sx={{
           background: 'rgb(29, 28, 26)',
-          height: '100vh',
+          minHeight: '100%',
           position: 'fixed',
         }}
       >
@@ -110,22 +78,35 @@ export default function PersistentDrawerLeft(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: '#fff' }} />
+          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
         </IconButton>
-
-        <SidebarLinkMini icon={InfoIcon} text="언론 동향" href="/presstrends" />
-        <SidebarLinkMini
-          icon={SearchIcon}
-          text="탐지현황"
-          href="/detectionstatus"
-          isOn={true}
-        />
-        <SidebarLinkMini
-          icon={AssessmentIcon}
-          text="리포트"
-          href="/riskreport"
-        />
-        <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" />
+        <Box sx={{ position: 'fixed' }}>
+          <SidebarLinkMini
+            icon={InfoIcon}
+            text="언론 동향"
+            href="/presstrends"
+            className="a"
+          />
+          <SidebarLinkMini
+            icon={SearchIcon}
+            text="탐지현황"
+            href="/detectionstatus"
+            isOn={true}
+            className="b"
+          />
+          <SidebarLinkMini
+            icon={AssessmentIcon}
+            text="리포트"
+            href="/riskreport"
+            className="c"
+          />
+          <SidebarLinkMini
+            icon={LogoutIcon}
+            text="로그아웃"
+            href="/logout"
+            className="d"
+          />
+        </Box>
       </Box>
 
       <Drawer
@@ -138,7 +119,7 @@ export default function PersistentDrawerLeft(props) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            background: 'rgb(29, 28, 26)',
+            background: 'rgb(40, 40, 40)',
             left: 0,
             top: 0,
             width: drawerWidth,
@@ -146,9 +127,13 @@ export default function PersistentDrawerLeft(props) {
           },
         }}
       >
-        <DrawerHeader>
+        <Box className="closeButton">
           <Link href="/">
-            <img src={logoImage} alt="홈" className="image" />
+            <img
+              src="https://riskout.ithosting.repl.co/images/main/logo_w.png"
+              alt="홈"
+              className="image"
+            />
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
@@ -157,9 +142,9 @@ export default function PersistentDrawerLeft(props) {
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
           </IconButton>
-        </DrawerHeader>
+        </Box>
         <List className="sub_menu">
-          <SidebarLink icon={InfoIcon} text="언론 동향" href="/presstrends" />
+          <SidebarLink icon={InfoIcon} text="언론동향" href="/presstrends" />
           <SidebarLink
             icon={SearchIcon}
             text="탐지현황"
@@ -167,7 +152,7 @@ export default function PersistentDrawerLeft(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/" />
         </List>
         <ListItem>
           <ListItemText

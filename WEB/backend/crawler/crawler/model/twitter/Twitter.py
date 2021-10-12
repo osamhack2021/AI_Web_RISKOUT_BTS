@@ -37,7 +37,7 @@ class Twitter():
     def crawl(self, db):
 
         for keyword in KEYWORD:
-            tweets = tweepy.Cursor(self.api.search_tweets, q = keyword + ' -filter:retweets', result_type = 'recent').items(1000)
+            tweets = tweepy.Cursor(self.api.search_tweets, q = keyword + ' -filter:retweets', result_type = 'recent').items(150 // len(KEYWORD))
 
             if(DEBUG):
                 print(keyword)

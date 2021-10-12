@@ -33,6 +33,11 @@ sudo docker-compose -version
 
 ## Usage
 
+#### Analyzer
+1. Move to ```~/WEB/NLP/``` and run command ```docker-compose up```
+2. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
+3. Run command ```./analyzer.sh```
+
 #### Django
 1. Move to ```~/WEB/backend/``` and run command ```cp web-docker-env-example web-docker-env```
 2. Edit ```web-docker-env``` with your own credentials.
@@ -40,8 +45,3 @@ sudo docker-compose -version
 4. Edit ```secrets.json``` with your own credentials.
 5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
 6. Run command ```./web.sh```
-
-#### Analyzer
-1. Move to ```~/WEB/NLP/``` and run command ```docker-compose up```
-2. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
-3. Run command ```./analyzer.sh```
