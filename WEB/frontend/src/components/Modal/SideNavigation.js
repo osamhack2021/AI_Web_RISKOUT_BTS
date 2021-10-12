@@ -61,7 +61,6 @@ export default function SideNavigation(props) {
           background: 'rgb(29, 28, 26)',
           minHeight: '100%',
           position: 'fixed',
-          display:'inline-block',
         }}
       >
         <IconButton
