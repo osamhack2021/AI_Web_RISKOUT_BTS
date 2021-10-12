@@ -41,24 +41,17 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const test = styled('.sidebarBackground')(() => ({
-  background: 'gray',
-}));
-
 export default function SideNavigation(props) {
-  const [sidebarBackground, setSidebarBackground] = useState('');
   const { drawerWidth } = props;
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    setSidebarBackground('sidebarBackground');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
-    setSidebarBackground('miniSidebarBackground');
   };
 
   return (
@@ -105,10 +98,10 @@ export default function SideNavigation(props) {
         </Box>
       </Box>
 
-      <Drawer
-        variant="persistent"
+      <Drawer  
         anchor="left"
         open={open}
+        onClick={handleDrawerClose}
         className="sub_header"
         sx={{
           width: drawerWidth,
