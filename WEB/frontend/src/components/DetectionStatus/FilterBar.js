@@ -26,11 +26,11 @@ import {
       >
         <CardHeader
           action={
-            <Button style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-20px', marginRight: '-8px', marginBottom: '-6px' }} size="small">
+            <Button style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-2px', marginRight: '-8px', marginBottom: '-6px' }} size="small">
               RESET
             </Button>
           }
-          titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600  }}
+          titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"  }}
           title="FILTER"
           sx={{ fontFamily: "Noto sans KR", fontSize: "1.5em", fontWeight: "600"}}
         />
@@ -59,6 +59,7 @@ import {
                         hashtag={hashtag}
                         key={hashtag}
                         checked={filterList.includes(hashtag)}
+                        sx={{lineHeight: "-4.1em"}}
                       />
                     ))}
                   <Button
