@@ -116,7 +116,7 @@ export default function Pagination() {
 
   return (
     <TableContainer component={Paper}>
-      <Table aria-label="custom pagination table">
+      <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableBody>
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
