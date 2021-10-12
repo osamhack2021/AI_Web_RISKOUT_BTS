@@ -61,6 +61,7 @@ export default function SideNavigation(props) {
           background: 'rgb(29, 28, 26)',
           minHeight: '100%',
           position: 'fixed',
+          diplay:'block',
         }}
       >
         <IconButton
@@ -99,9 +100,9 @@ export default function SideNavigation(props) {
       </Box>
 
       <Drawer  
-        onClick={handleDrawerClose}
         anchor="left"
         open={open}
+        close={handleDrawerClose}
         className="sub_header"
         sx={{
           width: drawerWidth,
