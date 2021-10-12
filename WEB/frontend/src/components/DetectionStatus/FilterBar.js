@@ -24,7 +24,7 @@ export default function FilterBar() {
 
   return (
     <Card
-      sx={{ right: 0, marginTop: '38px', minHeight: '100%' }}
+      sx={{ right: 0, marginTop: '38px', minHeight: '100%', marginRight: '1.5em' }}
       elevation={1}
       spacing={3}
     >
@@ -32,13 +32,13 @@ export default function FilterBar() {
         action={
           <Button
             onClick={() => reset()}
-            style={{ fontSize: '10px', marginTop: '10px' }}
+            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-10px', marginRight: '-8x', marginBottom: '-28px' }}
             size="small"
           >
             RESET
           </Button>
         }
-        titleTypographyProps={{ variant: 'body1' }}
+        titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"   }}
         title="FILTER"
       />
       <Divider />
@@ -54,7 +54,7 @@ export default function FilterBar() {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>글에서 찾은 {labelToKorMap[label]}</Typography>
+                    <Typography sx={{ fontFamily: 'Noto sans KR', fontWeight: 500, }} >글에서 찾은 {labelToKorMap[label]}</Typography>
                     <Typography>{Object.keys(wordCount).length}</Typography>
                   </Stack>
                   <Box>
