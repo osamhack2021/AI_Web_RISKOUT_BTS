@@ -32,13 +32,13 @@ export default function FilterBar() {
         action={
           <Button
             onClick={() => reset()}
-            style={{ fontSize: '10px', marginTop: '10px' }}
+            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-2px', marginRight: '-8px', marginBottom: '-6px' }}
             size="small"
           >
             RESET
           </Button>
         }
-        titleTypographyProps={{ variant: 'body1' }}
+        titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"   }}
         title="FILTER"
       />
       <Divider />
