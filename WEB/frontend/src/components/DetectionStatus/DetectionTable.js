@@ -11,13 +11,10 @@ import SecretsTableRow from './SecretsTableRow';
 
 import { useRecoilValue } from 'recoil';
 import { searchListState } from '../../atoms/searchListState';
-
+import Pagination from './Pagination';
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
   const searchList = useRecoilValue(searchListState);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(7);
-  
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <TableContainer component={Paper} elevation={1}>
       <Table>
@@ -35,25 +32,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {searchList.contents.map((article, id) => (
-            <SecretsTableRow
-              key={id}
-              id={article.id}
-              title={article.title}
-              preview={article.preview}
-              author={article.author}
-              href={article.href}
-              showDetailModal={showDetailModal}
-              scrapArticle={scrapArticle}
-            />
-          ))}
-        </TableBody>
-        <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+        <Pagination/>
       </Table>
     </TableContainer>
   );
