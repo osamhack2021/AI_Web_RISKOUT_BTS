@@ -35,7 +35,7 @@ export function SearchChip(props) {
   else return <Chip {...props} />;
 }
 
-export default function SearchBar() {
+export default function SearchBar({ setValue }) {
   useSearchEffect();
 
   const setAppliedFilterMap = useSetRecoilState(appliedFilterMapState);
@@ -48,42 +48,41 @@ export default function SearchBar() {
     let format = {};
     for (let { word, label } of values) {
       if (!format[label]) format[label] = [word];
-      else format[label].push(word);
+      else if (!format[label].includes(word)) format[label].push(word);
     }
     setAppliedFilterMap(format);
+    setValue('request', values);
   };
 
   return (
-    <Box>
-      <Autocomplete
-        multiple
-        // value를 autocomplete에 맞는 양식으로 줘야함.
-        value={appliedAutoCompleteFilter}
-        options={autoCompleteFilter}
-        // {word: '조정환', label: 'PER'}
-        getOptionLabel={(option) => option.word}
-        onChange={onTagsChange}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            variant="standard"
-            label=""
-            placeholder="Search"
-            margin="normal"
-            fullWidth
+    <Autocomplete
+      multiple
+      // value를 autocomplete에 맞는 양식으로 줘야함.
+      value={appliedAutoCompleteFilter}
+      options={autoCompleteFilter}
+      // {word: '조정환', label: 'PER'}
+      getOptionLabel={(option) => option.word}
+      onChange={onTagsChange}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          variant="standard"
+          label=""
+          placeholder="Search"
+          margin="normal"
+          fullWidth
+        />
+      )}
+      renderTags={(value, getTagProps) =>
+        value.map((option, index) => (
+          <SearchChip
+            code={option.label}
+            variant="outlined"
+            label={`${option.word}`}
+            {...getTagProps({ index })}
           />
-        )}
-        renderTags={(value, getTagProps) =>
-          value.map((option, index) => (
-            <SearchChip
-              code={option.label}
-              variant="outlined"
-              label={`${option.word}`}
-              {...getTagProps({ index })}
-            />
-          ))
-        }
-      />
-    </Box>
+        ))
+      }
+    />
   );
 }

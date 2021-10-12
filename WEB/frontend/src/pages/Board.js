@@ -1,12 +1,12 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 // import '../css/Header.css';
-import SearchBar from '../components/SearchBar';
+import SearchForm from '../components/SearchForm';
 
 const Board = () => {
   return (
     <Box>
-      <SearchBar />
+      <SearchForm />
       Main pageMain pageMain pageMain pageMain pageMain pageMain pageMain
       pageMain page Main pageMain pageMain pageMain pageMain page
     </Box>

@@ -4,7 +4,7 @@ import { Grid, Typography } from '@mui/material';
 import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
 import DetectionTable from '../components/DetectionStatus/DetectionTable';
 import FilterBar from '../components/DetectionStatus/FilterBar';
-import SearchBar from '../components/SearchBar';
+import SearchForm from '../components/SearchForm';
 import SecretsDetailModal from '../components/Modal/SecretsDetailModal';
 import { useSessionStorage } from '../js/util';
 
@@ -71,7 +71,7 @@ export default function DetectionStatus() {
           >
             탐지 현황
           </Typography>
-          <SearchBar />
+          <SearchForm />
           <Typography mt={3} color="primary">
             {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
