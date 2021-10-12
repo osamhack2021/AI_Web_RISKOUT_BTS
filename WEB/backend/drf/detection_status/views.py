@@ -12,6 +12,7 @@ import requests
 import json
 import random
 import base64
+import os
 
 # SERVER_URL = 'http://localhost:8000/'
 SERVER_URL = 'http://host.docker.internal:8000/'
@@ -22,6 +23,7 @@ class AnalyzedDataView(generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        mode = None
         category = None
         period = None
         tags = None
@@ -36,12 +38,22 @@ class AnalyzedDataView(generics.CreateAPIView):
             limit = serializer.data.get("limit")
             offset = serializer.data.get("offset")
 
+            # Check mode
+            
+            if serializer.data.get("mode") not in ["fakenews", "leaked", "all"]:
+                return Response({"mode": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                mode = serializer.data.get("mode")
+
             # Check category
             
-            if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
-                return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+            if mode == "fakenews":
+                category = "news"
             else:
-                category = serializer.data.get("category")
+                if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
+                    return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+                else:
+                    category = serializer.data.get("category")
             
             # Check period
             if type(serializer.data.get("period")) != int or not (0 <= serializer.data.get("period") <= (24 * 7)):
@@ -49,12 +61,12 @@ class AnalyzedDataView(generics.CreateAPIView):
             else:
                 period = serializer.data.get("period")
             
-            return Response(self.getAnalyzedData(category, period, tags, search_text, limit, offset))
+            return Response(self.getAnalyzedData(mode, category, period, tags, search_text, limit, offset))
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-    def getAnalyzedData(self, category, period, tags, search_text, limit, offset):
+    def getAnalyzedData(self, mode, category, period, tags, search_text, limit, offset):
         mongo = DBHandler()
         db_result = None
         response = {
@@ -98,6 +110,9 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         if search_text:
             query["$text"] = {"$search": search_text}
+        
+        if mode == "fakenews":
+            query["true_score"] = {"$lte": 0.5}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
@@ -592,9 +607,13 @@ class SentimentPieDataView(generics.GenericAPIView):
 
 
 class ReportDataView(generics.CreateAPIView):
-    SECRET_KEYWORDS = ["출항", "KNCCS", "KJCCS", "KNTDS", "전투세부시행규칙", "작전", "함정", "잠수함", "SLBM", "ICBM", "DDG",
-    "DDH", "FFG", "PKG", "PGM", "PKMM", "LPH", "LST", "LSM", "참수리", "참모", "총장", "사령관", "부석종", "김정은", "대통령", 
-    "문재인", "서욱"]
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
+    SECRET_KEYWORDS = []
+
+    with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
+        SECRET_KEYWORDS = f.read().split(",")
+
 
     permission_classes = (IsAuthenticated,)
     serializer_class = ReportDataSerializer
