@@ -17,6 +17,15 @@ import os
 # SERVER_URL = 'http://localhost:8000/'
 SERVER_URL = 'http://host.docker.internal:8000/'
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
+SECRET_KEYWORDS = []
+
+with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
+    SECRET_KEYWORDS = f.read().split(",")
+    # SECRET_KEYWORDS = " ".join(SECRET_KEYWORDS)
+
+
 class AnalyzedDataView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = AnalyzedDataSerializer
@@ -49,6 +58,8 @@ class AnalyzedDataView(generics.CreateAPIView):
             
             if mode == "fakenews":
                 category = "news"
+            elif mode == "leaked":
+                category = "all"
             else:
                 if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
                     return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
@@ -110,6 +121,14 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         if search_text:
             query["$text"] = {"$search": search_text}
+
+        
+        # if search_text:
+        #     if mode == "leaked":
+        #         query_string = '\\"' + search_text + '\\"' + ' ' + SECRET_KEYWORDS
+        #         query["$text"] = {"$search": query_string}
+        #     else:
+        #         query["$text"] = {"$search": search_text, "$language": "none"}
         
         if mode == "fakenews":
             query["true_score"] = {"$lte": 0.5}
@@ -137,9 +156,26 @@ class AnalyzedDataView(generics.CreateAPIView):
         else:
             for content in db_filtered:
                 response["contents"].append(content)
+        
+        if mode == "leaked":
+            for content in response["contents"]:
+                for word in SECRET_KEYWORDS:
+                    if content["category"] == "news":
+                        if (word in content["title"]) or (word in content["contentBody"]):
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+                    else:
+                        if word in content["contentBody"]:
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
 
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
+        # response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
 
         
         response["contents"] = response["contents"][offset:(offset + limit)]
@@ -154,6 +190,9 @@ class AnalyzedDataView(generics.CreateAPIView):
         
         return contents
 
+
+    def getLeakedWords(self, contents):
+        pass
 
     def getFilterTags(self, tags, contents):
         for i in range(len(contents)):
@@ -607,14 +646,6 @@ class SentimentPieDataView(generics.GenericAPIView):
 
 
 class ReportDataView(generics.CreateAPIView):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
-    SECRET_KEYWORDS = []
-
-    with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
-        SECRET_KEYWORDS = f.read().split(",")
-
-
     permission_classes = (IsAuthenticated,)
     serializer_class = ReportDataSerializer
 
@@ -692,7 +723,7 @@ class ReportDataView(generics.CreateAPIView):
         for content in db_filtered:
             if content["created_at"] == today:
                 today_count += 1
-                for secret in self.SECRET_KEYWORDS:
+                for secret in SECRET_KEYWORDS:
                     if secret in content["contentBody"]:
                         response["briefingGraphData"]["secretsCount"] += 1
                 today_fake_ratio += content["true_score"]
