@@ -41,6 +41,20 @@ export const appliedFilterListState = selector({
   },
 });
 
+export const appliedAutoCompleteFilterState = selector({
+  key: 'appliedAutoCompleteFilterState',
+  get: ({ get }) => {
+    const appliedFilterMap = get(appliedFilterMapState);
+    let autocompleteList = [];
+    for (let [key, values] of Object.entries(appliedFilterMap)) {
+      for (let value of values) {
+        autocompleteList.push({ word: value, labe: key });
+      }
+    }
+    return autocompleteList;
+  },
+});
+
 export function useAppliedFilterMapActions() {
   const value = useRecoilValue(appliedFilterMapState);
   const set = useSetRecoilState(appliedFilterMapState);
