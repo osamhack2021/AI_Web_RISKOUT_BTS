@@ -126,7 +126,7 @@ export default function SideNavigation(props) {
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'white' }} />
+              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -141,7 +141,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/" />
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
         </List>
         <ListItem>
           <ListItemText
