@@ -20,14 +20,14 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell width="10%">유형</TableCell>
-            <TableCell width="70%" align="center">
+            <TableCell width="10%" sx={{fontWeight: '400', fontFamily: 'Noto sans KR',}}>유형</TableCell>
+            <TableCell width="70%" align="center" sx={{fontWeight: '400', fontFamily: 'Noto sans KR',}}>
               제목
             </TableCell>
-            <TableCell width="10%" align="center">
+            <TableCell width="10%" align="center" sx={{fontWeight: '400', fontFamily: 'Noto sans KR',}}>
               글쓴이
             </TableCell>
-            <TableCell width="10%" align="center">
+            <TableCell width="10%" align="center" sx={{fontWeight: '400', fontFamily: 'Noto sans KR',}}>
               스크랩
             </TableCell>
           </TableRow>
