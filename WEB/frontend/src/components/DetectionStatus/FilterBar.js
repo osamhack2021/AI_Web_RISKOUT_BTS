@@ -46,7 +46,7 @@ export default function FilterBar() {
       {filterTags &&
         Object.entries(filterTags).map(
           ([label, wordCount]) =>
-            Object.keys(wordCount).length && (
+            Object.keys(wordCount).length > 0 && (
               <CardContent style={{ marginBottom: '16px' }}>
                 <Box className="filter_con">
                   <Stack
