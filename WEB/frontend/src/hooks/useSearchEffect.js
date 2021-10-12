@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
 import { appliedFilterMapState } from '../atoms/appliedFilterMapState';
 
 export default function useSearchEffect() {
-  const [search, setSearch] = useRecoilState(searchState);
+  const setSearch = useSetRecoilState(searchState);
   const appliedFilterMap = useRecoilValue(appliedFilterMapState);
   /* TODO searchSetting 을 이용해서 params 넘겨주는 코드 작성 */
   useEffect(() => {
