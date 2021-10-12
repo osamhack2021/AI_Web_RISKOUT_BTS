@@ -87,7 +87,7 @@ TablePaginationActions.propTypes = {
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
   const searchList = useRecoilValue(searchListState);
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -144,17 +144,11 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              rowsPerPageOptions={[7]}
               colSpan={3}
               count={searchList.contents.length}
               rowsPerPage={rowsPerPage}
               page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
