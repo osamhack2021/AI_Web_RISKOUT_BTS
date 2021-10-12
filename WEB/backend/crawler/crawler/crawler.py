@@ -1,3 +1,6 @@
+# for checking elapsed time
+import time
+
 # for multiprocess
 import asyncio
 import aiohttp
@@ -5,9 +8,6 @@ import aiohttp
 # for crawl
 import requests
 from bs4 import BeautifulSoup as bs
-
-# for checking elapsed time
-import time
 
 # import class
 from crawler.model import Content
@@ -29,19 +29,19 @@ from crawler.setting import DEBUG
 from crawler.model.siteInstanceServer import get_siteInstance_list
 
 """
-현재 생각하는 flow
 'Naver'같은 이름으로 site_instance_selector이용
 get_instance_list에서 받아온 'Naver': NaverClass 와 같은 딕셔너리를 통해
-crawler에서 직접 클래스 인스턴스(NaverClass)를 크롤링한다.
+crawler.py에서 직접 클래스 인스턴스(NaverClass)를 크롤링한다.
 
 각각 사이트별 클래스에는
-목록 사이트
-컨텐츠 사이트
-2가지가 있음
+목록 클래스 사이트
+컨텐츠 클래스 사이트
+전체 사이트
+3가지가 있음
 
 목록 사이트에 대한 접근은 url조작을 통해
 컨텐츠 사이트에 대한 접근은
-목록 사이트에서 태그/클래스 를 통한 스크래핑을 통해 접근
+목록 사이트에서 태그/클래스를 통한 스크래핑을 통해 접근
 
 컨텐츠 사이트에서 내용을 읽어내는 것 역시
 태그/클래스 식별을 통한 스크래핑이다.
@@ -49,14 +49,13 @@ crawler에서 직접 클래스 인스턴스(NaverClass)를 크롤링한다.
 새로운 사이트를 만든다면
 1.
 model 내부에 Naver와 같은 모듈을 만들고
-그 안에 목록 사이트, 컨텐츠 사이트에 대한 것을 ListPage.py, ContentsPage.py를 상속하여
-구현 (이름은 뉴스에 국한되지 않을 것이므로 변경할 예정)
+그 안에 목록 사이트, 컨텐츠 사이트에 대한 것을 ListPage.py, ContentsPage.py를 상속하여 구현
 
 2.
 모듈 내부에 해당 사이트 리스트와 컨텐츠를 읽어오기 위한 json파일 작성
 
 3.
-사이트 구조 및 url이 변경된다면 model을 수정
+사이트 구조 및 url이 변경된다면 클래스를 수정
 html 및 class 이름이 변경된다면 json을 수정
 """
 
@@ -116,8 +115,6 @@ async def get_contents(site, contents_url, urlinfo, db):
     if (DEBUG):
         print(f"Received request to {contents_url}")
 
-# 나중에는 site뿐만 아니라 subject 역시 매개변수에 넣어서 전달,
-# 이후 각 Site 페이지에서 받은 subject 매개변수를 토대로 baseurl을 제작하면 됨
 async def crawl(site):
     db = database.DB()
 
@@ -135,7 +132,7 @@ async def crawl(site):
         test_breaker = 0
 
         try:
-            while prev_page != now_page: # and test_breaker < const.MAX_LISTPAGE_CRAWL:
+            while prev_page != now_page:
                 if(DEBUG):
                     print('\nlisturl: ' + urlbase + str(now_page) + '\n')
 
@@ -173,7 +170,6 @@ async def crawl(site):
                         print(detail)
                     break
 
-                # 일단 마음에 안 들지만 이렇게 해 두었습니다.
                 if(now_page == prev_page):
                     break
                 
@@ -203,5 +199,4 @@ async def crawl(site):
                 print(detail)
             break
 
-    # db.select_all()
     db.close()
