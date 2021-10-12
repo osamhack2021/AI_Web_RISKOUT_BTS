@@ -97,7 +97,7 @@ body::-webkit-scrollbar {
   /* 메뉴 글자 크기, 폰트 */
   text-align: center;
   font-family: Montserrat, 'Noto Sans KR';
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .sub_header .sub_menu .list:hover *,

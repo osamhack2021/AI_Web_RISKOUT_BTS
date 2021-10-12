@@ -7,7 +7,6 @@ import { styled, useTheme } from '@mui/material/styles';
 // MUI Components
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -99,8 +98,8 @@ export default function SideNavigation(props) {
         </Box>
       </Box>
 
-      <SwipeableDrawer
-        variant="persistent"
+      <Drawer  
+        onClick={handleDrawerClose}
         anchor="left"
         open={open}
         className="sub_header"
@@ -150,7 +149,7 @@ export default function SideNavigation(props) {
             className="copyright"
           />
         </ListItem>
-      </SwipeableDrawer>
+      </Drawer>
     </>
   );
 }
