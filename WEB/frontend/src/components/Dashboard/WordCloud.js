@@ -18,7 +18,8 @@ const WordCloud = ({ options }) => {
 
   return (
     <Card style={{ height: '400px', fontFamily: "Noto sans KR", fontSize: "2rem" }}>
-      <CardHeader title="오늘의 키워드" />
+      <CardHeader title="오늘의 키워드" 
+      titleTypographyProps={{ fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
       {isPending ? (
         <Box sx={{ width: '100%', color: 'grey.500' }}>
