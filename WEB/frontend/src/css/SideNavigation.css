@@ -109,7 +109,7 @@ body::-webkit-scrollbar {
 .sub_header .copyright {
   /*Copyright position*/
   position: absolute;
-  left: 2em;
+  left: 1.4em;
   top: 31em;
   color: #fff;
 }
@@ -117,4 +117,5 @@ body::-webkit-scrollbar {
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
   font-size: 0.7rem;
+  font-family: 'Montserrat';
 }
