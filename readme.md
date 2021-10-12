@@ -63,10 +63,6 @@
 > 저희 BTS (방탄수병단)은 이 모든 과정을 자동화시켰습니다. RISKOUT은 인공지능으로 유출된 기밀을 찾아주고, 허위기사를 판별하는 플랫폼입니다. 찾은 문제의 글은 사용자가 커스텀 가능한 맞춤형 보고서로 출력됩니다.
 이를 통해 정확도 보장, 인력 감축, 속도 향상 등의 효과 를 얻게 됩니다.
 
-* 🌐 사이트: https://riskout.ithosting.repl.co/
-* 📺 영상: https://riskout.ithosting.repl.co/
-* 📖 문서: https://riskout.ithosting.repl.co/
-
 <h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
 
 **3가지 핵심기능** 은 다음과 같습니다.
