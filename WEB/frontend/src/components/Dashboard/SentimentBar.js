@@ -16,7 +16,8 @@ const SentimentBar = ({ colors }) => {
 
   return (
     <Card style={{ height: '400px' }}>
-      <CardHeader title="출처별 감정 통계" />
+      <CardHeader title="출처별 감정 통계" 
+      titleTypographyProps={{ fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
       {data ? (
         <CardContent>
