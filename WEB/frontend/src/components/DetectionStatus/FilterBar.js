@@ -24,7 +24,7 @@ export default function FilterBar() {
 
   return (
     <Card
-      sx={{ right: 0, marginTop: '38px', minHeight: '100%' }}
+      sx={{ right: 0, marginTop: '38px', minHeight: '100%', marginRight: '1.5em' }}
       elevation={1}
       spacing={3}
     >
@@ -32,7 +32,7 @@ export default function FilterBar() {
         action={
           <Button
             onClick={() => reset()}
-            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-2px', marginRight: '-8px', marginBottom: '-6px' }}
+            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-10px', marginRight: '-8x', marginBottom: '-28px' }}
             size="small"
           >
             RESET
