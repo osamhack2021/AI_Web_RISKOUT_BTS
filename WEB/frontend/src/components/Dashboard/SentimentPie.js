@@ -16,7 +16,8 @@ export const SentimentPie = ({ colors }) => {
 
   return (
     <Card style={{ height: '400px' }}>
-      <CardHeader title="감정 통계" />
+      <CardHeader title="감정 통계" 
+      titleTypographyProps={{ fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
 
       {data ? (
