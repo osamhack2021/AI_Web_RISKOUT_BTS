@@ -257,7 +257,7 @@ $ yarn start or npm run start
 </tbody>
 </table>
 
-<h2 id="license"> :warning: 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
+<h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
 프로젝트 RISKOUT은 [MIT License](https://en.wikipedia.org/wiki/MIT_License) 를 따르고 있습니다.
 
