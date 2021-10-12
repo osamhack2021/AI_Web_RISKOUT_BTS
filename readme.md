@@ -31,7 +31,7 @@
 </a>
   
 <a href='https://riskout.ithosting.repl.co/'>
-<img src='https://img.shields.io/badge/BLOG-lightgrey?style=for-the-badge'>
+<img src='https://img.shields.io/badge/DOCS-lightgrey?style=for-the-badge'>
 </a>
 </div>
 
