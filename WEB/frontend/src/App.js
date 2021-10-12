@@ -19,7 +19,11 @@ import DynamicRoutes from './DynamicRoutes';
 import './App.css';
 // import './css/style.css';
 
-const mdTheme = createTheme();
+const mdTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function App() {
   const [modal, setModal] = useState(false);

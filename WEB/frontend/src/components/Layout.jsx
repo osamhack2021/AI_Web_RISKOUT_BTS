@@ -44,9 +44,10 @@ export default class MainLayout extends React.Component {
       // </Helmet>
 
       <Box
+        
         component="main"
         sx={{
-          backgroundColor: 'white',
+        
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',
