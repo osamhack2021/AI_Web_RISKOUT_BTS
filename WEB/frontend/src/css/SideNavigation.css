@@ -91,7 +91,8 @@ body::-webkit-scrollbar {
   bottom: 1.2em;
   right: 0.9em;
   left: 0.1em;
-  padding: 2.2em 2.2em 0em;
+  /*padding: 2.2em 2.2em 0em;*/
+  padding: 1.2em 1.9em 1.3em;
 }
 
 .sub_header .sub_menu [class$='MuiTypography-root'] {
@@ -108,7 +109,7 @@ body::-webkit-scrollbar {
 .sub_header .copyright {
   /*Copyright position*/
   position: absolute;
-  left: 2em;
+  left: 1.4em;
   top: 31em;
   color: #fff;
 }
@@ -116,4 +117,5 @@ body::-webkit-scrollbar {
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
   font-size: 0.7rem;
+  font-family: 'Montserrat';
 }
