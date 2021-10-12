@@ -85,26 +85,22 @@ export default function SideNavigation(props) {
             icon={InfoIcon}
             text="언론 동향"
             href="/presstrends"
-            className="a"
           />
           <SidebarLinkMini
             icon={SearchIcon}
             text="탐지현황"
             href="/detectionstatus"
             isOn={true}
-            className="b"
           />
           <SidebarLinkMini
             icon={AssessmentIcon}
             text="리포트"
             href="/riskreport"
-            className="c"
           />
           <SidebarLinkMini
             icon={LogoutIcon}
             text="로그아웃"
             href="/logout"
-            className="d"
           />
         </Box>
       </Box>
