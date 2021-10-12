@@ -81,7 +81,8 @@ export default function TrendsCard() {
 
   return (
     <Card style={{ width: '100%', height: '400px' }}>
-      <CardHeader title="트렌드" />
+      <CardHeader title="트렌드" 
+      titleTypographyProps={{ fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
       {data ? (
         <CardContent>
