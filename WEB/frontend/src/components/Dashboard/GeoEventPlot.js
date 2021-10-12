@@ -17,7 +17,8 @@ const GeoEventPlot = ({ colors }) => {
 
   return (
     <Card style={{ height: '400px' }}>
-      <CardHeader title="나라별 이벤트" />
+      <CardHeader title="나라별 이벤트" 
+      titleTypographyProps={{ fontFamily: "Noto sans KR", fontWeight: 400 }}/>
       <Divider />
 
       {data ? (
