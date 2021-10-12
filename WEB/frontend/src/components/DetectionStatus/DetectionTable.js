@@ -6,6 +6,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Box,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 import * as React from 'react';
@@ -14,7 +15,7 @@ import { searchListState } from '../../atoms/searchListState';
 import { useTheme } from '@mui/material/styles';
 
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
+
 import IconButton from '@mui/material/IconButton';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
