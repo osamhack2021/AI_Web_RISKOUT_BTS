@@ -3,14 +3,37 @@ import SentimentPie from './SentimentPie';
 
 import { Container, Box, Grid, Stack } from '@mui/material';
 
-export default function Graphs({ pieData, barData }) {
+export default function Graphs({ data }) {
+  const barData = [
+    { category: '기밀 유출 횟수', value: data.secretsCount },
+    { category: '허위 뉴스 개수', value: data.fakeNewsCount },
+    { category: '부정적 기사 비율 (%)', value: data.negativeSentiment * 100 },
+  ];
+
+  let total = 0;
+  let pieData = Object.entries(data.tagRatio).map(([id, value]) => {
+    total += value * 50;
+    return {
+      id: id,
+      label: id,
+      value: Math.round(value * 50 * 10) / 10,
+    };
+  });
+  pieData = [
+    {
+      id: '저리스크 데이터',
+      label: '저리스크 데이터',
+      value: Math.round((100 - total) * 10) / 10,
+    },
+  ].concat(pieData);
+
   return (
     <Stack direction="column" container spacing={2}>
       <Grid item xs={12}>
-        <SentimentBar colors={options.colors} data={exampleBarData} />
+        <SentimentBar colors={options.colors} data={barData} />
       </Grid>
       <Grid item xs={12}>
-        <SentimentPie colors={options.colors} data={examplePieData} />
+        <SentimentPie colors={options.colors} data={pieData} />
       </Grid>
     </Stack>
   );
@@ -43,98 +66,31 @@ const examplePieData = [
     id: 'css',
     label: 'css',
     value: 589,
-    // color: 'hsl(64, 70%, 50%)',
   },
   {
     id: 'lisp',
     label: 'lisp',
     value: 303,
-    // color: 'hsl(252, 70%, 50%)',
   },
   {
     id: 'erlang',
     label: 'erlang',
     value: 193,
-    // color: 'hsl(69, 70%, 50%)',
   },
   {
     id: 'php',
     label: 'php',
     value: 404,
-    // color: 'hsl(254, 70%, 50%)',
   },
   {
     id: 'javascript',
     label: 'javascript',
     value: 530,
-    // color: 'hsl(37, 70%, 50%)',
   },
 ];
 
 const exampleBarData = [
-  [
-    {
-      country: 'AD',
-      'hot dog': 17,
-      burger: 102,
-      sandwich: 140,
-      kebab: 77,
-      fries: 151,
-      donut: 194,
-    },
-    {
-      country: 'AE',
-      'hot dog': 188,
-      burger: 170,
-      sandwich: 195,
-      kebab: 41,
-      fries: 198,
-      donut: 194,
-    },
-    {
-      country: 'AF',
-      'hot dog': 95,
-      burger: 153,
-      sandwich: 162,
-      kebab: 2,
-      fries: 195,
-      donut: 181,
-    },
-    {
-      country: 'AG',
-      'hot dog': 177,
-      burger: 129,
-      sandwich: 22,
-      kebab: 8,
-      fries: 27,
-      donut: 19,
-    },
-    {
-      country: 'AI',
-      'hot dog': 94,
-      burger: 159,
-      sandwich: 28,
-      kebab: 84,
-      fries: 118,
-      donut: 182,
-    },
-    {
-      country: 'AL',
-      'hot dog': 55,
-      burger: 93,
-      sandwich: 0,
-      kebab: 68,
-      fries: 62,
-      donut: 96,
-    },
-    {
-      country: 'AM',
-      'hot dog': 158,
-      burger: 151,
-      sandwich: 47,
-      kebab: 133,
-      fries: 46,
-      donut: 170,
-    },
-  ],
+  { category: 'News', positive: 48, neutral: 13, negative: 5 },
+  { category: 'Twitter', positive: 92, neutral: 25, negative: 109 },
+  { category: 'DC', positive: 71, neutral: 59, negative: 258 },
 ];

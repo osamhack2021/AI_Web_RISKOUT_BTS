@@ -45,20 +45,21 @@ const RiskReport = (props) => {
   // => search
   useEffect(() => {
     const searchUrl = '/api/nlp/report/';
+    const exampleSearchUrl = '/static/ReportData.example.json';
 
     async function fetchSearch() {
       setPending(true);
-      axios
-        .post(searchUrl, {
-          articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
-          period: 24,
-          time: new Date().toTimeString(), // "uniqueness parameter"
-        })
-        .then((data) => {
-          console.log(data.data);
-          setData(data.data);
-          setPending(false);
-        });
+      // axios
+      //   .post(searchUrl, {
+      //     articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
+      //     period: 24,
+      //     time: new Date().toTimeString(), // "uniqueness parameter"
+      //   })
+      axios.get(exampleSearchUrl).then((data) => {
+        console.log(data.data);
+        setData(data.data);
+        setPending(false);
+      });
     }
     fetchSearch();
   }, []);
@@ -158,7 +159,7 @@ const RiskReport = (props) => {
                 alignItems="flex-start"
               >
                 <Grid item xs={12} md={6}>
-                  <Graphs />
+                  <Graphs data={data.briefingGraphData} />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Grid container direction="column" spacing={3}>

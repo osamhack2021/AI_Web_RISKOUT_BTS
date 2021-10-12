@@ -23,11 +23,11 @@ const SentimentBar = ({ colors, data }) => {
           >
             <ResponsiveBar
               data={data}
-              keys={['positive', 'neutral', 'negative']}
+              keys={['value']}
               indexBy="category"
               margin={{ top: 0, right: 100, bottom: 100, left: 80 }}
               padding={0.4}
-              layout="horizontal"
+              layout="vertical"
               valueScale={{ type: 'linear' }}
               indexScale={{ type: 'band', round: true }}
               valueFormat={{ format: '', enabled: false }}
@@ -39,9 +39,9 @@ const SentimentBar = ({ colors, data }) => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'sentiment',
-                legendPosition: 'middle',
-                legendOffset: 32,
+                // legend: 'sentiment',
+                // legendPosition: 'middle',
+                // legendOffset: 32,
               }}
               axisLeft={{
                 tickSize: 5,
@@ -54,30 +54,30 @@ const SentimentBar = ({ colors, data }) => {
               labelSkipWidth={12}
               labelSkipHeight={12}
               labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
-              legends={[
-                {
-                  dataFrom: 'keys',
-                  anchor: 'bottom-right',
-                  direction: 'column',
-                  justify: false,
-                  translateX: 120,
-                  translateY: 0,
-                  itemsSpacing: 2,
-                  itemWidth: 100,
-                  itemHeight: 20,
-                  itemDirection: 'left-to-right',
-                  itemOpacity: 0.85,
-                  symbolSize: 10,
-                  effects: [
-                    {
-                      on: 'hover',
-                      style: {
-                        itemOpacity: 1,
-                      },
-                    },
-                  ],
-                },
-              ]}
+              // legends={[
+              //   {
+              //     dataFrom: 'keys',
+              //     anchor: 'bottom-right',
+              //     direction: 'column',
+              //     justify: false,
+              //     translateX: 120,
+              //     translateY: 0,
+              //     itemsSpacing: 2,
+              //     itemWidth: 100,
+              //     itemHeight: 20,
+              //     itemDirection: 'left-to-right',
+              //     itemOpacity: 0.85,
+              //     symbolSize: 10,
+              //     effects: [
+              //       {
+              //         on: 'hover',
+              //         style: {
+              //           itemOpacity: 1,
+              //         },
+              //       },
+              //     ],
+              //   },
+              // ]}
             />
           </Box>
         </CardContent>
@@ -89,6 +89,5 @@ const SentimentBar = ({ colors, data }) => {
     </Card>
   );
 };
-
 
 export default SentimentBar;

@@ -11,7 +11,7 @@ import {
 export const SentimentPie = ({ colors, data }) => {
   return (
     <Card style={{ height: '400px' }}>
-      <CardHeader title="리스크 종류별 비율" />
+      <CardHeader title="리스크 종류별 비율 (%)" />
       <Divider />
 
       {data ? (
