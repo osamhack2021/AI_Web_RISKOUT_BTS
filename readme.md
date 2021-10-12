@@ -3,6 +3,8 @@
 
 <div align='center'>
 <img src='https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png'>
+- 📺 영상: https://riskout.ithosting.repl.co/
+- 📖 문서: https://riskout.ithosting.repl.co/
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
   
