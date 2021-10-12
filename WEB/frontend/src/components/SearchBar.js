@@ -51,7 +51,7 @@ export default function SearchBar({ setValue }) {
       else if (!format[label].includes(word)) format[label].push(word);
     }
     setAppliedFilterMap(format);
-    setValue('request', values);
+    setValue('search', values);
   };
 
   return (
@@ -60,7 +60,6 @@ export default function SearchBar({ setValue }) {
       // value를 autocomplete에 맞는 양식으로 줘야함.
       value={appliedAutoCompleteFilter}
       options={autoCompleteFilter}
-      // {word: '조정환', label: 'PER'}
       getOptionLabel={(option) => option.word}
       onChange={onTagsChange}
       renderInput={(params) => (

@@ -62,10 +62,16 @@ export function useAppliedFilterMapActions() {
   const append = useCallback(
     (label, word) => {
       console.log('APPEND');
-      set((prev) => ({
-        ...prev,
-        [label]: [...prev[label], word],
-      }));
+      set((prev) => {
+        if (!prev[label]) {
+          return { ...prev, [label]: [word] };
+        } else {
+          return {
+            ...prev,
+            [label]: [...prev[label], word],
+          };
+        }
+      });
     },
     [set]
   );
