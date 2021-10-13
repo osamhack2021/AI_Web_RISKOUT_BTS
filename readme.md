@@ -195,21 +195,16 @@
 
 RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
 
-- [x] [Scrollable Components](https://github.com/Hexworks/zircon/issues/25)
-- [x] [Menus](https://github.com/Hexworks/zircon/issues/135)
-- [x] [Table Component](https://github.com/Hexworks/zircon/issues/185)
-- [x] [Javadoc-style Documentation](https://github.com/Hexworks/zircon/issues/146)
-- [x] [Grid / Screen Filters](https://github.com/Hexworks/zircon/issues/271)
-- [ ] [Floating Components](https://github.com/Hexworks/zircon/issues/23)
-- [ ] [Drag'n Drop Support](https://github.com/Hexworks/zircon/issues/22)
-- [ ] [Custom Layout Support](https://github.com/Hexworks/zircon/issues/28)
-- [ ] [Component Themes](https://github.com/Hexworks/zircon/issues/29)
-- [ ] [Custom Component Support](https://github.com/Hexworks/zircon/issues/26)
-- [ ] [Tree Component](https://github.com/Hexworks/zircon/issues/184)
-- [ ] [Accordion Component](https://github.com/Hexworks/zircon/issues/27)
-- [ ] [Combo Box Component](https://github.com/Hexworks/zircon/issues/262)
-- [ ] [IntelliJ Plugin](https://github.com/Hexworks/zircon/issues/191)
-- [ ] [Console for Zircon](https://github.com/Hexworks/zircon/issues/183)
+- [x] [Twitter Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
+- [x] [Naver News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
+- [x] [Extracting images](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/144)
+- [x] [Extracting Authors](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/106)
+- [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
+- [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [ ] [Component Themes]()
+- [ ] [Custom Component Support]()
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
