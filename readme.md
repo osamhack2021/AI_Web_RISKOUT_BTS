@@ -138,7 +138,7 @@
   - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
   - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
 - 사용한 데이터셋:
-  - [`naver-nsmc`](https://github.com/e9t/nsmc) — 감성분석모델에 사용한 데이터셋.
+  - [`Naver-nsmc`](https://github.com/e9t/nsmc) — 감성분석모델에 사용한 데이터셋.
   - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — 한국어 문서 추출요약에 사용한 데이터셋.
   - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — 가짜뉴스 판별에 사용한 데이터셋.
   - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개채명인식)에 사용한 데이터셋.
@@ -152,24 +152,14 @@
 
 ### Frontend
 
-- Pure JavaScript frontend template:
-  - `vanilla` — generated template with pure JavaScript app.
-  - `vanilla-ts` — generated template with pure TypeScript app.
-- Frontend template with [React](https://reactjs.org/):
-  - `react` — generated template with a common React app.
-  - `react-ts` — generated template with a TypeScript version of the React app.
-- Frontend template with [Preact](https://preactjs.com/):
-  - `preact` — generated template with a common Preact app.
-  - `preact-ts` — generated template with a TypeScript version of the Preact app.
-- Frontend template with [Vue.js](https://vuejs.org/):
-  - `vue` — generated template with a common Vue.js app.
-  - `vue-ts` — generated template with a TypeScript version of the Vue.js app.
-- Frontend template with [Svelte](https://svelte.dev/):
-  - `svelte` — generated template with a common Svelte app.
-  - `svelte-ts` — generated template with a TypeScript version of the Svelte app.
-- Frontend template with [Lit](https://lit.dev/) web components:
-  - `lit-element` — generated template with a common Lit app.
-  - `lit-element-ts` — generated template a TypeScript version of the Lit app.
+- [React](https://reactjs.org/)를 이용한 프론트엔드 구축:
+  - [`MUI`](https://mui.com/) — MUI(Material UI) 컴포넌트 라이브러리 활용.
+  - `React router` — 컴포넌트 네비게이션에 사용.
+- [Recoil](https://recoiljs.org/)을 통한 리액트 상태 관리:
+  - `Atom` — 컴포넌트 상태 단위 분리기능 사용.
+  - `Selector` — Atom에 의존하는 동적인 데이터 생성 기능 사용. 
+- [Node.js](https://nodejs.org/en/):
+  - `npm` — 패키지 관리 기능 사용
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
