@@ -23,8 +23,6 @@ SECRET_KEYWORDS = []
 
 with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
     SECRET_KEYWORDS = f.read().split(",")
-    # SECRET_KEYWORDS = " ".join(SECRET_KEYWORDS)
-
 
 class AnalyzedDataView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
@@ -122,14 +120,6 @@ class AnalyzedDataView(generics.CreateAPIView):
         if search_text:
             query["$text"] = {"$search": search_text}
 
-        
-        # if search_text:
-        #     if mode == "leaked":
-        #         query_string = '\\"' + search_text + '\\"' + ' ' + SECRET_KEYWORDS
-        #         query["$text"] = {"$search": query_string}
-        #     else:
-        #         query["$text"] = {"$search": search_text, "$language": "none"}
-        
         if mode == "fakenews":
             query["true_score"] = {"$lte": 0.5}
         
@@ -145,7 +135,6 @@ class AnalyzedDataView(generics.CreateAPIView):
                             if tag not in content["entities"][tag_name]:
                                 isPassed = False
                                 break
-
                     else:
                         isPassed = False
                         continue
@@ -176,8 +165,6 @@ class AnalyzedDataView(generics.CreateAPIView):
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
         # response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
-
-        
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
 
@@ -207,10 +194,6 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         for tag in tags:
             tags[tag] = dict(sorted(tags[tag].items(), key=lambda x:x[1], reverse=True))
-        
-        # for tag in tags:
-        #     if not tags[tag]:
-        #         tags[tag] = None
 
         return tags
 
