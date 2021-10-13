@@ -9,7 +9,6 @@ import {
 export default function FilterCheckbox(props) {
   const { label, count, hashtag, checked } = props;
   const { append, remove, includes } = useAppliedFilterMapActions();
-  const appliedFilterMap = useRecoilValue(appliedFilterMapState);
 
   const onChange = useCallback((e) => {
     if (includes(label, hashtag)) remove(label, hashtag);
