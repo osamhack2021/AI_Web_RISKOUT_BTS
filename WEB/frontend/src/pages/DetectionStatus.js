@@ -10,12 +10,11 @@ import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import useSearchEffect from '../hooks/useSearchInitEffect';
+import useSearchInitEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
-
 export default function DetectionStatus() {
-  useSearchEffect(); // init
+  useSearchInitEffect(); // init
 
   const search = useRecoilValue(searchState);
   const appliedFilterList = useRecoilValue(appliedFilterListState);

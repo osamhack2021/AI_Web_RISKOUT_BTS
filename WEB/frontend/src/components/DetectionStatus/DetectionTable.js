@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Paper,
   Table,
@@ -129,24 +129,26 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {(rowsPerPage > 0
-            ? contents.slice(
-                page * rowsPerPage,
-                page * rowsPerPage + rowsPerPage
-              )
-            : contents
-          ).map((article, id) => (
-            <SecretsTableRow
-              key={id}
-              id={article._id}
-              title={article.title}
-              preview={article.preview}
-              author={article.author}
-              href={article.href}
-              showDetailModal={showDetailModal}
-              scrapArticle={scrapArticle}
-            />
-          ))}
+          {contents &&
+            (rowsPerPage > 0
+              ? contents.slice(
+                  page * rowsPerPage,
+                  page * rowsPerPage + rowsPerPage
+                )
+              : contents
+            ).map((article, id) => (
+              <SecretsTableRow
+                key={id}
+                id={article._id}
+                category={article.category}
+                title={article.title}
+                preview={article.preview}
+                author={article.author}
+                href={article.href}
+                showDetailModal={showDetailModal}
+                scrapArticle={scrapArticle}
+              />
+            ))}
           {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>
               <TableCell colSpan={6} />
@@ -158,7 +160,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             <TablePagination
               rowsPerPageOptions={[7]}
               colSpan={3}
-              count={searchList.contents.length}
+              count={contents.length}
               rowsPerPage={rowsPerPage}
               page={page}
               onPageChange={handleChangePage}

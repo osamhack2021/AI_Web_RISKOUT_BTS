@@ -13,13 +13,23 @@ export default function SearchForm() {
   const { handleSubmit, register, setValue, control } = useForm({});
   const setSearch = useSetRecoilState(searchState);
   const searchSetting = useRecoilValue(searchSettingState);
-  const onSubmit = async ({ category, type, period }) => {
-    // TODO 검색 api와 연동
-    console.log('[Fetching with Form]...');
+  const onSubmit = async ({ category, type, period, searchText }) => {
+    /*
+    {
+      "category": "news",
+      "period": 0,
+      "tags": { "PER": ["김정은"], "LOC": ["서해"] },
+      "search_text": "",
+      "limit": 5,
+      "offset": 0
+    }
+    */
+    console.log('[+] Fetching with Form');
     console.log('category', category);
     console.log('period', period);
     console.log('tags', searchSetting);
     console.log('type', type);
+    console.log('search_text', searchSetting.tags.ETC);
 
     const response = await axios.get(`/static/search.json`);
     console.log(response.data);
@@ -30,7 +40,13 @@ export default function SearchForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="search-form">
       <Controller
         control={control}
-        render={({ field }) => <SearchBar {...field} setValue={setValue} />}
+        render={({ props }) => (
+          <SearchBar
+            {...props}
+            setValue={setValue}
+            rules={{ required: true }}
+          />
+        )}
         defaultValue={{}}
       />
       <Stack direction="row" justifyContent="flex-end" spacing={2}>

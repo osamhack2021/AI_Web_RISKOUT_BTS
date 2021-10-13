@@ -13,6 +13,7 @@ import ScrapButton from './ScrapButton';
 function CategorizedIcon({ category }) {
   if (category == 'news') return <DescriptionIcon color="action" />;
   else if (category == 'sns') return <ForumIcon color="action" />;
+  else return <InfoIcon color="action" />;
 }
 
 export default function SecretsTableRow(props) {

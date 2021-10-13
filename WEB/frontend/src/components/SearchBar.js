@@ -1,24 +1,16 @@
-import { useState, useEffect } from 'react';
-import {
-  useRecoilState,
-  useRecoilValue,
-  useResetRecoilState,
-  useSetRecoilState,
-} from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { autoCompleteFilterState } from '../atoms/searchState';
 import {
   appliedFilterMapState,
   appliedAutoCompleteFilterState,
 } from '../atoms/appliedFilterMapState';
-import useSearchInitEffect from '../hooks/useSearchInitEffect';
-
-import { Autocomplete, Box, Button, Chip, TextField } from '@mui/material';
-// mui icons
+import { Autocomplete, Chip, TextField, Checkbox } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PlaceIcon from '@mui/icons-material/Place';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import useSearchInitEffect from '../hooks/useSearchInitEffect';
 
 export function SearchChip(props) {
   const { code } = props;
@@ -36,6 +28,7 @@ export function SearchChip(props) {
 }
 
 export default function SearchBar({ setValue }) {
+  useSearchInitEffect();
   const setAppliedFilterMap = useSetRecoilState(appliedFilterMapState);
   const autoCompleteFilter = useRecoilValue(autoCompleteFilterState);
   const appliedAutoCompleteFilter = useRecoilValue(
@@ -44,6 +37,11 @@ export default function SearchBar({ setValue }) {
 
   const onTagsChange = (event, values) => {
     let format = {};
+    let lst = values[values.length - 1];
+    if (typeof lst === 'string' || lst instanceof String)
+      // label search_text to ETC.. (구현 시간이 없어서 로직이 맘대로인 점 죄송합니다.)
+      values[values.length - 1] = { word: lst, label: 'ETC' };
+
     for (let { word, label } of values) {
       if (!format[label]) format[label] = [word];
       else if (!format[label].includes(word)) format[label].push(word);
@@ -55,11 +53,13 @@ export default function SearchBar({ setValue }) {
   return (
     <Autocomplete
       multiple
+      freeSolo
       mt={2}
       value={appliedAutoCompleteFilter}
       options={autoCompleteFilter}
-      getOptionLabel={(option) => option.word}
-      getOptionSelected={(option, value) => option == value}
+      getOptionLabel={(option) => {
+        return `${option.word} (${labelToKorMap[option.label]})`;
+      }}
       onChange={onTagsChange}
       renderInput={(params) => (
         <TextField
@@ -74,6 +74,7 @@ export default function SearchBar({ setValue }) {
       renderTags={(value, getTagProps) =>
         value.map((option, index) => (
           <SearchChip
+            key={index}
             code={option.label}
             variant="outlined"
             label={`${option.word}`}
@@ -84,3 +85,20 @@ export default function SearchBar({ setValue }) {
     />
   );
 }
+
+const labelToKorMap = {
+  PER: '인물',
+  FLD: '이론',
+  AFW: '인공물',
+  ORG: '단체',
+  LOC: '장소',
+  CVL: '문화',
+  DAT: '날짜',
+  TIM: '시간',
+  NUM: '숫자',
+  EVN: '사건',
+  ANM: '동물',
+  PLT: '식물',
+  MAT: '물질',
+  TRM: '용어',
+};
