@@ -129,6 +129,15 @@
 <h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
 
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
+### AI
+
+- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드
+- [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
+  - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
+  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
+- 사용한 데이터셋:
+  - [`fiber`](https://github.com/create-go-app/fiber-go-template) — complex REST API with CRUD, JWT auth with renew token, DB and cache.
+
 ### Backend
 
 - Backend template with Golang built-in [net/http](https://golang.org/pkg/net/http/) package:
