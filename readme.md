@@ -158,7 +158,8 @@
 - [Recoil](https://recoiljs.org/)을 통한 리액트 상태 관리:
   - `Atom` — 컴포넌트 상태 단위 분리기능 사용.
   - `Selector` — Atom에 의존하는 동적인 데이터 생성 기능 사용. 
-- [Node.js](https://nodejs.org/en/):
+- [Node.js](https://nodejs.org/en/)를 이용한 서버사이드 프로그래밍:
+  - `Node` — 프론트엔드 프로그래밍 툴체인(toolchain)
   - `npm` — 패키지 관리 기능 사용
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
