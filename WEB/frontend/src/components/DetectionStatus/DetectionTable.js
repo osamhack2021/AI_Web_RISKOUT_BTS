@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Paper,
   Table,
@@ -9,11 +10,11 @@ import {
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 
-import { useRecoilValue } from 'recoil';
-import { searchListState } from '../../atoms/searchListState';
+import { useContents } from '../../atoms/searchState';
+import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
-  const searchList = useRecoilValue(searchListState);
+  const contents = useContents();
 
   return (
     <TableContainer component={Paper} elevation={1}>
@@ -33,18 +34,21 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {searchList.contents.map((article, id) => (
-            <SecretsTableRow
-              key={id}
-              id={article.id}
-              title={article.title}
-              preview={article.preview}
-              author={article.author}
-              href={article.href}
-              showDetailModal={showDetailModal}
-              scrapArticle={scrapArticle}
-            />
-          ))}
+          {contents &&
+            contents.map((content, id) => (
+              <SecretsTableRow
+                key={id}
+                id={content._id}
+                category={content.category}
+                title={content.title}
+                preview={content.summarized}
+                author={content.author}
+                href={content.href}
+                // contentBody={content.contentBody}
+                showDetailModal={showDetailModal}
+                scrapArticle={scrapArticle}
+              />
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

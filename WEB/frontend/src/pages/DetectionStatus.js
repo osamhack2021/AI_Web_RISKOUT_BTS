@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { Grid, Typography } from '@mui/material';
 
-import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
 import DetectionTable from '../components/DetectionStatus/DetectionTable';
 import FilterBar from '../components/DetectionStatus/FilterBar';
-import Search from '../components/Search';
+import SearchForm from '../components/SearchForm';
 import SecretsDetailModal from '../components/Modal/SecretsDetailModal';
 import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
-import { filterListState } from '../atoms/filterListState';
-import { searchListState } from '../atoms/searchListState';
-import useSeacrh from '../hooks/useSearch';
+import { searchState } from '../atoms/searchState';
+import useSearchEffect from '../hooks/useSearchInitEffect';
+import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
 export default function DetectionStatus() {
-  useSeacrh(); // filterList 변경될 때마다 검색.
+  useSearchEffect(); // init
 
-  const filterList = useRecoilValue(filterListState);
-  const searchList = useRecoilValue(searchListState);
+  const search = useRecoilValue(searchState);
+  const appliedFilterList = useRecoilValue(appliedFilterListState);
   const [isDetailModalOpen, setDetailModalOpen] = useState(false);
   const [detailModalData, setDetailModalData] = useState({
     id: 0,
@@ -32,23 +32,26 @@ export default function DetectionStatus() {
     entities: {},
   });
 
-  const showDetailModal = (id) => {
-    const data = searchList.contents.filter((x) => x.id == id).pop(0); // popping doesn't affect original array
+  const showDetailModal = (_id) => {
+    const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     console.log(
       data,
-      searchList.contents.filter((x) => x.id == id),
-      searchList
+      search.contents.filter((x) => x._id == _id),
+      search
     );
     setDetailModalData(data);
     setDetailModalOpen(true);
   };
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-
-  const scrapArticle = (id) => {
-    addCart(id);
-    console.log('TODO: scrap article ', id);
-    alert('TODO: scrap article ' + id + ' ' + getCart());
+  const { enqueueSnackbar } = useSnackbar();
+  const scrapArticle = (_id) => {
+    addCart(_id);
+    const article = search.contents.filter((x) => x._id == _id).pop(0);
+    enqueueSnackbar('Scrapped article | ' + article.title, {
+      variant: 'success',
+      autoHideDuration: 10000,
+    });
   };
 
   const analyzePage = (id) => {
@@ -57,20 +60,25 @@ export default function DetectionStatus() {
   };
 
   return (
-    <Grid container spacing={3} sx={{marginLeft: "2em"}}>
+    <Grid container spacing={3}>
       <Grid item xs={12} md={10} container spacing={3} direction="column">
         <Grid width="100%" item>
-          <Typography mt={1} variant="h5" sx={{ fontFamily: "Noto sans KR", fontSize: "2rem", fontWeight: "600"}}>
+          <Typography
+            mt={1}
+            variant="h5"
+            sx={{
+              fontFamily: 'Noto sans KR',
+              fontSize: '2rem',
+              fontWeight: '600',
+            }}
+          >
             탐지 현황
           </Typography>
-          <Search />
-          <Typography mt={3} color="primary" sx={{ fontFamily: "Noto sans KR", fontWeight: "400"}}>
-            {searchList.contentsLength}개 결과 | {filterList.length}개 필터
-            적용중
+          <SearchForm />
+          <Typography mt={3} color="primary">
+            {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
+            필터 적용중
           </Typography>
-        </Grid>
-        <Grid width="100%" item justify="center">
-          <AppliedFilters />
         </Grid>
         <Grid item justify="center">
           <DetectionTable
@@ -79,7 +87,12 @@ export default function DetectionStatus() {
           />
         </Grid>
       </Grid>
-      <Grid item xs={0} md={2} display={{ xs: 'none', md: 'block' }}>
+      <Grid
+        item
+        sx={{ mt: '29px' }}
+        md={2}
+        display={{ xs: 'none', md: 'block' }}
+      >
         <FilterBar />
       </Grid>
       <SecretsDetailModal

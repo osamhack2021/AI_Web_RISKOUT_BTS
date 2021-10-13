@@ -11,9 +11,18 @@ from datetime import datetime, timedelta
 import requests
 import json
 import random
+import base64
+import os
 
 # SERVER_URL = 'http://localhost:8000/'
 SERVER_URL = 'http://host.docker.internal:8000/'
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
+SECRET_KEYWORDS = []
+
+with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
+    SECRET_KEYWORDS = f.read().split(",")
 
 class AnalyzedDataView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
@@ -21,6 +30,7 @@ class AnalyzedDataView(generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        mode = None
         category = None
         period = None
         tags = None
@@ -35,12 +45,24 @@ class AnalyzedDataView(generics.CreateAPIView):
             limit = serializer.data.get("limit")
             offset = serializer.data.get("offset")
 
+            # Check mode
+            
+            if serializer.data.get("mode") not in ["fakenews", "leaked", "all"]:
+                return Response({"mode": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                mode = serializer.data.get("mode")
+
             # Check category
             
-            if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
-                return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+            if mode == "fakenews":
+                category = "news"
+            elif mode == "leaked":
+                category = "all"
             else:
-                category = serializer.data.get("category")
+                if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
+                    return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
+                else:
+                    category = serializer.data.get("category")
             
             # Check period
             if type(serializer.data.get("period")) != int or not (0 <= serializer.data.get("period") <= (24 * 7)):
@@ -48,12 +70,12 @@ class AnalyzedDataView(generics.CreateAPIView):
             else:
                 period = serializer.data.get("period")
             
-            return Response(self.getAnalyzedData(category, period, tags, search_text, limit, offset))
+            return Response(self.getAnalyzedData(mode, category, period, tags, search_text, limit, offset))
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-    def getAnalyzedData(self, category, period, tags, search_text, limit, offset):
+    def getAnalyzedData(self, mode, category, period, tags, search_text, limit, offset):
         mongo = DBHandler()
         db_result = None
         response = {
@@ -97,6 +119,9 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         if search_text:
             query["$text"] = {"$search": search_text}
+
+        if mode == "fakenews":
+            query["true_score"] = {"$lte": 0.5}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
@@ -110,7 +135,6 @@ class AnalyzedDataView(generics.CreateAPIView):
                             if tag not in content["entities"][tag_name]:
                                 isPassed = False
                                 break
-
                     else:
                         isPassed = False
                         continue
@@ -121,11 +145,41 @@ class AnalyzedDataView(generics.CreateAPIView):
         else:
             for content in db_filtered:
                 response["contents"].append(content)
+        
+        filtered_contents_id = []
+        filtered_contents = []
 
+        if mode == "leaked":
+            for content in response["contents"]:
+                for word in SECRET_KEYWORDS:
+                    if content["category"] == "news":
+                        if (word in content["title"]) or (word in content["contentBody"]):
+                            if content["_id"] not in filtered_contents_id:
+                                filtered_contents_id.append(content["_id"])
+
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+                    else:
+                        if word in content["contentBody"]:
+                            if content["_id"] not in filtered_contents_id:
+                                filtered_contents_id.append(content["_id"])
+
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+        
+        for contents_id in filtered_contents_id:
+            for content in response["contents"]:
+                if content["_id"] == contents_id:
+                    filtered_contents.append(content)
+
+        response["contents"] = filtered_contents
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
-
-        
+        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
 
@@ -137,6 +191,20 @@ class AnalyzedDataView(generics.CreateAPIView):
             contents[i]['created_at'] = contents[i]['created_at'].strftime('%y-%m-%d')
         
         return contents
+
+
+    def getLeakedWords(self, contents):
+        result = {}
+        for content in contents:
+            for leakedWord in content["leakedWords"]:
+                if leakedWord not in result:
+                    result[leakedWord] = 1
+                else:
+                    result[leakedWord] += 1
+
+        result = {k: v for k, v in sorted(result.items(), key=lambda item: item[1], reverse=True)}
+
+        return result
 
 
     def getFilterTags(self, tags, contents):
@@ -152,10 +220,6 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         for tag in tags:
             tags[tag] = dict(sorted(tags[tag].items(), key=lambda x:x[1], reverse=True))
-        
-        for tag in tags:
-            if not tags[tag]:
-                tags[tag] = None
 
         return tags
 
@@ -591,10 +655,6 @@ class SentimentPieDataView(generics.GenericAPIView):
 
 
 class ReportDataView(generics.CreateAPIView):
-    SECRET_KEYWORDS = ["출항", "KNCCS", "KJCCS", "KNTDS", "전투세부시행규칙", "작전", "함정", "잠수함", "SLBM", "ICBM", "DDG",
-    "DDH", "FFG", "PKG", "PGM", "PKMM", "LPH", "LST", "LSM", "참수리", "참모", "총장", "사령관", "부석종", "김정은", "대통령", 
-    "문재인", "서욱"]
-
     permission_classes = (IsAuthenticated,)
     serializer_class = ReportDataSerializer
 
@@ -672,7 +732,7 @@ class ReportDataView(generics.CreateAPIView):
         for content in db_filtered:
             if content["created_at"] == today:
                 today_count += 1
-                for secret in self.SECRET_KEYWORDS:
+                for secret in SECRET_KEYWORDS:
                     if secret in content["contentBody"]:
                         response["briefingGraphData"]["secretsCount"] += 1
                 today_fake_ratio += content["true_score"]
@@ -706,11 +766,16 @@ class ReportDataView(generics.CreateAPIView):
             for content in db_filtered:
                 if content["_id"] == articleId:
                     to_summarize += ' ' + content["summarized"]
+                    random.seed(content["_id"])
                     data = {
                             "id": content["_id"],
                             "title": content["title"],
                             "summary": content["summarized"],
-                            "characteristics": random.choice(["악의성", "클릭베이트", "욕설", "성차별", "인종차별", "선정적"]),
+                            "characteristics": self.tagSelector(
+                                seed=content["_id"],
+                                arr=["악의성", "클릭베이트", "욕설", "성차별", "인종차별", "선정적"], 
+                                n=2
+                            ),
                             "sourceName": "네이버 뉴스 - " + content["author"],
                             "url": content["site_url"],
                             "datetime": content["created_at"]
@@ -731,10 +796,15 @@ class ReportDataView(generics.CreateAPIView):
 
             for content in db_filtered:
                 if content["title"] == key_sentence:
+                    random.seed(content["_id"])
                     data = {
-                            "imageUrl": content["thumbnail_url"],
-                            "title":  content["title"],
-                            "threatType": random.choice(["허위뉴스", "대외비 기밀", "1급 비밀", "2급 비밀", "3급 비밀"]),
+                            "imageUrl": self.imageEncoder(content["thumbnail_url"]),
+                            "title": content["title"],
+                            "threatType": self.tagSelector(
+                                seed=content["_id"],
+                                arr=["허위뉴스", "대외비 기밀", "1급 비밀", "2급 비밀", "3급 비밀"], 
+                                n=1
+                            ),
                             "sourceName": "네이버 뉴스 - " + content["author"],
                             "url": content["site_url"],
                             "datetime": today
@@ -810,3 +880,30 @@ class ReportDataView(generics.CreateAPIView):
             quit()
 
         return sentences[0]
+    
+
+    def tagSelector(self, seed, arr, n):
+        result = []
+
+        if n == 1:
+            random.seed(seed)
+            return random.choice(arr)
+
+        for _ in range(n):
+            while True:
+                random.seed(seed)
+                data = random.choice(arr)
+                if data not in result:
+                    result.append(data)
+                    break
+        
+        return result
+
+
+    def imageEncoder(self, url):
+        source_url = url
+        response = requests.get(source_url)
+        data = str(base64.b64encode(response.content).decode("UTF-8"))
+        image_uri = (f"data:{response.headers['Content-Type']};base64,{data}")
+        
+        return image_uri

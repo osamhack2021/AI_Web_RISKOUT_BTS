@@ -14,7 +14,7 @@ import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
 import moment from 'moment';
 import ProgressBar from '../Common/ProgressBar';
 import useFetch from '../../hooks/useFetch';
-import "../../css/pageStyle.css"
+import '../../css/pageStyle.css';
 
 const columns = [
   {
@@ -77,17 +77,28 @@ function CustomPagination() {
 }
 
 export default function TrendsCard() {
-  const { data, error, isPending } = useFetch();
+  const { data, error, isPending } = useFetch(`/data/trends.json`);
+  // const { data, error, isPending } = useFetch(`/api/nlp/trends`, {
+  //   method: 'GET',
+  // });
 
   return (
     <Card style={{ width: '100%', height: '400px' }}>
       <CardHeader title="트렌드" />
       <Divider />
-      {data ? (
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
         <CardContent>
           <Box sx={{ width: '100%', height: 300 }}>
             <DataGrid
-              rows={data}
+              rows={data.response}
               columns={columns}
               pagination
               pageSize={4}
@@ -98,10 +109,6 @@ export default function TrendsCard() {
             />
           </Box>
         </CardContent>
-      ) : (
-        <Box sx={{ width: '100%', color: 'grey.500' }}>
-          <LinearProgress color="inherit" />
-        </Box>
       )}
     </Card>
   );
