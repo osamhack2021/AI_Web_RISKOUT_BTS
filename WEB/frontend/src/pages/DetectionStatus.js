@@ -87,7 +87,12 @@ export default function DetectionStatus() {
           />
         </Grid>
       </Grid>
-      <Grid item xs={0} md={2} display={{ xs: 'none', md: 'block' }}>
+      <Grid
+        item
+        sx={{ mt: '29px' }}
+        md={2}
+        display={{ xs: 'none', md: 'block' }}
+      >
         <FilterBar />
       </Grid>
       <SecretsDetailModal
