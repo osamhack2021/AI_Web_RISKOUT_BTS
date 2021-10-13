@@ -82,12 +82,17 @@ const RiskReport = (props) => {
         <Skeleton
               animation="wave"
               height={75}
-              width="10%"
+              width="15%"
             />
         <Skeleton
               animation="wave"
-              height={35}
+              height={15}
               width="40%"
+            />
+        <Skeleton
+              animation="wave"
+              height={15}
+              width="30%"
               style={{ marginBottom: 26 }}
             />
         <Skeleton
@@ -97,25 +102,49 @@ const RiskReport = (props) => {
             />
         <Box sx={{display: 'flex'}}>
           <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
         </Box>
         <Box sx={{display: 'flex'}}>
-          <Skeleton sx={{ borderRadius: "10px", marginTop:'13px'  }} width={879} height={400} animation="wave" variant="rectangular" />
-          <Skeleton
-              animation="wave"
-              height={60}
-              width="14%"
-            />
-          
-          {/* {Array.from({ length: 20 }).map((_, i) => (
-            <Skeleton key={i} animation="wave"
-            height={60}
-            width="14%"/>
-          ))} */}
+          <Box>
+            <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={400} animation="wave" variant="rectangular" />
+          </Box>
+          <Box>
+            {Array.from({ length: 4 }).map((_, i) => (
+            <Box>
+              <Skeleton
+                key={i}
+                animation="wave"
+                width={500} height={50}
+              />
+              <Skeleton
+                key={i}
+                animation="wave"
+                width={300} height={15}
+              />
+              <Skeleton
+                key={i}
+                animation="wave"
+                width={350} height={15}
+              />
+              <Skeleton
+                key={i}
+                animation="wave"
+                width={250} height={15}
+              />
+              <Skeleton
+                key={i}
+                animation="wave"
+                width={400} height={15}
+                sx={{ marginBottom:'13px' }}
+              />
+            </Box>
+          ))}
+          </Box>
         </Box>
+        <Skeleton sx={{ borderRadius: "10px", marginTop:'33px', marginRight:'33px' }} width={879} height={400} animation="wave" variant="rectangular" />
       </div>
     </section>
   );
@@ -137,111 +166,7 @@ const RiskReport = (props) => {
 
   return (
     <>
-      {isPending ? (
-        loadingScreen
-      ) : error ? (
-        errorScreen
-      ) : (
-        <section id="sub_contents" ref={pdfExportComponent}>
-          <PdfExportButton exportTarget={pdfExportComponent} />
-          <Box className="sub01_wrap">
-            <Grid container spacing={1} direction="column">
-              <Grid item>
-                <Typography variant="h2">
-                  Risk Report{' '}
-                  <em style={{ fontSize: '0.5em' }}>
-                    {new Intl.DateTimeFormat('ko-KR', {
-                      dateStyle: 'full',
-                    }).format(new Date())}{' '}
-                    (24h)
-                  </em>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography>{getLineBreakText(data.overview)}</Typography>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={1} mt={3} direction="column">
-              <Grid item>
-                <Typography variant="h3">리스크 브리핑</Typography>
-              </Grid>
-              <Grid item>
-                <ExclusiveSelect
-                  selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
-                  selectedValue={dateRange}
-                  setSelectedValue={setDateRange}
-                  selectHandler={selectHandler}
-                />
-              </Grid>
-
-              <Grid
-                item
-                container
-                spacing={5}
-                mt={1}
-                direction="row"
-                justifyContent="space-between"
-                alignItems="flex-start"
-              >
-                <Grid item xs={12} md={6}>
-                  <Graphs data={data.briefingGraphData} />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <Grid container direction="column" spacing={3}>
-                    {data.briefingContents.map((props, i) => {
-                      return (
-                        <ScrappedArticle key={'scrapped' + i} {...props} />
-                      );
-                    })}
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid
-              container
-              className="content clfix"
-              direction="column"
-              spacing={3}
-              mt={1}
-            >
-              <Grid item>
-                <Typography variant="h3">중대 위협</Typography>
-              </Grid>
-              <Grid
-                item
-                container
-                direction="row"
-                justifyContent="space-evenly"
-                alignItems="center"
-                sx={{ mt: '1rem' }}
-              >
-                {data.majorEvents.map(
-                  ({
-                    imageUrl,
-                    title,
-                    threatType,
-                    sourceName,
-                    url,
-                    datetime,
-                  }) => (
-                    <ThreatMediaCard
-                      imageUrl={imageUrl}
-                      title={title}
-                      threatType={threatType}
-                      sourceName={sourceName}
-                      url={url}
-                      datetime={datetime}
-                      key={title}
-                    />
-                  )
-                )}
-              </Grid>
-            </Grid>
-          </Box>
-        </section>
-      )}
+      {loadingScreen}
     </>
   );
 };
