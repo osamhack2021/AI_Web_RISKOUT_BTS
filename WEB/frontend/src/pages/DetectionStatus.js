@@ -32,11 +32,11 @@ export default function DetectionStatus() {
     entities: {},
   });
 
-  const showDetailModal = (id) => {
-    const data = search.contents.filter((x) => x.id == id).pop(0); // popping doesn't affect original array
+  const showDetailModal = (_id) => {
+    const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     console.log(
       data,
-      search.contents.filter((x) => x.id == id),
+      search.contents.filter((x) => x.id == _id),
       search
     );
     setDetailModalData(data);
