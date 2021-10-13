@@ -12,7 +12,7 @@ import { useRecoilValue } from 'recoil';
 import { filterListState } from '../atoms/filterListState';
 import { searchListState } from '../atoms/searchListState';
 import useSeacrh from '../hooks/useSearch';
-import { useHistory } from 'react-router'
+
 
 export default function DetectionStatus() {
   useSeacrh(); // filterList 변경될 때마다 검색.
