@@ -221,7 +221,7 @@ const RiskReport = (props) => {
 
             <Grid container spacing={1} mt={3} direction="column">
               <Grid item>
-                <Typography variant="h3">리스크 브리핑</Typography>
+                {/* <Typography variant="h3">리스크 브리핑</Typography> */}
               </Grid>
               <Grid item>
                 <ExclusiveSelect
