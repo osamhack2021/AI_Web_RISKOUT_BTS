@@ -76,7 +76,7 @@ const RiskReport = (props) => {
   const loadingScreen = (
     <section id="sub_contents" style={{ width: '100vw', height: '100vh' }}>
       <div className="sub01_wrap">
-        <h2 className="h2_tit2">리스크 보고서 생성 중...</h2>
+        <h2 className="h2_tit2">보고서 생성 중...</h2>
       </div>
       <div className="content clfix">
         <Skeleton
@@ -100,6 +100,8 @@ const RiskReport = (props) => {
               height={60}
               width="14%"
             />
+
+        {/* 날짜 버튼 */}
         <Box sx={{display: 'flex'}}>
           <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
           <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
@@ -112,6 +114,7 @@ const RiskReport = (props) => {
             {/* 일일 리스크 현황 */}
             <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={450} animation="wave" variant="rectangular" />
           </Box>
+
           <Box>
             {/* 일일 리스크 현황 옆 기사 */}
             {Array.from({ length: 4 }).map((_, i) => (
@@ -146,8 +149,11 @@ const RiskReport = (props) => {
           ))}
           </Box>
         </Box>
+
         {/* 리스크 종류별 비율 (%) */}
         <Skeleton sx={{ borderRadius: "10px" }} width={879} height={400} animation="wave" variant="rectangular" />
+
+        {/* 중대 위협 */}
         <Skeleton
           sx={{ borderRadius: "10px", marginTop: 10 }}
           animation="wave"
