@@ -39,6 +39,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
               <SecretsTableRow
                 key={id}
                 id={content._id}
+                category={content.category}
                 title={content.title}
                 preview={content.summarized}
                 author={content.author}

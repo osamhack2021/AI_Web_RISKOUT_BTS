@@ -7,14 +7,20 @@ import {
 } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ForumIcon from '@mui/icons-material/Forum';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import DescriptionIcon from '@mui/icons-material/Description';
-
 import ScrapButton from './ScrapButton';
+
+function CategorizedIcon({ category }) {
+  if (category == 'news') return <DescriptionIcon color="action" />;
+  else if (category == 'sns') return <ForumIcon color="action" />;
+}
 
 export default function SecretsTableRow(props) {
   const {
     id,
     title,
+    category,
     preview,
     contentBody,
     author,
@@ -31,7 +37,7 @@ export default function SecretsTableRow(props) {
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          <DescriptionIcon color="action" />
+          <CategorizedIcon category={category} />
         </Link>
       </TableCell>
       <TableCell
