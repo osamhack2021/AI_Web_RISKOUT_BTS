@@ -1,5 +1,5 @@
 import { Grid, Stack } from '@mui/material';
-import { Box } from '@mui/system';
+
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 import { filterListState } from '../../atoms/filterListState';
