@@ -119,7 +119,7 @@ export default function SideNavigation(props) {
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require('/workspaces/ai_web_RISKOUT_BTS/WEB/frontend/src/images/sub/logo_black.png')}
+              src={require("../../images/sub/logo_black.png")}
               alt="홈"
               className="image"
             />
