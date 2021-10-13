@@ -15,6 +15,9 @@ import { useEffect } from 'react';
 
 const WordCloud = ({ options }) => {
   const { data, isPending, error } = useFetch(`/data/wordCloud.json`);
+  // const { data, error, isPending } = useFetch(`/api/nlp/wordcloud/`, {
+  //   method: 'GET',
+  // });
 
   return (
     <Card
