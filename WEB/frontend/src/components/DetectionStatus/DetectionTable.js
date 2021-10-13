@@ -40,9 +40,10 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
                 key={id}
                 id={content._id}
                 title={content.title}
-                preview={content.preview}
+                preview={content.summarized}
                 author={content.author}
                 href={content.href}
+                // contentBody={content.contentBody}
                 showDetailModal={showDetailModal}
                 scrapArticle={scrapArticle}
               />

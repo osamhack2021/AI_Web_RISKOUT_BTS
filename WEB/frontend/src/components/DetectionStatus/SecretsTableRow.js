@@ -16,6 +16,7 @@ export default function SecretsTableRow(props) {
     id,
     title,
     preview,
+    contentBody,
     author,
     href,
     showDetailModal,
@@ -38,7 +39,11 @@ export default function SecretsTableRow(props) {
         onClick={() => showDetailModal(id)}
         style={{ cursor: 'pointer' }}
       >
-        <Typography sx={{fontFamily: "Noto sans KR"}} style={{ fontWeight: 'bold'}} color="textPrimary">
+        <Typography
+          sx={{ fontFamily: 'Noto sans KR' }}
+          style={{ fontWeight: 'bold' }}
+          color="textPrimary"
+        >
           {title}
         </Typography>
         <Typography color="textSecondary" variant="body2">
