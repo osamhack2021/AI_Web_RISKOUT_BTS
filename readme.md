@@ -132,6 +132,34 @@
 
 <br />
 
+### Backend
+
+- Backend template with Golang built-in [net/http](https://golang.org/pkg/net/http/) package:
+  - [`net/http`](https://github.com/create-go-app/net_http-go-template) — simple REST API with CRUD and JWT auth.
+- Backend template with [Fiber](https://github.com/gofiber/fiber):
+  - [`fiber`](https://github.com/create-go-app/fiber-go-template) — complex REST API with CRUD, JWT auth with renew token, DB and cache.
+
+### Frontend
+
+- Pure JavaScript frontend template:
+  - `vanilla` — generated template with pure JavaScript app.
+  - `vanilla-ts` — generated template with pure TypeScript app.
+- Frontend template with [React](https://reactjs.org/):
+  - `react` — generated template with a common React app.
+  - `react-ts` — generated template with a TypeScript version of the React app.
+- Frontend template with [Preact](https://preactjs.com/):
+  - `preact` — generated template with a common Preact app.
+  - `preact-ts` — generated template with a TypeScript version of the Preact app.
+- Frontend template with [Vue.js](https://vuejs.org/):
+  - `vue` — generated template with a common Vue.js app.
+  - `vue-ts` — generated template with a TypeScript version of the Vue.js app.
+- Frontend template with [Svelte](https://svelte.dev/):
+  - `svelte` — generated template with a common Svelte app.
+  - `svelte-ts` — generated template with a TypeScript version of the Svelte app.
+- Frontend template with [Lit](https://lit.dev/) web components:
+  - `lit-element` — generated template with a common Lit app.
+  - `lit-element-ts` — generated template a TypeScript version of the Lit app.
+
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
 #### Analyzer
