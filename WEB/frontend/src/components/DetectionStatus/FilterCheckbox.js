@@ -1,7 +1,6 @@
-import { Grid, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-import { useCallback, useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { Stack } from '@mui/material';
+import { useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
 import {
   appliedFilterMapState,
   useAppliedFilterMapActions,
