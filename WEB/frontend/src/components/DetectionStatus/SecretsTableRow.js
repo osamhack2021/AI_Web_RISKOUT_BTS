@@ -5,8 +5,7 @@ import {
   TableCell,
   TableRow,
 } from '@mui/material';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import ForumIcon from '@mui/icons-material/Forum';
+
 import DescriptionIcon from '@mui/icons-material/Description';
 
 import ScrapButton from './ScrapButton';
