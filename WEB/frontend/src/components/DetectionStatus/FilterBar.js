@@ -11,9 +11,7 @@ import {
 } from '@mui/material';
 import FilterCheckbox from './FilterCheckbox';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
 import {
-  appliedFilterMapState,
   useAppliedFilterMapActions,
 } from '../../atoms/appliedFilterMapState';
 import { useFilterTags } from '../../atoms/searchState';

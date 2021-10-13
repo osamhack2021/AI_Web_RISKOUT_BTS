@@ -61,6 +61,7 @@ export default function SearchBar({ setValue }) {
       value={appliedAutoCompleteFilter}
       options={autoCompleteFilter}
       getOptionLabel={(option) => option.word}
+      getOptionSelected={(option, value) => option == value}
       onChange={onTagsChange}
       renderInput={(params) => (
         <TextField

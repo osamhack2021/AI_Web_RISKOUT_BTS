@@ -4,12 +4,14 @@ import { useForm, Controller, register } from 'react-hook-form';
 import { Button, Select, MenuItem } from '@mui/material';
 import SearchBar from './SearchBar';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { searchState } from '../atoms/searchState';
 import { searchSettingState } from '../atoms/searchSettingState';
 import axios from 'axios';
 
 export default function SearchForm() {
   const { handleSubmit, register, setValue, control } = useForm({});
+  const setSearch = useSetRecoilState(searchState);
   const searchSetting = useRecoilValue(searchSettingState);
   const onSubmit = async ({ category, type, period }) => {
     // TODO 검색 api와 연동
@@ -19,9 +21,9 @@ export default function SearchForm() {
     console.log('tags', searchSetting);
     console.log('type', type);
 
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/posts/1`
-    );
+    const response = await axios.get(`/static/search.json`);
+    console.log(response.data);
+    setSearch(response.data);
   };
 
   return (
@@ -32,13 +34,13 @@ export default function SearchForm() {
         defaultValue={{}}
       />
 
-      <Select {...register('category')}>
+      <Select defaultValue="all" {...register('category')}>
         <MenuItem value="all">All</MenuItem>
         <MenuItem value="news">뉴스</MenuItem>
         <MenuItem value="sns">SNS</MenuItem>
       </Select>
 
-      <Select {...register('period')}>
+      <Select defaultValue="24" {...register('period')}>
         <MenuItem value="1">1h</MenuItem>
         <MenuItem value="3">3h</MenuItem>
         <MenuItem value="5">5h</MenuItem>
@@ -48,7 +50,7 @@ export default function SearchForm() {
         <MenuItem value="148">7d</MenuItem>
       </Select>
 
-      <Select {...register('type')}>
+      <Select defaultValue="all" {...register('type')}>
         <MenuItem value="all">All</MenuItem>
         <MenuItem value="leaked">기밀유출</MenuItem>
         <MenuItem value="fakenews">가짜뉴스 의심</MenuItem>

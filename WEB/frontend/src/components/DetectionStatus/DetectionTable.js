@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 
-import { useRecoilValue } from 'recoil';
 import { useContents } from '../../atoms/searchState';
 import useSearchEffect from '../../hooks/useSearchEffect';
 
