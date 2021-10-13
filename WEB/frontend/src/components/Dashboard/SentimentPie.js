@@ -10,8 +10,9 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 export const SentimentPie = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/api/nlp/sentiment/pie/`, {
-    method: 'POST',
+  // /data/sentimentPie.json
+  const { data, error, isPending } = useFetch(`/data/sentimentPie.json`, {
+    method: 'GET',
   });
 
   return (

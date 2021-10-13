@@ -1,18 +1,11 @@
-import { useState, useEffect } from 'react';
-import {
-  useRecoilState,
-  useRecoilValue,
-  useResetRecoilState,
-  useSetRecoilState,
-} from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { autoCompleteFilterState } from '../atoms/searchState';
 import {
   appliedFilterMapState,
   appliedAutoCompleteFilterState,
 } from '../atoms/appliedFilterMapState';
-import useSearchInitEffect from '../hooks/useSearchInitEffect';
 
-import { Autocomplete, Box, Button, Chip, TextField } from '@mui/material';
+import { Autocomplete, Chip, TextField } from '@mui/material';
 // mui icons
 import PersonIcon from '@mui/icons-material/Person';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -44,10 +37,16 @@ export default function SearchBar({ setValue }) {
 
   const onTagsChange = (event, values) => {
     let format = {};
+    let lst = values[values.length - 1];
+    if (typeof lst === 'string' || lst instanceof String)
+      // label search_text to ETC.. (구현 시간이 없어서 로직이 맘대로인 점 죄송합니다.)
+      values[values.length - 1] = { word: lst, label: 'ETC' };
+
     for (let { word, label } of values) {
       if (!format[label]) format[label] = [word];
       else if (!format[label].includes(word)) format[label].push(word);
     }
+    console.log(values);
     setAppliedFilterMap(format);
     setValue('search', values);
   };
@@ -55,6 +54,7 @@ export default function SearchBar({ setValue }) {
   return (
     <Autocomplete
       multiple
+      freeSolo
       mt={2}
       value={appliedAutoCompleteFilter}
       options={autoCompleteFilter}
