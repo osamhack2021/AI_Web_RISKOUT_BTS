@@ -1,8 +1,6 @@
 import { atom, selector } from 'recoil';
 import { appliedFilterMapState } from './appliedFilterMapState';
 
-// 검색 request에 해당하는 atom
-
 /* Example
 {
     "category": "news",

@@ -1,7 +1,6 @@
-import { Grid, Stack } from '@mui/material';
-import { Box } from '@mui/system';
-import { useCallback, useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { Stack } from '@mui/material';
+import { useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
 import {
   appliedFilterMapState,
   useAppliedFilterMapActions,
@@ -10,7 +9,6 @@ import {
 export default function FilterCheckbox(props) {
   const { label, count, hashtag, checked } = props;
   const { append, remove, includes } = useAppliedFilterMapActions();
-  const appliedFilterMap = useRecoilValue(appliedFilterMapState);
 
   const onChange = useCallback((e) => {
     if (includes(label, hashtag)) remove(label, hashtag);

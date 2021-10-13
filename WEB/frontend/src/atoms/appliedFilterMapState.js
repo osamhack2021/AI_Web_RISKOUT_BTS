@@ -7,7 +7,6 @@ import {
   useResetRecoilState,
   useSetRecoilState,
 } from 'recoil';
-import produce from 'immer';
 
 // 검색에 사용되는 적용된 필터
 const initialState = {
@@ -41,6 +40,20 @@ export const appliedFilterListState = selector({
   },
 });
 
+export const appliedAutoCompleteFilterState = selector({
+  key: 'appliedAutoCompleteFilterState',
+  get: ({ get }) => {
+    const appliedFilterMap = get(appliedFilterMapState);
+    let autocompleteList = [];
+    for (let [key, values] of Object.entries(appliedFilterMap)) {
+      for (let value of values) {
+        autocompleteList.push({ word: value, label: key });
+      }
+    }
+    return autocompleteList;
+  },
+});
+
 export function useAppliedFilterMapActions() {
   const value = useRecoilValue(appliedFilterMapState);
   const set = useSetRecoilState(appliedFilterMapState);
@@ -49,10 +62,16 @@ export function useAppliedFilterMapActions() {
   const append = useCallback(
     (label, word) => {
       console.log('APPEND');
-      set((prev) => ({
-        ...prev,
-        [label]: [...prev[label], word],
-      }));
+      set((prev) => {
+        if (!prev[label]) {
+          return { ...prev, [label]: [word] };
+        } else {
+          return {
+            ...prev,
+            [label]: [...prev[label], word],
+          };
+        }
+      });
     },
     [set]
   );

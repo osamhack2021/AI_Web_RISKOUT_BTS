@@ -1,22 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSnackbar } from 'notistack';
-import axios from 'axios';
 import { Grid, Typography } from '@mui/material';
 
-import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
 import DetectionTable from '../components/DetectionStatus/DetectionTable';
 import FilterBar from '../components/DetectionStatus/FilterBar';
-import Search from '../components/Search';
+import SearchForm from '../components/SearchForm';
 import SecretsDetailModal from '../components/Modal/SecretsDetailModal';
 import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import useSeacrhEffect from '../hooks/useSearchEffect';
+import useSeacrhEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
 export default function DetectionStatus() {
-  useSeacrhEffect(); // filterMap 변경될 때마다 검색.
+  useSeacrhEffect(); // init
 
   const search = useRecoilValue(searchState);
   const appliedFilterList = useRecoilValue(appliedFilterListState);
@@ -34,11 +32,11 @@ export default function DetectionStatus() {
     entities: {},
   });
 
-  const showDetailModal = (id) => {
-    const data = search.contents.filter((x) => x.id == id).pop(0); // popping doesn't affect original array
+  const showDetailModal = (_id) => {
+    const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     console.log(
       data,
-      search.contents.filter((x) => x.id == id),
+      search.contents.filter((x) => x.id == _id),
       search
     );
     setDetailModalData(data);
@@ -62,7 +60,7 @@ export default function DetectionStatus() {
   };
 
   return (
-    <Grid container spacing={3} sx={{ marginLeft: '2em' }}>
+    <Grid container spacing={3}>
       <Grid item xs={12} md={10} container spacing={3} direction="column">
         <Grid width="100%" item>
           <Typography
@@ -76,14 +74,11 @@ export default function DetectionStatus() {
           >
             탐지 현황
           </Typography>
-          <Search />
+          <SearchForm />
           <Typography mt={3} color="primary">
             {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
           </Typography>
-        </Grid>
-        <Grid width="100%" item justify="center">
-          <AppliedFilters />
         </Grid>
         <Grid item justify="center">
           <DetectionTable
@@ -92,7 +87,12 @@ export default function DetectionStatus() {
           />
         </Grid>
       </Grid>
-      <Grid item xs={0} md={2} display={{ xs: 'none', md: 'block' }}>
+      <Grid
+        item
+        sx={{ mt: '29px' }}
+        md={2}
+        display={{ xs: 'none', md: 'block' }}
+      >
         <FilterBar />
       </Grid>
       <SecretsDetailModal

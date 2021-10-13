@@ -9,7 +9,8 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-const SentimentBar = ({ colors }) => {
+
+const SentimentBar = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
     method: 'POST',
   });
@@ -18,7 +19,15 @@ const SentimentBar = ({ colors }) => {
     <Card style={{ height: '400px' }}>
       <CardHeader title="출처별 감정 통계" />
       <Divider />
-      {data ? (
+      {isPending ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : error ? (
+        <Box sx={{ width: '100%', color: 'grey.500' }}>
+          <LinearProgress color="inherit" />
+        </Box>
+      ) : (
         <CardContent>
           <Box
             sx={{
@@ -27,7 +36,8 @@ const SentimentBar = ({ colors }) => {
             }}
           >
             <ResponsiveBar
-              data={data}
+              theme={theme}
+              data={data.response}
               keys={['positive', 'neutral', 'negative']}
               indexBy="category"
               margin={{ top: 0, right: 100, bottom: 100, left: 80 }}
@@ -86,10 +96,6 @@ const SentimentBar = ({ colors }) => {
             />
           </Box>
         </CardContent>
-      ) : (
-        <Box sx={{ width: '100%', color: 'grey.500' }}>
-          <LinearProgress color="inherit" />
-        </Box>
       )}
     </Card>
   );
