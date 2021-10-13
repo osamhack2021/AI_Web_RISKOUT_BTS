@@ -3,11 +3,9 @@ import axios from 'axios';
 
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import { appliedFilterMapState } from '../atoms/appliedFilterMapState';
 
-export default function useSearchEffect() {
+export default function useSearchInitEffect() {
   const setSearch = useSetRecoilState(searchState);
-  const appliedFilterMap = useRecoilValue(appliedFilterMapState);
   /* TODO searchSetting 을 이용해서 params 넘겨주는 코드 작성 */
   useEffect(() => {
     //TODO: API 서버 배포시 수정
@@ -19,5 +17,5 @@ export default function useSearchEffect() {
     }
 
     fetchSearch();
-  }, [appliedFilterMap]);
+  }, []);
 }

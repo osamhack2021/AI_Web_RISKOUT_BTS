@@ -10,11 +10,11 @@ import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import useSeacrhEffect from '../hooks/useSearchEffect';
+import useSeacrhEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
 export default function DetectionStatus() {
-  useSeacrhEffect(); // filterMap 변경될 때마다 검색.
+  useSeacrhEffect(); // init
 
   const search = useRecoilValue(searchState);
   const appliedFilterList = useRecoilValue(appliedFilterListState);

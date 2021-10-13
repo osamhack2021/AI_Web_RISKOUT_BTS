@@ -11,10 +11,9 @@ import {
 import SecretsTableRow from './SecretsTableRow';
 
 import { useContents } from '../../atoms/searchState';
-import useSearchEffect from '../../hooks/useSearchEffect';
+import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
-  useSearchEffect();
   const contents = useContents();
 
   return (

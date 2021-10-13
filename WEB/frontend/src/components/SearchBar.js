@@ -10,7 +10,7 @@ import {
   appliedFilterMapState,
   appliedAutoCompleteFilterState,
 } from '../atoms/appliedFilterMapState';
-import useSearchEffect from '../hooks/useSearchEffect';
+import useSearchInitEffect from '../hooks/useSearchInitEffect';
 
 import { Autocomplete, Box, Button, Chip, TextField } from '@mui/material';
 // mui icons
@@ -36,7 +36,7 @@ export function SearchChip(props) {
 }
 
 export default function SearchBar({ setValue }) {
-  useSearchEffect();
+  
 
   const setAppliedFilterMap = useSetRecoilState(appliedFilterMapState);
   const autoCompleteFilter = useRecoilValue(autoCompleteFilterState);
