@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Box,
   Button,
   Card,
@@ -9,11 +12,10 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { styled } from '@mui/styles';
 import FilterCheckbox from './FilterCheckbox';
 
-import {
-  useAppliedFilterMapActions,
-} from '../../atoms/appliedFilterMapState';
+import { useAppliedFilterMapActions } from '../../atoms/appliedFilterMapState';
 import { useFilterTags } from '../../atoms/searchState';
 
 export default function FilterBar() {
@@ -21,11 +23,7 @@ export default function FilterBar() {
   const { reset, includes } = useAppliedFilterMapActions();
 
   return (
-    <Card
-      sx={{ right: 0, marginTop: '38px', minHeight: '100%' }}
-      elevation={1}
-      spacing={3}
-    >
+    <Card sx={{ right: 0, marginTop: '38px' }} elevation={1} spacing={3}>
       <CardHeader
         action={
           <Button
@@ -45,8 +43,8 @@ export default function FilterBar() {
         Object.entries(filterTags).map(
           ([label, wordCount]) =>
             Object.keys(wordCount).length > 0 && (
-              <CardContent style={{ marginBottom: '16px' }}>
-                <Box className="filter_con">
+              <Accordion>
+                <AccordionSummary>
                   <Stack
                     direction="row"
                     alignItems="center"
@@ -55,6 +53,8 @@ export default function FilterBar() {
                     <Typography>글에서 찾은 {labelToKorMap[label]}</Typography>
                     <Typography>{Object.keys(wordCount).length}</Typography>
                   </Stack>
+                </AccordionSummary>
+                <AccordionDetails>
                   <Box>
                     {Object.entries(wordCount)
                       .sort(([, a], [, b]) => b - a)
@@ -68,8 +68,8 @@ export default function FilterBar() {
                         />
                       ))}
                   </Box>
-                </Box>
-              </CardContent>
+                </AccordionDetails>
+              </Accordion>
             )
         )}
     </Card>
