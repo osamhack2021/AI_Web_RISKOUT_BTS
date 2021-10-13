@@ -191,6 +191,25 @@
 이제 사용하실 수 있습니다! 🎉
 - 📺 Full 영상: https://riskout.ithosting.repl.co
 
+## 로드맵(Road Map)
+
+RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
+
+- [x] [Scrollable Components](https://github.com/Hexworks/zircon/issues/25)
+- [x] [Menus](https://github.com/Hexworks/zircon/issues/135)
+- [x] [Table Component](https://github.com/Hexworks/zircon/issues/185)
+- [x] [Javadoc-style Documentation](https://github.com/Hexworks/zircon/issues/146)
+- [x] [Grid / Screen Filters](https://github.com/Hexworks/zircon/issues/271)
+- [ ] [Floating Components](https://github.com/Hexworks/zircon/issues/23)
+- [ ] [Drag'n Drop Support](https://github.com/Hexworks/zircon/issues/22)
+- [ ] [Custom Layout Support](https://github.com/Hexworks/zircon/issues/28)
+- [ ] [Component Themes](https://github.com/Hexworks/zircon/issues/29)
+- [ ] [Custom Component Support](https://github.com/Hexworks/zircon/issues/26)
+- [ ] [Tree Component](https://github.com/Hexworks/zircon/issues/184)
+- [ ] [Accordion Component](https://github.com/Hexworks/zircon/issues/27)
+- [ ] [Combo Box Component](https://github.com/Hexworks/zircon/issues/262)
+- [ ] [IntelliJ Plugin](https://github.com/Hexworks/zircon/issues/191)
+- [ ] [Console for Zircon](https://github.com/Hexworks/zircon/issues/183)
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
@@ -300,26 +319,6 @@
 </tr>
 </tbody>
 </table>
-
-## 로드맵(Road Map)
-
-RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
-
-- [x] [Scrollable Components](https://github.com/Hexworks/zircon/issues/25)
-- [x] [Menus](https://github.com/Hexworks/zircon/issues/135)
-- [x] [Table Component](https://github.com/Hexworks/zircon/issues/185)
-- [x] [Javadoc-style Documentation](https://github.com/Hexworks/zircon/issues/146)
-- [x] [Grid / Screen Filters](https://github.com/Hexworks/zircon/issues/271)
-- [ ] [Floating Components](https://github.com/Hexworks/zircon/issues/23)
-- [ ] [Drag'n Drop Support](https://github.com/Hexworks/zircon/issues/22)
-- [ ] [Custom Layout Support](https://github.com/Hexworks/zircon/issues/28)
-- [ ] [Component Themes](https://github.com/Hexworks/zircon/issues/29)
-- [ ] [Custom Component Support](https://github.com/Hexworks/zircon/issues/26)
-- [ ] [Tree Component](https://github.com/Hexworks/zircon/issues/184)
-- [ ] [Accordion Component](https://github.com/Hexworks/zircon/issues/27)
-- [ ] [Combo Box Component](https://github.com/Hexworks/zircon/issues/262)
-- [ ] [IntelliJ Plugin](https://github.com/Hexworks/zircon/issues/191)
-- [ ] [Console for Zircon](https://github.com/Hexworks/zircon/issues/183)
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
