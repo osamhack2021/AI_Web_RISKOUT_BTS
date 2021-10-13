@@ -146,25 +146,30 @@ class AnalyzedDataView(generics.CreateAPIView):
             for content in db_filtered:
                 response["contents"].append(content)
         
+        filtered_contents = []
+
         if mode == "leaked":
             for content in response["contents"]:
                 for word in SECRET_KEYWORDS:
                     if content["category"] == "news":
                         if (word in content["title"]) or (word in content["contentBody"]):
+                            filtered_contents.append(content)
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
                             else:
                                 content["leakedWords"] = [word]
                     else:
                         if word in content["contentBody"]:
+                            filtered_contents.append(content)
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
                             else:
                                 content["leakedWords"] = [word]
 
+        response["contents"] = filtered_contents
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
-        # response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
+        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
 
@@ -179,7 +184,18 @@ class AnalyzedDataView(generics.CreateAPIView):
 
 
     def getLeakedWords(self, contents):
-        pass
+        result = {}
+        for content in contents:
+            for leakedWord in content["leakedWords"]:
+                if leakedWord not in result:
+                    result[leakedWord] = 1
+                else:
+                    result[leakedWord] += 1
+
+        result = {k: v for k, v in sorted(result.items(), key=lambda item: item[1], reverse=True)}
+
+        return result
+
 
     def getFilterTags(self, tags, contents):
         for i in range(len(contents)):
