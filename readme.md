@@ -303,7 +303,7 @@
 
 ## 로드맵(Road Map)
 
-RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다.
+RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희 RISKOUT이 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다.
 
 - [x] [Scrollable Components](https://github.com/Hexworks/zircon/issues/25)
 - [x] [Menus](https://github.com/Hexworks/zircon/issues/135)
