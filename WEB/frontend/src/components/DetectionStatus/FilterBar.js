@@ -1,79 +1,132 @@
+import { useEffect } from 'react';
 import {
-    Box,
-    Button,
-    Card,
-    CardHeader,
-    CardContent,
-    Divider,
-    Stack,
-    Typography,
-  } from '@mui/material';
-  import FilterCheckbox from './FilterCheckbox';
-  
-  import { useRecoilState, useRecoilValue } from 'recoil';
-  import { filterListState } from '../../atoms/filterListState';
-  import { searchListState } from '../../atoms/searchListState';
-  
-  export default function FilterBar() {
-    const filterList = useRecoilValue(filterListState);
-    const searchList = useRecoilValue(searchListState);
-  
-    return (
-      <Card
-        sx={{ right: 0, marginTop: '38px', minHeight: '100%', marginRight: '5em' }}
-        elevation={1}
-        spacing={3}
-      >
-        <CardHeader
-          action={
-            <Button style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-20px', marginRight: '-8px', marginBottom: '-6px' }} size="small">
-              RESET
-            </Button>
-          }
-          titleTypographyProps={{ variant: 'body1' }}
-          title="FILTER"
-          sx={{ fontFamily: "Noto sans KR", fontSize: "1.5em", fontWeight: "600"}}
-        />
-        <Divider />
-  
-        {Object.entries(namedEntityMap).map(([filterLabel, filterCode]) => {
-          const filterTags = Object.entries(searchList.filterTags[filterCode]);
-          return (
-            <CardContent style={{ marginBottom: '35px' }}>
-              <Box className="filter_con" sx={{lineHeight: "2.8"}}>
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
-                  <Typography sx={{ fontFamily: "Noto sans KR", fontSize: "1.0rem" }}>글에서 찾은 {filterLabel}</Typography>
-                  <Typography sx={{ fontFamily: "Noto sans KR", fontSize: "1.0rem" }}>{filterTags.length}</Typography>
-                </Stack>
-                <Box>
-                  {/* <FilterCheckbox count={10} hashtag="myHashtag" key="myHashtag" onToggle={toggleFilter} /> */}
-                  {filterTags
-                    .sort(([_, a], [__, b]) => (a < b ? 1 : -1))
-                    .map(([hashtag, freq], i) => (
-                      <FilterCheckbox
-                        count={freq}
-                        hashtag={hashtag}
-                        key={hashtag}
-                        checked={filterList.includes(hashtag)}
-                      />
-                    ))}
-                  <Button
-                    size="small"
-                    sx={{ float: 'right', marginRight: '-15px', fontFamily: "Noto sans KR" }}
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  CardContent,
+  Divider,
+  Stack,
+  Chip,
+} from '@mui/material';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import { styled } from '@mui/styles';
+import FilterCheckbox from './FilterCheckbox';
+
+import { useAppliedFilterMapActions } from '../../atoms/appliedFilterMapState';
+import { useFilterTags } from '../../atoms/searchState';
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? 'rgba(255, 255, 255, .05)'
+      : 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}));
+
+export default function FilterBar() {
+  const filterTags = useFilterTags();
+  const { reset, includes } = useAppliedFilterMapActions();
+
+  return (
+    <Card sx={{ right: 0 }} elevation={1} spacing={3}>
+      <CardHeader
+        action={
+          <Button
+            onClick={() => reset()}
+            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-10px', marginRight: '-8x', marginBottom: '-28px' }}
+            size="small"
+          >
+            RESET
+          </Button>
+        }
+        titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"   }}
+        title="FILTER"
+      />
+      <Divider />
+
+      {filterTags &&
+        Object.entries(filterTags).map(
+          ([label, wordCount]) =>
+            Object.keys(wordCount).length > 0 && (
+              <Accordion>
+                <AccordionSummary>
+                  <Stack
+                    sx={{ width: '100%' }}
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
                   >
-                    더보기
-                  </Button>
-                </Box>
-              </Box>
-            </CardContent>
-          );
-        })}
-      </Card>
-    );
-  }
-  
-  const namedEntityMap = { 단체: 'ORG', 인물: 'CVL', 시간대: 'TIM' };
+                    <Box>글에서 찾은 {labelToKorMap[label]}</Box>
+                    <Chip size="small" label={Object.keys(wordCount).length} />
+                  </Stack>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box>
+                    {Object.entries(wordCount)
+                      .sort(([, a], [, b]) => b - a)
+                      .map(([word, count]) => (
+                        <FilterCheckbox
+                          label={label}
+                          count={count}
+                          hashtag={word}
+                          key={word}
+                          checked={includes(label, word)}
+                        />
+                      ))}
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
+            )
+        )}
+    </Card>
+  );
+}
+
+const labelToKorMap = {
+  PER: '인물',
+  FLD: '이론',
+  AFW: '인공물',
+  ORG: '단체',
+  LOC: '장소',
+  CVL: '문화',
+  DAT: '날짜',
+  TIM: '시간',
+  NUM: '숫자',
+  EVN: '사건',
+  ANM: '동물',
+  PLT: '식물',
+  MAT: '물질',
+  TRM: '용어',
+};

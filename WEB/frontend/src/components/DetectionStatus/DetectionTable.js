@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Paper,
   Table,
@@ -12,11 +13,10 @@ import {
   TableFooter,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
-import * as React from 'react';
-import { useRecoilValue } from 'recoil';
-import { searchListState } from '../../atoms/searchListState';
-import { useTheme } from '@mui/material/styles';
+import { useContents } from '../../atoms/searchState';
+import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
+import { useTheme } from '@mui/material/styles';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
@@ -57,14 +57,22 @@ function TablePaginationActions(props) {
         disabled={page === 0}
         aria-label="현재 페이지"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
       </IconButton>
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
         aria-label="다음 페이지"
       >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
       </IconButton>
       <IconButton
         onClick={handleLastPageButtonClick}
@@ -85,13 +93,14 @@ TablePaginationActions.propTypes = {
 };
 
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
-  const searchList = useRecoilValue(searchListState);
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(7);
+  useSearchInitEffect();
+  const contents = useContents();
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(7);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - searchList.contents.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - contents.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -101,7 +110,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  
+
   return (
     <TableContainer component={Paper} elevation={1}>
       <Table>
@@ -120,22 +129,25 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
           </TableRow>
         </TableHead>
         <TableBody>
-        {(rowsPerPage > 0
-            ? searchList.contents.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : searchList.contents
-          ).map((article,id) => (
+          {(rowsPerPage > 0
+            ? contents.slice(
+                page * rowsPerPage,
+                page * rowsPerPage + rowsPerPage
+              )
+            : contents
+          ).map((article, id) => (
             <SecretsTableRow
-            key={id}
-            id={article.id}
-            title={article.title}
-            preview={article.preview}
-            author={article.author}
-            href={article.href}
-            showDetailModal={showDetailModal}
-            scrapArticle={scrapArticle}
-          />
+              key={id}
+              id={article._id}
+              title={article.title}
+              preview={article.preview}
+              author={article.author}
+              href={article.href}
+              showDetailModal={showDetailModal}
+              scrapArticle={scrapArticle}
+            />
           ))}
-                    {emptyRows > 0 && (
+          {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>
               <TableCell colSpan={6} />
             </TableRow>

@@ -1,19 +1,14 @@
-import { Grid, Stack } from '@mui/material';
-
+import { Stack } from '@mui/material';
 import { useCallback } from 'react';
-import { useRecoilState } from 'recoil';
-import { filterListState } from '../../atoms/filterListState';
+import { useAppliedFilterMapActions } from '../../atoms/appliedFilterMapState';
 
 export default function FilterCheckbox(props) {
-  const { count, hashtag, checked } = props;
-  const [filterList, setFilterList] = useRecoilState(filterListState);
+  const { label, count, hashtag, checked } = props;
+  const { append, remove, includes } = useAppliedFilterMapActions();
 
   const onChange = useCallback((e) => {
-    if (filterList.includes(hashtag)) {
-      setFilterList(filterList.filter((val) => val !== hashtag));
-    } else {
-      setFilterList([...filterList, hashtag]);
-    }
+    if (includes(label, hashtag)) remove(label, hashtag);
+    else append(label, hashtag);
   });
 
   return (

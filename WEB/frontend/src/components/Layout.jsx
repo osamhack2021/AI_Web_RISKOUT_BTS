@@ -22,7 +22,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: `-${drawerWidth}px`,
+    marginLeft: `-${drawerWidth - 20}px`,
     ...(open && {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -46,7 +46,7 @@ export default class MainLayout extends React.Component {
       <Box
         component="main"
         sx={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgb(11,13,15)',
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',

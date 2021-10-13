@@ -11,16 +11,13 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
 
 // Custom Components
 import SidebarLink from '../SidebarLink';
 import SidebarLinkMini from '../SidebarLinkMini';
 
 // Icons and Images
-import logoImage from '../../images/sub/logo_w.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -30,7 +27,6 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import '../../css/SideNavigation.css';
-import { getRadioUtilityClass } from '@mui/material';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -46,7 +42,6 @@ export default function SideNavigation(props) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -57,7 +52,13 @@ export default function SideNavigation(props) {
 
   return (
     <>
-      <Box sx={{ position:'fixed', background: 'rgb(29, 28, 26)', minHeight: '100%'}}>
+      <Box
+        sx={{
+          background: 'rgb(29, 28, 26)',
+          minHeight: '100%',
+          position: 'fixed',
+        }}
+      >
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -66,31 +67,37 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: '#fff', fontSize:'1.3em', position:'fixed'}} />
+          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
         </IconButton>
-        <Box sx={{position: 'fixed'}}>
-          <SidebarLinkMini icon={InfoIcon} text="언론동향" href="/presstrends" className="a" />
+        <Box sx={{ position: 'fixed' }}>
+          <SidebarLinkMini
+            icon={InfoIcon}
+            text="언론 동향"
+            href="/presstrends"
+          />
           <SidebarLinkMini
             icon={SearchIcon}
             text="탐지현황"
             href="/detectionstatus"
             isOn={true}
-            className="b"
           />
           <SidebarLinkMini
             icon={AssessmentIcon}
             text="리포트"
             href="/riskreport"
-            className="c"
           />
-          <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" className="d" />
+          <SidebarLinkMini
+            icon={LogoutIcon}
+            text="로그아웃"
+            href="/logout"
+          />
         </Box>
       </Box>
 
-      <Drawer
-        variant="persistent"
+      <Drawer  
         anchor="left"
         open={open}
+        onClick={handleDrawerClose}
         className="sub_header"
         sx={{
           width: drawerWidth,
@@ -107,11 +114,15 @@ export default function SideNavigation(props) {
       >
         <Box className="closeButton">
           <Link href="/">
-            <img src="https://riskout.ithosting.repl.co/images/main/logo_w.png" alt="홈" className="image" />
+            <img
+              src={require("../../images/sub/logo_black.png")}
+              alt="홈"
+              className="image"
+            />
           </Link>
-          <IconButton onClick={handleDrawerClose}  >
+          <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'white' }}  />
+              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -126,7 +137,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/"/>
+          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
         </List>
         <ListItem>
           <ListItemText
