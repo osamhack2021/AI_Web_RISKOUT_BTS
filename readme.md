@@ -195,16 +195,16 @@
 
 RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
 
-- [x] [Twitter Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
-- [x] [Naver News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
-- [x] [Extracting images](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/144)
-- [x] [Extracting Authors](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/106)
+- [x] [SNS Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
+- [x] [News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
 - [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
 - [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
 - [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
 - [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [ ] [Component Themes]()
-- [ ] [Custom Component Support]()
+- [ ] [Crawler for over 100,000+ websites]()
+- [ ] [10000+건의 위협 탐지 및 신고]()
+- [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
+- [ ] [대기업용 리스크 관리 플랫폼 구축]()
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
