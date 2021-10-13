@@ -34,7 +34,7 @@ export default function SecretsTableRow(props) {
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          {id % 2 === 0 ? <ListItemIcon><WarningAmberIcon color="action" /><DescriptionIcon color="action" /></ListItemIcon>  : <ListItemIcon><TheaterComedyIcon color="action" /></ListItemIcon>}
+          {id % 2 === 0 ? <ListItemIcon><DescriptionIcon color="action" /></ListItemIcon>  : <ListItemIcon><TheaterComedyIcon color="action" /></ListItemIcon>}
         </Link>
       </TableCell>
       <TableCell
