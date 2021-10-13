@@ -36,8 +36,6 @@ export function SearchChip(props) {
 }
 
 export default function SearchBar({ setValue }) {
-  
-
   const setAppliedFilterMap = useSetRecoilState(appliedFilterMapState);
   const autoCompleteFilter = useRecoilValue(autoCompleteFilterState);
   const appliedAutoCompleteFilter = useRecoilValue(
@@ -57,7 +55,7 @@ export default function SearchBar({ setValue }) {
   return (
     <Autocomplete
       multiple
-      // value를 autocomplete에 맞는 양식으로 줘야함.
+      mt={2}
       value={appliedAutoCompleteFilter}
       options={autoCompleteFilter}
       getOptionLabel={(option) => option.word}
