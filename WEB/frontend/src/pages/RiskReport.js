@@ -117,7 +117,7 @@ const RiskReport = (props) => {
 
           <Box>
             {/* 일일 리스크 현황 옆 기사 */}
-            {Array.from({ length: 4 }).map((_, i) => (
+            {Array.from({ length: 3 }).map((_, i) => (
             <Box>
               <Skeleton
                 key={i}
@@ -145,13 +145,16 @@ const RiskReport = (props) => {
                 width={400} height={15}
                 sx={{ marginBottom:'13px' }}
               />
+
+              {/* chip */}
+              <Skeleton sx={{ borderRadius: "20px" }} width={63} height={34} animation="wave" variant="rectangular" />
             </Box>
           ))}
           </Box>
         </Box>
 
         {/* 리스크 종류별 비율 (%) */}
-        <Skeleton sx={{ borderRadius: "10px" }} width={879} height={400} animation="wave" variant="rectangular" />
+        <Skeleton sx={{ borderRadius: "10px", marginTop: 2 }} width={879} height={400} animation="wave" variant="rectangular" />
 
         {/* 중대 위협 */}
         <Skeleton
@@ -162,7 +165,7 @@ const RiskReport = (props) => {
         />
         <Box sx={{ display: 'flex' }}>
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10, marginTop: 5, marginBottom: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
           ))}
         </Box>
       </div>
