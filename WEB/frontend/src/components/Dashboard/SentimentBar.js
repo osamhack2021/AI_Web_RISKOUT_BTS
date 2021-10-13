@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-const SentimentBar = ({ colors }) => {
+const SentimentBar = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/data/sentimentBar.json`);
 
   return (
@@ -33,6 +33,7 @@ const SentimentBar = ({ colors }) => {
             }}
           >
             <ResponsiveBar
+              theme={theme}
               data={data.response}
               keys={['positive', 'neutral', 'negative']}
               indexBy="category"

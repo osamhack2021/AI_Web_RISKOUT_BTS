@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-const GeoEventPlot = ({ colors }) => {
+const GeoEventPlot = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/data/geo.json`);
 
   return (
@@ -35,14 +35,16 @@ const GeoEventPlot = ({ colors }) => {
             }}
           >
             <ResponsiveChoropleth
+              theme={theme}
               data={data.response}
               features={countries.features}
-              margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+              margin={{ top: -30, right: 0, bottom: 0, left: 0 }}
               colors={colors}
               domain={[0, 5000]}
               unknownColor="white"
               label="properties.name"
               valueFormat=".2s"
+              projectionScale={120}
               projectionType="naturalEarth1"
               projectionTranslation={[0.5, 0.5]}
               projectionRotation={[0, 0, 0]}
@@ -50,31 +52,33 @@ const GeoEventPlot = ({ colors }) => {
               graticuleLineColor="#dddddd"
               borderWidth={0.5}
               borderColor="#152538"
-              legends={[
-                {
-                  anchor: 'bottom-left',
-                  direction: 'column',
-                  justify: true,
-                  translateX: 20,
-                  translateY: -100,
-                  itemsSpacing: 0,
-                  itemWidth: 94,
-                  itemHeight: 18,
-                  itemDirection: 'left-to-right',
-                  itemTextColor: '#444444',
-                  itemOpacity: 0.85,
-                  symbolSize: 18,
-                  effects: [
-                    {
-                      on: 'hover',
-                      style: {
-                        itemTextColor: '#000000',
-                        itemOpacity: 1,
-                      },
-                    },
-                  ],
-                },
-              ]}
+              legends={
+                [
+                  // {
+                  //   anchor: 'bottom-left',
+                  //   direction: 'column',
+                  //   justify: true,
+                  //   translateX: 20,
+                  //   translateY: -100,
+                  //   itemsSpacing: 0,
+                  //   itemWidth: 94,
+                  //   itemHeight: 18,
+                  //   itemDirection: 'left-to-right',
+                  //   itemTextColor: '#444444',
+                  //   itemOpacity: 0.85,
+                  //   symbolSize: 18,
+                  //   effects: [
+                  //     {
+                  //       on: 'hover',
+                  //       style: {
+                  //         itemTextColor: '#000000',
+                  //         itemOpacity: 1,
+                  //       },
+                  //     },
+                  //   ],
+                  // },
+                ]
+              }
             />
           </Box>
         </CardContent>

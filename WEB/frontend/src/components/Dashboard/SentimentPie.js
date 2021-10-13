@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-export const SentimentPie = ({ colors }) => {
+export const SentimentPie = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/data/sentimentPie.json`);
 
   return (
@@ -33,6 +33,7 @@ export const SentimentPie = ({ colors }) => {
             }}
           >
             <ResponsivePie
+              theme={theme}
               data={data.response}
               margin={{ top: 0, right: 80, bottom: 100, left: 80 }}
               innerRadius={0.5}
@@ -43,11 +44,8 @@ export const SentimentPie = ({ colors }) => {
               borderWidth={1}
               borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
               arcLinkLabelsSkipAngle={10}
-              arcLinkLabelsTextColor="#333333"
               arcLinkLabelsThickness={2}
-              arcLinkLabelsColor={{ from: 'color' }}
               arcLabelsSkipAngle={10}
-              arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
               defs={[
                 {
                   id: 'dots',
