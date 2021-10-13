@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SearchBar from '../components/SearchBar';
 import {
   Box,
@@ -80,37 +80,61 @@ const RiskReport = (props) => {
         <h2 className="h2_tit2">리스크 보고서 생성 중...</h2>
       </div>
       <div className="content clfix">
+        <Skeleton animation="wave" height={75} width="10%" />
         <Skeleton
-              animation="wave"
-              height={75}
-              width="10%"
-            />
-        <Skeleton
-              animation="wave"
-              height={35}
-              width="40%"
-              style={{ marginBottom: 26 }}
-            />
-        <Skeleton
-              animation="wave"
-              height={60}
-              width="14%"
-            />
-        <Box sx={{display: 'flex'}}>
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px'  }} width={120} height={45} animation="wave" variant="rectangular" />
-        </Box>
-        <Box sx={{display: 'flex'}}>
-          <Skeleton sx={{ borderRadius: "10px", marginTop:'13px'  }} width={879} height={400} animation="wave" variant="rectangular" />
+          animation="wave"
+          height={35}
+          width="40%"
+          style={{ marginBottom: 26 }}
+        />
+        <Skeleton animation="wave" height={60} width="14%" />
+        <Box sx={{ display: 'flex' }}>
           <Skeleton
-              animation="wave"
-              height={60}
-              width="14%"
-            />
-          
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+        </Box>
+        <Box sx={{ display: 'flex' }}>
+          <Skeleton
+            sx={{ borderRadius: '10px', marginTop: '13px' }}
+            width={879}
+            height={400}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton animation="wave" height={60} width="14%" />
+
           {/* {Array.from({ length: 20 }).map((_, i) => (
             <Skeleton key={i} animation="wave"
             height={60}
