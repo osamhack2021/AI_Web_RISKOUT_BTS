@@ -131,7 +131,7 @@
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
 ### AI
 
-- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드
+- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
   - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공
   - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현
 - [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
@@ -145,10 +145,10 @@
 
 ### Backend
 
-- Backend template with Golang built-in [net/http](https://golang.org/pkg/net/http/) package:
-  - [`net/http`](https://github.com/create-go-app/net_http-go-template) — simple REST API with CRUD and JWT auth.
-- Backend template with [Fiber](https://github.com/gofiber/fiber):
-  - [`fiber`](https://github.com/create-go-app/fiber-go-template) — complex REST API with CRUD, JWT auth with renew token, DB and cache.
+- [DRF](https://www.django-rest-framework.org/)를 통한 백엔드 구축:
+  - [`Mongo DB`](https://www.mongodb.com/) — 데이터베이스 구축
+- [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 이용하여 크롤링:
+  - `Crawler` — 각종 오픈게시판, SNS, 뉴스사이트에서 언어데이터를 추출하는데에 사용.
 
 ### Frontend
 
