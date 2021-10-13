@@ -9,10 +9,9 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-
 const SentimentBar = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
-    method: 'POST',
+    method: 'GET',
   });
 
   return (

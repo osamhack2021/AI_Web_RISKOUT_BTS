@@ -10,11 +10,11 @@ import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import useSeacrhEffect from '../hooks/useSearchInitEffect';
+import useSearchEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
 export default function DetectionStatus() {
-  useSeacrhEffect(); // init
+  useSearchEffect(); // init
 
   const search = useRecoilValue(searchState);
   const appliedFilterList = useRecoilValue(appliedFilterListState);
@@ -36,7 +36,7 @@ export default function DetectionStatus() {
     const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     console.log(
       data,
-      search.contents.filter((x) => x.id == _id),
+      search.contents.filter((x) => x._id == _id),
       search
     );
     setDetailModalData(data);
@@ -45,13 +45,13 @@ export default function DetectionStatus() {
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const { enqueueSnackbar } = useSnackbar();
-  const scrapArticle = (id) => {
-    addCart(id);
-    // const article = search.contents.filter((x) => x.id == id).pop();
-    // enqueueSnackbar('Scrapped article | ' + article.title, {
-    //   variant: 'success',
-    //   autoHideDuration: 10000,
-    // });
+  const scrapArticle = (_id) => {
+    addCart(_id);
+    const article = search.contents.filter((x) => x._id == _id).pop(0);
+    enqueueSnackbar('Scrapped article | ' + article.title, {
+      variant: 'success',
+      autoHideDuration: 10000,
+    });
   };
 
   const analyzePage = (id) => {

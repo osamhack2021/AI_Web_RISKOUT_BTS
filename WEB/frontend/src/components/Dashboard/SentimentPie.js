@@ -11,7 +11,7 @@ import useFetch from '../../hooks/useFetch';
 
 export const SentimentPie = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(`/api/nlp/sentiment/pie/`, {
-    method: 'POST',
+    method: 'GET',
   });
 
   return (
