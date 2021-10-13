@@ -311,7 +311,7 @@ RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶
 - [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
 - [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
 - [ ] [100,000+ 웹사이트 크롤링 기능 구현]()
-- [ ] [10000+건의 위협 탐지 및 신고]()
+- [ ] [10,000+건의 위협 탐지 및 신고]()
 - [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
 - [ ] [대기업용 리스크 관리 플랫폼 구축]()
 
