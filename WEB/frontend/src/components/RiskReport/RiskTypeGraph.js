@@ -145,4 +145,4 @@ export const RiskTypeGraph = ({ colors, data }) => {
   );
 };
 
-export default SentimentPie;
+export default RiskTypeGraph;

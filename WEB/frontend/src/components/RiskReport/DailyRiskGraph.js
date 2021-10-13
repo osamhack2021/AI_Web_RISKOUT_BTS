@@ -90,4 +90,4 @@ const DailyRiskGraph = ({ colors, data }) => {
   );
 };
 
-export default SentimentBar;
+export default DailyRiskGraph;
