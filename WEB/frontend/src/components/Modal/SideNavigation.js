@@ -109,13 +109,14 @@ export default function SideNavigation(props) {
             top: 0,
             width: drawerWidth,
             height: '100vh',
+            overflow: 'hidden',
           },
         }}
       >
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require("../../images/sub/logo_black.png")}
+              src={require("../../images/sub/logo_blue_white.png").default}
               alt="홈"
               className="image"
             />
