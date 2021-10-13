@@ -10,10 +10,10 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 export const SentimentPie = ({ theme, colors }) => {
-  // /data/sentimentPie.json
-  const { data, error, isPending } = useFetch(`/data/sentimentPie.json`, {
-    method: 'GET',
-  });
+  const { data, error, isPending } = useFetch(`/data/sentimentPie.json`);
+  // const { data, error, isPending } = useFetch(`/api/nlp/sentiment/pie/`, {
+  //   method: 'GET',
+  // });
 
   return (
     <Card style={{ height: '400px' }}>

@@ -13,6 +13,9 @@ import useFetch from '../../hooks/useFetch';
 
 const ArticleVolumeLine = ({ theme, colors }) => {
   const { data, isPending, error } = useFetch(`/data/articleVolume.json`);
+  // const { data, error, isPending } = useFetch(`/api/nlp/article/volume/`, {
+  //   method: 'GET',
+  // });
 
   return (
     <Card style={{ height: '400px' }}>
