@@ -6,6 +6,7 @@
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  overflow: auto;
 }
 body::-webkit-scrollbar {
   /*overflow-y: hidden; /* Chrome, Safari, Opera*/

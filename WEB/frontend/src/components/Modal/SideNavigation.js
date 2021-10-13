@@ -109,6 +109,7 @@ export default function SideNavigation(props) {
             top: 0,
             width: drawerWidth,
             height: '100vh',
+            overflow: 'hidden',
           },
         }}
       >
