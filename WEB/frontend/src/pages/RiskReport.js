@@ -143,11 +143,14 @@ const RiskReport = (props) => {
                 key={i}
                 animation="wave"
                 width={400} height={15}
-                sx={{ marginBottom:'13px' }}
+                sx={{ marginBottom:'7px' }}
               />
 
               {/* chip */}
-              <Skeleton sx={{ borderRadius: "20px" }} width={63} height={34} animation="wave" variant="rectangular" />
+              <Box sx={{ display: 'flex' }}>
+                <Skeleton sx={{ borderRadius: "20px", marginRight: 1 }} width={53} height={30} animation="wave" variant="rectangular" />
+                <Skeleton sx={{ borderRadius: "20px", marginRight: 1, marginBottom:'13px' }} width={53} height={30} animation="wave" variant="rectangular" />
+              </Box>
             </Box>
           ))}
           </Box>
@@ -165,7 +168,7 @@ const RiskReport = (props) => {
         />
         <Box sx={{ display: 'flex' }}>
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10, marginTop: 5, marginBottom: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10, marginTop: 5, marginBottom: 7 }} width={300} height={324} animation="wave" variant="rectangular" />
           ))}
         </Box>
       </div>
