@@ -5,10 +5,15 @@ import {
   TableCell,
   TableRow,
 } from '@mui/material';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ForumIcon from '@mui/icons-material/Forum';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import DescriptionIcon from '@mui/icons-material/Description';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import InfoIcon from '@mui/icons-material/Info';
+
 import ScrapButton from './ScrapButton';
 
 function CategorizedIcon({ category }) {

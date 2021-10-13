@@ -9,8 +9,11 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
+
 const SentimentBar = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/sentimentBar.json`);
+  const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
+    method: 'POST',
+  });
 
   return (
     <Card style={{ height: '400px' }}>

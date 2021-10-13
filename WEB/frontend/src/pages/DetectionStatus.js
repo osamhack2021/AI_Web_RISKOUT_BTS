@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { Grid, Typography } from '@mui/material';
 
-import AppliedFilters from '../components/DetectionStatus/AppliedFilter';
 import DetectionTable from '../components/DetectionStatus/DetectionTable';
 import FilterBar from '../components/DetectionStatus/FilterBar';
 import SearchForm from '../components/SearchForm';
@@ -44,11 +44,14 @@ export default function DetectionStatus() {
   };
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-
+  const { enqueueSnackbar } = useSnackbar();
   const scrapArticle = (id) => {
     addCart(id);
-    console.log('TODO: scrap article ', id);
-    alert('TODO: scrap article ' + id + ' ' + getCart());
+    // const article = search.contents.filter((x) => x.id == id).pop();
+    // enqueueSnackbar('Scrapped article | ' + article.title, {
+    //   variant: 'success',
+    //   autoHideDuration: 10000,
+    // });
   };
 
   const analyzePage = (id) => {
@@ -77,9 +80,6 @@ export default function DetectionStatus() {
             필터 적용중
           </Typography>
         </Grid>
-        {/* <Grid width="100%" item justify="center">
-          <AppliedFilters />
-        </Grid> */}
         <Grid item justify="center">
           <DetectionTable
             showDetailModal={showDetailModal}

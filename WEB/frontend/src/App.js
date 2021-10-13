@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import { green, purple } from '@mui/material/colors';
 
+import { SnackbarProvider, useSnackbar } from 'notistack';
 import Layout from './components/Layout';
 
 import Board from './pages/Board';
@@ -33,6 +33,9 @@ const mdTheme = createTheme({
       main: 'rgb(252, 85, 80)',
     },
   },
+  typography: {
+    fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
+  },
 });
 
 export default function App() {
@@ -62,52 +65,57 @@ export default function App() {
   return (
     <ThemeProvider theme={mdTheme}>
       <CssBaseline />
-      <Layout handleLogout={handleLogout}>
-        <Route exact path="/">
-          <Board />
-        </Route>
+      <SnackbarProvider
+        maxSnack={3}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+        <Layout handleLogout={handleLogout}>
+          <Route exact path="/">
+            <Board />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginModal
-            setModal={setModal}
-            userHasAuthenticated={userHasAuthenticated}
-          />
-        </Route>
+          <Route exact path="/login">
+            <LoginModal
+              setModal={setModal}
+              userHasAuthenticated={userHasAuthenticated}
+            />
+          </Route>
 
-        <Route exact path="/init">
-          <InitInfo />
-        </Route>
+          <Route exact path="/init">
+            <InitInfo />
+          </Route>
 
-        <Route exact path="/presstrends">
-          <Dashboard />
-        </Route>
+          <Route exact path="/presstrends">
+            <Dashboard />
+          </Route>
 
-        <Route exact path="/detectionstatus">
-          <DetectionStatus />
-        </Route>
+          <Route exact path="/detectionstatus">
+            <DetectionStatus />
+          </Route>
 
-        <Route exact path="/riskreport">
-          <RiskReport />
-        </Route>
+          <Route exact path="/riskreport">
+            <RiskReport />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginModal
-            setModal={setModal}
-            userHasAuthenticated={userHasAuthenticated}
-          />
-        </Route>
-        <Route exact path="/register">
-          <RegisterModal setModal={setModal} />
-        </Route>
+          <Route exact path="/login">
+            <LoginModal
+              setModal={setModal}
+              userHasAuthenticated={userHasAuthenticated}
+            />
+          </Route>
+          <Route exact path="/register">
+            <RegisterModal setModal={setModal} />
+          </Route>
 
-        <Route exact path="/init">
-          <InitInfo setModal={setModal} />
-        </Route>
+          <Route exact path="/init">
+            <InitInfo setModal={setModal} />
+          </Route>
 
-        <Route exact path="/password_reset">
-          <PasswordResetModal setModal={setModal} />
-        </Route>
-      </Layout>
+          <Route exact path="/password_reset">
+            <PasswordResetModal setModal={setModal} />
+          </Route>
+        </Layout>
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }

@@ -5,6 +5,7 @@ from rest_framework import serializers
 # Analyzed Data Serializer
 class AnalyzedDataSerializer(serializers.Serializer):
 
+    mode = serializers.CharField(required=True)
     category = serializers.CharField(required=True)
     period = serializers.IntegerField(required=True)
     tags = serializers.DictField(required=True)

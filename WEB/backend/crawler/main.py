@@ -7,7 +7,5 @@ async def main():
 
     await asyncio.gather(*futures)
 
-
-
 if __name__ == '__main__':
     asyncio.run(main())
