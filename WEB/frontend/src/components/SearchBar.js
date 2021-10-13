@@ -5,6 +5,7 @@ import {
   appliedAutoCompleteFilterState,
 } from '../atoms/appliedFilterMapState';
 import { Autocomplete, Chip, TextField, Checkbox } from '@mui/material';
+
 import PersonIcon from '@mui/icons-material/Person';
 import PlaceIcon from '@mui/icons-material/Place';
 import ApartmentIcon from '@mui/icons-material/Apartment';
@@ -46,6 +47,7 @@ export default function SearchBar({ setValue }) {
       if (!format[label]) format[label] = [word];
       else if (!format[label].includes(word)) format[label].push(word);
     }
+    console.log(values);
     setAppliedFilterMap(format);
     setValue('search', values);
   };
