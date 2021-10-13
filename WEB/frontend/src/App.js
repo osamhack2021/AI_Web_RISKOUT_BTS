@@ -14,13 +14,25 @@ import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import PasswordResetModal from './components/Modal/PasswordResetModal';
 import InitInfo from './components/Modal/InitInfo';
-import Search from './components/Search';
+import SearchBar from './components/SearchBar';
 import DynamicRoutes from './DynamicRoutes';
 
 import './App.css';
 // import './css/style.css';
 
 const mdTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    success: {
+      main: 'rgb(40, 189, 139)',
+    },
+    warning: {
+      main: 'rgb(255, 167, 37)',
+    },
+    error: {
+      main: 'rgb(252, 85, 80)',
+    },
+  },
   typography: {
     fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
   },

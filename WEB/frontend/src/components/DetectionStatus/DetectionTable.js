@@ -10,12 +10,10 @@ import {
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 
-import { useRecoilValue } from 'recoil';
 import { useContents } from '../../atoms/searchState';
-import useSearchEffect from '../../hooks/useSearchEffect';
+import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
 export default function DetectionTable({ showDetailModal, scrapArticle }) {
-  useSearchEffect();
   const contents = useContents();
 
   return (
@@ -41,10 +39,12 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
               <SecretsTableRow
                 key={id}
                 id={content._id}
+                category={content.category}
                 title={content.title}
-                preview={content.preview}
+                preview={content.summarized}
                 author={content.author}
                 href={content.href}
+                // contentBody={content.contentBody}
                 showDetailModal={showDetailModal}
                 scrapArticle={scrapArticle}
               />

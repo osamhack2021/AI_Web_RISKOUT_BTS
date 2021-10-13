@@ -8,6 +8,7 @@ import {
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ForumIcon from '@mui/icons-material/Forum';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import DescriptionIcon from '@mui/icons-material/Description';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
@@ -15,11 +16,18 @@ import InfoIcon from '@mui/icons-material/Info';
 
 import ScrapButton from './ScrapButton';
 
+function CategorizedIcon({ category }) {
+  if (category == 'news') return <DescriptionIcon color="action" />;
+  else if (category == 'sns') return <ForumIcon color="action" />;
+}
+
 export default function SecretsTableRow(props) {
   const {
     id,
     title,
+    category,
     preview,
+    contentBody,
     author,
     href,
     showDetailModal,
@@ -34,7 +42,7 @@ export default function SecretsTableRow(props) {
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          {id % 2 === 0 ? <ListItemIcon><DescriptionIcon color="action" /></ListItemIcon>  : <ListItemIcon><TheaterComedyIcon color="action" /></ListItemIcon>}
+          <CategorizedIcon category={category} />
         </Link>
       </TableCell>
       <TableCell
@@ -42,7 +50,11 @@ export default function SecretsTableRow(props) {
         onClick={() => showDetailModal(id)}
         style={{ cursor: 'pointer' }}
       >
-        <Typography sx={{fontFamily: "Noto sans KR"}} style={{ fontWeight: 'bold'}} color="textPrimary">
+        <Typography
+          sx={{ fontFamily: 'Noto sans KR' }}
+          style={{ fontWeight: 'bold' }}
+          color="textPrimary"
+        >
           {title}
         </Typography>
         <Typography color="textSecondary" variant="body2">

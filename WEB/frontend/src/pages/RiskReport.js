@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import SearchBar from '../components/SearchBar';
 import {
   Box,
   Chip,
@@ -79,6 +80,7 @@ const RiskReport = (props) => {
         <h2 className="h2_tit2">보고서 생성 중...</h2>
       </div>
       <div className="content clfix">
+        <Skeleton animation="wave" height={75} width="10%" />
         <Skeleton
               animation="wave"
               height={75}
