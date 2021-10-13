@@ -116,7 +116,7 @@ export default function SideNavigation(props) {
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require("../../images/sub/logo_black.png")}
+              src={require("../../images/sub/logo_blue_white.png")}
               alt="홈"
               className="image"
             />
