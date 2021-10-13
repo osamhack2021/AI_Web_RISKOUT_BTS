@@ -122,11 +122,9 @@
 
 <h3> 💾 Versions</h3>
 
-
-| <img src="https://user-images.githubusercontent.com/55467050/137045584-9bfa3e0f-eafa-49b2-b10a-6cd8bb753e66.png" width="16px" height="16px" /> Pytorch | <img src="https://user-images.githubusercontent.com/55467050/137045573-6161819d-24b5-4130-9f96-d261eee4a723.png" width="16px" height="16px" /> React | <img src="https://user-images.githubusercontent.com/55467050/137045575-88aa70a8-3c3d-46d4-b975-d43ffc7f1891.png" width="16px" height="16px" /> Django | <img src="https://user-images.githubusercontent.com/55467050/137045577-44a70700-45cb-4320-a964-e75f9e1b1fde.png" width="16px" height="16px" /> DRF | <img src="https://user-images.githubusercontent.com/55467050/137045579-f21e3685-9dcf-4b18-93ab-51ecf6234666.png" width="16px" height="16px" /> Mongo | <img src="https://user-images.githubusercontent.com/55467050/137045580-417e1e41-d5d6-4618-b39b-d07d871f978b.png" width="16px" height="16px" /> Docker |
+| <img src="https://user-images.githubusercontent.com/55467050/137036906-a6c0f879-5b51-49d3-8e02-d01994f64d18.png" alt="Chrome" width="16px" height="16px" /> Chrome | <img src="https://user-images.githubusercontent.com/55467050/137036911-ccb70714-15fc-46fb-a074-19bb769727e9.png" alt="IE" width="16px" height="16px" /> Internet Explorer | <img src="https://user-images.githubusercontent.com/55467050/137036913-033a988f-b9c9-4980-8540-5994cfa7e465.jpg" alt="Edge" width="16px" height="16px" /> Edge | <img src="https://user-images.githubusercontent.com/55467050/137036914-1a1f080e-9fb3-4b29-a143-517be979e78f.png" alt="Safari" width="16px" height="16px" /> Safari | <img src="https://user-images.githubusercontent.com/55467050/137036916-91328771-5dd5-41fb-a842-8562db3c480c.png" alt="Firefox" width="16px" height="16px" /> Firefox |
 | :---------: | :---------: | :---------: | :---------: | :---------: |
-| 20.10+ | 1.29 | 17.0.2 | 5.2.1 | 5.0.1 |
-
+| Yes | 11+ | Yes | Yes | Yes |
 
 <h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
 
