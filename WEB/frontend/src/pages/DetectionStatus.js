@@ -57,7 +57,7 @@ export default function DetectionStatus() {
   };
 
   return (
-    <Grid container spacing={3} sx={{ marginLeft: '2em' }}>
+    <Grid container spacing={3}>
       <Grid item xs={12} md={10} container spacing={3} direction="column">
         <Grid width="100%" item>
           <Typography
