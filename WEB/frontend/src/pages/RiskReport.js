@@ -109,9 +109,11 @@ const RiskReport = (props) => {
         </Box>
         <Box sx={{display: 'flex'}}>
           <Box>
-            <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={400} animation="wave" variant="rectangular" />
+            {/* 일일 리스크 현황 */}
+            <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={450} animation="wave" variant="rectangular" />
           </Box>
           <Box>
+            {/* 일일 리스크 현황 옆 기사 */}
             {Array.from({ length: 4 }).map((_, i) => (
             <Box>
               <Skeleton
@@ -144,7 +146,19 @@ const RiskReport = (props) => {
           ))}
           </Box>
         </Box>
-        <Skeleton sx={{ borderRadius: "10px", marginTop:'33px', marginRight:'33px' }} width={879} height={400} animation="wave" variant="rectangular" />
+        {/* 리스크 종류별 비율 (%) */}
+        <Skeleton sx={{ borderRadius: "10px" }} width={879} height={400} animation="wave" variant="rectangular" />
+        <Skeleton
+          sx={{ borderRadius: "10px", marginTop: 10 }}
+          animation="wave"
+          height={95}
+          width="15%"
+        />
+        <Box sx={{ display: 'flex' }}>
+          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+        </Box>
       </div>
     </section>
   );
