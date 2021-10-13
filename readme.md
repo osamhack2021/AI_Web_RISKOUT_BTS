@@ -112,6 +112,19 @@
 * **허위 기사 보고** : 사용자가 선택한 허위 기사 탐지글들을 기반으로 제작된 AI 자동 요약본.
 * **허위 기사 개요** : 타임라인으로 구분된 현재까지의 허위 기사 현황.
 
+<h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
+
+로그인 하신 후:
+
+<p align="center">
+  <img src="https://gdurl.com/YNdz" />
+</p>
+
+*축하해요!* *RISKOUT*의 유저가 되셨습니다.
+
+이제 사용하실 수 있습니다! 🎉
+- 📺 Full 영상: https://riskout.ithosting.repl.co
+
 <h2 id="prerequisites"> :fork_and_knife: 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 <h3> :earth_asia: Browser</h3>
 
@@ -177,19 +190,6 @@
 4. Edit ```secrets.json``` with your own credentials.
 5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
 6. Run command ```./web.sh```
-
-<h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
-
-로그인 하신 후:
-
-<p align="center">
-  <img src="https://gdurl.com/YNdz" />
-</p>
-
-*축하해요!* *RISKOUT*의 유저가 되셨습니다.
-
-이제 사용하실 수 있습니다! 🎉
-- 📺 Full 영상: https://riskout.ithosting.repl.co
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
