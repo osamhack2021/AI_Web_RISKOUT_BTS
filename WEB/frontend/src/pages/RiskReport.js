@@ -155,9 +155,9 @@ const RiskReport = (props) => {
           width="15%"
         />
         <Box sx={{ display: 'flex' }}>
-          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginLeft: 20 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10 }} width={300} height={324} animation="wave" variant="rectangular" />
+          ))}
         </Box>
       </div>
     </section>
