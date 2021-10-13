@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { green, purple } from '@mui/material/colors';
 
 import Layout from './components/Layout';
 
@@ -22,6 +23,15 @@ import './App.css';
 const mdTheme = createTheme({
   palette: {
     mode: 'dark',
+    success: {
+      main: 'rgb(40, 189, 139)',
+    },
+    warning: {
+      main: 'rgb(255, 167, 37)',
+    },
+    error: {
+      main: 'rgb(252, 85, 80)',
+    },
   },
 });
 

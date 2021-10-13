@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
-const ArticleVolumeLine = () => {
+const ArticleVolumeLine = ({ colors }) => {
   const { data, isPending, error } = useFetch(`/data/articleVolume.json`);
 
   return (
@@ -66,7 +66,7 @@ const ArticleVolumeLine = () => {
                 legendOffset: -40,
                 legendPosition: 'middle',
               }}
-              colors={{ scheme: 'nivo' }}
+              colors={colors}
               pointSize={10}
               pointColor={{ theme: 'background' }}
               pointBorderWidth={2}

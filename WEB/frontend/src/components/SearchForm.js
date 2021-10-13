@@ -27,31 +27,26 @@ export default function SearchForm() {
   };
 
   return (
-    <FormControl
-      size="small"
-      sx={{ minWidth: '100%' }}
-      onSubmit={handleSubmit(onSubmit)}
-      className="search-form"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="search-form">
       <Controller
         control={control}
         render={({ field }) => <SearchBar {...field} setValue={setValue} />}
         defaultValue={{}}
       />
       <Stack direction="row" justifyContent="flex-end" spacing={2}>
-        <Select defaultValue="all" {...register('category')}>
+        <Select size="small" defaultValue="all" {...register('category')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="news">뉴스</MenuItem>
           <MenuItem value="sns">SNS</MenuItem>
         </Select>
 
-        <Select defaultValue="all" {...register('type')}>
+        <Select size="small" defaultValue="all" {...register('type')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="leaked">기밀유출 의심</MenuItem>
           <MenuItem value="fakenews">가짜뉴스 의심</MenuItem>
         </Select>
 
-        <Select defaultValue="24" {...register('period')}>
+        <Select size="small" defaultValue="24" {...register('period')}>
           <MenuItem value="1">1h</MenuItem>
           <MenuItem value="3">3h</MenuItem>
           <MenuItem value="5">5h</MenuItem>
@@ -61,10 +56,10 @@ export default function SearchForm() {
           <MenuItem value="148">7d</MenuItem>
         </Select>
 
-        <Button variant="outlined" type="submit">
+        <Button size="small" variant="outlined" type="submit">
           search
         </Button>
       </Stack>
-    </FormControl>
+    </form>
   );
 }

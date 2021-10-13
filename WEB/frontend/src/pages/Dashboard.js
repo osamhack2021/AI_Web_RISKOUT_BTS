@@ -19,27 +19,32 @@ export default function Dashboard() {
         <WordCloud options={options} />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={4}>
-        <ArticleVolumeLine colors={options.colors} />
+        <ArticleVolumeLine colors={palette} />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={4}>
         <TrendsCard />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={4}>
-        <SentimentBar colors={options.colors} />
+        <SentimentBar colors={palette} />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={3}>
-        <SentimentPie colors={options.colors} />
+        <SentimentPie colors={palette} />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={5}>
-        <GeoEventPlot colors={options.colors} />
+        <GeoEventPlot colors={palette} />
       </Grid>
     </Grid>
   );
 }
-
+const palette = ['rgb(84,114,234)', 'rgb(40,189,139)', 'rgb(250,81,81)'];
 const options = {
   // colors 를 바꾸면 전체 Theme 이 바뀝니다.
-  colors: ['rgb(255, 106, 105)'],
+  colors: [
+    'rgb(255, 106, 105)',
+    'rgb(84,114,234)',
+    'rgb(40,189,139)',
+    'rgb(250,81,81)',
+  ],
   // ['#01b8aa', '#28383c', '#fd625e', '#f2c80f', '#5f6b6d', '#8ad4eb'],
   // 1. ['#EEEEEE', '#686D76', '#373A40', '#00ADB5'],
   // 2. ['#003f5c', '#444e86', '#955196', '#dd5182', '#ff6e54', '#ffa600'],
