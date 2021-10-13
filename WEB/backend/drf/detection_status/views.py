@@ -146,6 +146,7 @@ class AnalyzedDataView(generics.CreateAPIView):
             for content in db_filtered:
                 response["contents"].append(content)
         
+        filtered_contents_id = []
         filtered_contents = []
 
         if mode == "leaked":
@@ -153,18 +154,27 @@ class AnalyzedDataView(generics.CreateAPIView):
                 for word in SECRET_KEYWORDS:
                     if content["category"] == "news":
                         if (word in content["title"]) or (word in content["contentBody"]):
-                            filtered_contents.append(content)
+                            if content["_id"] not in filtered_contents_id:
+                                filtered_contents_id.append(content["_id"])
+
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
                             else:
                                 content["leakedWords"] = [word]
                     else:
                         if word in content["contentBody"]:
-                            filtered_contents.append(content)
+                            if content["_id"] not in filtered_contents_id:
+                                filtered_contents_id.append(content["_id"])
+
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
                             else:
                                 content["leakedWords"] = [word]
+        
+        for contents_id in filtered_contents_id:
+            for content in response["contents"]:
+                if content["_id"] == contents_id:
+                    filtered_contents.append(content)
 
         response["contents"] = filtered_contents
         response["totalContentsLength"] = len(response["contents"])
