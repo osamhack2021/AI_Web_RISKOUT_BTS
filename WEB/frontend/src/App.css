@@ -173,3 +173,7 @@ a {
   padding-bottom: 4rem;
 }
 /* ! -- Default -- */
+
+.MuiBox-root main {
+  margin-left: 5px;
+}
