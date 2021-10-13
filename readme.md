@@ -133,8 +133,8 @@
 ### AI
 
 - [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
-  - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공
-  - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현
+  - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공.
+  - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현.
 - [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
   - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
   - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
@@ -147,7 +147,7 @@
 ### Backend
 
 - [DRF](https://www.django-rest-framework.org/)를 통한 백엔드 구축:
-  - [`Mongo DB`](https://www.mongodb.com/) — 데이터베이스 구축
+  - [`Mongo DB`](https://www.mongodb.com/) — 데이터베이스 구축.
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 이용하여 크롤링:
   - `Crawler` — 각종 오픈게시판, SNS, 뉴스사이트에서 언어데이터를 추출하는데에 사용.
 
@@ -160,8 +160,8 @@
   - `Atom` — 컴포넌트 상태 단위 분리기능 사용.
   - `Selector` — Atom에 의존하는 동적인 데이터 생성 기능 사용. 
 - [Node.js](https://nodejs.org/en/)를 이용한 서버사이드 프로그래밍:
-  - `Node` — 프론트엔드 프로그래밍 툴체인(toolchain)
-  - `npm` — 패키지 관리 기능 사용
+  - `Node` — 프론트엔드 프로그래밍 툴체인(toolchain).
+  - `npm` — 패키지 관리 기능 사용.
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
