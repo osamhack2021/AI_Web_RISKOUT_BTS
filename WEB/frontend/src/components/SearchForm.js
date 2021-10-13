@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm, Controller, register } from 'react-hook-form';
 
-import { Button, Select, MenuItem } from '@mui/material';
+import { Button, Stack, Select, MenuItem, FormControl } from '@mui/material';
 import SearchBar from './SearchBar';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -27,38 +27,44 @@ export default function SearchForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="search-form">
+    <FormControl
+      size="small"
+      sx={{ minWidth: '100%' }}
+      onSubmit={handleSubmit(onSubmit)}
+      className="search-form"
+    >
       <Controller
         control={control}
         render={({ field }) => <SearchBar {...field} setValue={setValue} />}
         defaultValue={{}}
       />
+      <Stack direction="row" justifyContent="flex-end" spacing={2}>
+        <Select defaultValue="all" {...register('category')}>
+          <MenuItem value="all">전체</MenuItem>
+          <MenuItem value="news">뉴스</MenuItem>
+          <MenuItem value="sns">SNS</MenuItem>
+        </Select>
 
-      <Select defaultValue="all" {...register('category')}>
-        <MenuItem value="all">All</MenuItem>
-        <MenuItem value="news">뉴스</MenuItem>
-        <MenuItem value="sns">SNS</MenuItem>
-      </Select>
+        <Select defaultValue="all" {...register('type')}>
+          <MenuItem value="all">전체</MenuItem>
+          <MenuItem value="leaked">기밀유출 의심</MenuItem>
+          <MenuItem value="fakenews">가짜뉴스 의심</MenuItem>
+        </Select>
 
-      <Select defaultValue="24" {...register('period')}>
-        <MenuItem value="1">1h</MenuItem>
-        <MenuItem value="3">3h</MenuItem>
-        <MenuItem value="5">5h</MenuItem>
-        <MenuItem value="10">10h</MenuItem>
-        <MenuItem value="24">1d</MenuItem>
-        <MenuItem value="72">3d</MenuItem>
-        <MenuItem value="148">7d</MenuItem>
-      </Select>
+        <Select defaultValue="24" {...register('period')}>
+          <MenuItem value="1">1h</MenuItem>
+          <MenuItem value="3">3h</MenuItem>
+          <MenuItem value="5">5h</MenuItem>
+          <MenuItem value="10">10h</MenuItem>
+          <MenuItem value="24">1d</MenuItem>
+          <MenuItem value="72">3d</MenuItem>
+          <MenuItem value="148">7d</MenuItem>
+        </Select>
 
-      <Select defaultValue="all" {...register('type')}>
-        <MenuItem value="all">All</MenuItem>
-        <MenuItem value="leaked">기밀유출</MenuItem>
-        <MenuItem value="fakenews">가짜뉴스 의심</MenuItem>
-      </Select>
-
-      <Button variant="variant" type="submit">
-        search
-      </Button>
-    </form>
+        <Button variant="outlined" type="submit">
+          search
+        </Button>
+      </Stack>
+    </FormControl>
   );
 }
