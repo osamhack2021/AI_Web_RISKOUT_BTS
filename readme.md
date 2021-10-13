@@ -129,9 +129,6 @@
 <h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
 
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
-
-<br />
-
 ### Backend
 
 - Backend template with Golang built-in [net/http](https://golang.org/pkg/net/http/) package:
