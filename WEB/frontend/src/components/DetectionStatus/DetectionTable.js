@@ -189,7 +189,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[4]}
-              colSpan={3}
+              colSpan={4}
               count={contents.length}
               rowsPerPage={rowsPerPage}
               page={page}
