@@ -296,6 +296,7 @@ class TrendsDataView(generics.GenericAPIView):
                         "id": content["_id"],
                         "title": key_sentence,
                         "author": content["author"],
+                        "site_url": content["site_url"],
                         "trueScore": round(content["true_score"], 2),
                         "emotionFilled": round(content["positivity"], 2),
                         "date": today
