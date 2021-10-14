@@ -124,6 +124,10 @@ class AnalyzedDataView(generics.CreateAPIView):
             query["true_score"] = {"$lte": 0.5}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+        
+        if not db_result.count():
+            return response
+        
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         if tags:
@@ -254,6 +258,10 @@ class TrendsDataView(generics.GenericAPIView):
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         key_sentences = self.getKeysentences(db_filtered)
 
@@ -343,6 +351,10 @@ class WordcloudDataView(generics.GenericAPIView):
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         keywords = self.getKeywords(db_filtered)
 
@@ -488,6 +500,10 @@ class ArticleVolumeDataView(generics.GenericAPIView):
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         dates = []
 
@@ -564,6 +580,10 @@ class SentimentBarDataView(generics.GenericAPIView):
         query["created_at"] = {"$gte" : (now - timedelta(days=5))}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         
         categories = ["news", "sns", "community"]
@@ -634,6 +654,10 @@ class SentimentPieDataView(generics.GenericAPIView):
         query["created_at"] = {"$gte" : (now - timedelta(days=5))}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         for content in db_filtered:
@@ -723,6 +747,10 @@ class ReportDataView(generics.CreateAPIView):
         query["category"] = "news"
 
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return response
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         today_sentiment = 0.0
