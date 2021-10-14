@@ -116,7 +116,9 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell width="10%">유형</TableCell>
+            <TableCell width="10%" align="center">
+              유형
+            </TableCell>
             <TableCell width="70%" align="center">
               제목
             </TableCell>
@@ -142,7 +144,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
                 id={article._id}
                 category={article.category}
                 title={article.title}
-                preview={article.preview}
+                preview={article.summarized}
                 author={article.author}
                 href={article.href}
                 showDetailModal={showDetailModal}
