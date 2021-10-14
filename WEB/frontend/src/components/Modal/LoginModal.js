@@ -3,6 +3,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 
@@ -85,14 +86,17 @@ const LoginModal=(props)=>{
           </Link>
           </Typography> */}
         </Grid>
-        <Box sx={{display: 'flex', }}>
-          <Typography variant="subtitle1" sx={{  }}>
-              <input type='checkbox'/>로그인 정보 저장
+        <Box sx={{display: 'flex', marginBottom: '5em'}}>
+          <Typography variant="subtitle1" sx={{ }}>
+              <input type='checkbox' style={{marginTop: '7px'}} />로그인 정보 저장
           </Typography>
-          <Typography variant="subtitle1" sx={{  }}>
-            도움이 필요하신가요?
-          </Typography>
+          {/* <Typography variant="subtitle1" sx={{  }}>
+            <a href="">도움이 필요하신가요?</a>
+          </Typography> */}
         </Box>
+        <hr />
+        <Divider>또는</Divider>
+        RiskOut 회원이 아닌가요? 지금 가입하세요.
       </Paper>
       </>
     )
