@@ -80,16 +80,16 @@ export default function App() {
             <Board />
           </Route>
 
-//           <Route exact path="/login">
-//             <LoginModal
-//               setModal={setModal}
-//               userHasAuthenticated={userHasAuthenticated}
-//             />
-//           </Route>
+          {/* <Route exact path="/login">
+            <LoginModal
+              setModal={setModal}
+              userHasAuthenticated={userHasAuthenticated}
+            />
+          </Route>
 
-//           <Route exact path="/init">
-//             <InitInfo />
-//           </Route>
+          <Route exact path="/init">
+            <InitInfo />
+          </Route> */}
 
           <Route exact path="/presstrends">
             <Dashboard />
