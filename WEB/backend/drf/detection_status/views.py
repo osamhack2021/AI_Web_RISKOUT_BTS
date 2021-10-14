@@ -97,7 +97,8 @@ class AnalyzedDataView(generics.CreateAPIView):
                 "PLT": {},
                 "MAT": {},
                 "TRM": {}
-            }
+            },
+            "totalLeakedWords": {}
         }
 
         db = mongo.client.riskout
@@ -117,9 +118,6 @@ class AnalyzedDataView(generics.CreateAPIView):
         if category != "all":
             query["category"] = category
 
-        if search_text:
-            query["$text"] = {"$search": search_text}
-
         if mode == "fakenews":
             query["true_score"] = {"$lte": 0.5}
         
@@ -129,6 +127,29 @@ class AnalyzedDataView(generics.CreateAPIView):
             return response
         
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
+        temp = []
+
+        if search_text:
+            for content in db_filtered:
+                isMatch = False
+                for c in search_text:
+                    if content["category"] == "news":
+                        if not ((c in content["title"]) or (c in content["contentBody"])):
+                            isMatch = False
+                            break
+                        else:
+                            isMatch = True
+                    else:
+                        if c not in content["contentBody"]:
+                            isMatch = False
+                            break
+                        else:
+                            isMatch = True
+                
+                if isMatch:
+                    temp.append(content)
+        
+            db_filtered = temp
 
         if tags:
             for content in db_filtered:
@@ -175,15 +196,16 @@ class AnalyzedDataView(generics.CreateAPIView):
                             else:
                                 content["leakedWords"] = [word]
         
-        for contents_id in filtered_contents_id:
-            for content in response["contents"]:
-                if content["_id"] == contents_id:
-                    filtered_contents.append(content)
+            for contents_id in filtered_contents_id:
+                for content in response["contents"]:
+                    if content["_id"] == contents_id:
+                        filtered_contents.append(content)
 
-        response["contents"] = filtered_contents
+            response["contents"] = filtered_contents
+            response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
+
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
-        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
 
