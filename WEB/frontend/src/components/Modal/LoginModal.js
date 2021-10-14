@@ -71,6 +71,7 @@ const LoginModal=(props)=>{
                   })
                   .catch(error => alert(error));
                 }}>로그인</Button>
+          <input type='check' />
           {/* <Typography >
           <br></br>
                 <Link href="/init" >
