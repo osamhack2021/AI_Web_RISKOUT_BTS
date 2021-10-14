@@ -97,7 +97,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
   useSearchInitEffect();
   const contents = useContents();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(7);
+  const [rowsPerPage, setRowsPerPage] = useState(4);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -113,7 +113,10 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
   };
 
   return (
-    <TableContainer component={Paper} elevation={1}>
+    <TableContainer
+      component={Paper}
+      sx={{ background: '#2d333b', boxShadow: 'none' }}
+    >
       <Table>
         <TableHead>
           <TableRow>
@@ -185,7 +188,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[7]}
+              rowsPerPageOptions={[4]}
               colSpan={3}
               count={contents.length}
               rowsPerPage={rowsPerPage}

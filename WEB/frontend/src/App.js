@@ -19,6 +19,9 @@ import './App.css';
 const mdTheme = createTheme({
   palette: {
     mode: 'dark',
+    background: {
+      default: '#2d333b',
+    },
     success: {
       main: 'rgb(40, 189, 139)',
     },
@@ -29,8 +32,15 @@ const mdTheme = createTheme({
       main: 'rgb(252, 85, 80)',
     },
   },
-  typography: {
-    fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#22272e',
+          backgroundImage: 'none',
+        },
+      },
+    },
   },
 });
 

@@ -46,7 +46,7 @@ export default class MainLayout extends React.Component {
       <Box
         component="main"
         sx={{
-          backgroundColor: 'rgb(11,13,15)',
+          bgColor: (theme) => theme.palette.background.default,
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',
@@ -66,6 +66,7 @@ export default class MainLayout extends React.Component {
                 minHeight: '100%',
                 py: 3,
                 paddingLeft: '20px',
+                marginLeft: '40px',
               }}
             >
               <Container maxWidth={false}>{children}</Container>

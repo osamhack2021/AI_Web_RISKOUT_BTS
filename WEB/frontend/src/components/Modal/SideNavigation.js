@@ -54,7 +54,7 @@ export default function SideNavigation(props) {
     <>
       <Box
         sx={{
-          background: 'rgb(29, 28, 26)',
+          background: '#22272e',
           minHeight: '100%',
           position: 'fixed',
         }}
@@ -86,15 +86,11 @@ export default function SideNavigation(props) {
             text="리포트"
             href="/riskreport"
           />
-          <SidebarLinkMini
-            icon={LogoutIcon}
-            text="로그아웃"
-            href="/logout"
-          />
+          <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" />
         </Box>
       </Box>
 
-      <Drawer  
+      <Drawer
         anchor="left"
         open={open}
         onClick={handleDrawerClose}
@@ -104,7 +100,7 @@ export default function SideNavigation(props) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            background: 'rgb(40, 40, 40)',
+            background: '#22272e',
             left: 0,
             top: 0,
             width: drawerWidth,
@@ -116,7 +112,7 @@ export default function SideNavigation(props) {
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require("../../images/sub/logo_blue_white.png").default}
+              src={require('../../images/sub/logo_blue_white.png').default}
               alt="홈"
               className="image"
             />

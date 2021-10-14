@@ -47,13 +47,13 @@ export default function SecretsTableRow(props) {
       >
         <Stack spacing={1.2}>
           <Typography
-            sx={{ fontFamily: 'Noto sans KR' }}
+            sx={{ fontFamily: 'Noto sans KR', fontSize: '1.15rem' }}
             style={{ fontWeight: 'bold' }}
             color="textPrimary"
           >
             {title}
           </Typography>
-          <Typography color="textSecondary" variant="body2">
+          <Typography color="textSecondary" sx={{ fontSize: '1.1rem' }}>
             {preview}
           </Typography>
         </Stack>

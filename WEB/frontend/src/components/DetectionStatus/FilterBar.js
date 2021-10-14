@@ -62,6 +62,7 @@ export default function FilterBar() {
   return (
     <Card sx={{ right: 0 }} elevation={1} spacing={3}>
       <CardHeader
+        sx={{ background: '#2d333b' }}
         action={
           <Button
             onClick={() => reset()}
