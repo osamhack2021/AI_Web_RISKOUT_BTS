@@ -85,7 +85,7 @@ export default function FilterBar() {
           fontWeight: 600,
           lineHeight: '1.9em',
         }}
-        title="FILTER"
+        title="FILTERS"
       />
       <Divider />
 

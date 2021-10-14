@@ -36,7 +36,7 @@ export const darkTheme = {
         opacity: 0.6,
       },
       text: {
-        fill: '#333333',
+        fill: '#ffffff',
         opacity: 0.6,
       },
     },

@@ -11,6 +11,7 @@ import {
   IconButton,
   TablePagination,
   TableFooter,
+  Typography,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 import { useContents } from '../../atoms/searchState';
@@ -116,17 +117,41 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell width="10%" align="center">
-              유형
+            <TableCell width="5%">
+              <Typography
+                sx={{ fontFamily: 'Noto sans KR' }}
+                style={{ fontWeight: 'bold' }}
+                color="textPrimary"
+              >
+                유형
+              </Typography>
             </TableCell>
             <TableCell width="70%" align="center">
-              제목
+              <Typography
+                sx={{ fontFamily: 'Noto sans KR' }}
+                style={{ fontWeight: 'bold' }}
+                color="textPrimary"
+              >
+                제목
+              </Typography>
             </TableCell>
             <TableCell width="10%" align="center">
-              글쓴이
+              <Typography
+                sx={{ fontFamily: 'Noto sans KR' }}
+                style={{ fontWeight: 'bold' }}
+                color="textPrimary"
+              >
+                글쓴이
+              </Typography>
             </TableCell>
-            <TableCell width="10%" align="center">
-              스크랩
+            <TableCell width="15%" align="center">
+              <Typography
+                sx={{ fontFamily: 'Noto sans KR' }}
+                style={{ fontWeight: 'bold' }}
+                color="textPrimary"
+              >
+                스크랩
+              </Typography>
             </TableCell>
           </TableRow>
         </TableHead>

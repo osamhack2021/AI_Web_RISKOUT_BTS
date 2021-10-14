@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm, Controller, register } from 'react-hook-form';
 
 import { Button, Stack, Select, MenuItem, FormControl } from '@mui/material';
@@ -32,7 +31,6 @@ export default function SearchForm() {
     console.log('search_text', searchSetting.tags.ETC);
 
     const response = await axios.get(`/static/search.json`);
-    console.log(response.data);
     setSearch(response.data);
   };
 
@@ -63,6 +61,7 @@ export default function SearchForm() {
         </Select>
 
         <Select size="small" defaultValue="24" {...register('period')}>
+          <MenuItem value="now">실시간</MenuItem>
           <MenuItem value="1">1h</MenuItem>
           <MenuItem value="3">3h</MenuItem>
           <MenuItem value="5">5h</MenuItem>

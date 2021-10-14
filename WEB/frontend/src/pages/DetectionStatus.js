@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack';
 import { Grid, Typography } from '@mui/material';
 
@@ -75,7 +75,12 @@ export default function DetectionStatus() {
             탐지 현황
           </Typography>
           <SearchForm />
-          <Typography mt={3} color="primary">
+          <Typography
+            variant="h6"
+            sx={{ fontFamily: 'Noto sans KR' }}
+            style={{ fontWeight: 'bold' }}
+            color="primary"
+          >
             {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
           </Typography>
