@@ -81,96 +81,143 @@ const RiskReport = (props) => {
       </div>
       <div className="content clfix">
         <Skeleton animation="wave" height={75} width="10%" />
+        <Skeleton animation="wave" height={75} width="15%" />
+        <Skeleton animation="wave" height={15} width="40%" />
         <Skeleton
-              animation="wave"
-              height={75}
-              width="15%"
-            />
-        <Skeleton
-              animation="wave"
-              height={15}
-              width="40%"
-            />
-        <Skeleton
-              animation="wave"
-              height={15}
-              width="30%"
-              style={{ marginBottom: 26 }}
-            />
-        <Skeleton
-              animation="wave"
-              height={60}
-              width="14%"
-            />
+          animation="wave"
+          height={15}
+          width="30%"
+          style={{ marginBottom: 26 }}
+        />
+        <Skeleton animation="wave" height={60} width="14%" />
 
         {/* 날짜 버튼 */}
-        <Box sx={{display: 'flex'}}>
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
+        <Box sx={{ display: 'flex' }}>
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
         </Box>
-        <Box sx={{display: 'flex'}}>
+        <Box sx={{ display: 'flex' }}>
           <Box>
             {/* 일일 리스크 현황 */}
-            <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={450} animation="wave" variant="rectangular" />
+            <Skeleton
+              sx={{
+                borderRadius: '10px',
+                marginTop: '13px',
+                marginRight: '33px',
+              }}
+              width={879}
+              height={450}
+              animation="wave"
+              variant="rectangular"
+            />
           </Box>
 
           <Box>
             {/* 일일 리스크 현황 옆 기사 */}
             {Array.from({ length: 3 }).map((_, i) => (
-            <Box>
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={500} height={50}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={300} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={350} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={250} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={400} height={15}
-                sx={{ marginBottom:'7px' }}
-              />
+              <Box>
+                <Skeleton key={i} animation="wave" width={500} height={50} />
+                <Skeleton key={i} animation="wave" width={300} height={15} />
+                <Skeleton key={i} animation="wave" width={350} height={15} />
+                <Skeleton key={i} animation="wave" width={250} height={15} />
+                <Skeleton
+                  key={i}
+                  animation="wave"
+                  width={400}
+                  height={15}
+                  sx={{ marginBottom: '7px' }}
+                />
 
-              {/* chip */}
-              <Box sx={{ display: 'flex' }}>
-                <Skeleton sx={{ borderRadius: "20px", marginRight: 1 }} width={53} height={30} animation="wave" variant="rectangular" />
-                <Skeleton sx={{ borderRadius: "20px", marginRight: 1, marginBottom:'13px' }} width={53} height={30} animation="wave" variant="rectangular" />
+                {/* chip */}
+                <Box sx={{ display: 'flex' }}>
+                  <Skeleton
+                    sx={{ borderRadius: '20px', marginRight: 1 }}
+                    width={53}
+                    height={30}
+                    animation="wave"
+                    variant="rectangular"
+                  />
+                  <Skeleton
+                    sx={{
+                      borderRadius: '20px',
+                      marginRight: 1,
+                      marginBottom: '13px',
+                    }}
+                    width={53}
+                    height={30}
+                    animation="wave"
+                    variant="rectangular"
+                  />
+                </Box>
               </Box>
-            </Box>
-          ))}
+            ))}
           </Box>
         </Box>
 
         {/* 리스크 종류별 비율 (%) */}
-        <Skeleton sx={{ borderRadius: "10px", marginTop: 2 }} width={879} height={400} animation="wave" variant="rectangular" />
+        <Skeleton
+          sx={{ borderRadius: '10px', marginTop: 2 }}
+          width={879}
+          height={400}
+          animation="wave"
+          variant="rectangular"
+        />
 
         {/* 중대 위협 */}
         <Skeleton
-          sx={{ borderRadius: "10px", marginTop: 10 }}
+          sx={{ borderRadius: '10px', marginTop: 10 }}
           animation="wave"
           height={95}
           width="15%"
         />
         <Box sx={{ display: 'flex' }}>
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10, marginTop: 5, marginBottom: 7 }} width={300} height={324} animation="wave" variant="rectangular" />
+            <Skeleton
+              sx={{
+                borderRadius: '10px',
+                marginLeft: 9,
+                marginRight: 10,
+                marginTop: 5,
+                marginBottom: 7,
+              }}
+              width={300}
+              height={324}
+              animation="wave"
+              variant="rectangular"
+            />
           ))}
         </Box>
       </div>
@@ -199,13 +246,17 @@ const RiskReport = (props) => {
       ) : error ? (
         errorScreen
       ) : (
-        <section id="sub_contents" ref={pdfExportComponent}>
+        <Box
+          id="sub_contents"
+          ref={pdfExportComponent}
+          sx={{ bgcolor: (theme) => theme.palette.background.default, p: 1 }}
+        >
           <PdfExportButton exportTarget={pdfExportComponent} />
           <Box className="sub01_wrap">
             <Grid container spacing={1} direction="column">
               <Grid item>
                 <Typography variant="h2">
-                  Risk Report{' '}
+                  REPORT{' '}
                   <em style={{ fontSize: '0.5em' }}>
                     {new Intl.DateTimeFormat('ko-KR', {
                       dateStyle: 'full',
@@ -219,39 +270,47 @@ const RiskReport = (props) => {
               </Grid>
             </Grid>
 
-            <Grid container spacing={1} mt={3} direction="column">
-              <Grid item>
-                <Typography variant="h3">리스크 브리핑</Typography>
-              </Grid>
-              <Grid item>
-                <ExclusiveSelect
-                  selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
-                  selectedValue={dateRange}
-                  setSelectedValue={setDateRange}
-                  selectHandler={selectHandler}
-                />
-              </Grid>
-
+            <Grid
+              // item
+              container
+              spacing={5}
+              mt={1}
+              direction="row"
+              justifyContent="space-between"
+              alignItems="flex-start"
+            >
               <Grid
                 item
                 container
-                spacing={5}
-                mt={1}
-                direction="row"
-                justifyContent="space-between"
-                alignItems="flex-start"
+                spacing={1}
+                // mt={3}
+                xs={12}
+                md={6}
+                direction="column"
               >
+                <Grid item>
+                  <Typography variant="h3" sx={{ fontSize: '2.3rem' }}>
+                    Risk Briefing
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <ExclusiveSelect
+                    selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
+                    selectedValue={dateRange}
+                    setSelectedValue={setDateRange}
+                    selectHandler={selectHandler}
+                  />
+                </Grid>
+
                 <Grid item xs={12} md={6}>
                   <Graphs data={data.briefingGraphData} />
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <Grid container direction="column" spacing={3}>
-                    {data.briefingContents.map((props, i) => {
-                      return (
-                        <ScrappedArticle key={'scrapped' + i} {...props} />
-                      );
-                    })}
-                  </Grid>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Grid container direction="column" spacing={3}>
+                  {data.briefingContents.map((props, i) => {
+                    return <ScrappedArticle key={'scrapped' + i} {...props} />;
+                  })}
                 </Grid>
               </Grid>
             </Grid>
@@ -264,7 +323,9 @@ const RiskReport = (props) => {
               mt={1}
             >
               <Grid item>
-                <Typography variant="h3">중대 위협</Typography>
+                <Typography variant="h3" sx={{ fontSize: '2.3rem' }}>
+                  Major Risks
+                </Typography>
               </Grid>
               <Grid
                 item
@@ -297,7 +358,7 @@ const RiskReport = (props) => {
               </Grid>
             </Grid>
           </Box>
-        </section>
+        </Box>
       )}
     </>
   );

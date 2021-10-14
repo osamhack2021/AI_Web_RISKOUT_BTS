@@ -37,6 +37,7 @@ const mdTheme = createTheme({
     fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
   },
 });
+console.log(mdTheme);
 
 export default function App() {
   const [modal, setModal] = useState(false);

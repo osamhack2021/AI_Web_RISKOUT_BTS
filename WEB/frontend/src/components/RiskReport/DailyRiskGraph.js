@@ -10,9 +10,9 @@ import {
 
 const DailyRiskGraph = ({ colors, data }) => {
   return (
-    <Card style={{ height: '400px' }}>
+    <Card sx={{ height: '400px', background: 'unset', boxShadow: 'unset' }}>
       <CardHeader title="일일 리스크 현황" />
-      <Divider />
+      {/* <Divider /> */}
       {data ? (
         <CardContent>
           <Box

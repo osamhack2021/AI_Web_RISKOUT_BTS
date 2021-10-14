@@ -14,17 +14,17 @@ import '../../css/ExclusiveSelect.css';
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
     // margin: theme.spacing(0.5),
-    borderRadius: '5px',
+    borderRadius: '3px',
     border: 0,
     '&.Mui-disabled': {
       border: 0,
     },
     '&:not(:first-of-type)': {
-      borderRadius: '5px',
+      borderRadius: '3px',
       //   borderRadius: theme.shape.borderRadius,
     },
     '&:first-of-type': {
-      borderRadius: '5px',
+      borderRadius: '3px',
       //   borderRadius: theme.shape.borderRadius,
     },
   },

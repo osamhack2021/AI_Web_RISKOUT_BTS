@@ -10,9 +10,9 @@ import {
 
 export const RiskTypeGraph = ({ colors, data }) => {
   return (
-    <Card style={{ height: '400px' }}>
+    <Card sx={{ height: '400px', background: 'unset', boxShadow: 'unset' }}>
       <CardHeader title="리스크 종류별 비율 (%)" />
-      <Divider />
+      {/* <Divider /> */}
 
       {data ? (
         <CardContent>
