@@ -8,7 +8,7 @@ import {
   Divider,
 } from '@mui/material';
 
-const DailyRiskGraph = ({ colors, data }) => {
+const DailyRiskGraph = ({ theme, colors, data }) => {
   return (
     <Card style={{ height: '400px' }}>
       <CardHeader title="일일 리스크 현황" />
@@ -31,6 +31,7 @@ const DailyRiskGraph = ({ colors, data }) => {
               valueScale={{ type: 'linear' }}
               indexScale={{ type: 'band', round: true }}
               valueFormat={{ format: '', enabled: false }}
+              theme={theme}
               colors={colors}
               borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
               axisTop={null}

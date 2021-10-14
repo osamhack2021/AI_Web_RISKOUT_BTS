@@ -3,7 +3,15 @@ import { atom, selector, useRecoilValue } from 'recoil';
 /* @search response */
 export const searchState = atom({
   key: 'searchState',
-  default: {},
+  default: {
+    totalContentsLength: 0,
+    contents: [],
+    filterTags: {
+      ORG: {},
+      CVL: {},
+      TIM: {},
+    },
+  },
 });
 
 export const filterTagsState = selector({

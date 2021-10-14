@@ -25,6 +25,8 @@ import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 // import { Box } from '@mui/system';
 
+import { darkTheme, palette } from '../darkTheme';
+
 const RiskReport = (props) => {
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
@@ -81,96 +83,143 @@ const RiskReport = (props) => {
       </div>
       <div className="content clfix">
         <Skeleton animation="wave" height={75} width="10%" />
+        <Skeleton animation="wave" height={75} width="15%" />
+        <Skeleton animation="wave" height={15} width="40%" />
         <Skeleton
-              animation="wave"
-              height={75}
-              width="15%"
-            />
-        <Skeleton
-              animation="wave"
-              height={15}
-              width="40%"
-            />
-        <Skeleton
-              animation="wave"
-              height={15}
-              width="30%"
-              style={{ marginBottom: 26 }}
-            />
-        <Skeleton
-              animation="wave"
-              height={60}
-              width="14%"
-            />
+          animation="wave"
+          height={15}
+          width="30%"
+          style={{ marginBottom: 26 }}
+        />
+        <Skeleton animation="wave" height={60} width="14%" />
 
         {/* 날짜 버튼 */}
-        <Box sx={{display: 'flex'}}>
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
-          <Skeleton sx={{ borderRadius: "10px", marginRight:'13px' }} width={120} height={45} animation="wave" variant="rectangular" />
+        <Box sx={{ display: 'flex' }}>
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
+          <Skeleton
+            sx={{ borderRadius: '10px', marginRight: '13px' }}
+            width={120}
+            height={45}
+            animation="wave"
+            variant="rectangular"
+          />
         </Box>
-        <Box sx={{display: 'flex'}}>
+        <Box sx={{ display: 'flex' }}>
           <Box>
             {/* 일일 리스크 현황 */}
-            <Skeleton sx={{ borderRadius: "10px", marginTop:'13px', marginRight:'33px' }} width={879} height={450} animation="wave" variant="rectangular" />
+            <Skeleton
+              sx={{
+                borderRadius: '10px',
+                marginTop: '13px',
+                marginRight: '33px',
+              }}
+              width={879}
+              height={450}
+              animation="wave"
+              variant="rectangular"
+            />
           </Box>
 
           <Box>
             {/* 일일 리스크 현황 옆 기사 */}
             {Array.from({ length: 3 }).map((_, i) => (
-            <Box>
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={500} height={50}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={300} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={350} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={250} height={15}
-              />
-              <Skeleton
-                key={i}
-                animation="wave"
-                width={400} height={15}
-                sx={{ marginBottom:'7px' }}
-              />
+              <Box>
+                <Skeleton key={i} animation="wave" width={500} height={50} />
+                <Skeleton key={i} animation="wave" width={300} height={15} />
+                <Skeleton key={i} animation="wave" width={350} height={15} />
+                <Skeleton key={i} animation="wave" width={250} height={15} />
+                <Skeleton
+                  key={i}
+                  animation="wave"
+                  width={400}
+                  height={15}
+                  sx={{ marginBottom: '7px' }}
+                />
 
-              {/* chip */}
-              <Box sx={{ display: 'flex' }}>
-                <Skeleton sx={{ borderRadius: "20px", marginRight: 1 }} width={53} height={30} animation="wave" variant="rectangular" />
-                <Skeleton sx={{ borderRadius: "20px", marginRight: 1, marginBottom:'13px' }} width={53} height={30} animation="wave" variant="rectangular" />
+                {/* chip */}
+                <Box sx={{ display: 'flex' }}>
+                  <Skeleton
+                    sx={{ borderRadius: '20px', marginRight: 1 }}
+                    width={53}
+                    height={30}
+                    animation="wave"
+                    variant="rectangular"
+                  />
+                  <Skeleton
+                    sx={{
+                      borderRadius: '20px',
+                      marginRight: 1,
+                      marginBottom: '13px',
+                    }}
+                    width={53}
+                    height={30}
+                    animation="wave"
+                    variant="rectangular"
+                  />
+                </Box>
               </Box>
-            </Box>
-          ))}
+            ))}
           </Box>
         </Box>
 
         {/* 리스크 종류별 비율 (%) */}
-        <Skeleton sx={{ borderRadius: "10px", marginTop: 2 }} width={879} height={400} animation="wave" variant="rectangular" />
+        <Skeleton
+          sx={{ borderRadius: '10px', marginTop: 2 }}
+          width={879}
+          height={400}
+          animation="wave"
+          variant="rectangular"
+        />
 
         {/* 중대 위협 */}
         <Skeleton
-          sx={{ borderRadius: "10px", marginTop: 10 }}
+          sx={{ borderRadius: '10px', marginTop: 10 }}
           animation="wave"
           height={95}
           width="15%"
         />
         <Box sx={{ display: 'flex' }}>
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton sx={{ borderRadius: "10px", marginLeft: 9 , marginRight: 10, marginTop: 5, marginBottom: 7 }} width={300} height={324} animation="wave" variant="rectangular" />
+            <Skeleton
+              sx={{
+                borderRadius: '10px',
+                marginLeft: 9,
+                marginRight: 10,
+                marginTop: 5,
+                marginBottom: 7,
+              }}
+              width={300}
+              height={324}
+              animation="wave"
+              variant="rectangular"
+            />
           ))}
         </Box>
       </div>

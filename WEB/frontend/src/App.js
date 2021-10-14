@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -14,11 +14,7 @@ import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import PasswordResetModal from './components/Modal/PasswordResetModal';
 import InitInfo from './components/Modal/InitInfo';
-import SearchBar from './components/SearchBar';
-import DynamicRoutes from './DynamicRoutes';
-
 import './App.css';
-// import './css/style.css';
 
 const mdTheme = createTheme({
   palette: {

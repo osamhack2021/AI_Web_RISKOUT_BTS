@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm, Controller, register } from 'react-hook-form';
 
 import { Button, Stack, Select, MenuItem, FormControl } from '@mui/material';
@@ -14,7 +13,6 @@ export default function SearchForm() {
   const setSearch = useSetRecoilState(searchState);
   const searchSetting = useRecoilValue(searchSettingState);
   const onSubmit = async ({ category, type, period, searchText }) => {
-    // TODO 검색 api와 연동
     /*
     {
       "category": "news",
@@ -33,7 +31,6 @@ export default function SearchForm() {
     console.log('search_text', searchSetting.tags.ETC);
 
     const response = await axios.get(`/static/search.json`);
-    console.log(response.data);
     setSearch(response.data);
   };
 
@@ -41,7 +38,13 @@ export default function SearchForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="search-form">
       <Controller
         control={control}
-        render={({ field }) => <SearchBar {...field} setValue={setValue} />}
+        render={({ props }) => (
+          <SearchBar
+            {...props}
+            setValue={setValue}
+            rules={{ required: true }}
+          />
+        )}
         defaultValue={{}}
       />
       <Stack direction="row" justifyContent="flex-end" spacing={2}>
@@ -58,6 +61,7 @@ export default function SearchForm() {
         </Select>
 
         <Select size="small" defaultValue="24" {...register('period')}>
+          <MenuItem value="now">실시간</MenuItem>
           <MenuItem value="1">1h</MenuItem>
           <MenuItem value="3">3h</MenuItem>
           <MenuItem value="5">5h</MenuItem>
