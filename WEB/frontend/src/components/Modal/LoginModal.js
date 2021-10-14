@@ -33,7 +33,7 @@ const LoginModal=(props)=>{
 
     const paperStyle={padding: '60px 68px 40px' , width: 450, height: 670, margin:"53px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'10px 0', width: 314, height: 48}
+    const btnstyle={fontSize:'16px', margin:'10px 0', width: 314, height: 48}
     return(
       <>
       <Paper elevation={10} style={paperStyle}>
@@ -71,8 +71,8 @@ const LoginModal=(props)=>{
                   })
                   .catch(error => alert(error));
                 }}>로그인</Button>
-          <input type='check' />
-          {/* <Typography >
+          
+          {/* <Typography>
           <br></br>
                 <Link href="/init" >
                   비밀번호 찾기
@@ -85,6 +85,14 @@ const LoginModal=(props)=>{
           </Link>
           </Typography> */}
         </Grid>
+        <Box sx={{display: 'flex', }}>
+          <Typography variant="subtitle1" sx={{  }}>
+              <input type='checkbox'/>로그인 정보 저장
+          </Typography>
+          <Typography variant="subtitle1" sx={{  }}>
+            도움이 필요하신가요?
+          </Typography>
+        </Box>
       </Paper>
       </>
     )
