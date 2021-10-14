@@ -47,7 +47,7 @@ export default function SearchForm() {
         )}
         defaultValue={{}}
       />
-      <Stack direction="row" justifyContent="flex-end" spacing={2}>
+      <Stack direction="row" justifyContent="flex-end" spacing={1}>
         <Select size="small" defaultValue="all" {...register('category')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="news">뉴스</MenuItem>
