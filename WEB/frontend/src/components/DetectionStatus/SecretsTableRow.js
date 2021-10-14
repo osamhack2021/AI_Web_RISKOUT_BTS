@@ -35,7 +35,7 @@ export default function SecretsTableRow(props) {
       key={id}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
-      <TableCell component="th" scope="row">
+      <TableCell component="th" scope="row" align="center">
         <Link href={href} underline="hover">
           <CategorizedIcon category={category} />
         </Link>
