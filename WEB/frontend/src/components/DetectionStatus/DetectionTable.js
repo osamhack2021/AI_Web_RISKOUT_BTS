@@ -173,12 +173,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             ).map((article, id) => (
               <SecretsTableRow
                 key={id}
-                id={article._id}
-                category={article.category}
-                title={article.title}
-                preview={article.summarized}
-                author={article.author}
-                href={article.href}
+                article={article}
                 showDetailModal={showDetailModal}
                 scrapArticle={scrapArticle}
               />

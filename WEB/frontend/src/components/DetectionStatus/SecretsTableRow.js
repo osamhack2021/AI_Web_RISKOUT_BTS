@@ -7,15 +7,15 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import InfoIcon from '@mui/icons-material/Info';
+import { red, green } from '@mui/material/colors';
 
-import { VscGistSecret } from 'react-icons/vsc';
+import { VscGistSecret, VscBook } from 'react-icons/vsc';
 
 import ScrapButton from './ScrapButton';
 
-function CategorizedIcon({ category }) {
-  if (category == 'news') return <DescriptionIcon color="error" />;
-  else if (category == 'sns') return <ForumIcon color="action" />;
-  else return <InfoIcon color="action" />;
+function CategorizedIcon({ category, true_score }) {
+  if (true_score < 0.4) return <VscBook color={red[500]} size={24} />;
+  else return <VscGistSecret color={green[500]} size={24} />;
 }
 
 export default function SecretsTableRow({
@@ -24,7 +24,8 @@ export default function SecretsTableRow({
   scrapArticle,
   isAlreadyScrapped,
 }) {
-  const { _id, title, category, summarized, author, href } = article;
+  const { _id, title, category, summarized, author, href, true_score } =
+    article;
 
   return (
     <TableRow
@@ -33,7 +34,7 @@ export default function SecretsTableRow({
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          <CategorizedIcon category={category} />
+          <CategorizedIcon category={category} true_score={true_score} />
         </Link>
       </TableCell>
       <TableCell
