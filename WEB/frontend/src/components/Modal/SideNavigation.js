@@ -54,7 +54,7 @@ export default function SideNavigation(props) {
     <>
       <Box
         sx={{
-          background: '#22272e',
+          background: 'rgb(54,57,63)',
           minHeight: '100%',
           position: 'fixed',
         }}
@@ -100,7 +100,7 @@ export default function SideNavigation(props) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            background: '#22272e',
+            background: 'rgb(54,57,63)',
             left: 0,
             top: 0,
             width: drawerWidth,

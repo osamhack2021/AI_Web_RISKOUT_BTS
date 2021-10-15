@@ -19,6 +19,9 @@ import './App.css';
 const mdTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: 'rgb(113,137,218)',
+    },
     background: {
       default: '#2d333b',
     },
@@ -36,7 +39,7 @@ const mdTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: '#22272e',
+          backgroundColor: 'rgb(54,57,63)',
           backgroundImage: 'none',
         },
       },
