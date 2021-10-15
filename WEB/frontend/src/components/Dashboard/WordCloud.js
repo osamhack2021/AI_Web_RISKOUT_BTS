@@ -17,7 +17,7 @@ const WordCloud = ({ options }) => {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
       ? `/static/data/wordCloud.json`
-      : `/api/nlp/wordcloud`;
+      : `/api/nlp/wordcloud/`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',
   });

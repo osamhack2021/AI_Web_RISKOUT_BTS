@@ -99,7 +99,7 @@ export default function TrendsCard() {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
       ? `/static/data/trends.json`
-      : `/api/nlp/trends`;
+      : `/api/nlp/trends/`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',
   });
