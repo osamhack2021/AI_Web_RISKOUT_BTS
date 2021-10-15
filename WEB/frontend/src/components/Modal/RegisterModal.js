@@ -79,7 +79,7 @@ const RegisterModal=(props)=>{
                   }
                   }
                  } */}
-          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button"><Link href="/login">{JoinLoign}</Link></Button>
+          <Link href="/login"><Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button">{JoinLoign}</Button></Link>
         <br /><br /><br /><br />
         <hr />
         <Divider>or</Divider>

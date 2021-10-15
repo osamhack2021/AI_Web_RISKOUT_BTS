@@ -73,7 +73,7 @@ const LoginModal=(props)=>{
                     })
                     .catch(error => alert(error));
                   }} */}
-            <Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button"><Link href="/presstrends" sx={{textDecoration: 'none'}}>로그인</Link></Button>
+            <Link href="/presstrends" sx={{textDecoration: 'none'}}><Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button">로그인</Button></Link>
             {/* <Typography>
             <br></br>
                   <Link href="/init" >
