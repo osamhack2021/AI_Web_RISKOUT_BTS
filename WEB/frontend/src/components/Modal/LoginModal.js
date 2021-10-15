@@ -1,16 +1,28 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@mui/material'
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 import '../../css/LoginModal.css';
+import background from '../../images/sub/modal_back.jpg'
+import CssBaseline from "@mui/material/CssBaseline";
+import darkScrollbar from "@mui/material/darkScrollbar";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const LoginModal=(props)=>{
-  const history = useHistory()
+  const history = useHistory();
 
+  const theme = createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            
+          }
+        }
+      }
+    }
+  });
 
   let [username, setUsername] = useState()
   let [userpassword, setUserPassword] = useState()
@@ -32,16 +44,15 @@ const LoginModal=(props)=>{
     setUserEamil(e.target.value)
   }
 
-
-    const paperStyle={padding: '60px 68px 40px' , width: 450, height: 670, margin:"53px auto"}
+    const paperStyle={padding: '60px 68px 40px' , width: 450, height: 670, margin:"98px auto", background: "rgb(54,57,63)"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={fontSize:'16px', margin:'10px 0', width: 314, height: 48}
+    const btnstyle={fontSize:'16px', margin:'10px 0', width: 314, height: 48, background: 'rgb(113,137,218)'}
     return(
-      <Box className="loginModalBack">
+      <ThemeProvider theme={theme}>
         <Paper elevation={10} style={paperStyle}>
           <Grid align='left'>
             {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
-            <h1 style={{fontSize: '32px'}}>로그인</h1>
+            <h1 style={{fontSize: '32px', color: 'white'}}>로그인</h1>
           </Grid>
           <Grid align='center'>
             <Box sx={{width: 314, height: 50, marginBottom: '1.2em', marginTop: 5}}>
@@ -73,7 +84,7 @@ const LoginModal=(props)=>{
                     })
                     .catch(error => alert(error));
                   }} */}
-            <Link href="/presstrends" sx={{textDecoration: 'none'}}><Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button">로그인</Button></Link>
+            <Link href="/presstrends" sx={{textDecoration: 'none'}}><Button type='submit' variant="contained" style={btnstyle}  className="JoinLoign-button">로그인</Button></Link>
             {/* <Typography>
             <br></br>
                   <Link href="/init" >
@@ -88,20 +99,19 @@ const LoginModal=(props)=>{
             </Typography> */}
           </Grid>
           <Box sx={{display: 'flex', marginBottom: '5em'}}>
-            <Typography variant="subtitle1" sx={{ }}>
+            <Typography variant="subtitle1" sx={{ color: 'white' }}>
                 <input type='checkbox' style={{marginTop: '7px'}} />로그인 정보 저장
             </Typography>
           </Box>
-          <hr />
-          <Divider>or</Divider>
+          <Divider sx={{color:'white'}} ><p>or</p></Divider>
           {/* <br /> */}
           <Typography align="center" variant="subtitle1">
-            <Link href="/register" >
+            <Link href="/register" sx={{color: 'rgb(113,137,218)', textDecoration: 'none'}}>
               RISKOUT 회원이 아닌가요? 지금 가입하세요.
             </Link>
           </Typography>
         </Paper>
-      </Box>
+      </ThemeProvider>
     )
 }
 

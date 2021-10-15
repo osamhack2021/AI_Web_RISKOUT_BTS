@@ -4,11 +4,23 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 import '../../css/LoginModal.css';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const RegisterModal=(props)=>{
   let [JoinLoign,setJoinLogin] = useState('회원가입')
   const history = useHistory()
-
+  
+  const theme = createTheme({
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            
+          }
+        }
+      }
+    }
+  });
 
   let [username, setUsername] = useState()
   let [userpassword, setUserPassword] = useState()
@@ -35,12 +47,12 @@ const RegisterModal=(props)=>{
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'10px 0'}
     return(
-      <>
+    <ThemeProvider theme={theme}>
       <br></br>
       <br></br>
       <br></br>
       <Grid>
-      <Paper elevation={10} style={paperStyle}>
+        <Paper elevation={10} style={paperStyle}>
           <Grid align='center'>
                <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
               <h2>{JoinLoign}</h2>
@@ -81,16 +93,15 @@ const RegisterModal=(props)=>{
                  } */}
           <Link href="/login"><Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button">{JoinLoign}</Button></Link>
         <br /><br /><br /><br />
-        <hr />
-        <Divider>or</Divider>
-        <Typography align="center" variant="subtitle1">
-          <Link href="/login" >
-            RISKOUT 회원이세요? 지금 로그인하세요.
-          </Link>
-        </Typography>
-      </Paper>
-  </Grid>
-  </>
+          <Divider>or</Divider>
+          <Typography align="center" variant="subtitle1">
+            <Link href="/login" >
+              RISKOUT 회원이세요? 지금 로그인하세요.
+            </Link>
+          </Typography>
+        </Paper>
+      </Grid>
+  </ThemeProvider>
     )
 }
 
