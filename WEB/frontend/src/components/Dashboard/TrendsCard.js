@@ -96,10 +96,12 @@ function CustomPagination() {
 }
 
 export default function TrendsCard() {
-  const { data, error, isPending } = useFetch(`/data/trends.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/trends`, {
-  //   method: 'GET',
-  // });
+  const requestUrl = process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+    ? `/data/trends.json`
+    : `/api/nlp/trends`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card style={{ width: '100%', height: '400px' }}>

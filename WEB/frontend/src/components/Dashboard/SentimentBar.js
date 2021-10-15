@@ -10,10 +10,13 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 const SentimentBar = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/sentimentBar.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/data/sentimentBar.json`
+      : `/api/nlp/sentiment/bar/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card style={{ height: '400px' }}>
