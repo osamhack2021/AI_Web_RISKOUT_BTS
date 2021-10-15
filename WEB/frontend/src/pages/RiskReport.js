@@ -49,7 +49,7 @@ const RiskReport = (props) => {
       } else {
         axios
           .post(searchUrl, {
-            articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
+            articleIds: getCart().length ? getCart() : [30, 40, 50],
             period: 24,
             time: new Date().toTimeString(), // "uniqueness parameter"
           })
