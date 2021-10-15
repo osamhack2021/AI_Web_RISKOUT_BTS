@@ -62,25 +62,39 @@ export default function FilterBar() {
   return (
     <Card sx={{ right: 0 }} elevation={1} spacing={3}>
       <CardHeader
+        sx={{ background: '#2d333b' }}
         action={
           <Button
             onClick={() => reset()}
-            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-10px', marginRight: '-8x', marginBottom: '-28px' }}
+            style={{
+              fontSize: '11px',
+              fontWeight: '800',
+              fontFamily: 'Noto sans KR',
+              marginTop: '-10px',
+              marginRight: '-8x',
+              marginBottom: '-28px',
+            }}
             size="small"
           >
             RESET
           </Button>
         }
-        titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"   }}
-        title="FILTER"
+        titleTypographyProps={{
+          variant: 'body1',
+          fontSize: '1.5rem',
+          fontFamily: 'Noto sans KR',
+          fontWeight: 600,
+          lineHeight: '1.9em',
+        }}
+        title="FILTERS"
       />
       <Divider />
 
       {filterTags &&
         Object.entries(filterTags).map(
-          ([label, wordCount]) =>
+          ([label, wordCount], id) =>
             Object.keys(wordCount).length > 0 && (
-              <Accordion>
+              <Accordion key={id}>
                 <AccordionSummary>
                   <Stack
                     sx={{ width: '100%' }}

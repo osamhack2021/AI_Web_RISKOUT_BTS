@@ -8,6 +8,7 @@ import {
   Chip,
   Pagination,
   Typography,
+  Link,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
@@ -24,31 +25,49 @@ const columns = [
     renderCell: (params) => (
       <div>
         {params.value >= 0.6 ? (
-          <Chip color="success" label="진짜뉴스" />
+          <Chip color="success" label="진실추정" />
         ) : (
           [
             params.value >= 0.4 ? (
-              <Chip color="warning" label="의심뉴스" />
+              <Chip color="warning" label="중립추정" />
             ) : (
-              <Chip color="error" label="가짜뉴스" />
+              <Chip color="error" label="가짜추정" />
             ),
           ]
         )}
       </div>
     ),
   },
-  { field: 'title', headerName: '제목', flex: 1, minWidth: 150 },
+  {
+    field: 'title',
+    headerName: '제목',
+    flex: 1,
+    minWidth: 150,
+    renderCell: ({ row: { title, site_url } }) => {
+      return (
+        <Link
+          sx={{ color: 'white' }}
+          target="_blank"
+          underline="none"
+          href={site_url}
+          variant="body2"
+        >
+          {title}
+        </Link>
+      );
+    },
+  },
   {
     field: 'date',
     headerName: '날짜',
-    width: 100,
+    width: 80,
     renderCell: (params) => (
-      <Typography>{moment(params.value).format('YYYY-MM-DD')}</Typography>
+      <Typography>{moment(params.value).format('YY-MM-DD')}</Typography>
     ),
   },
   {
     field: 'emotionFilled',
-    headerName: '감정수치',
+    headerName: '긍정지수',
     width: 100,
     renderCell: (params) => <ProgressBar value={Number(params.value)} />,
   },

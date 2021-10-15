@@ -1,10 +1,6 @@
 import { Stack } from '@mui/material';
 import { useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import {
-  appliedFilterMapState,
-  useAppliedFilterMapActions,
-} from '../../atoms/appliedFilterMapState';
+import { useAppliedFilterMapActions } from '../../atoms/appliedFilterMapState';
 
 export default function FilterCheckbox(props) {
   const { label, count, hashtag, checked } = props;

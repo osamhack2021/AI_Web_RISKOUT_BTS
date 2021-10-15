@@ -8,7 +8,7 @@ import {
   Divider,
 } from '@mui/material';
 
-export const RiskTypeGraph = ({ colors, data }) => {
+export const RiskTypeGraph = ({ theme, colors, data }) => {
   return (
     <Card sx={{ height: '400px', background: 'unset', boxShadow: 'unset' }}>
       <CardHeader title="리스크 종류별 비율 (%)" />
@@ -29,6 +29,7 @@ export const RiskTypeGraph = ({ colors, data }) => {
               padAngle={0.7}
               cornerRadius={3}
               activeOuterRadiusOffset={8}
+              theme={theme}
               colors={colors}
               borderWidth={1}
               borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -14,15 +14,14 @@ import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import PasswordResetModal from './components/Modal/PasswordResetModal';
 import InitInfo from './components/Modal/InitInfo';
-import SearchBar from './components/SearchBar';
-import DynamicRoutes from './DynamicRoutes';
-
 import './App.css';
-// import './css/style.css';
 
 const mdTheme = createTheme({
   palette: {
     mode: 'dark',
+    background: {
+      default: '#2d333b',
+    },
     success: {
       main: 'rgb(40, 189, 139)',
     },
@@ -33,8 +32,15 @@ const mdTheme = createTheme({
       main: 'rgb(252, 85, 80)',
     },
   },
-  typography: {
-    fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#22272e',
+          backgroundImage: 'none',
+        },
+      },
+    },
   },
 });
 console.log(mdTheme);
@@ -72,10 +78,10 @@ export default function App() {
       >
         <Layout handleLogout={handleLogout}>
           <Route exact path="/">
-            <Board />
+            <Dashboard />
           </Route>
 
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             <LoginModal
               setModal={setModal}
               userHasAuthenticated={userHasAuthenticated}
@@ -84,7 +90,7 @@ export default function App() {
 
           <Route exact path="/init">
             <InitInfo />
-          </Route>
+          </Route> */}
 
           <Route exact path="/presstrends">
             <Dashboard />

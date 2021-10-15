@@ -1,10 +1,4 @@
-import {
-  IconButton,
-  Link,
-  Typography,
-  TableCell,
-  TableRow,
-} from '@mui/material';
+import { Stack, Link, Typography, TableCell, TableRow } from '@mui/material';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import ForumIcon from '@mui/icons-material/Forum';
@@ -19,6 +13,7 @@ import ScrapButton from './ScrapButton';
 function CategorizedIcon({ category }) {
   if (category == 'news') return <DescriptionIcon color="action" />;
   else if (category == 'sns') return <ForumIcon color="action" />;
+  else return <InfoIcon color="action" />;
 }
 
 export default function SecretsTableRow(props) {
@@ -50,16 +45,18 @@ export default function SecretsTableRow(props) {
         onClick={() => showDetailModal(id)}
         style={{ cursor: 'pointer' }}
       >
-        <Typography
-          sx={{ fontFamily: 'Noto sans KR' }}
-          style={{ fontWeight: 'bold' }}
-          color="textPrimary"
-        >
-          {title}
-        </Typography>
-        <Typography color="textSecondary" variant="body2">
-          {preview}
-        </Typography>
+        <Stack spacing={1.2}>
+          <Typography
+            sx={{ fontFamily: 'Noto sans KR', fontSize: '1.15rem' }}
+            style={{ fontWeight: 'bold' }}
+            color="textPrimary"
+          >
+            {title}
+          </Typography>
+          <Typography color="textSecondary" sx={{ fontSize: '1.1rem' }}>
+            {preview}
+          </Typography>
+        </Stack>
       </TableCell>
       <TableCell align="center">{author}</TableCell>
       <TableCell align="center">

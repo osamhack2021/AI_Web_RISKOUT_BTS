@@ -1,4 +1,4 @@
-/* LoginModal */
+/* LoginModal
 
 .login-container {
   margin: 0 auto;
@@ -38,7 +38,7 @@
 }
 
 /* + LoginModal */
-.social-box h4 {
+/* .social-box h4 {
   margin-top: 1rem;
   color: rgba(102, 112, 139, 0.781);
   text-align: center;
@@ -84,4 +84,17 @@
   width: 70px;
   justify-content: center;
   align-items: center;
+} */ 
+
+.MuiButton-label .MuiTypography-colorPrimary {
+  color: white;
+  text-decoration: none;
+}
+
+.MuiButton-label .MuiTypography-colorPrimary:hover {
+  text-decoration: none;
+}
+
+.loginModalBack {
+  background-image: ;
 }
