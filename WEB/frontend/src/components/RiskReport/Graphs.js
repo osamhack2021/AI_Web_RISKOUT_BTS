@@ -32,10 +32,10 @@ export default function Graphs({ data }) {
   return (
     <Stack direction="column" container spacing={2}>
       <Grid item xs={12}>
-        <DailyRiskGraph theme={darkTheme} colors={palette} data={barData} />
+        <RiskTypeGraph theme={darkTheme} colors={palette} data={pieData} />
       </Grid>
       <Grid item xs={12}>
-        <RiskTypeGraph theme={darkTheme} colors={palette} data={pieData} />
+        <DailyRiskGraph theme={darkTheme} colors={palette} data={barData} />
       </Grid>
     </Stack>
   );

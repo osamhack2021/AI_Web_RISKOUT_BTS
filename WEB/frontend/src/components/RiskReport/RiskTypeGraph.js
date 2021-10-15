@@ -10,7 +10,13 @@ import {
 
 export const RiskTypeGraph = ({ theme, colors, data }) => {
   return (
-    <Card sx={{ height: '400px', background: 'unset', boxShadow: 'unset' }}>
+    <Card
+      sx={{
+        // height: '400px',
+        background: 'unset',
+        boxShadow: 'unset',
+      }}
+    >
       <CardHeader title="리스크 종류별 비율 (%)" />
       {/* <Divider /> */}
 
@@ -18,7 +24,7 @@ export const RiskTypeGraph = ({ theme, colors, data }) => {
         <CardContent>
           <Box
             sx={{
-              height: 350,
+              height: 500,
               position: 'relative',
             }}
           >

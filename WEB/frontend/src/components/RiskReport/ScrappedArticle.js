@@ -20,9 +20,20 @@ export default function ScrappedArticle({
   );
 
   return (
-    <Grid item width="100%" component="article">
-      <Link href={url} target="_blank" rel="noopener" underline="hover">
-        <h3>{title}</h3>
+    <Grid
+      item
+      width="100%"
+      component="article"
+      sx={{ fontSize: '20px', mb: '1.4rem' }}
+    >
+      <Link
+        href={url}
+        target="_blank"
+        rel="noopener"
+        underline="hover"
+        sx={{ fontSize: '21px' }}
+      >
+        <h3 style={{ marginBottom: '1rem' }}>{title}</h3>
       </Link>
       {getLineBreakText(desanitizeText(summary))}
       <Grid

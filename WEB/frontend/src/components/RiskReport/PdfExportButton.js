@@ -15,7 +15,7 @@ export default function PdfExportButton({ exportTarget }) {
       onClick={handleExportWithFunction}
       style={{
         position: 'fixed',
-        right: '30px',
+        right: '50px',
         bottom: '30px',
         // transform: 'translate(50%, 0) rotate(-90deg) translate(0, -1.2rem)',
         color: color,

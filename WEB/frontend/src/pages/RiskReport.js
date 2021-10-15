@@ -91,7 +91,7 @@ const RiskReport = (props) => {
           width="20%"
           style={{ marginBottom: 26 }}
         />
-        
+
         <Box sx={{ display: 'flex' }}>
           <Box>
             {/* 일일 리스크 현황 */}
@@ -109,17 +109,16 @@ const RiskReport = (props) => {
           </Box>
           <Box>
             <Skeleton
-            sx={{ borderRadius: '5px', marginTop: '13px' }}
-            width={879}
-            height={450}
-            animation="wave"
-            variant="rectangular"
+              sx={{ borderRadius: '5px', marginTop: '13px' }}
+              width={879}
+              height={450}
+              animation="wave"
+              variant="rectangular"
             />
           </Box>
         </Box>
 
         {/* 리스크 종류별 비율 (%) */}
-        
       </div>
     </section>
   );
@@ -149,7 +148,10 @@ const RiskReport = (props) => {
         <Box
           id="sub_contents"
           ref={pdfExportComponent}
-          sx={{ bgcolor: (theme) => theme.palette.background.default, p: 1 }}
+          sx={{
+            bgcolor: (theme) => theme.palette.background.default,
+            p: 1,
+          }}
         >
           <PdfExportButton exportTarget={pdfExportComponent} />
           <Box className="sub01_wrap">
@@ -166,15 +168,17 @@ const RiskReport = (props) => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography>{getLineBreakText(data.overview)}</Typography>
+                <Typography sx={{ fontSize: '20px' }}>
+                  {getLineBreakText(data.overview)}
+                </Typography>
               </Grid>
             </Grid>
 
             <Grid
               // item
               container
-              spacing={5}
-              mt={1}
+              mt={5}
+              pr={11}
               direction="row"
               justifyContent="space-between"
               alignItems="flex-start"
@@ -207,9 +211,15 @@ const RiskReport = (props) => {
                 </Grid>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Grid container direction="column" spacing={3}>
+                <Grid container direction="column" spacing={3} ml={-8}>
                   {data.briefingContents.map((props, i) => {
-                    return <ScrappedArticle key={'scrapped' + i} {...props} />;
+                    return (
+                      <ScrappedArticle
+                        key={'scrapped' + i}
+                        {...props}
+                        style={{ paddingLeft: 0 }}
+                      />
+                    );
                   })}
                 </Grid>
               </Grid>
