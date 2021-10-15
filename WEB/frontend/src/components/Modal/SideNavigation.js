@@ -1,10 +1,6 @@
-// React
-import React, { useState, useEffect } from 'react';
-
-// MUI Styles
+import React, { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 
-// MUI Components
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Link from '@mui/material/Link';
@@ -13,11 +9,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
-// Custom Components
 import SidebarLink from '../SidebarLink';
 import SidebarLinkMini from '../SidebarLinkMini';
 
-// Icons and Images
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -67,7 +61,7 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
+          <MenuIcon sx={{ color: 'rgb(113,137,218)', fontSize: '1.3em' }} />
         </IconButton>
         <Box sx={{ position: 'fixed' }}>
           <SidebarLinkMini

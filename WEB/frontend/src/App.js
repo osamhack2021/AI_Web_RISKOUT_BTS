@@ -19,11 +19,11 @@ import './App.css';
 const mdTheme = createTheme({
   palette: {
     mode: 'dark',
-    primary: {
-      main: 'rgb(113,137,218)',
-    },
     background: {
       default: '#2d333b',
+    },
+    primary: {
+      main: 'rgb(113,137,218)',
     },
     success: {
       main: 'rgb(40, 189, 139)',
