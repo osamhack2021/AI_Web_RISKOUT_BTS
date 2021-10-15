@@ -11,7 +11,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import ScrapButton from './ScrapButton';
 
 function CategorizedIcon({ category }) {
-  if (category == 'news') return <DescriptionIcon color="action" />;
+  if (category == 'news') return <DescriptionIcon color="error" />;
   else if (category == 'sns') return <ForumIcon color="action" />;
   else return <InfoIcon color="action" />;
 }

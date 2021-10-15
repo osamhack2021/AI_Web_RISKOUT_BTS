@@ -37,6 +37,7 @@ export default function SecretsDetailModal(props) {
     setOpen(false);
     // setSaved(false); // TODO how should we handle display of 'save' button?
   };
+  useEffect(() => console.log(data));
 
   return (
     <div>
@@ -66,7 +67,7 @@ export default function SecretsDetailModal(props) {
               style={{ borderRadius: '6px' }}
               variant="outlined"
               aria-label="add to scrap"
-              onClick={() => scrapArticle(data.id)}
+              onClick={() => scrapArticle(data._id)}
               icon={<AddIcon />}
               label="Save"
             />
@@ -74,7 +75,7 @@ export default function SecretsDetailModal(props) {
               style={{ borderRadius: '6px' }}
               variant="outlined"
               aria-label="Detailed Analysis"
-              onClick={() => analyzePage(data.id)}
+              onClick={() => analyzePage(data._id)}
               icon={<AnalyzeIcon />}
               label="Analyze"
             />
