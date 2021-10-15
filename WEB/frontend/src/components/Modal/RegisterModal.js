@@ -1,4 +1,5 @@
-import { Grid,Paper, Avatar, TextField, Button} from '@material-ui/core'
+import { Grid,Paper, Avatar, TextField, Button, Typography, Link} from '@material-ui/core'
+import Divider from '@mui/material/Divider';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
@@ -77,6 +78,14 @@ const RegisterModal=(props)=>{
                   }
                   }
                  }>{JoinLoign}</Button>
+        <br /><br /><br /><br />
+        <hr />
+        <Divider>or</Divider>
+        <Typography align="center" variant="subtitle1">
+          <Link href="/login" >
+            RISKOUT 회원이세요? 지금 로그인하세요.
+          </Link>
+        </Typography>
       </Paper>
   </Grid>
   </>

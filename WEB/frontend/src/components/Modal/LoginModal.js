@@ -47,9 +47,9 @@ const LoginModal=(props)=>{
             <TextField label='아이디' placeholder='아이디를 입력해 주세요' fullWidth required onChange={handleNameChange} variant='outlined'/>
           </Box>
           <Box sx={{width: 314, height: 50, marginBottom: '2em'}}>
-            <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' fullWidth type='password' required variant='outlined' onChange={handlePasswordChange}/>
+            <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' fullWidth required variant='outlined' onChange={handlePasswordChange}/>
           </Box>
-          <Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button" onClick={(e)=>{
+          {/* onClick={(e)=>{
                   e.preventDefault()
                   fetch('/api/user/login/', {
                   method: 'POST',
@@ -71,8 +71,8 @@ const LoginModal=(props)=>{
                     }
                   })
                   .catch(error => alert(error));
-                }}>로그인</Button>
-          
+                }} */}
+          <Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button" ><Link href="/presstrends">로그인</Link></Button>
           {/* <Typography>
           <br></br>
                 <Link href="/init" >
@@ -90,13 +90,15 @@ const LoginModal=(props)=>{
           <Typography variant="subtitle1" sx={{ }}>
               <input type='checkbox' style={{marginTop: '7px'}} />로그인 정보 저장
           </Typography>
-          {/* <Typography variant="subtitle1" sx={{  }}>
-            <a href="">도움이 필요하신가요?</a>
-          </Typography> */}
         </Box>
         <hr />
-        <Divider>또는</Divider>
-        RiskOut 회원이 아닌가요? 지금 가입하세요.
+        <Divider>or</Divider>
+        {/* <br /> */}
+        <Typography align="center" variant="subtitle1">
+          <Link href="/register" >
+            RISKOUT 회원이 아닌가요? 지금 가입하세요.
+          </Link>
+        </Typography>
       </Paper>
       </>
     )
