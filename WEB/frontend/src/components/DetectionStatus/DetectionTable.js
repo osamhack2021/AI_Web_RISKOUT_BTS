@@ -120,8 +120,9 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell width="5%">
+            <TableCell width="6%">
               <Typography
+                variant="h6"
                 sx={{ fontFamily: 'Noto sans KR' }}
                 style={{ fontWeight: 'bold' }}
                 color="textPrimary"
@@ -129,8 +130,9 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
                 유형
               </Typography>
             </TableCell>
-            <TableCell width="70%" align="center">
+            <TableCell width="74%" align="center">
               <Typography
+                variant="h6"
                 sx={{ fontFamily: 'Noto sans KR' }}
                 style={{ fontWeight: 'bold' }}
                 color="textPrimary"
@@ -140,6 +142,7 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             </TableCell>
             <TableCell width="10%" align="center">
               <Typography
+                variant="h6"
                 sx={{ fontFamily: 'Noto sans KR' }}
                 style={{ fontWeight: 'bold' }}
                 color="textPrimary"
@@ -147,8 +150,9 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
                 글쓴이
               </Typography>
             </TableCell>
-            <TableCell width="15%" align="center">
+            <TableCell width="10%" align="center">
               <Typography
+                variant="h6"
                 sx={{ fontFamily: 'Noto sans KR' }}
                 style={{ fontWeight: 'bold' }}
                 color="textPrimary"

@@ -58,7 +58,9 @@ export default function SecretsTableRow(props) {
           </Typography>
         </Stack>
       </TableCell>
-      <TableCell align="center">{author}</TableCell>
+      <TableCell align="center">
+        <Typography variant="body1">{author}</Typography>
+      </TableCell>
       <TableCell align="center">
         <ScrapButton
           handleScrap={() => scrapArticle(id)}
