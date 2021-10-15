@@ -1,6 +1,6 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography, Link} from '@material-ui/core'
+import { Grid,Paper, Avatar, TextField, Button, Typography, Link} from '@mui/material'
 import Divider from '@mui/material/Divider';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
 import '../../css/LoginModal.css';
@@ -43,9 +43,9 @@ const RegisterModal=(props)=>{
   }
 
 
-    const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto"}
+    const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto", sx={{background: 'rgb(54,57,63)'}}}
     const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'10px 0'}
+    const btnstyle={margin:'10px 0', background: 'rgb(113,137,218)'}
     return(
     <ThemeProvider theme={theme}>
       <br></br>
@@ -55,7 +55,7 @@ const RegisterModal=(props)=>{
         <Paper elevation={10} style={paperStyle}>
           <Grid align='center'>
                <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-              <h2>{JoinLoign}</h2>
+              <h2 style={{ color:'white' }}>{JoinLoign}</h2>
           </Grid>
           <TextField label='아이디' placeholder='아이디를 입력해 주세요.' fullWidth required onChange={handleNameChange}/>
           <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordChange}/>
@@ -91,11 +91,11 @@ const RegisterModal=(props)=>{
                   }
                   }
                  } */}
-          <Link href="/login"><Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button">{JoinLoign}</Button></Link>
+          <Link href="/login" sx={{ color:'white' }} ><Button type='submit' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button">{JoinLoign}</Button></Link>
         <br /><br /><br /><br />
           <Divider>or</Divider>
           <Typography align="center" variant="subtitle1">
-            <Link href="/login" >
+            <Link href="/login" sx={{ color:'rgb(113,137,218)' }}>
               RISKOUT 회원이세요? 지금 로그인하세요.
             </Link>
           </Typography>
