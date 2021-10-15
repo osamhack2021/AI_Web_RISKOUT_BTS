@@ -8,6 +8,8 @@ import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import InfoIcon from '@mui/icons-material/Info';
 
+import { VscGistSecret } from 'react-icons/vsc';
+
 import ScrapButton from './ScrapButton';
 
 function CategorizedIcon({ category }) {
@@ -16,23 +18,17 @@ function CategorizedIcon({ category }) {
   else return <InfoIcon color="action" />;
 }
 
-export default function SecretsTableRow(props) {
-  const {
-    id,
-    title,
-    category,
-    preview,
-    contentBody,
-    author,
-    href,
-    showDetailModal,
-    scrapArticle,
-    isAlreadyScrapped,
-  } = props;
+export default function SecretsTableRow({
+  article,
+  showDetailModal,
+  scrapArticle,
+  isAlreadyScrapped,
+}) {
+  const { _id, title, category, summarized, author, href } = article;
 
   return (
     <TableRow
-      key={id}
+      key={_id}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
       <TableCell component="th" scope="row">
@@ -42,7 +38,7 @@ export default function SecretsTableRow(props) {
       </TableCell>
       <TableCell
         align="left"
-        onClick={() => showDetailModal(id)}
+        onClick={() => showDetailModal(_id)}
         style={{ cursor: 'pointer' }}
       >
         <Stack spacing={1.2}>
@@ -54,7 +50,7 @@ export default function SecretsTableRow(props) {
             {title}
           </Typography>
           <Typography color="textSecondary" sx={{ fontSize: '1.1rem' }}>
-            {preview}
+            {summarized}
           </Typography>
         </Stack>
       </TableCell>
@@ -63,7 +59,7 @@ export default function SecretsTableRow(props) {
       </TableCell>
       <TableCell align="center">
         <ScrapButton
-          handleScrap={() => scrapArticle(id)}
+          handleScrap={() => scrapArticle(_id)}
           isAlreadyScrapped={isAlreadyScrapped}
         />
       </TableCell>
