@@ -79,9 +79,9 @@ export default function App() {
               setModal={setModal}
               userHasAuthenticated={userHasAuthenticated}
             />
-          </Route> */}
-
-          {/* <Route exact path="/init">
+          </Route>
+          
+          <Route exact path="/init">
             <InitInfo />
           </Route> */}
 
