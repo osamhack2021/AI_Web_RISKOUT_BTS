@@ -23,7 +23,7 @@ const mdTheme = createTheme({
       default: '#2d333b',
     },
     primary: {
-      main: 'rgb(113,137,218)',
+      main: '#3a8ffb',
     },
     success: {
       main: 'rgb(40, 189, 139)',

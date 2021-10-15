@@ -61,7 +61,7 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: 'rgb(113,137,218)', fontSize: '1.3em' }} />
+          <MenuIcon sx={{ fontSize: '1.3em' }} />
         </IconButton>
         <Box sx={{ position: 'fixed' }}>
           <SidebarLinkMini
