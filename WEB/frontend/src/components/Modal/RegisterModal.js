@@ -1,7 +1,9 @@
-import { Grid,Paper, Avatar, TextField, Button} from '@material-ui/core'
+import { Grid,Paper, Avatar, TextField, Button, Typography, Link} from '@material-ui/core'
+import Divider from '@mui/material/Divider';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router'
+import '../../css/LoginModal.css';
 
 const RegisterModal=(props)=>{
   let [JoinLoign,setJoinLogin] = useState('회원가입')
@@ -47,7 +49,7 @@ const RegisterModal=(props)=>{
           <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordChange}/>
           <TextField label='비밀번호 확인' placeholder='비밀번호를 다시 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordCheckChange}/>
           <TextField label='이메일' placeholder='이메일을 입력해 주세요.' fullWidth required onChange={handleEmailChange}/>
-          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button" onClick={(e)=>{
+          {/* onClick={(e)=>{
                   e.preventDefault()
                   if(!useremail.indexOf("@")){
                     alert("이메일 형식이 올바르지 않습니다.")
@@ -76,7 +78,16 @@ const RegisterModal=(props)=>{
                     .catch(error => alert(error));
                   }
                   }
-                 }>{JoinLoign}</Button>
+                 } */}
+          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button"><Link href="/login">{JoinLoign}</Link></Button>
+        <br /><br /><br /><br />
+        <hr />
+        <Divider>or</Divider>
+        <Typography align="center" variant="subtitle1">
+          <Link href="/login" >
+            RISKOUT 회원이세요? 지금 로그인하세요.
+          </Link>
+        </Typography>
       </Paper>
   </Grid>
   </>
