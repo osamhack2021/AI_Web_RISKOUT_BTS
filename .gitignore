@@ -263,3 +263,5 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/django,react,python,venv
+.env.development
+.env.production

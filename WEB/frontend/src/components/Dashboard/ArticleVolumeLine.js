@@ -12,10 +12,13 @@ import {
 import useFetch from '../../hooks/useFetch';
 
 const ArticleVolumeLine = ({ theme, colors }) => {
-  const { data, isPending, error } = useFetch(`/data/articleVolume.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/article/volume/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/data/articleVolume.json`
+      : `/api/nlp/article/volume/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card style={{ height: '400px' }}>
