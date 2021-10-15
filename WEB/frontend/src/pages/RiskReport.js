@@ -40,11 +40,6 @@ const RiskReport = (props) => {
 
     async function fetchSearch() {
       setPending(true);
-      console.log(
-        process.env.REACT_APP_USE_STATIC_RESPONSE,
-        typeof process.env.REACT_APP_USE_STATIC_RESPONSE,
-        Boolean(process.env.REACT_APP_USE_STATIC_RESPONSE)
-      );
       if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
         axios.get(exampleSearchUrl).then((data) => {
           console.log(data.data);
