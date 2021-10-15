@@ -113,13 +113,14 @@ body::-webkit-scrollbar {
 .sub_header .copyright {
   /*Copyright position*/
   position: absolute;
-  left: 1.4em;
+  left: 0.4em;
   top: 35em;
   color: rgb(248, 246, 240);
+  width: 100%;
 }
 
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
-  font-size: 0.7rem;
+  font-size: 2px;
   font-family: 'Montserrat';
 }
