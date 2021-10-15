@@ -56,8 +56,6 @@ class AnalyzedDataView(generics.CreateAPIView):
             
             if mode == "fakenews":
                 category = "news"
-            elif mode == "leaked":
-                category = "all"
             else:
                 if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
                     return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
