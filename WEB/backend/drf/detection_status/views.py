@@ -872,7 +872,7 @@ class ReportDataView(generics.CreateAPIView):
 
 
     def getSummarized(self, text):
-        url = SERVER_URL + 'summarize/abstractive'
+        url = SERVER_URL + 'summarize/extractive'
         document = {"document": text}
         document = json.dumps(document)
         result = ""
