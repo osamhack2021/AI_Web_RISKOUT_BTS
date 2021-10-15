@@ -51,8 +51,14 @@ export default function ScrappedArticle({
             ? renderCharacteristic(characteristics)
             : null}
         </Stack>
-        <Link href={url} target="_blank" rel="noopener" underline="hover">
-          <em>원본:</em> {sourceName} {datetime}
+        <Link
+          href={url}
+          target="_blank"
+          rel="noopener"
+          underline="hover"
+          sx={{ color: 'lightslategrey' }}
+        >
+          <em style={{ fontStyle: 'normal' }}>원본:</em> {sourceName} {datetime}
         </Link>
       </Grid>
     </Grid>

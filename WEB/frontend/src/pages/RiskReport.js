@@ -243,6 +243,7 @@ const RiskReport = (props) => {
                 direction="row"
                 justifyContent="space-evenly"
                 alignItems="center"
+                spacing={5}
                 sx={{ mt: '1rem' }}
               >
                 {data.majorEvents.map(
