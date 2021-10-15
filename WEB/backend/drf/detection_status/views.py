@@ -179,6 +179,7 @@ class AnalyzedDataView(generics.CreateAPIView):
                         if (word in content["title"]) or (word in content["contentBody"]):
                             if content["_id"] not in filtered_contents_id:
                                 filtered_contents_id.append(content["_id"])
+                                content["isLeaked"] = True
 
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
@@ -188,6 +189,7 @@ class AnalyzedDataView(generics.CreateAPIView):
                         if word in content["contentBody"]:
                             if content["_id"] not in filtered_contents_id:
                                 filtered_contents_id.append(content["_id"])
+                                content["isLeaked"] = True
 
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
@@ -200,8 +202,32 @@ class AnalyzedDataView(generics.CreateAPIView):
                         filtered_contents.append(content)
 
             response["contents"] = filtered_contents
-            response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
+        
+        elif mode == "all":
+            for content in response["contents"]:
+                if content["true_score"] <= 0.5:
+                    content["isFakenews"] = True
+                else:
+                    content["isFakenews"] = False
+                for word in SECRET_KEYWORDS:
+                    if content["category"] == "news":
+                        if (word in content["title"]) or (word in content["contentBody"]):
+                            content["isLeaked"] = True
+                            
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+                    else:
+                        if word in content["contentBody"]:
+                                content["isLeaked"] = True
 
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+
+        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
@@ -220,11 +246,12 @@ class AnalyzedDataView(generics.CreateAPIView):
     def getLeakedWords(self, contents):
         result = {}
         for content in contents:
-            for leakedWord in content["leakedWords"]:
-                if leakedWord not in result:
-                    result[leakedWord] = 1
-                else:
-                    result[leakedWord] += 1
+            if "leakedWords" in content:
+                for leakedWord in content["leakedWords"]:
+                    if leakedWord not in result:
+                        result[leakedWord] = 1
+                    else:
+                        result[leakedWord] += 1
 
         result = {k: v for k, v in sorted(result.items(), key=lambda item: item[1], reverse=True)}
 
