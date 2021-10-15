@@ -56,10 +56,10 @@ const LoginModal=(props)=>{
           </Grid>
           <Grid align='center'>
             <Box sx={{width: 314, height: 50, marginBottom: '1.2em', marginTop: 5}}>
-              <TextField label='아이디' placeholder='아이디를 입력해 주세요' fullWidth required onChange={handleNameChange} variant='outlined'/>
+              <TextField sx={{background:'rgb(48, 51, 57)'}} label='아이디' placeholder='아이디를 입력해 주세요' fullWidth required onChange={handleNameChange} variant='outlined'/>
             </Box>
             <Box sx={{width: 314, height: 50, marginBottom: '2em'}}>
-              <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' fullWidth required variant='outlined' onChange={handlePasswordChange}/>
+              <TextField sx={{background:'rgb(48, 51, 57)'}} label='비밀번호' placeholder='비밀번호를 입력해 주세요.' fullWidth required variant='outlined' onChange={handlePasswordChange}/>
             </Box>
             {/* onClick={(e)=>{
                     e.preventDefault()
