@@ -1,29 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import SearchBar from '../components/SearchBar';
-import {
-  Box,
-  Chip,
-  Stack,
-  Link,
-  Grid,
-  Typography,
-  Skeleton,
-  Card,
-  CardMedia,
-  CardContent,
-} from '@mui/material';
+import { Box, Grid, Typography, Skeleton } from '@mui/material';
 import axios from 'axios';
 import '../css/fonts.css';
 
 import ExclusiveSelect from '../components/RiskReport/ExclusiveSelect';
-import graphImage from '../images/sub/graph_img.jpg';
-import useFetch from '../hooks/useFetch';
 import { getLineBreakText, useSessionStorage } from '../js/util';
 import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
-// import { Box } from '@mui/system';
 
 import { darkTheme, palette } from '../darkTheme';
 
