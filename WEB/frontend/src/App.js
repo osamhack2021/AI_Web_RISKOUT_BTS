@@ -80,7 +80,6 @@ export default function App() {
               userHasAuthenticated={userHasAuthenticated}
             />
           </Route>
-          
           <Route exact path="/init">
             <InitInfo />
           </Route> */}
