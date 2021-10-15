@@ -60,7 +60,7 @@ export default function FilterBar() {
   const { reset, includes } = useAppliedFilterMapActions();
 
   return (
-    <Card sx={{ right: 0 }} elevation={1} spacing={3}>
+    <Card sx={{ right: 0 }} elevation={3} spacing={3}>
       <CardHeader
         sx={{ background: '#2d333b' }}
         action={
