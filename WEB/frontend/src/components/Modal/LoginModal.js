@@ -1,56 +1,84 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router'
-import '../../css/LoginModal.css';
+import {
+  Box,
+  Divider,
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  Link,
+} from '@mui/material';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 
-const LoginModal=(props)=>{
-  const history = useHistory()
+const LoginModal = (props) => {
+  const history = useHistory();
 
-
-  let [username, setUsername] = useState()
-  let [userpassword, setUserPassword] = useState()
+  let [username, setUsername] = useState();
+  let [userpassword, setUserPassword] = useState();
   let [userpasswordCheck, setUserPasswordCheck] = useState();
-  let [useremail, setUserEamil] = useState()
-  
-  const data = {username : username, password : userpassword, email : useremail}
+  let [useremail, setUserEamil] = useState();
+
+  const data = { username: username, password: userpassword, email: useremail };
 
   const handleNameChange = (e) => {
-    setUsername(e.target.value)
-  }
+    setUsername(e.target.value);
+  };
   const handlePasswordChange = (e) => {
-    setUserPassword(e.target.value)
-  }
+    setUserPassword(e.target.value);
+  };
   const handlePasswordCheckChange = (e) => {
-    setUserPasswordCheck(e.target.value)
-  }
+    setUserPasswordCheck(e.target.value);
+  };
   const handleEmailChange = (e) => {
-    setUserEamil(e.target.value)
-  }
+    setUserEamil(e.target.value);
+  };
 
-
-    const paperStyle={padding: '60px 68px 40px' , width: 450, height: 670, margin:"53px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={fontSize:'16px', margin:'10px 0', width: 314, height: 48}
-    return(
-      <Box className="loginModalBack">
-        <Paper elevation={10} style={paperStyle}>
-          <Grid align='left'>
-            {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
-            <h1 style={{fontSize: '32px'}}>로그인</h1>
-          </Grid>
-          <Grid align='center'>
-            <Box sx={{width: 314, height: 50, marginBottom: '1.2em', marginTop: 5}}>
-              <TextField label='아이디' placeholder='아이디를 입력해 주세요' fullWidth required onChange={handleNameChange} variant='outlined'/>
-            </Box>
-            <Box sx={{width: 314, height: 50, marginBottom: '2em'}}>
-              <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' fullWidth required variant='outlined' onChange={handlePasswordChange}/>
-            </Box>
-            {/* onClick={(e)=>{
+  const paperStyle = {
+    padding: '60px 68px 40px',
+    width: 450,
+    height: 670,
+    margin: '53px auto',
+  };
+  const avatarStyle = { backgroundColor: '#1bbd7e' };
+  const btnstyle = {
+    fontSize: '16px',
+    margin: '10px 0',
+    width: 314,
+    height: 48,
+  };
+  return (
+    <Box className="loginModalBack">
+      <Paper elevation={10} style={paperStyle}>
+        <Grid align="left">
+          {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
+          <h1 style={{ fontSize: '32px' }}>로그인</h1>
+        </Grid>
+        <Grid align="center">
+          <Box
+            sx={{ width: 314, height: 50, marginBottom: '1.2em', marginTop: 5 }}
+          >
+            <TextField
+              label="아이디"
+              placeholder="아이디를 입력해 주세요"
+              fullWidth
+              required
+              onChange={handleNameChange}
+              variant="outlined"
+            />
+          </Box>
+          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+            <TextField
+              label="비밀번호"
+              placeholder="비밀번호를 입력해 주세요."
+              fullWidth
+              required
+              variant="outlined"
+              onChange={handlePasswordChange}
+            />
+          </Box>
+          {/* onClick={(e)=>{
                     e.preventDefault()
                     fetch('/api/user/login/', {
                     method: 'POST',
@@ -73,8 +101,18 @@ const LoginModal=(props)=>{
                     })
                     .catch(error => alert(error));
                   }} */}
-            <Button type='submit' color='primary' variant="contained" style={btnstyle}  className="JoinLoign-button"><Link href="/presstrends" sx={{textDecoration: 'none'}}>로그인</Link></Button>
-            {/* <Typography>
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            style={btnstyle}
+            className="JoinLoign-button"
+          >
+            <Link href="/presstrends" sx={{ textDecoration: 'none' }}>
+              로그인
+            </Link>
+          </Button>
+          {/* <Typography>
             <br></br>
                   <Link href="/init" >
                     비밀번호 찾기
@@ -86,23 +124,24 @@ const LoginModal=(props)=>{
                     회원가입
             </Link>
             </Typography> */}
-          </Grid>
-          <Box sx={{display: 'flex', marginBottom: '5em'}}>
-            <Typography variant="subtitle1" sx={{ }}>
-                <input type='checkbox' style={{marginTop: '7px'}} />로그인 정보 저장
-            </Typography>
-          </Box>
-          <hr />
-          <Divider>or</Divider>
-          {/* <br /> */}
-          <Typography align="center" variant="subtitle1">
-            <Link href="/register" >
-              RISKOUT 회원이 아닌가요? 지금 가입하세요.
-            </Link>
+        </Grid>
+        <Box sx={{ display: 'flex', marginBottom: '5em' }}>
+          <Typography variant="subtitle1" sx={{}}>
+            <input type="checkbox" style={{ marginTop: '7px' }} />
+            로그인 정보 저장
           </Typography>
-        </Paper>
-      </Box>
-    )
-}
+        </Box>
+        <hr />
+        <Divider>or</Divider>
+        {/* <br /> */}
+        <Typography align="center" variant="subtitle1">
+          <Link href="/register">
+            RISKOUT 회원이 아닌가요? 지금 가입하세요.
+          </Link>
+        </Typography>
+      </Paper>
+    </Box>
+  );
+};
 
-export default LoginModal
+export default LoginModal;

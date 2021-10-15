@@ -77,7 +77,7 @@ export default function App() {
       >
         <Layout handleLogout={handleLogout}>
           <Route exact path="/">
-            <Board />
+            <Dashboard />
           </Route>
 
           {/* <Route exact path="/login">
