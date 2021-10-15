@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 const WordCloud = ({ options }) => {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/data/wordCloud.json`
+      ? `/static/data/wordCloud.json`
       : `/api/nlp/wordcloud`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',

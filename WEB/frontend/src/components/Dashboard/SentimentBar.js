@@ -12,7 +12,7 @@ import useFetch from '../../hooks/useFetch';
 const SentimentBar = ({ theme, colors }) => {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/data/sentimentBar.json`
+      ? `/static/data/sentimentBar.json`
       : `/api/nlp/sentiment/bar/`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',

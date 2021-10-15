@@ -14,7 +14,7 @@ import useFetch from '../../hooks/useFetch';
 const ArticleVolumeLine = ({ theme, colors }) => {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/data/articleVolume.json`
+      ? `/static/data/articleVolume.json`
       : `/api/nlp/article/volume/`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',

@@ -12,7 +12,7 @@ import useFetch from '../../hooks/useFetch';
 export const SentimentPie = ({ theme, colors }) => {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/data/sentimentPie.json`
+      ? `/static/data/sentimentPie.json`
       : `/api/nlp/sentiment/pie/`;
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',
