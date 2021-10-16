@@ -19,7 +19,7 @@ export default function Dashboard() {
   
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={12} md={12} lg={12}>
+      {/* <Grid item xs={12} sm={12} md={12} lg={12}>
         <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem' }}>
           대시보드
         </h2>
@@ -41,7 +41,7 @@ export default function Dashboard() {
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={5}>
         <GeoEventPlot theme={darkTheme} colors={palette} />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }
