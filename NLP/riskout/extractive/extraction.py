@@ -5,7 +5,7 @@ from riskout.utils import preprocess
 
 class ExtractiveSummarizer(object):
     """Extractive summarize using gensim library."""
-    def __init__(self, ratio_or_count='ratio', ratio=0.2, word_count=50):
+    def __init__(self, ratio_or_count='ratio', ratio=0.4, word_count=50):
         self.ratio = ratio
         self.word_count = word_count
         self.ratio_or_count = ratio_or_count

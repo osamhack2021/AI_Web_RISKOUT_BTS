@@ -34,11 +34,11 @@ export default function DetectionStatus() {
 
   const showDetailModal = (_id) => {
     const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
-    console.log(
-      data,
-      search.contents.filter((x) => x._id == _id),
-      search
-    );
+    // console.log(
+    //   data,
+    //   search.contents.filter((x) => x._id == _id),
+    //   search
+    // );
     setDetailModalData(data);
     setDetailModalOpen(true);
   };
@@ -47,7 +47,9 @@ export default function DetectionStatus() {
   const { enqueueSnackbar } = useSnackbar();
   const scrapArticle = (_id) => {
     addCart(_id);
+    console.log('_id', _id);
     const article = search.contents.filter((x) => x._id == _id).pop(0);
+    console.log(search);
     enqueueSnackbar('Scrapped article | ' + article.title, {
       variant: 'success',
       autoHideDuration: 10000,

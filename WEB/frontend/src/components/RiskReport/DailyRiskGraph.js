@@ -40,6 +40,7 @@ const DailyRiskGraph = ({ theme, colors, data }) => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
+                itemTextColor: '#ffffff',
                 // legend: 'sentiment',
                 // legendPosition: 'middle',
                 // legendOffset: 32,

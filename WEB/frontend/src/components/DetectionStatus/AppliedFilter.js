@@ -26,9 +26,10 @@ export default function AppliedFilter() {
         Object.entries(appliedFilterMap).map(([label, words], id) => {
           return (
             <>
-              {words.map((word) => (
+              {words.map((word, id) => (
                 <Grid item>
                   <Chip
+                    key={id}
                     sx={{ borderRadius: '5px' }}
                     label={word}
                     onDelete={() => remove(label, word)}

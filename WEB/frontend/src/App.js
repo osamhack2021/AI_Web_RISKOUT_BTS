@@ -22,6 +22,9 @@ const mdTheme = createTheme({
     background: {
       default: '#2d333b',
     },
+    primary: {
+      main: '#3a8ffb',
+    },
     success: {
       main: 'rgb(40, 189, 139)',
     },
@@ -36,7 +39,7 @@ const mdTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: '#22272e',
+          backgroundColor: 'rgb(54,57,63)',
           backgroundImage: 'none',
         },
       },

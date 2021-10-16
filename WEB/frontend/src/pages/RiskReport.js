@@ -1,29 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import SearchBar from '../components/SearchBar';
-import {
-  Box,
-  Chip,
-  Stack,
-  Link,
-  Grid,
-  Typography,
-  Skeleton,
-  Card,
-  CardMedia,
-  CardContent,
-} from '@mui/material';
+import { Box, Grid, Typography, Skeleton } from '@mui/material';
 import axios from 'axios';
 import '../css/fonts.css';
 
 import ExclusiveSelect from '../components/RiskReport/ExclusiveSelect';
-import graphImage from '../images/sub/graph_img.jpg';
-import useFetch from '../hooks/useFetch';
 import { getLineBreakText, useSessionStorage } from '../js/util';
 import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
-// import { Box } from '@mui/system';
 
 import { darkTheme, palette } from '../darkTheme';
 
@@ -40,21 +25,25 @@ const RiskReport = (props) => {
 
     async function fetchSearch() {
       setPending(true);
-      // axios
-      //   .post(searchUrl, {
-      //     articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
-      //     period: 24,
-      //     time: new Date().toTimeString(), // "uniqueness parameter"
-      //   }).then((data) => {
-      //   console.log(data.data);
-      //   setData(data.data);
-      //   setPending(false);
-      // });
-      axios.get(exampleSearchUrl).then((data) => {
-        console.log(data.data);
-        setData(data.data);
-        setPending(false);
-      });
+      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+        axios.get(exampleSearchUrl).then((data) => {
+          console.log(data.data);
+          setData(data.data);
+          setPending(false);
+        });
+      } else {
+        axios
+          .post(searchUrl, {
+            articleIds: getCart().length ? getCart() : [30, 40, 50],
+            period: 24,
+            time: new Date().toTimeString(), // "uniqueness parameter"
+          })
+          .then((data) => {
+            console.log(data.data);
+            setData(data.data);
+            setPending(false);
+          });
+      }
     }
     fetchSearch();
   }, []);

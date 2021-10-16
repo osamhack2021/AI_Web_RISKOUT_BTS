@@ -4,7 +4,6 @@ import ArticleVolumeLine from '../components/Dashboard/ArticleVolumeLine';
 import GeoEventPlot from '../components/Dashboard/GeoEventPlot';
 import WordCloud from '../components/Dashboard/WordCloud';
 import TrendsCard from '../components/Dashboard/TrendsCard';
-import SearchForm from '../components/SearchForm';
 
 import { darkTheme, palette } from '../darkTheme';
 

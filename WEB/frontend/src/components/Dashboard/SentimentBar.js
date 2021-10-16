@@ -6,14 +6,20 @@ import {
   Box,
   LinearProgress,
   Divider,
+  Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
+import { isEmpty } from 'lodash';
+
 const SentimentBar = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/sentimentBar.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/sentiment/bar/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/data/sentimentBar.json`
+      : `/api/nlp/sentiment/bar/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card style={{ height: '400px' }}>
@@ -27,7 +33,7 @@ const SentimentBar = ({ theme, colors }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box
             sx={{
@@ -68,7 +74,6 @@ const SentimentBar = ({ theme, colors }) => {
               }}
               labelSkipWidth={12}
               labelSkipHeight={12}
-              labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
               legends={[
                 {
                   dataFrom: 'keys',
@@ -95,6 +100,10 @@ const SentimentBar = ({ theme, colors }) => {
               ]}
             />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>
