@@ -2,6 +2,7 @@ import {
   Box,
   Divider,
   Grid,
+  Paper,
 } from '@mui/material';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
