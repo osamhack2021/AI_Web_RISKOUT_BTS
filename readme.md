@@ -229,6 +229,22 @@
 5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
 6. Run command ```./web.sh```
 
+## 🚚 로드맵(Road Map)
+
+RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
+
+- [x] [SNS Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
+- [x] [News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
+- [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
+- [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
+- [ ] [100,000+ 웹사이트 크롤링 기능 구현]()
+- [ ] [10,000+건의 위협 탐지 및 신고]()
+- [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
+
+RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 남겨주세요.
+
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
 <table width="900">
@@ -337,22 +353,6 @@
 </tr>
 </tbody>
 </table>
-
-## 🚚 로드맵(Road Map)
-
-RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
-
-- [x] [SNS Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
-- [x] [News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
-- [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
-- [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [ ] [100,000+ 웹사이트 크롤링 기능 구현]()
-- [ ] [10,000+건의 위협 탐지 및 신고]()
-- [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
-
-RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 남겨주세요.
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
