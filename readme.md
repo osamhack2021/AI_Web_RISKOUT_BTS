@@ -82,18 +82,43 @@
 
 여론 현황 대시보드는 여론 및 언론의 최근 동향을 실시간으로 확인할 수 있도록 다양한 **차트**로 시각화시킨 페이지입니다.
 
-### 여론 현황
+### 오늘의 키워드
 
 > 여론 현황에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 보여주는 [워드 클라우드](https://riskout.ithosting.repl.co)입니다.
 
-![워드 ](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![워드클라우드](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
 
-* [**`출처별 감정 통계`**](https://riskout.ithosting.repl.co) : 각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
-* [**`통합 감정 통계`**](https://riskout.ithosting.repl.co) : 각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 요약하여 보여주는 [파이 차트](https://riskout.ithosting.repl.co)입니다.
-* [**`기사 변화량`**](https://riskout.ithosting.repl.co) : 오늘과 근 3일간의 기사량을 비교하여 시각화한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
-* [**`나라별 이벤트`**](https://riskout.ithosting.repl.co) : 100개 이상의 기사 및 전자 신문들을 기반으로 나라별 사건 발생도를 시각화 시킨 [맵 차트](https://riskout.ithosting.repl.co)입니다.
+### 감정 통계 차트
+
+> 감정 통계에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+
+각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
+
+![감정차트](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
+![감정차트2](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
+### 오늘의 트렌드
+
+> 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+
+가장 많이 언급된 3가지 기사를 진짜, 가짜, 의심으로 판별하여 보여줍니다.
+
+![트렌드](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
+### 나라별 이벤트
+
+> 나라별 이벤트에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+
+기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
+
+### 기사 변화량
+
+> 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+
+최근 기사량과 대조하여 급격하게 기사량의 변화가 있었는지 보여주는 기사 변화량 차트입니다.
 
 <h3 id="feature2">위협 탐지</h3>
 
