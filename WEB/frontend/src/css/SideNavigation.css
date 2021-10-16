@@ -105,7 +105,7 @@ body::-webkit-scrollbar {
   /*Copyright position*/
   position: absolute;
   left: 0.4em;
-  top: 36em;
+  top: 35em;
   color: rgb(248, 246, 240);
   width: 100%;
 }
