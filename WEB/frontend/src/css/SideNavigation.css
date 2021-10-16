@@ -38,10 +38,10 @@ body::-webkit-scrollbar {
   /*로고 크기는 정해진 크기 입력*/
   position: absolute;
   top: 0.8em;
-  left: 4.9em;
+  left: 5.3em;
   color: #fff;
-  width: 104px;
-  height: 74px;
+  width: 87px;
+  height: 70px;
 }
 
 .sub_header .image:hover {
@@ -55,7 +55,8 @@ body::-webkit-scrollbar {
 
 /* 사이드바 메뉴 버튼과 아이콘 위치, 메뉴 버튼 전체 위치*/
 .sub_header .sub_menu {
-  padding: 8em 1.5em 0em;
+  padding: 8em 0em 0em;
+  margin: 1px
 }
 
 .sub_header .sub_menu .list {
@@ -92,9 +93,10 @@ body::-webkit-scrollbar {
 
 .sub_header .sub_menu [class$='MuiTypography-root'] {
   /* 메뉴 글자 크기, 폰트 */
-  text-align: center;
+  margin-left: 0.8em;
+  text-align: left;
   font-family: Montserrat, 'Noto Sans KR';
-  font-size: 1.1em;
+  font-size: 19px;
 }
 
 .sub_header .sub_menu .list:hover *,
@@ -112,6 +114,7 @@ body::-webkit-scrollbar {
 
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
-  font-size: 2px;
+  font-size: 11px;
+  margin-left: 12px;
   font-family: 'Montserrat';
 }
