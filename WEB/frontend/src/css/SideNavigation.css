@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
   top: -2em;
   left: 1.3em;
   color: #fff;
-  transform: scale(0.4);
+  transform: scale(0.3);
   /* width: 105px;
   height: 22px; */
 }
