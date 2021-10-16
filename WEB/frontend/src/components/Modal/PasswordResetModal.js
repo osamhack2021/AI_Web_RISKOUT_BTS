@@ -43,6 +43,7 @@ const handlePassword2Change = (e) => {
  const avatarStyle = { backgroundColor: '#1bbd7e' };
  const btnstyle = {
   fontSize: '16px',
+  margin: '10px 0',
  };
     return(
       <>
