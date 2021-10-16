@@ -122,18 +122,6 @@ if(token!=null){
               로그인
             </Button >
           </Link>
-          {/* <Typography>
-            <br></br>
-                  <Link href="/init" >
-                    비밀번호 찾기
-            </Link>
-            </Typography>
-            <Typography >
-            <br></br>
-                  <Link href="/register" >
-                    회원가입
-            </Link>
-            </Typography> */}
         </Grid>
         <Box sx={{ display: 'flex', marginBottom: '5em' }}>
           <Typography variant="subtitle1" sx={{}}>
