@@ -17,8 +17,8 @@ const RegisterModal=(props)=>{
   
   const data = {username : username, password : userpassword, email : useremail}
   let token = localStorage.getItem("token");
-
-  if(token.length!=0){
+  
+  if(token!=null){
     history.push("/")
   }
 

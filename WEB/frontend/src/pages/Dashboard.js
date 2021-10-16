@@ -6,12 +6,13 @@ import WordCloud from '../components/Dashboard/WordCloud';
 import TrendsCard from '../components/Dashboard/TrendsCard';
 
 import { darkTheme, palette } from '../darkTheme';
-
+import { useHistory } from 'react-router';
 import { Grid } from '@mui/material';
 
 export default function Dashboard() {
+  const history = useHistory();
   let token = localStorage.getItem("token");
-  if(token.length==0){
+  if(token==null){
     alert("로그인이 필요한 페이지 입니다.");
     history.push("/login")
   }

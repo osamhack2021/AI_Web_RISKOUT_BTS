@@ -24,7 +24,7 @@ const LoginModal = (props) => {
   let token = localStorage.getItem("token");
 
   
-if(token.length!=0){
+if(token!=null){
 	history.push("/")
 }
 

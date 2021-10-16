@@ -12,10 +12,12 @@ import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
 import useSearchInitEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
+import { useHistory } from 'react-router';
 
 export default function DetectionStatus() {
+  const history = useHistory();
   let token = localStorage.getItem("token");
-  if(token.length==0){
+  if(token==null){
     alert("로그인이 필요한 페이지 입니다.");
     history.push("/login")
   }
@@ -65,11 +67,7 @@ export default function DetectionStatus() {
     console.log('TODO: analyzePage article ', id);
     alert('TODO: analyzePage article ' + id);
   };
-    let token = localStorage.getItem("token");
-  if(token.length==0){
-    alert("로그인이 필요한 페이지 입니다.");
-    history.push("/login")
-  }
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={10} container spacing={3} direction="column">
