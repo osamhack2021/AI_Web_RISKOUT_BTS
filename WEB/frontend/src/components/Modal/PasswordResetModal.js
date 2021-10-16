@@ -90,7 +90,6 @@ const handlePassword2Change = (e) => {
 
               onClick={(e)=>{
                 e.preventDefault()
-                alert(JSON.stringify(data))
                 if(userpassword !== userpasswordCheck){
                   alert("비밀번호가 서로 일치하지 않습니다!")
                 }else{
