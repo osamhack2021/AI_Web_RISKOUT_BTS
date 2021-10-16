@@ -9,6 +9,8 @@ import {
   Typography,
   Link,
 } from '@mui/material';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
   let [userpasswordCheck, setUserPasswordCheck] = useState();
