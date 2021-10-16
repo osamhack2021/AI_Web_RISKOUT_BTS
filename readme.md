@@ -65,7 +65,7 @@
 이를 통해 정확도 보장, 인력 감축, 속도 향상 등의 효과 를 얻게 됩니다.
 
 
-<h1 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h1>
+<h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
 
 **3가지 핵심기능** 은 다음과 같습니다.
 
@@ -74,7 +74,7 @@
 * [**`📰 맞춤형 보고서 생성`**](https://riskout.ithosting.repl.co/) : 클릭 몇번으로 [보고서](https://namu.wiki/w/%EB%B3%B4%EA%B3%A0%EC%84%9C)를 커스텀 및 생성할 수 있습니다.
 
 
-<h3 id="feature1">여론 현황 대시보드</h3>
+<h2 id="feature1">여론 현황 대시보드</h2>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
