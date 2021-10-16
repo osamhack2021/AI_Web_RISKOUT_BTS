@@ -76,17 +76,6 @@ export default function App() {
             <Dashboard />
           </Route>
 
-          {/* <Route exact path="/login">
-            <LoginModal
-              setModal={setModal}
-              userHasAuthenticated={userHasAuthenticated}
-            />
-          </Route>
-
-          <Route exact path="/init">
-            <InitInfo />
-          </Route> */}
-
           <Route exact path="/presstrends">
             <Dashboard />
           </Route>
