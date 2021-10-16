@@ -47,6 +47,7 @@ const handlePassword2Change = (e) => {
   width: 314,
   height: 48,
   backgroundColor: 'rgb(113,137,218)',
+  color: 'white'
  };
     return(
       <>
