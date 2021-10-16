@@ -139,6 +139,7 @@
 | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
 | 1.9.0+ | 17.0.2+ | 3.0.7+ | 4.4+ | 20.10.x+ | 5.0.1+ |
 
+
 <h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
 
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
@@ -179,9 +180,10 @@
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
 #### Analyzer
-1. Move to ```~/WEB/NLP/``` and run command ```docker-compose up```
-2. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
-3. Run command ```./analyzer.sh```
+1. ```~/WEB/NLP/```로 이동합니다.
+2. run command ```docker-compose up```
+3. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
+4. Run command ```./analyzer.sh```
 
 #### Django
 1. Move to ```~/WEB/backend/``` and run command ```cp web-docker-env-example web-docker-env```
