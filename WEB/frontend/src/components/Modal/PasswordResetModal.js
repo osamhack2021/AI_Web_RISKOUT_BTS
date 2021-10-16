@@ -119,8 +119,8 @@ const handlePassword2Change = (e) => {
           </Link>
         </Grid>
         <Typography align="center" variant="subtitle1">
-          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
-            RISKOUT 회원이 아닌가요? 지금 가입하세요.
+          <Link href="/login" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+            RISKOUT 계정 로그인 하기
           </Link>
         </Typography>
       </Paper>
