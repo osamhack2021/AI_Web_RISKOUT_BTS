@@ -1,10 +1,6 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router'
-
+import {
+  Box,
+} from '@mui/material';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
   let [userpasswordCheck, setUserPasswordCheck] = useState();
