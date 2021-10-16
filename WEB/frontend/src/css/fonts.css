@@ -80,6 +80,100 @@
 }
 
 @font-face {
+  font-family: 'Nanum Gothic';
+  src: local('Nanum Gothic'),
+    url(../fonts/Nanum_Gothic/NanumGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-weight: bold;
+  src: local('Nanum Gothic'),
+    url(../fonts/Nanum_Gothic/NanumGothic-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: italic;
+  src: local('Nanum Gothic'),
+    url(../fonts/Nanum_Gothic/NanumGothic-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-weight: bold;
+  font-style: italic;
+  src: local('Nanum Gothic'),
+    url(../fonts/Nanum_Gothic/NanumGothic-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-Italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: bold;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: bold;
+  font-style: italic;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf)
+      format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: bolder;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-Black.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: bolder;
+  font-style: italic;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf)
+      format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: light;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: light;
+  font-style: italic;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-LightItalic.ttf)
+      format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: lighter;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf)
+      format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-weight: lighter;
+  font-style: italic;
+  src: local('Source Sans Pro'),
+    url(../fonts/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf)
+      format('truetype');
+}
+
+@font-face {
   font-family: 'Black Han Sans';
   src: local('Black Han Sans'),
     url(../fonts/BlackHanSans-Regular.ttf) format('truetype');
