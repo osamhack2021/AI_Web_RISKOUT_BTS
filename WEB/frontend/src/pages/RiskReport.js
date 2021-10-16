@@ -15,10 +15,10 @@ import { darkTheme, palette } from '../darkTheme';
 const RiskReport = (props) => {
   const history = useHistory();
   let token = localStorage.getItem('token');
-  // if (token == null) {
-  //   alert('로그인이 필요한 페이지 입니다.');
-  //   history.push('/login');
-  // }
+  if (token == null) {
+    alert('로그인이 필요한 페이지 입니다.');
+    history.push('/login');
+  }
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
