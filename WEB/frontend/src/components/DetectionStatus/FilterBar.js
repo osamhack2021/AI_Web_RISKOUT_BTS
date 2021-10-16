@@ -110,12 +110,12 @@ export default function FilterBar() {
                   <Box>
                     {Object.entries(wordCount)
                       .sort(([, a], [, b]) => b - a)
-                      .map(([word, count]) => (
+                      .map(([word, count], id) => (
                         <FilterCheckbox
+                          key={id}
                           label={label}
                           count={count}
                           hashtag={word}
-                          key={word}
                           checked={includes(label, word)}
                         />
                       ))}
