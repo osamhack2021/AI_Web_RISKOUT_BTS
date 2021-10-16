@@ -6,8 +6,11 @@ import {
   Box,
   LinearProgress,
   Divider,
+  Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
+
+import { isEmpty } from 'lodash';
 
 export const SentimentPie = ({ theme, colors }) => {
   const requestUrl =
@@ -30,7 +33,7 @@ export const SentimentPie = ({ theme, colors }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box
             sx={{
@@ -52,76 +55,6 @@ export const SentimentPie = ({ theme, colors }) => {
               arcLinkLabelsSkipAngle={10}
               arcLinkLabelsThickness={2}
               arcLabelsSkipAngle={10}
-              defs={[
-                {
-                  id: 'dots',
-                  type: 'patternDots',
-                  background: 'inherit',
-                  color: 'rgba(255, 255, 255, 0.3)',
-                  size: 4,
-                  padding: 1,
-                  stagger: true,
-                },
-                {
-                  id: 'lines',
-                  type: 'patternLines',
-                  background: 'inherit',
-                  color: 'rgba(255, 255, 255, 0.3)',
-                  rotation: -45,
-                  lineWidth: 6,
-                  spacing: 10,
-                },
-              ]}
-              fill={[
-                {
-                  match: {
-                    id: 'ruby',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'c',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'go',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'python',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'scala',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'lisp',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'elixir',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'javascript',
-                  },
-                  id: 'lines',
-                },
-              ]}
               legends={[
                 {
                   anchor: 'bottom',
@@ -130,9 +63,8 @@ export const SentimentPie = ({ theme, colors }) => {
                   translateX: 0,
                   translateY: 56,
                   itemsSpacing: 0,
-                  itemWidth: 100,
+                  itemWidth: 80,
                   itemHeight: 18,
-                  itemTextColor: '#999',
                   itemDirection: 'left-to-right',
                   itemOpacity: 1,
                   symbolSize: 18,
@@ -149,6 +81,10 @@ export const SentimentPie = ({ theme, colors }) => {
               ]}
             />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>

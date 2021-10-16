@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import {
   Card,
@@ -8,8 +7,12 @@ import {
   Skeleton,
   Divider,
   LinearProgress,
+  Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
+import { useEffect } from 'react';
+
+import { isEmpty } from 'lodash';
 
 const ArticleVolumeLine = ({ theme, colors }) => {
   const requestUrl =
@@ -32,7 +35,7 @@ const ArticleVolumeLine = ({ theme, colors }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box
             sx={{
@@ -109,6 +112,10 @@ const ArticleVolumeLine = ({ theme, colors }) => {
               ]}
             />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>

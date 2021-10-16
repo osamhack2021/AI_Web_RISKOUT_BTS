@@ -29,9 +29,9 @@ body::-webkit-scrollbar {
 }
 
 /* 미니 아이콘 메뉴에 마우스를 올렸을 때 css*/
-.iconMenuBox .inconMenuLink .iconMenu:hover {
+.iconMenuBox .iconMenuLink .iconMenu:hover {
   cursor: pointer;
-  color: #3e90ff;
+  color: #3a8ffb;
 }
 
 .sub_header .image {
@@ -55,7 +55,7 @@ body::-webkit-scrollbar {
 
 /* 사이드바 메뉴 버튼과 아이콘 위치*/
 .sub_header .sub_menu {
-  padding: 6.0em 1em 0em;
+  padding: 6em 1em 0em;
 }
 
 .sub_header .sub_menu .list {
@@ -82,11 +82,11 @@ body::-webkit-scrollbar {
 .sub_header .sub_menu .list.on *,
 .iconMenuBox .inconMenuLink.on * {
   /*현재 사이트 경로의 메뉴 버튼 css*/
-  color: #3e90ff;
+  color: #3a8ffb;
 }
 
 /*홈 버튼과 사이드바 닫기 버튼 padding*/
-.closeButton{
+.closeButton {
   padding: 8px 13px 20px 200px;
 }
 
@@ -108,7 +108,7 @@ body::-webkit-scrollbar {
 
 .sub_header .sub_menu .list:hover *,
 .iconMenuBox .inconMenuLink:hover * {
-  color: #3e90ff;
+  color: #3a8ffb;
 }
 .sub_header .copyright {
   /*Copyright position*/

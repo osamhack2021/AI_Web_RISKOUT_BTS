@@ -8,7 +8,11 @@ const useFetch = (url, options) => {
   useEffect(() => {
     const abortCont = new AbortController();
     async function fetchData() {
-      fetch(url, { signal: abortCont.signal, ...options })
+      fetch(url, {
+        credentials: 'include',
+        signal: abortCont.signal,
+        ...options,
+      })
         .then((res) => {
           if (!res.ok)
             throw Error('could not fetch the data for that resource');
