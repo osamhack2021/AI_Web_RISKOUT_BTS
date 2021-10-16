@@ -111,7 +111,6 @@ const RegisterModal=(props)=>{
               onChange={handleEmailChange}
             />
           </Box>
-          {/* */}
           <Link  sx={{ textDecoration: 'none'}}>
             <Button
               type="submit"
