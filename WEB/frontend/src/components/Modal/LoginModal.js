@@ -48,7 +48,7 @@ if(token!=null){
     margin: '10px 0',
     width: 314,
     height: 48,
-    backgroundColor: 'rgb(113,137,218)',
+    backgroundColor: '#3a8ffb',
     color: 'white'
   };
   return (
@@ -127,7 +127,7 @@ if(token!=null){
         <Divider>or</Divider>
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
-          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+          <Link href="/register" sx={{ textDecoration: 'none', color: '#3a8ffb' }}>
             RISKOUT 회원이 아닌가요? 지금 가입하세요.
           </Link>
         </Typography>
