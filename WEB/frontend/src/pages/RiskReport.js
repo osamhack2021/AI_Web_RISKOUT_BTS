@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Grid, Typography, Skeleton } from '@mui/material';
+import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
 import axios from 'axios';
 import '../css/fonts.css';
 
@@ -15,10 +15,10 @@ import { darkTheme, palette } from '../darkTheme';
 const RiskReport = (props) => {
   const history = useHistory();
   let token = localStorage.getItem('token');
-  if (token == null) {
-    alert('로그인이 필요한 페이지 입니다.');
-    history.push('/login');
-  }
+  // if (token == null) {
+  //   alert('로그인이 필요한 페이지 입니다.');
+  //   history.push('/login');
+  // }
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
@@ -135,6 +135,16 @@ const RiskReport = (props) => {
     alert('dateRange changed ' + dateRange);
   };
 
+  const ReportDivider = (
+    <Divider
+      sx={{
+        borderStyle: 'none',
+        borderWidth: '0px',
+        boxShadow: '0px 0px 1px 1px #49484c',
+      }}
+    />
+  );
+
   return (
     <>
       {isPending ? (
@@ -150,16 +160,15 @@ const RiskReport = (props) => {
             sx={{
               bgcolor: (theme) => theme.palette.background.default,
               p: 3,
-              // fontFamily: 'Nanum Gothic',
             }}
           >
             <Box className="sub01_wrap">
               <Grid container spacing={1} direction="column">
-                <Grid item>
+                <Grid item pb={1}>
                   <Typography
                     variant="h2"
                     fontFamily="Source Sans Pro"
-                    fontWeight="bold"
+                    fontWeight="500"
                   >
                     REPORT{' '}
                     <Typography
@@ -177,13 +186,21 @@ const RiskReport = (props) => {
                     </Typography>
                   </Typography>
                 </Grid>
-                <Grid item>
+                <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
                     {getLineBreakText(data.overview)}
                   </Typography>
                 </Grid>
+                <Grid item>
+                  <Divider
+                    sx={{
+                      borderStyle: 'none',
+                      borderWidth: '0px',
+                      boxShadow: '0px 0px 1px 1px #49484c',
+                    }}
+                  />
+                </Grid>
               </Grid>
-
               <Grid
                 // item
                 container
@@ -197,17 +214,16 @@ const RiskReport = (props) => {
                   item
                   container
                   spacing={1}
-                  // mt={3}
                   xs={12}
                   md={6}
                   direction="column"
                 >
-                  <Grid item>
+                  <Grid item pb={1}>
                     <Typography
                       variant="h3"
                       sx={{ fontSize: '2.3rem' }}
                       fontFamily="Source Sans Pro"
-                      fontWeight="bold"
+                      fontWeight="500"
                     >
                       Risk Briefing
                     </Typography>
@@ -239,7 +255,13 @@ const RiskReport = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-
+              <Divider
+                sx={{
+                  borderStyle: 'none',
+                  borderWidth: '0px',
+                  boxShadow: '0px 0px 1px 1px #49484c',
+                }}
+              />
               <Grid
                 container
                 className="content clfix"
@@ -252,7 +274,7 @@ const RiskReport = (props) => {
                     variant="h3"
                     sx={{ fontSize: '2.3rem' }}
                     fontFamily="Source Sans Pro"
-                    fontWeight="bold"
+                    fontWeight="500"
                   >
                     Major Risks
                   </Typography>
@@ -264,7 +286,6 @@ const RiskReport = (props) => {
                   justifyContent="space-evenly"
                   alignItems="center"
                   columnSpacing={5}
-                  sx={{ mt: '1rem' }}
                 >
                   {data.majorEvents.map(
                     ({

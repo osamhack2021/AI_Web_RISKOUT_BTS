@@ -106,6 +106,7 @@
 
 @font-face {
   font-family: 'Source Sans Pro';
+  font-weight: 500;
   src: local('Source Sans Pro'),
     url(../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf) format('truetype');
 }
@@ -145,19 +146,19 @@
 }
 @font-face {
   font-family: 'Source Sans Pro';
-  font-weight: light;
+  font-weight: lighter;
   src: local('Source Sans Pro'),
     url(../fonts/Source_Sans_Pro/SourceSansPro-Light.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Source Sans Pro';
-  font-weight: light;
+  font-weight: lighter;
   font-style: italic;
   src: local('Source Sans Pro'),
     url(../fonts/Source_Sans_Pro/SourceSansPro-LightItalic.ttf)
       format('truetype');
 }
-@font-face {
+/* @font-face {
   font-family: 'Source Sans Pro';
   font-weight: lighter;
   src: local('Source Sans Pro'),
@@ -171,7 +172,7 @@
   src: local('Source Sans Pro'),
     url(../fonts/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf)
       format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'Black Han Sans';
