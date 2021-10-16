@@ -1,12 +1,18 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography, Link} from '@material-ui/core'
-import Divider from '@mui/material/Divider';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router'
-import '../../css/LoginModal.css';
+import {
+  Box,
+  Divider,
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  Link,
+} from '@mui/material';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const RegisterModal=(props)=>{
-  let [JoinLoign,setJoinLogin] = useState('회원가입')
   const history = useHistory()
   
 
@@ -36,68 +42,126 @@ const RegisterModal=(props)=>{
   }
 
 
-    const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'10px 0'}
+
+  const paperStyle = {
+    padding: '60px 68px 40px',
+    width: 450,
+    height: 670,
+    margin: '53px auto',
+    backgroundColor: 'rgb(54,57,63)'
+  };
+  const avatarStyle = { backgroundColor: '#1bbd7e' };
+  const btnstyle = {
+    fontSize: '16px',
+    margin: '10px 0',
+    width: 314,
+    height: 48,
+    backgroundColor: 'rgb(113,137,218)',
+    color: 'white'
+  };
     return(
-      <>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Grid>
+      <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
-          <Grid align='center'>
-               <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-              <h2>{JoinLoign}</h2>
-          </Grid>
-          <TextField label='아이디' placeholder='아이디를 입력해 주세요.' fullWidth required onChange={handleNameChange}/>
-          <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordChange}/>
-          <TextField label='비밀번호 확인' placeholder='비밀번호를 다시 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordCheckChange}/>
-          <TextField label='이메일' placeholder='이메일을 입력해 주세요.' fullWidth required onChange={handleEmailChange}/>
-          {/*  */}
-          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button"
-          onClick={(e)=>{
-            e.preventDefault()
-            if(!useremail.indexOf("@")){
-              alert("이메일 형식이 올바르지 않습니다.")
-            }else if(userpassword !== userpasswordCheck){
-              alert("비밀번호를 확인해 주세요.")
-            }else{
-              fetch('/api/user/register/', {
+        <Grid align="left">
+          {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
+          <h1 style={{ fontSize: '32px' }}>회원가입</h1>
+        </Grid>
+        <Grid align="center">
+          <Box
+            sx={{ width: 314, height: 50, marginBottom: '1.2em', marginTop: 5 }}
+          >
+            <TextField
+              label="아이디"
+              placeholder="아이디를 입력해 주세요"
+              fullWidth
+              required
+              onChange={handleNameChange}
+              variant="outlined"
+            />
+          </Box>
+          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+            <TextField
+              label="비밀번호"
+              placeholder="비밀번호를 입력해 주세요."
+              fullWidth
+              required
+              variant="outlined"
+              type='password'
+              onChange={handlePasswordChange}
+            />
+          </Box>
+          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+            <TextField
+              label="비밀번호 확인"
+              placeholder="비밀번호를 다시 입력해 주세요."
+              fullWidth
+              required
+              variant="outlined"
+              type='password'
+              onChange={handlePasswordCheckChange}
+            />
+          </Box>
+          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+            <TextField
+              label="이메일"
+              placeholder="이메일을 입력해 주세요."
+              fullWidth
+              required
+              variant="outlined"
+              onChange={handlePasswordCheckChange}
+            />
+          </Box>
+          {/* */}
+          <Link  sx={{ textDecoration: 'none'}}>
+            <Button
+              type="submit"
+              variant="contained"
+              style={btnstyle}
+              className="JoinLoign-button"
+
+              onClick={(e)=>{
+                e.preventDefault()
+                fetch('/api/user/login/', {
                 method: 'POST',
-                headers:{
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-                
-              }).then(res => res.json())
-              .then(json => {
-                console.log(json)
-                if (json.token) {
-                  props.userHasAuthenticated(true, data.username, json.token);
-                  history.push("/");
-                  props.setModal(true)
-                }else{
-                  alert("사용불가능한 아이디입니다.")
-                }
-              })
-              
-              .catch(error => alert(error));
-            }
-            }
-           }
-          ><Link href="/login">{JoinLoign}</Link></Button>
-        <br /><br /><br /><br />
-        <hr />
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.token) {
+                    props.userHasAuthenticated(true, data.username, json.token);
+                    alert("환영합니다."+username+"님.")
+                    history.push("/");
+                    props.setModal(true)
+                    console.log(json)
+                  }else{
+                    alert("아이디 또는 비밀번호를 확인해주세요.")
+                  }
+                })
+                .catch(error => alert(error));
+              }} 
+            >
+              로그인
+            </Button >
+          </Link>
+        </Grid>
+        <Box sx={{ display: 'flex', marginBottom: '5em' }}>
+          <Typography variant="subtitle1" sx={{}}>
+            <input type="checkbox" style={{ marginTop: '7px' }} />
+            로그인 정보 저장
+          </Typography>
+        </Box>
         <Divider>or</Divider>
+        {/* <br /> */}
         <Typography align="center" variant="subtitle1">
-          <Link href="/login" >
-            RISKOUT 회원이세요? 지금 로그인하세요.
+          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+            RISKOUT 회원이 아닌가요? 지금 가입하세요.
           </Link>
         </Typography>
       </Paper>
-  </Grid>
-  </>
+    </Box>
     )
 }
 

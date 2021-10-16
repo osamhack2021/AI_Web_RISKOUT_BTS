@@ -34,12 +34,6 @@ if(token!=null){
   const handlePasswordChange = (e) => {
     setUserPassword(e.target.value);
   };
-  const handlePasswordCheckChange = (e) => {
-    setUserPasswordCheck(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setUserEamil(e.target.value);
-  };
 
   const paperStyle = {
     padding: '60px 68px 40px',
@@ -88,7 +82,7 @@ if(token!=null){
             />
           </Box>
           {/* */}
-          <Link href="/presstrends" sx={{ textDecoration: 'none'}}>
+          <Link sx={{ textDecoration: 'none'}}>
             <Button
               type="submit"
               variant="contained"
