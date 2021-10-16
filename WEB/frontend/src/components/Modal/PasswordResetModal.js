@@ -51,7 +51,7 @@ const handlePassword2Change = (e) => {
  };
     return(
      
-    )
+    );
 }
 
 export default PasswordResetModal
