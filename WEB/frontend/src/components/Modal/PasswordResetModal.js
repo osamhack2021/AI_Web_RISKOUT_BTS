@@ -44,6 +44,7 @@ const handlePassword2Change = (e) => {
  const btnstyle = {
   fontSize: '16px',
   margin: '10px 0',
+  width: 314,
  };
     return(
       <>
