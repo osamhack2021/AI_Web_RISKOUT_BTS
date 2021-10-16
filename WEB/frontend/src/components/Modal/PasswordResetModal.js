@@ -49,7 +49,6 @@ const handlePassword2Change = (e) => {
   backgroundColor: 'rgb(113,137,218)',
   color: 'white'
  };
- //Edit API Request
     return(
       <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
