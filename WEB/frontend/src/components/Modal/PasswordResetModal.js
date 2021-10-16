@@ -12,7 +12,11 @@ const PasswordResetModal=(props)=>{
 
 
   const data = {password : userpassword,token : usertoken, }
+  let token = localStorage.getItem("token");
 
+  if(token!=null){
+    history.push("/")
+  }
 const handlePassword1Change = (e) => {
   setUserPassword(e.target.value)
 }

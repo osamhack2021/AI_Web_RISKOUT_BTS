@@ -21,18 +21,18 @@ const LoginModal = (props) => {
   let [useremail, setUserEamil] = useState();
 
   const data = { username: username, password: userpassword, email: useremail };
+  let token = localStorage.getItem("token");
+
+  
+if(token!=null){
+	history.push("/")
+}
 
   const handleNameChange = (e) => {
     setUsername(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setUserPassword(e.target.value);
-  };
-  const handlePasswordCheckChange = (e) => {
-    setUserPasswordCheck(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setUserEamil(e.target.value);
   };
 
   const paperStyle = {
@@ -76,56 +76,47 @@ const LoginModal = (props) => {
               label="비밀번호"
               placeholder="비밀번호를 입력해 주세요."
               fullWidth
+              type="password"
               required
               variant="outlined"
               onChange={handlePasswordChange}
             />
           </Box>
-          {/* onClick={(e)=>{
-                    e.preventDefault()
-                    fetch('/api/user/login/', {
-                    method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify(data)
-                    })
-                    .then(res => res.json())
-                    .then(json => {
-                      if (json.token) {
-                        props.userHasAuthenticated(true, data.username, json.token);
-                        alert("환영합니다."+username+"님.")
-                        history.push("/");
-                        props.setModal(true)
-                        console.log(json)
-                      }else{
-                        alert("아이디 또는 비밀번호를 확인해주세요.")
-                      }
-                    })
-                    .catch(error => alert(error));
-                  }} */}
-          <Link href="/presstrends" sx={{ textDecoration: 'none'}}>
+          {/* */}
+          <Link sx={{ textDecoration: 'none'}}>
             <Button
               type="submit"
               variant="contained"
               style={btnstyle}
               className="JoinLoign-button"
+
+              onClick={(e)=>{
+                e.preventDefault()
+                fetch('/api/user/login/', {
+                method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(json => {
+                  if (json.token) {
+                    props.userHasAuthenticated(true, data.username, json.token);
+                    alert("환영합니다."+username+"님.")
+                    history.push("/");
+                    props.setModal(true)
+                    console.log(json)
+                  }else{
+                    alert("아이디 또는 비밀번호를 확인해주세요.")
+                  }
+                })
+                .catch(error => alert(error));
+              }} 
             >
               로그인
-            </Button>
+            </Button >
           </Link>
-          {/* <Typography>
-            <br></br>
-                  <Link href="/init" >
-                    비밀번호 찾기
-            </Link>
-            </Typography>
-            <Typography >
-            <br></br>
-                  <Link href="/register" >
-                    회원가입
-            </Link>
-            </Typography> */}
         </Grid>
         <Box sx={{ display: 'flex', marginBottom: '5em' }}>
           <Typography variant="subtitle1" sx={{}}>

@@ -9,8 +9,17 @@ import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
+import { useHistory } from 'react-router';
+import { darkTheme, palette } from '../darkTheme';
 
 const RiskReport = (props) => {
+  const history = useHistory();
+  let token = localStorage.getItem('token');
+  if (token == null) {
+    alert('로그인이 필요한 페이지 입니다.');
+    history.push('/login');
+  }
+
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
   const [data, setData] = React.useState({});
@@ -86,7 +95,8 @@ const RiskReport = (props) => {
               sx={{
                 borderRadius: '5px',
                 marginTop: '13px',
-                marginRight: '33px',
+                marginLeft: '-10px',
+                marginRight: '30px',
               }}
               width={879}
               height={450}

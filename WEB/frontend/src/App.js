@@ -72,16 +72,9 @@ export default function App() {
     setUser(username);
     console.log('토큰 저장됨');
     localStorage.setItem('token', token);
-  }; //회원가입이나 로그인이 성공했을 때 토큰을 저장
+  }; 
 
-  const handleLogout = () => {
-    setisAuthenticated(false);
-    setUser('');
-    localStorage.removeItem('token');
-    setModal(false);
-  }; //로그아웃
 
-  console.log(isAuthenticated);
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -90,7 +83,7 @@ export default function App() {
         maxSnack={3}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <Layout handleLogout={handleLogout}>
+        <Layout>
           <Route exact path="/">
             <Dashboard />
           </Route>

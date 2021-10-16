@@ -106,14 +106,14 @@ export default function SideNavigation(props) {
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require('../../images/sub/logo_blue_white.png').default}
+              src={require('../../images/sub/logo_head.png').default}
               alt="홈"
               className="image"
             />
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
+              <MenuIcon sx={{ color: 'rgb(248, 246, 240)', fontSize: '0.8em' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -132,8 +132,12 @@ export default function SideNavigation(props) {
         </List>
         <ListItem>
           <ListItemText
-            primary="Copyright © 2021. RISKOUT All right reserved."
-            className="copyright"
+            primary="Copyright © 2021. RISKOUT"
+            className="copyright1"
+          />
+          <ListItemText
+            primary="All rights reserved."
+            className="copyright2"
           />
         </ListItem>
       </Drawer>
