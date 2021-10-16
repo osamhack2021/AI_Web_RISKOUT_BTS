@@ -16,7 +16,7 @@ const PasswordResetModal=(props)=>{
   let [userpasswordCheck, setUserPasswordCheck] = useState();
   let usertoken = document.URL.split("=")[1];
 
-//Edit PasswordResetModal
+
   const data = {password : userpassword,token : usertoken, }
   let token = localStorage.getItem("token");
 
@@ -32,7 +32,7 @@ const handlePassword2Change = (e) => {
 }
 
     const history = useHistory()
-
+ //PasswordResetPage Styling 
 
     return(
       <>
