@@ -55,7 +55,6 @@ if(token!=null){
     <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
         <Grid align="left">
-          {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
           <h1 style={{ fontSize: '32px' }}>로그인</h1>
         </Grid>
         <Grid align="center">

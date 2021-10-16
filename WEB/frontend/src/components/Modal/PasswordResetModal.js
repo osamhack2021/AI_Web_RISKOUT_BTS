@@ -1,10 +1,16 @@
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router'
-
+import {
+  Box,
+  Divider,
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  Link,
+} from '@mui/material';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
   let [userpasswordCheck, setUserPasswordCheck] = useState();
@@ -27,58 +33,96 @@ const handlePassword2Change = (e) => {
 
     const history = useHistory()
 
-    const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'10px 0'}
+ const paperStyle = {
+  padding: '60px 68px 40px',
+  width: 450,
+  height: 670,
+  margin: '53px auto',
+  backgroundColor: 'rgb(54,57,63)'
+ };
+ const avatarStyle = { backgroundColor: '#1bbd7e' };
+ const btnstyle = {
+  fontSize: '16px',
+  margin: '10px 0',
+  width: 314,
+  height: 48,
+  backgroundColor: 'rgb(113,137,218)',
+  color: 'white'
+ };
     return(
-      <>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Grid>
+      <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
-          <Grid align='center'>
-               <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
-              <h2>비밀번호 찾기</h2>
-          </Grid>
-          <TextField label='새 비밀번호' placeholder='새 비밀번호를 입력해 주세요.' type='password' fullWidth required  onChange={handlePassword1Change}/>
-          <TextField label='새 비밀번호 확인' placeholder='새 비밀번호를 다시 입력해 주세요.' type='password' fullWidth required  onChange={handlePassword2Change}/>
-          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button" onClick={(e)=>{
-                  e.preventDefault()
-                  alert(JSON.stringify(data))
-                  if(userpassword !== userpasswordCheck){
-                    alert("비밀번호가 서로 일치하지 않습니다!")
-                  }else{
-                    fetch('/api/password-reset/confirm/', {
-                      method: 'POST',
-                      headers:{
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify(data)
-                    }).then(res => res.json())
-                    .then(json => {
-                      if(json.status==="OK"){
-                          alert("성공적으로 변경되었습니다.");
-                          history.push("/");
-                      }else{
-                          alert("비밀번호를 다시 확인 해 주세요.")
-                      }
-                    })
-                    .catch(error => alert(error));
-                    };
+        <Grid align="left">
+          <h1 style={{ fontSize: '32px' }}>비밀번호 초기화</h1>
+        </Grid>
+        <Grid align="center">
+          <Box
+            sx={{ width: 314, height: 50, marginBottom: '1.2em', marginTop: 5 }}
+          >
+            <TextField
+              label="새 비밀번호"
+              placeholder="비밀번호를 입력 해 주세요."
+              fullWidth
+              required
+              onChange={ handlePassword1Change}
+              variant="outlined"
+            />
+          </Box>
+          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+            <TextField
+              label="새 비밀번호 확인"
+              placeholder="새 비밀번호를 다시 입력해 주세요."
+              fullWidth
+              required
+              variant="outlined"
+              onChange={ handlePassword2Change}
+            />
+          </Box>
+          <Link sx={{ textDecoration: 'none'}}>
+            <Button
+              type="submit"
+              variant="contained"
+              style={btnstyle}
+              className="JoinLoign-button"
 
-                  }
-                  }>전송</Button>
-          <Typography >
-          <br></br>
-               <Link href="/login" >
-                  로그인
+              onClick={(e)=>{
+                e.preventDefault()
+                if(userpassword !== userpasswordCheck){
+                  alert("비밀번호가 서로 일치하지 않습니다!")
+                }else{
+                  fetch('/api/password-reset/confirm/', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                  }).then(res => res.json())
+                  .then(json => {
+                    if(json.status==="OK"){
+                        alert("성공적으로 변경되었습니다.");
+                        history.push("/login");
+                    }else{
+                        alert("비밀번호를 다시 확인 해 주세요.")
+                    }
+                  })
+                  .catch(error => alert(error));
+                  };
+
+                }
+                }
+            >
+              변경
+            </Button >
           </Link>
-          </Typography>
+        </Grid>
+        <Typography align="center" variant="subtitle1">
+          <Link href="/login" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+            RISKOUT 계정 로그인 하기
+          </Link>
+        </Typography>
       </Paper>
-  </Grid>
-  </>
-    )
+    </Box>
+    );
 }
 
 export default PasswordResetModal

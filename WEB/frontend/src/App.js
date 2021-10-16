@@ -88,17 +88,6 @@ export default function App() {
             <Dashboard />
           </Route>
 
-          {/* <Route exact path="/login">
-            <LoginModal
-              setModal={setModal}
-              userHasAuthenticated={userHasAuthenticated}
-            />
-          </Route>
-
-          <Route exact path="/init">
-            <InitInfo />
-          </Route> */}
-
           <Route exact path="/presstrends">
             <Dashboard />
           </Route>
@@ -118,7 +107,9 @@ export default function App() {
             />
           </Route>
           <Route exact path="/register">
-            <RegisterModal setModal={setModal} />
+            <RegisterModal setModal={setModal}
+              userHasAuthenticated={userHasAuthenticated}
+            />
           </Route>
 
           <Route exact path="/init">
@@ -126,7 +117,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/password_reset">
-            <PasswordResetModal setModal={setModal} />
+            <PasswordResetModal/>
           </Route>
         </Layout>
       </SnackbarProvider>
