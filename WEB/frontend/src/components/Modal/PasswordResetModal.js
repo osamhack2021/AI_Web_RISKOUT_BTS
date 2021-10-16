@@ -104,7 +104,7 @@ const handlePassword2Change = (e) => {
                   .then(json => {
                     if(json.status==="OK"){
                         alert("성공적으로 변경되었습니다.");
-                        history.push("/");
+                        history.push("/login");
                     }else{
                         alert("비밀번호를 다시 확인 해 주세요.")
                     }
