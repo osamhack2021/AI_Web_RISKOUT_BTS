@@ -21,6 +21,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       style={{
         fontSize: '40px',
         fontWeight: 600,
+        fill: 'white',
       }}
     >
       {`${maximum} %`}
@@ -30,22 +31,28 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
 
 export default function RiskTypeGraph({ theme, colors, data }) {
   return (
-    <Card style={{ height: '400px' }}>
+    <Card
+      sx={{
+        // height: '400px',
+        background: 'unset',
+        boxShadow: 'unset',
+      }}
+    >
       <CardHeader title="리스크 종류별 비율 (%)" />
-      <Divider />
+      {/* <Divider /> */}
 
       {data ? (
         <CardContent>
           <Box
             sx={{
-              height: 350,
+              height: 500,
               position: 'relative',
             }}
           >
             <ResponsivePie
               theme={theme}
               data={data}
-              margin={{ top: 30, right: 80, bottom: 100, left: 80 }}
+              margin={{ top: 30, right: 80, bottom: 100, left: 30 }}
               innerRadius={0.7}
               padAngle={0.7}
               cornerRadius={3}
@@ -86,10 +93,10 @@ export default function RiskTypeGraph({ theme, colors, data }) {
               legends={[
                 {
                   itemTextColor: '#ffffff',
-                  anchor: 'bottom',
+                  anchor: 'bottom-right',
                   direction: 'column',
                   justify: false,
-                  translateX: 260,
+                  translateX: 30,
                   translateY: 50,
                   itemsSpacing: 0,
                   itemWidth: 140,

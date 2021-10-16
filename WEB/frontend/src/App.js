@@ -17,6 +17,17 @@ import InitInfo from './components/Modal/InitInfo';
 import './App.css';
 
 const mdTheme = createTheme({
+  typography: {
+    fontFamily: [
+      '"Nanum Gothic"',
+      '"Source Sans Pro"',
+      '"Noto Sans KR"',
+      'Roboto',
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
   palette: {
     mode: 'dark',
     background: {
@@ -46,6 +57,7 @@ const mdTheme = createTheme({
     },
   },
 });
+console.log(mdTheme);
 
 export default function App() {
   const [modal, setModal] = useState(false);

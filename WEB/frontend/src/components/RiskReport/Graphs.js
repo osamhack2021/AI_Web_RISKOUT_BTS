@@ -6,6 +6,10 @@ import { Container, Box, Grid, Stack } from '@mui/material';
 import { darkTheme, palette } from '../../darkTheme';
 
 export default function Graphs({ data }) {
+  const graphTheme = {
+    ...darkTheme,
+    fontSize: 15,
+  };
   const barData = [
     { category: '기밀 유출 횟수', value: data.secretsCount },
     { category: '허위 뉴스 개수', value: data.fakeNewsCount },
@@ -32,10 +36,10 @@ export default function Graphs({ data }) {
   return (
     <Stack direction="column" container spacing={2}>
       <Grid item xs={12}>
-        <DailyRiskGraph theme={darkTheme} colors={palette} data={barData} />
+        <RiskTypeGraph theme={graphTheme} colors={palette} data={pieData} />
       </Grid>
       <Grid item xs={12}>
-        <RiskTypeGraph theme={darkTheme} colors={palette} data={pieData} />
+        <DailyRiskGraph theme={graphTheme} colors={palette} data={barData} />
       </Grid>
     </Stack>
   );
