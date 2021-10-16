@@ -38,6 +38,7 @@ const handlePassword2Change = (e) => {
   width: 450,
   height: 670,
   margin: '53px auto',
+  backgroundColor: 'rgb(54,57,63)'
  };
     return(
       <>
