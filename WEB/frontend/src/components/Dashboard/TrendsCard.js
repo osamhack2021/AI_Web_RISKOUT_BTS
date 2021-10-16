@@ -15,6 +15,9 @@ import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
 import moment from 'moment';
 import ProgressBar from '../Common/ProgressBar';
 import useFetch from '../../hooks/useFetch';
+
+import { isEmpty } from 'lodash';
+
 import '../../css/pageStyle.css';
 
 const columns = [
@@ -113,7 +116,7 @@ export default function TrendsCard() {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box sx={{ width: '100%', height: 300 }}>
             <DataGrid
@@ -127,6 +130,10 @@ export default function TrendsCard() {
               }}
             />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>
