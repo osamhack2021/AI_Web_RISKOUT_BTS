@@ -95,7 +95,9 @@ export default function App() {
             />
           </Route>
           <Route exact path="/register">
-            <RegisterModal setModal={setModal} />
+            <RegisterModal setModal={setModal}
+              userHasAuthenticated={userHasAuthenticated}
+            />
           </Route>
 
           <Route exact path="/init">
