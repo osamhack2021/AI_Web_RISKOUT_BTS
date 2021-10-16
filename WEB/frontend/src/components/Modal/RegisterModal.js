@@ -56,7 +56,7 @@ const RegisterModal=(props)=>{
     margin: '10px 0',
     width: 314,
     height: 48,
-    backgroundColor: 'rgb(113,137,218)',
+    backgroundColor: '#3a8ffb',
     color: 'white'
   };
     return(
@@ -155,7 +155,7 @@ const RegisterModal=(props)=>{
         </Grid>
         { <br /> }
         <Typography align="center" variant="subtitle1">
-          <Link href="/login" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+          <Link href="/login" sx={{ textDecoration: 'none', color: '#3a8ffb' }}>
             RISKOUT 계정이 존재 하시나요? 로그인 하기
           </Link>
         </Typography>
