@@ -1,12 +1,13 @@
 import {
   Box,
+  Divider,
 } from '@mui/material';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
   let [userpasswordCheck, setUserPasswordCheck] = useState();
   let usertoken = document.URL.split("=")[1];
 
-
+//Edit PasswordResetModal
   const data = {password : userpassword,token : usertoken, }
   let token = localStorage.getItem("token");
 
