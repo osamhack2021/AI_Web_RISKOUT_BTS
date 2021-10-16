@@ -90,27 +90,30 @@ const handlePassword2Change = (e) => {
 
               onClick={(e)=>{
                 e.preventDefault()
-                fetch('/api/user/login/', {
-                method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(json => {
-                  if (json.token) {
-                    props.userHasAuthenticated(true, data.username, json.token);
-                    alert("환영합니다."+username+"님.")
-                    history.push("/");
-                    props.setModal(true)
-                    console.log(json)
-                  }else{
-                    alert("아이디 또는 비밀번호를 확인해주세요.")
-                  }
-                })
-                .catch(error => alert(error));
-              }} 
+                alert(JSON.stringify(data))
+                if(userpassword !== userpasswordCheck){
+                  alert("비밀번호가 서로 일치하지 않습니다!")
+                }else{
+                  fetch('/api/password-reset/confirm/', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                  }).then(res => res.json())
+                  .then(json => {
+                    if(json.status==="OK"){
+                        alert("성공적으로 변경되었습니다.");
+                        history.push("/");
+                    }else{
+                        alert("비밀번호를 다시 확인 해 주세요.")
+                    }
+                  })
+                  .catch(error => alert(error));
+                  };
+
+                }
+                }
             >
               변경
             </Button >
