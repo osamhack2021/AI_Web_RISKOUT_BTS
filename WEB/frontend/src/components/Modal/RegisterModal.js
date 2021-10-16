@@ -108,7 +108,7 @@ const RegisterModal=(props)=>{
               fullWidth
               required
               variant="outlined"
-              onChange={handlePasswordCheckChange}
+              onChange={handleEmailChange}
             />
           </Box>
           {/* */}
