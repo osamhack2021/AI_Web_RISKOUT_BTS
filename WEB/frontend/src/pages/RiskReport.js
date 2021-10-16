@@ -134,131 +134,148 @@ const RiskReport = (props) => {
       ) : error ? (
         errorScreen
       ) : (
-        <Box
-          id="sub_contents"
-          ref={pdfExportComponent}
-          sx={{
-            bgcolor: (theme) => theme.palette.background.default,
-            p: 1,
-          }}
-        >
+        <>
           <PdfExportButton exportTarget={pdfExportComponent} />
-          <Box className="sub01_wrap">
-            <Grid container spacing={1} direction="column">
-              <Grid item>
-                <Typography variant="h2">
-                  REPORT{' '}
-                  <em style={{ fontSize: '0.5em' }}>
-                    {new Intl.DateTimeFormat('ko-KR', {
-                      dateStyle: 'full',
-                    }).format(new Date())}{' '}
-                    (24h)
-                  </em>
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography sx={{ fontSize: '20px' }}>
-                  {getLineBreakText(data.overview)}
-                </Typography>
-              </Grid>
-            </Grid>
-
-            <Grid
-              // item
-              container
-              mt={5}
-              pr={11}
-              direction="row"
-              justifyContent="space-between"
-              alignItems="flex-start"
-            >
-              <Grid
-                item
-                container
-                spacing={1}
-                // mt={3}
-                xs={12}
-                md={6}
-                direction="column"
-              >
+          <Box
+            id="sub_contents"
+            ref={pdfExportComponent}
+            sx={{
+              bgcolor: (theme) => theme.palette.background.default,
+              p: 1,
+              fontFamily: 'Nanum Gothic',
+            }}
+          >
+            <Box className="sub01_wrap">
+              <Grid container spacing={1} direction="column">
                 <Grid item>
-                  <Typography variant="h3" sx={{ fontSize: '2.3rem' }}>
-                    Risk Briefing
+                  <Typography
+                    variant="h2"
+                    fontFamily="Source Sans Pro"
+                    fontWeight="bold"
+                  >
+                    REPORT{' '}
+                    <em style={{ fontSize: '0.5em' }}>
+                      {new Intl.DateTimeFormat('ko-KR', {
+                        dateStyle: 'full',
+                      }).format(new Date())}{' '}
+                      (24h)
+                    </em>
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <ExclusiveSelect
-                    selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
-                    selectedValue={dateRange}
-                    setSelectedValue={setDateRange}
-                    selectHandler={selectHandler}
-                  />
+                  <Typography sx={{ fontSize: '20px' }}>
+                    {getLineBreakText(data.overview)}
+                  </Typography>
                 </Grid>
+              </Grid>
 
-                <Grid item xs={12} md={6}>
-                  <Graphs data={data.briefingGraphData} />
-                </Grid>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Grid container direction="column" spacing={3} ml={-8}>
-                  {data.briefingContents.map((props, i) => {
-                    return (
-                      <ScrappedArticle
-                        key={'scrapped' + i}
-                        {...props}
-                        style={{ paddingLeft: 0 }}
-                      />
-                    );
-                  })}
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid
-              container
-              className="content clfix"
-              direction="column"
-              spacing={3}
-              mt={1}
-            >
-              <Grid item>
-                <Typography variant="h3" sx={{ fontSize: '2.3rem' }}>
-                  Major Risks
-                </Typography>
-              </Grid>
               <Grid
-                item
+                // item
                 container
+                mt={5}
+                pr={11}
                 direction="row"
-                justifyContent="space-evenly"
-                alignItems="center"
-                spacing={5}
-                sx={{ mt: '1rem' }}
+                justifyContent="space-between"
+                alignItems="flex-start"
               >
-                {data.majorEvents.map(
-                  ({
-                    imageUrl,
-                    title,
-                    threatType,
-                    sourceName,
-                    url,
-                    datetime,
-                  }) => (
-                    <ThreatMediaCard
-                      imageUrl={imageUrl}
-                      title={title}
-                      threatType={threatType}
-                      sourceName={sourceName}
-                      url={url}
-                      datetime={datetime}
-                      key={title}
+                <Grid
+                  item
+                  container
+                  spacing={1}
+                  // mt={3}
+                  xs={12}
+                  md={6}
+                  direction="column"
+                >
+                  <Grid item>
+                    <Typography
+                      variant="h3"
+                      sx={{ fontSize: '2.3rem' }}
+                      fontFamily="Source Sans Pro"
+                      fontWeight="bold"
+                    >
+                      Risk Briefing
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <ExclusiveSelect
+                      selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
+                      selectedValue={dateRange}
+                      setSelectedValue={setDateRange}
+                      selectHandler={selectHandler}
                     />
-                  )
-                )}
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Graphs data={data.briefingGraphData} />
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Grid container direction="column" spacing={3} ml={-8}>
+                    {data.briefingContents.map((props, i) => {
+                      return (
+                        <ScrappedArticle
+                          key={'scrapped' + i}
+                          {...props}
+                          style={{ paddingLeft: 0 }}
+                        />
+                      );
+                    })}
+                  </Grid>
+                </Grid>
               </Grid>
-            </Grid>
+
+              <Grid
+                container
+                className="content clfix"
+                direction="column"
+                spacing={3}
+                mt={1}
+              >
+                <Grid item>
+                  <Typography
+                    variant="h3"
+                    sx={{ fontSize: '2.3rem' }}
+                    fontFamily="Source Sans Pro"
+                    fontWeight="bold"
+                  >
+                    Major Risks
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  container
+                  direction="row"
+                  justifyContent="space-evenly"
+                  alignItems="center"
+                  spacing={5}
+                  sx={{ mt: '1rem' }}
+                >
+                  {data.majorEvents.map(
+                    ({
+                      imageUrl,
+                      title,
+                      threatType,
+                      sourceName,
+                      url,
+                      datetime,
+                    }) => (
+                      <ThreatMediaCard
+                        imageUrl={imageUrl}
+                        title={title}
+                        threatType={threatType}
+                        sourceName={sourceName}
+                        url={url}
+                        datetime={datetime}
+                        key={title}
+                      />
+                    )
+                  )}
+                </Grid>
+              </Grid>
+            </Box>
           </Box>
-        </Box>
+        </>
       )}
     </>
   );

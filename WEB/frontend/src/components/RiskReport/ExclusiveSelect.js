@@ -16,6 +16,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     // margin: theme.spacing(0.5),
     borderRadius: '3px',
     border: 0,
+    fontFamily: '"Source Sans Pro", Roboto, Helvetica, Arial, sans-serif',
     '&.Mui-disabled': {
       border: 0,
     },

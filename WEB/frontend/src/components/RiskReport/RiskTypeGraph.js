@@ -21,6 +21,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       style={{
         fontSize: '40px',
         fontWeight: 600,
+        fill: 'white',
       }}
     >
       {`${maximum} %`}
