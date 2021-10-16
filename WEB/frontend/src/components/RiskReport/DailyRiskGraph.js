@@ -25,7 +25,7 @@ const DailyRiskGraph = ({ theme, colors, data }) => {
               data={data}
               keys={['value']}
               indexBy="category"
-              margin={{ top: 0, right: 100, bottom: 100, left: 80 }}
+              margin={{ top: 0, right: 50, bottom: 100, left: 50 }}
               padding={0.4}
               layout="vertical"
               valueScale={{ type: 'linear' }}

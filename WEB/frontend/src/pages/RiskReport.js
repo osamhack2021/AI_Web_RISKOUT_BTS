@@ -10,8 +10,6 @@ import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 
-import { darkTheme, palette } from '../darkTheme';
-
 const RiskReport = (props) => {
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
@@ -141,8 +139,8 @@ const RiskReport = (props) => {
             ref={pdfExportComponent}
             sx={{
               bgcolor: (theme) => theme.palette.background.default,
-              p: 1,
-              fontFamily: 'Nanum Gothic',
+              p: 3,
+              // fontFamily: 'Nanum Gothic',
             }}
           >
             <Box className="sub01_wrap">
@@ -154,12 +152,19 @@ const RiskReport = (props) => {
                     fontWeight="bold"
                   >
                     REPORT{' '}
-                    <em style={{ fontSize: '0.5em' }}>
+                    <Typography
+                      variant="em"
+                      sx={{
+                        fontSize: '0.5em',
+                        fontStyle: 'normal',
+                        fontFamily: (theme) => theme.typography.fontFamily,
+                      }}
+                    >
                       {new Intl.DateTimeFormat('ko-KR', {
                         dateStyle: 'full',
                       }).format(new Date())}{' '}
                       (24h)
-                    </em>
+                    </Typography>
                   </Typography>
                 </Grid>
                 <Grid item>
@@ -211,7 +216,7 @@ const RiskReport = (props) => {
                   </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Grid container direction="column" spacing={3} ml={-8}>
+                  <Grid container direction="column" spacing={3} ml={0}>
                     {data.briefingContents.map((props, i) => {
                       return (
                         <ScrappedArticle
@@ -248,7 +253,7 @@ const RiskReport = (props) => {
                   direction="row"
                   justifyContent="space-evenly"
                   alignItems="center"
-                  spacing={5}
+                  columnSpacing={5}
                   sx={{ mt: '1rem' }}
                 >
                   {data.majorEvents.map(

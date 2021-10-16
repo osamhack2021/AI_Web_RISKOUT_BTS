@@ -70,11 +70,15 @@ export default function ThreatMediaCard(props) {
               target="_blank"
               rel="noopener"
               underline="hover"
-              style={{ textAlign: 'end' }}
+              style={{
+                textAlign: 'end',
+                color: 'lightslategray',
+                fontSize: '130%',
+              }}
             >
               <span
                 style={{
-                  width: '200px',
+                  width: '240px',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',

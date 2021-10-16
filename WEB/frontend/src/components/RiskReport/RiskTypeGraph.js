@@ -52,7 +52,7 @@ export default function RiskTypeGraph({ theme, colors, data }) {
             <ResponsivePie
               theme={theme}
               data={data}
-              margin={{ top: 30, right: 80, bottom: 100, left: 80 }}
+              margin={{ top: 30, right: 80, bottom: 100, left: 30 }}
               innerRadius={0.7}
               padAngle={0.7}
               cornerRadius={3}
@@ -93,10 +93,10 @@ export default function RiskTypeGraph({ theme, colors, data }) {
               legends={[
                 {
                   itemTextColor: '#ffffff',
-                  anchor: 'bottom',
+                  anchor: 'bottom-right',
                   direction: 'column',
                   justify: false,
-                  translateX: 260,
+                  translateX: 80,
                   translateY: 50,
                   itemsSpacing: 0,
                   itemWidth: 140,
