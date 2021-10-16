@@ -90,14 +90,14 @@ export default function SideNavigation(props) {
         onClick={handleDrawerClose}
         className="sub_header"
         sx={{
-          width: drawerWidth,
+          width: '295px',
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             background: 'rgb(54,57,63)',
             left: 0,
             top: 0,
-            width: drawerWidth,
+            width: '295px',
             height: '100vh',
             overflow: 'hidden',
           },
@@ -106,14 +106,14 @@ export default function SideNavigation(props) {
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require('../../images/sub/logo_blue_white.png').default}
+              src={require('../../images/sub/logo_head.png').default}
               alt="홈"
               className="image"
             />
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
+              <MenuIcon sx={{ color: 'rgb(248, 246, 240)', fontSize: '0.8em' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -132,7 +132,7 @@ export default function SideNavigation(props) {
         </List>
         <ListItem>
           <ListItemText
-            primary="Copyright © 2021. RISKOUT All right reserved."
+            primary="Copyright © 2021. RISKOUT All rights reserved."
             className="copyright"
           />
         </ListItem>
