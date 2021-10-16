@@ -36,6 +36,7 @@ const handlePassword2Change = (e) => {
  const paperStyle = {
   padding: '60px 68px 40px',
   width: 450,
+  height: 670,
  };
     return(
       <>
