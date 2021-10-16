@@ -19,7 +19,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       textAnchor="middle"
       dominantBaseline="central"
       style={{
-        fontSize: '50px',
+        fontSize: '40px',
         fontWeight: 600,
       }}
     >
@@ -45,7 +45,7 @@ export default function RiskTypeGraph({ theme, colors, data }) {
             <ResponsivePie
               theme={theme}
               data={data}
-              margin={{ top: 0, right: 80, bottom: 100, left: 80 }}
+              margin={{ top: 30, right: 80, bottom: 100, left: 80 }}
               innerRadius={0.7}
               padAngle={0.7}
               cornerRadius={3}
@@ -89,8 +89,8 @@ export default function RiskTypeGraph({ theme, colors, data }) {
                   anchor: 'bottom',
                   direction: 'column',
                   justify: false,
-                  translateX: 300,
-                  translateY: 56,
+                  translateX: 260,
+                  translateY: 50,
                   itemsSpacing: 0,
                   itemWidth: 140,
                   itemHeight: 25,
