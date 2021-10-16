@@ -34,12 +34,6 @@ if(token!=null){
   const handlePasswordChange = (e) => {
     setUserPassword(e.target.value);
   };
-  const handlePasswordCheckChange = (e) => {
-    setUserPasswordCheck(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setUserEamil(e.target.value);
-  };
 
   const paperStyle = {
     padding: '60px 68px 40px',
@@ -89,7 +83,7 @@ if(token!=null){
             />
           </Box>
           {/* */}
-          <Link href="/presstrends" sx={{ textDecoration: 'none'}}>
+          <Link sx={{ textDecoration: 'none'}}>
             <Button
               type="submit"
               variant="contained"
@@ -123,18 +117,6 @@ if(token!=null){
               로그인
             </Button >
           </Link>
-          {/* <Typography>
-            <br></br>
-                  <Link href="/init" >
-                    비밀번호 찾기
-            </Link>
-            </Typography>
-            <Typography >
-            <br></br>
-                  <Link href="/register" >
-                    회원가입
-            </Link>
-            </Typography> */}
         </Grid>
         <Box sx={{ display: 'flex', marginBottom: '5em' }}>
           <Typography variant="subtitle1" sx={{}}>
