@@ -121,43 +121,43 @@ const RegisterModal=(props)=>{
 
               onClick={(e)=>{
                 e.preventDefault()
-                fetch('/api/user/login/', {
-                method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(json => {
-                  if (json.token) {
-                    props.userHasAuthenticated(true, data.username, json.token);
-                    alert("환영합니다."+username+"님.")
-                    history.push("/");
-                    props.setModal(true)
+                if(!useremail.indexOf("@")){
+                  alert("이메일 형식이 올바르지 않습니다.")
+                }else if(userpassword !== userpasswordCheck){
+                  alert("비밀번호를 확인해 주세요.")
+                }else{
+                  fetch('/api/user/register/', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                    
+                  }).then(res => res.json())
+                  .then(json => {
                     console.log(json)
-                  }else{
-                    alert("아이디 또는 비밀번호를 확인해주세요.")
-                  }
-                })
-                .catch(error => alert(error));
-              }} 
+                    if (json.token) {
+                      props.userHasAuthenticated(true, data.username, json.token);
+                      history.push("/");
+                      props.setModal(true)
+                    }else{
+                      alert("사용불가능한 아이디입니다.")
+                    }
+                  })
+                  
+                  .catch(error => alert(error));
+                }
+                }
+               }
             >
-              로그인
+              가입
             </Button >
           </Link>
         </Grid>
-        <Box sx={{ display: 'flex', marginBottom: '5em' }}>
-          <Typography variant="subtitle1" sx={{}}>
-            <input type="checkbox" style={{ marginTop: '7px' }} />
-            로그인 정보 저장
-          </Typography>
-        </Box>
-        <Divider>or</Divider>
-        {/* <br /> */}
+        { <br /> }
         <Typography align="center" variant="subtitle1">
-          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
-            RISKOUT 회원이 아닌가요? 지금 가입하세요.
+          <Link href="/login" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
+            RISKOUT 계정이 존재 하시나요? 로그인 하기
           </Link>
         </Typography>
       </Paper>
