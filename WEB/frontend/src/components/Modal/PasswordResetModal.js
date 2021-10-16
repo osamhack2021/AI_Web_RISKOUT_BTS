@@ -45,6 +45,7 @@ const handlePassword2Change = (e) => {
   fontSize: '16px',
   margin: '10px 0',
   width: 314,
+  height: 48,
  };
     return(
       <>
