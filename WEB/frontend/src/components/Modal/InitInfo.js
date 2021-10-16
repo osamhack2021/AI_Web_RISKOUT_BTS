@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import {
+  Box,
+  Divider,
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  Link,
+} from '@mui/material';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-import '../../css/LoginModal.css';
-import { Grid,Paper, Avatar, TextField, Button, Typography,Link } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
 const InitInfo = (props) => {
   let [useremail, setUserEamil] = useState();
