@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -14,15 +14,28 @@ import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import PasswordResetModal from './components/Modal/PasswordResetModal';
 import InitInfo from './components/Modal/InitInfo';
-import SearchBar from './components/SearchBar';
-import DynamicRoutes from './DynamicRoutes';
-
 import './App.css';
-// import './css/style.css';
 
 const mdTheme = createTheme({
+  typography: {
+    fontFamily: [
+      '"Nanum Gothic"',
+      '"Source Sans Pro"',
+      '"Noto Sans KR"',
+      'Roboto',
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  },
   palette: {
     mode: 'dark',
+    background: {
+      default: '#2d333b',
+    },
+    primary: {
+      main: '#3a8ffb',
+    },
     success: {
       main: 'rgb(40, 189, 139)',
     },
@@ -33,10 +46,18 @@ const mdTheme = createTheme({
       main: 'rgb(252, 85, 80)',
     },
   },
-  typography: {
-    fontFamily: '"Noto Sans KR" ,"Gothic A1", Arial',
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgb(54,57,63)',
+          backgroundImage: 'none',
+        },
+      },
+    },
   },
 });
+console.log(mdTheme);
 
 export default function App() {
   const [modal, setModal] = useState(false);
@@ -51,16 +72,9 @@ export default function App() {
     setUser(username);
     console.log('토큰 저장됨');
     localStorage.setItem('token', token);
-  }; //회원가입이나 로그인이 성공했을 때 토큰을 저장
+  }; 
 
-  const handleLogout = () => {
-    setisAuthenticated(false);
-    setUser('');
-    localStorage.removeItem('token');
-    setModal(false);
-  }; //로그아웃
 
-  console.log(isAuthenticated);
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -69,12 +83,12 @@ export default function App() {
         maxSnack={3}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <Layout handleLogout={handleLogout}>
+        <Layout>
           <Route exact path="/">
-            <Board />
+            <Dashboard />
           </Route>
 
-          <Route exact path="/login">
+          {/* <Route exact path="/login">
             <LoginModal
               setModal={setModal}
               userHasAuthenticated={userHasAuthenticated}
@@ -83,7 +97,7 @@ export default function App() {
 
           <Route exact path="/init">
             <InitInfo />
-          </Route>
+          </Route> */}
 
           <Route exact path="/presstrends">
             <Dashboard />

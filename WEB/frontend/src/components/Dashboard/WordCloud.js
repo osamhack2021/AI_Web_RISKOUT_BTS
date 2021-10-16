@@ -6,18 +6,23 @@ import {
   Box,
   LinearProgress,
   Divider,
+  Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
+import { isEmpty } from 'lodash';
+
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
-import { useEffect } from 'react';
 
 const WordCloud = ({ options }) => {
-  const { data, isPending, error } = useFetch(`/data/wordCloud.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/wordcloud/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/data/wordCloud.json`
+      : `/api/nlp/wordcloud/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card
@@ -33,7 +38,7 @@ const WordCloud = ({ options }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box
             sx={{
@@ -43,6 +48,10 @@ const WordCloud = ({ options }) => {
           >
             <ReactWordcloud options={options} words={data.response} />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>

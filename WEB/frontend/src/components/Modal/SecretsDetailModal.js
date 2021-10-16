@@ -1,10 +1,5 @@
-import * as React from 'react';
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Link from '@mui/material/Link';
+import { useState, useEffect } from 'react';
+import { Box, Stack, Chip, Link, Modal, Typography } from '@mui/material';
 import {
   getHighlightedText,
   getLineBreakText,
@@ -42,6 +37,7 @@ export default function SecretsDetailModal(props) {
     setOpen(false);
     // setSaved(false); // TODO how should we handle display of 'save' button?
   };
+  useEffect(() => console.log(data));
 
   return (
     <div>
@@ -66,37 +62,34 @@ export default function SecretsDetailModal(props) {
             {data.title}
             <hr align="left" />
           </Typography>
+          <Stack direction="row" justifyContent="flex-end" spacing={1}>
+            <Chip
+              style={{ borderRadius: '6px' }}
+              variant="outlined"
+              aria-label="add to scrap"
+              onClick={() => scrapArticle(data._id)}
+              icon={<AddIcon />}
+              label="Save"
+            />
+            <Chip
+              style={{ borderRadius: '6px' }}
+              variant="outlined"
+              aria-label="Detailed Analysis"
+              onClick={() => analyzePage(data._id)}
+              icon={<AnalyzeIcon />}
+              label="Analyze"
+            />
 
-          <Fab
-            variant="extended"
-            color="primary"
-            size="small"
-            aria-label="add to scrap"
-            onClick={() => scrapArticle(data.id)}
-          >
-            <AddIcon />
-            Save Article
-          </Fab>
-          <Fab
-            variant="extended"
-            size="small"
-            aria-label="Detailed Analysis"
-            onClick={() => analyzePage(data.id)}
-          >
-            <AnalyzeIcon />
-            Analyze
-          </Fab>
-          <Fab
-            variant="extended"
-            size="small"
-            onClick={() => {
-              window.open(data.site_url, '_blank').focus();
-            }}
-          >
-            <NavigationIcon sx={{ mr: 1 }} />
-            Source
-          </Fab>
-
+            <Chip
+              style={{ borderRadius: '6px' }}
+              variant="outlined"
+              onClick={() => {
+                window.open(data.site_url, '_blank').focus();
+              }}
+              icon={<NavigationIcon sx={{ mr: 1 }} />}
+              label="Source"
+            />
+          </Stack>
           {/* <Link href="#" color="inherit" underline="hover">Page Analysis</Link>
                     <Button onClick={scrapArticle}>Save article</Button> */}
 
@@ -105,17 +98,19 @@ export default function SecretsDetailModal(props) {
             sx={{ mt: 2 }}
             className="line-break"
           >
-            {/* Insert highlighted version */}
-            {getHighlightedText(
-              replaceNewline(data.contentBody, 2),
-              entityNames.length ? entityNames[0] : ''
-            )}
+            <Box sx={{ lineHeight: 1.75, m: 1 }}>
+              {/* Insert highlighted version */}
+              {getHighlightedText(
+                replaceNewline(data.contentBody, 2),
+                entityNames.length ? entityNames[0] : ''
+              )}
 
-            {/* {data.summarized} */}
+              {/* {data.summarized} */}
 
-            {/* <pre>
+              {/* <pre>
                         {JSON.stringify(data, null, 4)}
                         </pre> */}
+            </Box>
           </Typography>
         </Box>
       </Modal>

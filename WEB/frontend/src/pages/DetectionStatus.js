@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack';
 import { Grid, Typography } from '@mui/material';
 
@@ -10,11 +10,18 @@ import { useSessionStorage } from '../js/util';
 
 import { useRecoilValue } from 'recoil';
 import { searchState } from '../atoms/searchState';
-import useSearchEffect from '../hooks/useSearchInitEffect';
+import useSearchInitEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
+import { useHistory } from 'react-router';
 
 export default function DetectionStatus() {
-  useSearchEffect(); // init
+  const history = useHistory();
+  let token = localStorage.getItem("token");
+  if(token==null){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
+  useSearchInitEffect(); // init
 
   const search = useRecoilValue(searchState);
   const appliedFilterList = useRecoilValue(appliedFilterListState);
@@ -31,14 +38,14 @@ export default function DetectionStatus() {
     positivity: 0,
     entities: {},
   });
-
+  
   const showDetailModal = (_id) => {
     const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
-    console.log(
-      data,
-      search.contents.filter((x) => x._id == _id),
-      search
-    );
+    // console.log(
+    //   data,
+    //   search.contents.filter((x) => x._id == _id),
+    //   search
+    // );
     setDetailModalData(data);
     setDetailModalOpen(true);
   };
@@ -47,7 +54,9 @@ export default function DetectionStatus() {
   const { enqueueSnackbar } = useSnackbar();
   const scrapArticle = (_id) => {
     addCart(_id);
+    console.log('_id', _id);
     const article = search.contents.filter((x) => x._id == _id).pop(0);
+    console.log(search);
     enqueueSnackbar('Scrapped article | ' + article.title, {
       variant: 'success',
       autoHideDuration: 10000,
@@ -75,7 +84,12 @@ export default function DetectionStatus() {
             탐지 현황
           </Typography>
           <SearchForm />
-          <Typography mt={3} color="primary">
+          <Typography
+            variant="h6"
+            sx={{ fontFamily: 'Noto sans KR' }}
+            style={{ fontWeight: 'bold' }}
+            color="primary"
+          >
             {search.totalContentsLength}개 결과 | {appliedFilterList.length}개
             필터 적용중
           </Typography>

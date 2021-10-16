@@ -9,20 +9,57 @@ export default function ScrappedArticle({
   sourceName,
   datetime,
 }) {
-  const renderCharacteristic = (c, i) => (
-    <Chip
-      label={c}
-      variant="outlined"
-      size="medium"
-      sx={{ height: '2.4rem', fontSize: '1rem' }}
-      key={'chip' + i}
-    />
-  );
+  const renderCharacteristic = (c, i) => {
+    const chars = [
+      '욕설',
+      '악의성',
+      '성차별',
+      '인종차별',
+      '정치적 편향',
+      '거짓 뉴스 의심',
+      '긍정적',
+      '부정적',
+    ];
+    const palette = [
+      'primary',
+      'secondary',
+      'error',
+      'info',
+      'success',
+      'warning',
+    ];
+
+    const color =
+      chars.indexOf(c) > -1
+        ? palette[chars.indexOf(c) % palette.length]
+        : 'default';
+    return (
+      <Chip
+        label={c}
+        variant="outlined"
+        size="medium"
+        sx={{ height: '3.2rem', fontSize: '1.3rem' }}
+        key={'chip' + i}
+        color={color}
+      />
+    );
+  };
 
   return (
-    <Grid item width="100%" component="article">
-      <Link href={url} target="_blank" rel="noopener" underline="hover">
-        <h3>{title}</h3>
+    <Grid
+      item
+      width="100%"
+      component="article"
+      sx={{ fontSize: '20px', mb: '1.4rem' }}
+    >
+      <Link
+        href={url}
+        target="_blank"
+        rel="noopener"
+        underline="hover"
+        sx={{ fontSize: '21px' }}
+      >
+        <h3 style={{ marginBottom: '1rem' }}>{title}</h3>
       </Link>
       {getLineBreakText(desanitizeText(summary))}
       <Grid
@@ -40,8 +77,14 @@ export default function ScrappedArticle({
             ? renderCharacteristic(characteristics)
             : null}
         </Stack>
-        <Link href={url} target="_blank" rel="noopener" underline="hover">
-          <em>원본:</em> {sourceName} {datetime}
+        <Link
+          href={url}
+          target="_blank"
+          rel="noopener"
+          underline="hover"
+          sx={{ color: 'lightslategrey' }}
+        >
+          <em style={{ fontStyle: 'normal' }}>원본:</em> {sourceName} {datetime}
         </Link>
       </Grid>
     </Grid>

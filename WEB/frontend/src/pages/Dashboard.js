@@ -5,9 +5,18 @@ import GeoEventPlot from '../components/Dashboard/GeoEventPlot';
 import WordCloud from '../components/Dashboard/WordCloud';
 import TrendsCard from '../components/Dashboard/TrendsCard';
 
-import { Container, Box, Grid } from '@mui/material';
+import { darkTheme, palette } from '../darkTheme';
+import { useHistory } from 'react-router';
+import { Grid } from '@mui/material';
 
 export default function Dashboard() {
+  const history = useHistory();
+  let token = localStorage.getItem("token");
+  if(token==null){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
+  
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -19,25 +28,24 @@ export default function Dashboard() {
         <WordCloud options={options} />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={4}>
-        <ArticleVolumeLine theme={nivoTheme} colors={palette} />
+        <ArticleVolumeLine theme={darkTheme} colors={palette} />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={4}>
         <TrendsCard />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={4}>
-        <SentimentBar theme={nivoTheme} colors={palette} />
+        <SentimentBar theme={darkTheme} colors={palette} />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={3}>
-        <SentimentPie theme={nivoTheme} colors={palette} />
+        <SentimentPie theme={darkTheme} colors={palette} />
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={5}>
-        <GeoEventPlot theme={nivoTheme} colors={palette} />
+        <GeoEventPlot theme={darkTheme} colors={palette} />
       </Grid>
     </Grid>
   );
 }
-const nivoTheme = { textColor: '#ffffff' };
-const palette = ['rgb(84,114,234)', 'rgb(40,189,139)', 'rgb(250,81,81)'];
+
 const options = {
   // colors 를 바꾸면 전체 Theme 이 바뀝니다.
   colors: [

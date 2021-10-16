@@ -60,27 +60,41 @@ export default function FilterBar() {
   const { reset, includes } = useAppliedFilterMapActions();
 
   return (
-    <Card sx={{ right: 0 }} elevation={1} spacing={3}>
+    <Card sx={{ right: 0 }} elevation={3} spacing={3}>
       <CardHeader
+        sx={{ background: '#2d333b' }}
         action={
           <Button
             onClick={() => reset()}
-            style={{ fontSize: '11px', fontWeight: '800', fontFamily: 'Noto sans KR', marginTop: '-10px', marginRight: '-8x', marginBottom: '-28px' }}
+            style={{
+              fontSize: '11px',
+              fontWeight: '800',
+              fontFamily: 'Noto sans KR',
+              marginTop: '-10px',
+              marginRight: '-8x',
+              marginBottom: '-28px',
+            }}
             size="small"
           >
             RESET
           </Button>
         }
-        titleTypographyProps={{ variant: 'body1', fontSize: '1.5rem', fontFamily: "Noto sans KR", fontWeight: 600, lineHeight: "1.9em"   }}
-        title="FILTER"
+        titleTypographyProps={{
+          variant: 'body1',
+          fontSize: '1.5rem',
+          fontFamily: 'Noto sans KR',
+          fontWeight: 600,
+          lineHeight: '1.9em',
+        }}
+        title="FILTERS"
       />
       <Divider />
 
       {filterTags &&
         Object.entries(filterTags).map(
-          ([label, wordCount]) =>
+          ([label, wordCount], id) =>
             Object.keys(wordCount).length > 0 && (
-              <Accordion>
+              <Accordion key={id}>
                 <AccordionSummary>
                   <Stack
                     sx={{ width: '100%' }}
@@ -96,12 +110,12 @@ export default function FilterBar() {
                   <Box>
                     {Object.entries(wordCount)
                       .sort(([, a], [, b]) => b - a)
-                      .map(([word, count]) => (
+                      .map(([word, count], id) => (
                         <FilterCheckbox
+                          key={id}
                           label={label}
                           count={count}
                           hashtag={word}
-                          key={word}
                           checked={includes(label, word)}
                         />
                       ))}

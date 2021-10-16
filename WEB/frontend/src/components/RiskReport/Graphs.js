@@ -3,7 +3,13 @@ import RiskTypeGraph from './RiskTypeGraph';
 
 import { Container, Box, Grid, Stack } from '@mui/material';
 
+import { darkTheme, palette } from '../../darkTheme';
+
 export default function Graphs({ data }) {
+  const graphTheme = {
+    ...darkTheme,
+    fontSize: 15,
+  };
   const barData = [
     { category: '기밀 유출 횟수', value: data.secretsCount },
     { category: '허위 뉴스 개수', value: data.fakeNewsCount },
@@ -30,36 +36,14 @@ export default function Graphs({ data }) {
   return (
     <Stack direction="column" container spacing={2}>
       <Grid item xs={12}>
-        <DailyRiskGraph colors={options.colors} data={barData} />
+        <RiskTypeGraph theme={graphTheme} colors={palette} data={pieData} />
       </Grid>
       <Grid item xs={12}>
-        <RiskTypeGraph colors={options.colors} data={pieData} />
+        <DailyRiskGraph theme={graphTheme} colors={palette} data={barData} />
       </Grid>
     </Stack>
   );
 }
-
-const options = {
-  // colors 를 바꾸면 전체 Theme 이 바뀝니다.
-  colors: ['#01b8aa', '#28383c', '#fd625e', '#f2c80f', '#5f6b6d', '#8ad4eb'],
-  // 1. ['#EEEEEE', '#686D76', '#373A40', '#00ADB5'],
-  // 2. ['#003f5c', '#444e86', '#955196', '#dd5182', '#ff6e54', '#ffa600'],
-  // 3. ['#01b8aa', '#28383c', '#fd625e', '#f2c80f', '#5f6b6d', '#8ad4eb'],
-  // 4. ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
-  // 5. ['#f4a522', '#6092cd', '#61b546', '#aa4498', '#dccc77', '#89cdf0'],
-  enableTooltip: true,
-  deterministic: true,
-  fontFamily: 'impact',
-  fontSizes: [15, 60],
-  fontStyle: 'normal',
-  fontWeight: 'normal',
-  padding: 1,
-  rotations: 2,
-  rotationAngles: [-5, 5],
-  scale: 'linear',
-  spiral: 'rectangular',
-  transitionDuration: 1000,
-};
 
 const examplePieData = [
   {

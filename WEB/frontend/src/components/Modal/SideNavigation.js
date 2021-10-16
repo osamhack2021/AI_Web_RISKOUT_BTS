@@ -1,10 +1,6 @@
-// React
-import React, { useState, useEffect } from 'react';
-
-// MUI Styles
+import React, { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 
-// MUI Components
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Link from '@mui/material/Link';
@@ -13,11 +9,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
-// Custom Components
 import SidebarLink from '../SidebarLink';
 import SidebarLinkMini from '../SidebarLinkMini';
 
-// Icons and Images
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -54,7 +48,7 @@ export default function SideNavigation(props) {
     <>
       <Box
         sx={{
-          background: 'rgb(29, 28, 26)',
+          background: 'rgb(54,57,63)',
           minHeight: '100%',
           position: 'fixed',
         }}
@@ -67,7 +61,7 @@ export default function SideNavigation(props) {
           sx={{ mr: 2 }}
           className="hamburgerMenu"
         >
-          <MenuIcon sx={{ color: '#fff', fontSize: '1.3em' }} />
+          <MenuIcon sx={{ fontSize: '1.3em' }} />
         </IconButton>
         <Box sx={{ position: 'fixed' }}>
           <SidebarLinkMini
@@ -86,15 +80,11 @@ export default function SideNavigation(props) {
             text="리포트"
             href="/riskreport"
           />
-          <SidebarLinkMini
-            icon={LogoutIcon}
-            text="로그아웃"
-            href="/logout"
-          />
+          <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" />
         </Box>
       </Box>
 
-      <Drawer  
+      <Drawer
         anchor="left"
         open={open}
         onClick={handleDrawerClose}
@@ -104,25 +94,26 @@ export default function SideNavigation(props) {
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            background: 'rgb(40, 40, 40)',
+            background: 'rgb(54,57,63)',
             left: 0,
             top: 0,
             width: drawerWidth,
             height: '100vh',
+            overflow: 'hidden',
           },
         }}
       >
         <Box className="closeButton">
           <Link href="/">
             <img
-              src={require("../../images/sub/logo_black.png")}
+              src={require('../../images/sub/logo_head.png').default}
               alt="홈"
               className="image"
             />
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
+              <MenuIcon sx={{ color: 'rgb(248, 246, 240)', fontSize: '0.8em' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}
@@ -141,8 +132,12 @@ export default function SideNavigation(props) {
         </List>
         <ListItem>
           <ListItemText
-            primary="Copyright © 2021. RISKOUT All right reserved."
-            className="copyright"
+            primary="Copyright © 2021. RISKOUT"
+            className="copyright1"
+          />
+          <ListItemText
+            primary="All rights reserved."
+            className="copyright2"
           />
         </ListItem>
       </Drawer>

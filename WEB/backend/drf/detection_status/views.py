@@ -56,8 +56,6 @@ class AnalyzedDataView(generics.CreateAPIView):
             
             if mode == "fakenews":
                 category = "news"
-            elif mode == "leaked":
-                category = "all"
             else:
                 if serializer.data.get("category") not in ["news", "sns", "community", "all"]:
                     return Response({"category": ["Invalid parameter."]}, status=status.HTTP_400_BAD_REQUEST)
@@ -97,7 +95,8 @@ class AnalyzedDataView(generics.CreateAPIView):
                 "PLT": {},
                 "MAT": {},
                 "TRM": {}
-            }
+            },
+            "totalLeakedWords": {}
         }
 
         db = mongo.client.riskout
@@ -117,14 +116,38 @@ class AnalyzedDataView(generics.CreateAPIView):
         if category != "all":
             query["category"] = category
 
-        if search_text:
-            query["$text"] = {"$search": search_text}
-
         if mode == "fakenews":
             query["true_score"] = {"$lte": 0.5}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+        
+        if not db_result.count():
+            return response
+        
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
+        temp = []
+
+        if search_text:
+            for content in db_filtered:
+                isMatch = False
+                for c in search_text:
+                    if content["category"] == "news":
+                        if not ((c in content["title"]) or (c in content["contentBody"])):
+                            isMatch = False
+                            break
+                        else:
+                            isMatch = True
+                    else:
+                        if c not in content["contentBody"]:
+                            isMatch = False
+                            break
+                        else:
+                            isMatch = True
+                
+                if isMatch:
+                    temp.append(content)
+        
+            db_filtered = temp
 
         if tags:
             for content in db_filtered:
@@ -151,11 +174,16 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         if mode == "leaked":
             for content in response["contents"]:
+                if content["true_score"] <= 0.5:
+                    content["isFakenews"] = True
+                else:
+                    content["isFakenews"] = False
                 for word in SECRET_KEYWORDS:
                     if content["category"] == "news":
                         if (word in content["title"]) or (word in content["contentBody"]):
                             if content["_id"] not in filtered_contents_id:
                                 filtered_contents_id.append(content["_id"])
+                                content["isLeaked"] = True
 
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
@@ -165,21 +193,47 @@ class AnalyzedDataView(generics.CreateAPIView):
                         if word in content["contentBody"]:
                             if content["_id"] not in filtered_contents_id:
                                 filtered_contents_id.append(content["_id"])
+                                content["isLeaked"] = True
 
                             if "leakedWords" in content:
                                 content["leakedWords"].append(word)
                             else:
                                 content["leakedWords"] = [word]
         
-        for contents_id in filtered_contents_id:
-            for content in response["contents"]:
-                if content["_id"] == contents_id:
-                    filtered_contents.append(content)
+            for contents_id in filtered_contents_id:
+                for content in response["contents"]:
+                    if content["_id"] == contents_id:
+                        filtered_contents.append(content)
 
-        response["contents"] = filtered_contents
+            response["contents"] = filtered_contents
+        
+        else:
+            for content in response["contents"]:
+                if content["true_score"] <= 0.5:
+                    content["isFakenews"] = True
+                else:
+                    content["isFakenews"] = False
+                for word in SECRET_KEYWORDS:
+                    if content["category"] == "news":
+                        if (word in content["title"]) or (word in content["contentBody"]):
+                            content["isLeaked"] = True
+
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+                    else:
+                        if word in content["contentBody"]:
+                                content["isLeaked"] = True
+
+                            if "leakedWords" in content:
+                                content["leakedWords"].append(word)
+                            else:
+                                content["leakedWords"] = [word]
+
+        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["totalContentsLength"] = len(response["contents"])
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
-        response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
 
@@ -196,11 +250,12 @@ class AnalyzedDataView(generics.CreateAPIView):
     def getLeakedWords(self, contents):
         result = {}
         for content in contents:
-            for leakedWord in content["leakedWords"]:
-                if leakedWord not in result:
-                    result[leakedWord] = 1
-                else:
-                    result[leakedWord] += 1
+            if "leakedWords" in content:
+                for leakedWord in content["leakedWords"]:
+                    if leakedWord not in result:
+                        result[leakedWord] = 1
+                    else:
+                        result[leakedWord] += 1
 
         result = {k: v for k, v in sorted(result.items(), key=lambda item: item[1], reverse=True)}
 
@@ -248,12 +303,27 @@ class TrendsDataView(generics.GenericAPIView):
         query = {}
         
         now = datetime.utcnow() + timedelta(hours=9)
+        hours = 24
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
-        query["created_at"] = {"$gte" : (now - timedelta(hours=24))}
+        query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if db_result.count() < 10:
+            for _ in range(5):
+                hours -= 24
+                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
+                query["category"] = "news"
+            
+                db_result = mongo.find_item(query, "riskout", "analyzed")
+
+                if db_result.count() >= 10:
+                    break
+
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         key_sentences = self.getKeysentences(db_filtered)
 
@@ -266,6 +336,7 @@ class TrendsDataView(generics.GenericAPIView):
                         "id": content["_id"],
                         "title": key_sentence,
                         "author": content["author"],
+                        "site_url": content["site_url"],
                         "trueScore": round(content["true_score"], 2),
                         "emotionFilled": round(content["positivity"], 2),
                         "date": today
@@ -338,11 +409,25 @@ class WordcloudDataView(generics.GenericAPIView):
         query = {}
         
         now = datetime.utcnow() + timedelta(hours=9)
-
-        query["created_at"] = {"$gte" : (now - timedelta(hours=24))}
+        hours = 24
+        query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if db_result.count() < 10:
+            for _ in range(5):
+                hours -= 24
+                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
+                query["category"] = "news"
+            
+                db_result = mongo.find_item(query, "riskout", "analyzed")
+
+                if db_result.count() >= 10:
+                    break
+                                        
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         keywords = self.getKeywords(db_filtered)
 
@@ -488,6 +573,10 @@ class ArticleVolumeDataView(generics.GenericAPIView):
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         dates = []
 
@@ -564,6 +653,10 @@ class SentimentBarDataView(generics.GenericAPIView):
         query["created_at"] = {"$gte" : (now - timedelta(days=5))}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         
         categories = ["news", "sns", "community"]
@@ -634,6 +727,10 @@ class SentimentPieDataView(generics.GenericAPIView):
         query["created_at"] = {"$gte" : (now - timedelta(days=5))}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return Response(response)
+
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         for content in db_filtered:
@@ -709,21 +806,39 @@ class ReportDataView(generics.CreateAPIView):
 
         query = {}
         
+        query["category"] = "news"
+
+        db_result = mongo.find_item(query, "riskout", "analyzed")
+
+        if not db_result.count():
+            return response
+
+        db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
+
         now = datetime.utcnow() + timedelta(hours=9)
         today_datetime = datetime(now.year, now.month, now.day)
-
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
+
+        for i in range(5):
+            check = 0
+
+            for content in db_filtered:
+                if content["created_at"] == today:
+                    check += 1
+            
+            if check < 10:
+                if i == 4:
+                    return response
+                
+                now -= timedelta(days=1)
+                today_datetime = datetime(now.year, now.month, now.day)
+                today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
         yesterday = today_datetime - timedelta(days=1)
         yesterday = datetime(yesterday.year, yesterday.month, yesterday.day).strftime('%y-%m-%d')
 
         the_day_yesterday = today_datetime - timedelta(days=2)
         the_day_yesterday = datetime(the_day_yesterday.year, the_day_yesterday.month, the_day_yesterday.day).strftime('%y-%m-%d')
-        
-        query["category"] = "news"
-
-        db_result = mongo.find_item(query, "riskout", "analyzed")
-        db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         today_sentiment = 0.0
         today_fake_ratio = 0.0
@@ -823,7 +938,7 @@ class ReportDataView(generics.CreateAPIView):
 
 
     def getSummarized(self, text):
-        url = SERVER_URL + 'summarize/abstractive'
+        url = SERVER_URL + 'summarize/extractive'
         document = {"document": text}
         document = json.dumps(document)
         result = ""

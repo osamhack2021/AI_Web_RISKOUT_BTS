@@ -8,24 +8,52 @@ import {
   Divider,
 } from '@mui/material';
 
-export const RiskTypeGraph = ({ colors, data }) => {
+const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
+  const values = dataWithArc.map((d) => d.value);
+  console.log(values);
+  const maximum = Math.max(...values);
   return (
-    <Card style={{ height: '400px' }}>
+    <text
+      x={centerX}
+      y={centerY}
+      textAnchor="middle"
+      dominantBaseline="central"
+      style={{
+        fontSize: '40px',
+        fontWeight: 600,
+        fill: 'white',
+      }}
+    >
+      {`${maximum} %`}
+    </text>
+  );
+};
+
+export default function RiskTypeGraph({ theme, colors, data }) {
+  return (
+    <Card
+      sx={{
+        // height: '400px',
+        background: 'unset',
+        boxShadow: 'unset',
+      }}
+    >
       <CardHeader title="리스크 종류별 비율 (%)" />
-      <Divider />
+      {/* <Divider /> */}
 
       {data ? (
         <CardContent>
           <Box
             sx={{
-              height: 350,
+              height: 500,
               position: 'relative',
             }}
           >
             <ResponsivePie
+              theme={theme}
               data={data}
-              margin={{ top: 0, right: 80, bottom: 100, left: 80 }}
-              innerRadius={0.5}
+              margin={{ top: 30, right: 80, bottom: 100, left: 30 }}
+              innerRadius={0.7}
               padAngle={0.7}
               cornerRadius={3}
               activeOuterRadiusOffset={8}
@@ -33,11 +61,15 @@ export const RiskTypeGraph = ({ colors, data }) => {
               borderWidth={1}
               borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
               arcLinkLabelsSkipAngle={10}
-              arcLinkLabelsTextColor="#333333"
               arcLinkLabelsThickness={2}
-              arcLinkLabelsColor={{ from: 'color' }}
               arcLabelsSkipAngle={10}
-              arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
+              layers={[
+                'arcs',
+                'arcLabels',
+                'arcLinkLabels',
+                'legends',
+                CenteredMetric,
+              ]}
               defs={[
                 {
                   id: 'dots',
@@ -58,67 +90,17 @@ export const RiskTypeGraph = ({ colors, data }) => {
                   spacing: 10,
                 },
               ]}
-              fill={[
-                {
-                  match: {
-                    id: 'ruby',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'c',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'go',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'python',
-                  },
-                  id: 'dots',
-                },
-                {
-                  match: {
-                    id: 'scala',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'lisp',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'elixir',
-                  },
-                  id: 'lines',
-                },
-                {
-                  match: {
-                    id: 'javascript',
-                  },
-                  id: 'lines',
-                },
-              ]}
               legends={[
                 {
-                  anchor: 'bottom',
-                  direction: 'row',
+                  itemTextColor: '#ffffff',
+                  anchor: 'bottom-right',
+                  direction: 'column',
                   justify: false,
-                  translateX: 0,
-                  translateY: 56,
+                  translateX: 30,
+                  translateY: 50,
                   itemsSpacing: 0,
-                  itemWidth: 100,
-                  itemHeight: 18,
-                  itemTextColor: '#999',
+                  itemWidth: 140,
+                  itemHeight: 25,
                   itemDirection: 'left-to-right',
                   itemOpacity: 1,
                   symbolSize: 18,
@@ -143,6 +125,4 @@ export const RiskTypeGraph = ({ colors, data }) => {
       )}
     </Card>
   );
-};
-
-export default RiskTypeGraph;
+}

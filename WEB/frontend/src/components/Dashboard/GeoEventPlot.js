@@ -7,11 +7,14 @@ import {
   Box,
   LinearProgress,
   Divider,
+  Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
 
+import { isEmpty } from 'lodash';
+
 const GeoEventPlot = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/geo.json`);
+  const { data, error, isPending } = useFetch(`/static/data/geo.json`);
 
   return (
     <Card style={{ height: '400px' }}>
@@ -26,7 +29,7 @@ const GeoEventPlot = ({ theme, colors }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : (
+      ) : !isEmpty(data.response) ? (
         <CardContent>
           <Box
             sx={{
@@ -81,6 +84,10 @@ const GeoEventPlot = ({ theme, colors }) => {
               }
             />
           </Box>
+        </CardContent>
+      ) : (
+        <CardContent>
+          <Typography>현재 데이터가 존재하지 않습니다.</Typography>
         </CardContent>
       )}
     </Card>

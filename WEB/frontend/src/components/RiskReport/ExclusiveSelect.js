@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { styled } from '@mui/styles';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { ToggleButton, ToggleButtonGroup, Chip } from '@mui/material';
+// import  from '@mui/material/ToggleButtonGroup';
 
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
@@ -14,23 +14,35 @@ import '../../css/ExclusiveSelect.css';
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
     // margin: theme.spacing(0.5),
-    borderRadius: '5px',
+    borderRadius: '3px',
     border: 0,
+    fontFamily: '"Source Sans Pro", Roboto, Helvetica, Arial, sans-serif',
     '&.Mui-disabled': {
       border: 0,
     },
     '&:not(:first-of-type)': {
-      borderRadius: '5px',
+      borderRadius: '3px',
       //   borderRadius: theme.shape.borderRadius,
+      borderLeft: '1px solid #616161',
     },
     '&:first-of-type': {
-      borderRadius: '5px',
+      borderRadius: '3px',
       //   borderRadius: theme.shape.borderRadius,
     },
   },
+  '& .MuiToggleButton-root': {
+    color: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    border: '1px solid #616161',
+    transition:
+      'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+  },
+  '& .MuiToggleButton-root:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+  },
   '& .Mui-selected': {
-    backgroundColor: '#d0e4ff',
-    fontWeight: 'bold',
+    backgroundColor: '#4d535c',
+    fontWeight: '900',
   },
 }));
 
@@ -56,6 +68,15 @@ export default function ToggleButtons({
       className="period-select"
     >
       {selectOptions.map((val) => (
+        // <Chip
+        //   style={{ borderRadius: '6px' }}
+        //   variant="outlined"
+        //   onClick={() => ''}
+        //   label={val}
+        //   value={val}
+        //   key={val}
+        //   aria-label={'last ' + val}
+        // />
         <ToggleButton value={val} key={val} aria-label={'last ' + val}>
           {val}
         </ToggleButton>
