@@ -96,7 +96,7 @@ export default function RiskTypeGraph({ theme, colors, data }) {
                   anchor: 'bottom-right',
                   direction: 'column',
                   justify: false,
-                  translateX: 80,
+                  translateX: 30,
                   translateY: 50,
                   itemsSpacing: 0,
                   itemWidth: 140,

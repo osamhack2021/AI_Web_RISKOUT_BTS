@@ -1,10 +1,18 @@
 import { Typography } from '@mui/material';
 import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
 import PdfIcon from '@mui/icons-material/PictureAsPdf';
+import '../../css/pdf.css';
 
 export default function PdfExportButton({ exportTarget }) {
   const handleExportWithFunction = (event) => {
-    savePDF(exportTarget.current, { imageResolution: 300 });
+    savePDF(exportTarget.current, {
+      imageResolution: 300,
+      // margin: '1in',
+      fileName: 'RiskReport',
+      pageTemplate: (pageNum, totalPages) => (
+        <div style={{ backgroundColor: 'red' }}>hello</div>
+      ),
+    });
   };
 
   const bgc = 'red';

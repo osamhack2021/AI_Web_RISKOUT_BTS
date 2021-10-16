@@ -159,7 +159,7 @@ const RiskReport = (props) => {
             ref={pdfExportComponent}
             sx={{
               bgcolor: (theme) => theme.palette.background.default,
-              p: 3,
+              p: 1,
             }}
           >
             <Box className="sub01_wrap">
@@ -201,14 +201,15 @@ const RiskReport = (props) => {
                   />
                 </Grid>
               </Grid>
+
               <Grid
-                // item
                 container
                 mt={5}
-                pr={11}
+                // pr={11}
                 direction="row"
                 justifyContent="space-between"
                 alignItems="flex-start"
+                width="95%"
               >
                 <Grid
                   item
