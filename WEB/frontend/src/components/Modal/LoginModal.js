@@ -108,7 +108,10 @@ const LoginModal = (props) => {
             style={btnstyle}
             className="JoinLoign-button"
           >
-            <Link href="/presstrends" sx={{ textDecoration: 'none' }}>
+            <Link
+              href="/presstrends"
+              sx={{ textDecoration: 'none', color: 'white' }}
+            >
               로그인
             </Link>
           </Button>
