@@ -33,7 +33,9 @@ const handlePassword2Change = (e) => {
 
     const history = useHistory()
  //PasswordResetPage Styling 
-
+ const paperStyle = {
+   
+ };
     return(
       <>
       <br></br>
