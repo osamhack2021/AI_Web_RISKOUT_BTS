@@ -132,8 +132,12 @@ export default function SideNavigation(props) {
         </List>
         <ListItem>
           <ListItemText
-            primary="Copyright © 2021. RISKOUT All rights reserved."
-            className="copyright"
+            primary="Copyright © 2021. RISKOUT"
+            className="copyright1"
+          />
+          <ListItemText
+            primary="All rights reserved."
+            className="copyright2"
           />
         </ListItem>
       </Drawer>

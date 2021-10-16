@@ -104,7 +104,8 @@ body::-webkit-scrollbar {
 .iconMenuBox .inconMenuLink:hover * {
   color: #3a8ffb;
 }
-.sub_header .copyright {
+
+.sub_header .copyright1 {
   /*Copyright position*/
   position: absolute;
   left: 0.4em;
@@ -113,9 +114,19 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
+.sub_header .copyright2 {
+  /*Copyright position*/
+  position: absolute;
+  left: 1.5em;
+  top: 33em;
+  color: rgb(248, 246, 240);
+  width: 100%;
+}
+
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
   font-size: 11px;
-  margin-left: 12px;
+  margin-left: 44px;
   font-family: 'Montserrat';
+  width: 67%;
 }
