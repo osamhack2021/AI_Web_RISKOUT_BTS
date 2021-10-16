@@ -78,7 +78,6 @@ const handlePassword2Change = (e) => {
               onChange={ handlePassword2Change}
             />
           </Box>
-          {/* */}
           <Link sx={{ textDecoration: 'none'}}>
             <Button
               type="submit"
