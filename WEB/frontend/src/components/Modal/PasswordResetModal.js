@@ -35,6 +35,7 @@ const handlePassword2Change = (e) => {
  //PasswordResetPage Styling 
  const paperStyle = {
   padding: '60px 68px 40px',
+  width: 450,
  };
     return(
       <>
