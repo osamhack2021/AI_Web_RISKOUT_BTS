@@ -33,9 +33,7 @@ const handlePassword2Change = (e) => {
 
     const history = useHistory()
 
-    const paperStyle={padding :40,height:'70vh',width:800, margin:"20px auto"}
-    const avatarStyle={backgroundColor:'#1bbd7e'}
-    const btnstyle={margin:'10px 0'}
+
     return(
       <>
       <br></br>
