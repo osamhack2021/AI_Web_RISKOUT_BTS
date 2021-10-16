@@ -67,7 +67,6 @@ const InitInfo = (props) => {
 
               onClick={(e)=>{
                 e.preventDefault()
-                alert(JSON.stringify(data))
                   fetch('/api/password-reset/', {
                     method: 'POST',
                     headers:{
