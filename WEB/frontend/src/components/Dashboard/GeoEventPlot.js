@@ -14,7 +14,7 @@ import useFetch from '../../hooks/useFetch';
 import { isEmpty } from 'lodash';
 
 const GeoEventPlot = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/geo.json`);
+  const { data, error, isPending } = useFetch(`/static/data/geo.json`);
 
   return (
     <Card style={{ height: '400px' }}>

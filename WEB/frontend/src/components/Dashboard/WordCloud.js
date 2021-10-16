@@ -16,10 +16,13 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 
 const WordCloud = ({ options }) => {
-  const { data, isPending, error } = useFetch(`/data/wordCloud.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/wordcloud/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/data/wordCloud.json`
+      : `/api/nlp/wordcloud/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card

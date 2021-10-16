@@ -40,6 +40,7 @@ const LoginModal = (props) => {
     width: 450,
     height: 670,
     margin: '53px auto',
+    backgroundColor: 'rgb(54,57,63)'
   };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
   const btnstyle = {
@@ -47,6 +48,8 @@ const LoginModal = (props) => {
     margin: '10px 0',
     width: 314,
     height: 48,
+    backgroundColor: 'rgb(113,137,218)',
+    color: 'white'
   };
   return (
     <Box className="loginModalBack">
@@ -101,20 +104,16 @@ const LoginModal = (props) => {
                     })
                     .catch(error => alert(error));
                   }} */}
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            style={btnstyle}
-            className="JoinLoign-button"
-          >
-            <Link
-              href="/presstrends"
-              sx={{ textDecoration: 'none', color: 'white' }}
+          <Link href="/presstrends" sx={{ textDecoration: 'none'}}>
+            <Button
+              type="submit"
+              variant="contained"
+              style={btnstyle}
+              className="JoinLoign-button"
             >
               로그인
-            </Link>
-          </Button>
+            </Button>
+          </Link>
           {/* <Typography>
             <br></br>
                   <Link href="/init" >
@@ -134,11 +133,10 @@ const LoginModal = (props) => {
             로그인 정보 저장
           </Typography>
         </Box>
-        <hr />
         <Divider>or</Divider>
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
-          <Link href="/register">
+          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
             RISKOUT 회원이 아닌가요? 지금 가입하세요.
           </Link>
         </Typography>

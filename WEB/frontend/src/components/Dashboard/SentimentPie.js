@@ -13,10 +13,13 @@ import useFetch from '../../hooks/useFetch';
 import { isEmpty } from 'lodash';
 
 export const SentimentPie = ({ theme, colors }) => {
-  const { data, error, isPending } = useFetch(`/data/sentimentPie.json`);
-  // const { data, error, isPending } = useFetch(`/api/nlp/sentiment/pie/`, {
-  //   method: 'GET',
-  // });
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/data/sentimentPie.json`
+      : `/api/nlp/sentiment/pie/`;
+  const { data, error, isPending } = useFetch(requestUrl, {
+    method: 'GET',
+  });
 
   return (
     <Card style={{ height: '400px' }}>

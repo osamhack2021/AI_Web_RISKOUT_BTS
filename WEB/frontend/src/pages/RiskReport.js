@@ -25,21 +25,25 @@ const RiskReport = (props) => {
 
     async function fetchSearch() {
       setPending(true);
-      // axios
-      //   .post(searchUrl, {
-      //     articleIds: getCart().length ? getCart() : [30, 40, 50, 60],
-      //     period: 24,
-      //     time: new Date().toTimeString(), // "uniqueness parameter"
-      //   }).then((data) => {
-      //   console.log(data.data);
-      //   setData(data.data);
-      //   setPending(false);
-      // });
-      axios.get(exampleSearchUrl).then((data) => {
-        console.log(data.data);
-        setData(data.data);
-        setPending(false);
-      });
+      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+        axios.get(exampleSearchUrl).then((data) => {
+          console.log(data.data);
+          setData(data.data);
+          setPending(false);
+        });
+      } else {
+        axios
+          .post(searchUrl, {
+            articleIds: getCart().length ? getCart() : [30, 40, 50],
+            period: 24,
+            time: new Date().toTimeString(), // "uniqueness parameter"
+          })
+          .then((data) => {
+            console.log(data.data);
+            setData(data.data);
+            setPending(false);
+          });
+      }
     }
     fetchSearch();
   }, []);
@@ -63,65 +67,26 @@ const RiskReport = (props) => {
 
   const loadingScreen = (
     <section id="sub_contents" style={{ width: '100vw', height: '100vh' }}>
-      <div className="sub01_wrap">
+      <div className="sub01_wrap" style={{ marginBottom: 40 }}>
         <h2 className="h2_tit2">보고서 생성 중...</h2>
       </div>
       <div className="content clfix">
-        <Skeleton animation="wave" height={75} width="10%" />
-        <Skeleton animation="wave" height={75} width="15%" />
-        <Skeleton animation="wave" height={15} width="40%" />
+        <Skeleton animation="wave" height={45} width="45%" />
+        <Skeleton animation="wave" height={35} width="40%" />
+        <Skeleton animation="wave" height={30} width="35%" />
         <Skeleton
           animation="wave"
-          height={15}
-          width="30%"
+          height={30}
+          width="20%"
           style={{ marginBottom: 26 }}
         />
-        <Skeleton animation="wave" height={60} width="14%" />
-
-        {/* 날짜 버튼 */}
-        <Box sx={{ display: 'flex' }}>
-          <Skeleton
-            sx={{ borderRadius: '10px', marginRight: '13px' }}
-            width={120}
-            height={45}
-            animation="wave"
-            variant="rectangular"
-          />
-          <Skeleton
-            sx={{ borderRadius: '10px', marginRight: '13px' }}
-            width={120}
-            height={45}
-            animation="wave"
-            variant="rectangular"
-          />
-          <Skeleton
-            sx={{ borderRadius: '10px', marginRight: '13px' }}
-            width={120}
-            height={45}
-            animation="wave"
-            variant="rectangular"
-          />
-          <Skeleton
-            sx={{ borderRadius: '10px', marginRight: '13px' }}
-            width={120}
-            height={45}
-            animation="wave"
-            variant="rectangular"
-          />
-          <Skeleton
-            sx={{ borderRadius: '10px', marginRight: '13px' }}
-            width={120}
-            height={45}
-            animation="wave"
-            variant="rectangular"
-          />
-        </Box>
+        
         <Box sx={{ display: 'flex' }}>
           <Box>
             {/* 일일 리스크 현황 */}
             <Skeleton
               sx={{
-                borderRadius: '10px',
+                borderRadius: '5px',
                 marginTop: '13px',
                 marginRight: '33px',
               }}
@@ -131,82 +96,19 @@ const RiskReport = (props) => {
               variant="rectangular"
             />
           </Box>
-
           <Box>
-            {/* 일일 리스크 현황 옆 기사 */}
-            {Array.from({ length: 3 }).map((_, i) => (
-              <Box>
-                <Skeleton key={i} animation="wave" width={500} height={50} />
-                <Skeleton key={i} animation="wave" width={300} height={15} />
-                <Skeleton key={i} animation="wave" width={350} height={15} />
-                <Skeleton key={i} animation="wave" width={250} height={15} />
-                <Skeleton
-                  key={i}
-                  animation="wave"
-                  width={400}
-                  height={15}
-                  sx={{ marginBottom: '7px' }}
-                />
-
-                {/* chip */}
-                <Box sx={{ display: 'flex' }}>
-                  <Skeleton
-                    sx={{ borderRadius: '20px', marginRight: 1 }}
-                    width={53}
-                    height={30}
-                    animation="wave"
-                    variant="rectangular"
-                  />
-                  <Skeleton
-                    sx={{
-                      borderRadius: '20px',
-                      marginRight: 1,
-                      marginBottom: '13px',
-                    }}
-                    width={53}
-                    height={30}
-                    animation="wave"
-                    variant="rectangular"
-                  />
-                </Box>
-              </Box>
-            ))}
+            <Skeleton
+            sx={{ borderRadius: '5px', marginTop: '13px' }}
+            width={879}
+            height={450}
+            animation="wave"
+            variant="rectangular"
+            />
           </Box>
         </Box>
 
         {/* 리스크 종류별 비율 (%) */}
-        <Skeleton
-          sx={{ borderRadius: '10px', marginTop: 2 }}
-          width={879}
-          height={400}
-          animation="wave"
-          variant="rectangular"
-        />
-
-        {/* 중대 위협 */}
-        <Skeleton
-          sx={{ borderRadius: '10px', marginTop: 10 }}
-          animation="wave"
-          height={95}
-          width="15%"
-        />
-        <Box sx={{ display: 'flex' }}>
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton
-              sx={{
-                borderRadius: '10px',
-                marginLeft: 9,
-                marginRight: 10,
-                marginTop: 5,
-                marginBottom: 7,
-              }}
-              width={300}
-              height={324}
-              animation="wave"
-              variant="rectangular"
-            />
-          ))}
-        </Box>
+        
       </div>
     </section>
   );
