@@ -67,45 +67,21 @@ const InitInfo = (props) => {
 
               onClick={(e)=>{
                 e.preventDefault()
-                fetch('/api/user/login/', {
-                method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(json => {
-                  if (json.token) {
-                    props.userHasAuthenticated(true, data.username, json.token);
-                    alert("환영합니다."+username+"님.")
-                    history.push("/");
-                    props.setModal(true)
-                    console.log(json)
-                  }else{
-                    alert("아이디 또는 비밀번호를 확인해주세요.")
-                  }
-                })
-                .catch(error => alert(error));
-              }} 
+                alert(JSON.stringify(data))
+                  fetch('/api/password-reset/', {
+                    method: 'POST',
+                    headers:{
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                  });
+                }
+                } 
             >
               로그인
             </Button >
           </Link>
         </Grid>
-        <Box sx={{ display: 'flex', marginBottom: '5em' }}>
-          <Typography variant="subtitle1" sx={{}}>
-            <input type="checkbox" style={{ marginTop: '7px' }} />
-            로그인 정보 저장
-          </Typography>
-        </Box>
-        <Divider>or</Divider>
-        {/* <br /> */}
-        <Typography align="center" variant="subtitle1">
-          <Link href="/register" sx={{ textDecoration: 'none', color: 'rgb(113,137,218)' }}>
-            RISKOUT 회원이 아닌가요? 지금 가입하세요.
-          </Link>
-        </Typography>
       </Paper>
     </Box>
   );
