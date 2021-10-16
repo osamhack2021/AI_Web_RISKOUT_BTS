@@ -37,6 +37,7 @@ const handlePassword2Change = (e) => {
   padding: '60px 68px 40px',
   width: 450,
   height: 670,
+  margin: '53px auto',
  };
     return(
       <>
