@@ -88,7 +88,8 @@ const RiskReport = (props) => {
               sx={{
                 borderRadius: '5px',
                 marginTop: '13px',
-                marginRight: '33px',
+                marginLeft: '-10px',
+                marginRight: '30px',
               }}
               width={879}
               height={450}
