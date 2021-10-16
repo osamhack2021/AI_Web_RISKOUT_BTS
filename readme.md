@@ -114,11 +114,15 @@
 
 기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
 
+![나라별 이벤트](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
 ### 기사 변화량
 
 > 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 최근 기사량과 대조하여 급격하게 기사량의 변화가 있었는지 보여주는 기사 변화량 차트입니다.
+
+![기사 변화량](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
 
 <h3 id="feature2">위협 탐지</h3>
 
