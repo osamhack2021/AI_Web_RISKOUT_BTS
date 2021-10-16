@@ -113,7 +113,7 @@ export default function SideNavigation(props) {
           </Link>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon sx={{ color: 'rgb(248, 246, 240)' }} />
+              <MenuIcon sx={{ color: 'rgb(248, 246, 240)', fontSize: '2em' }} />
             ) : (
               <ChevronRightIcon sx={{ color: 'red' }} />
             )}

@@ -38,7 +38,7 @@ body::-webkit-scrollbar {
   /*로고 크기는 정해진 크기 입력*/
   position: absolute;
   top: 0.8em;
-  left: 1.2em;
+  left: 5em;
   color: #fff;
   width: 104px;
   height: 74px;
