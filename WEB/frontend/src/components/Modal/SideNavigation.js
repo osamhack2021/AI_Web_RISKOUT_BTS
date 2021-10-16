@@ -90,14 +90,14 @@ export default function SideNavigation(props) {
         onClick={handleDrawerClose}
         className="sub_header"
         sx={{
-          width: '295px',
+          width: drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             background: 'rgb(54,57,63)',
             left: 0,
             top: 0,
-            width: '295px',
+            width: drawerWidth,
             height: '100vh',
             overflow: 'hidden',
           },
