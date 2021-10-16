@@ -6,6 +6,7 @@ import {
   Avatar,
   TextField,
   Button,
+  Typography,
 } from '@mui/material';
 const PasswordResetModal=(props)=>{
   let [userpassword, setUserPassword] = useState()
