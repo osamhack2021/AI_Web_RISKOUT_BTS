@@ -32,7 +32,7 @@ const handlePassword2Change = (e) => {
 }
 
     const history = useHistory()
- //PasswordResetPage Styling 
+
  const paperStyle = {
   padding: '60px 68px 40px',
   width: 450,
@@ -49,6 +49,7 @@ const handlePassword2Change = (e) => {
   backgroundColor: 'rgb(113,137,218)',
   color: 'white'
  };
+ //Edit API Request
     return(
      
     );
