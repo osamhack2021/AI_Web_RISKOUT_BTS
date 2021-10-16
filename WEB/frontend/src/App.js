@@ -71,7 +71,7 @@ export default function App() {
         maxSnack={3}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <Layout handleLogout={handleLogout}>
+        <Layout>
           <Route exact path="/">
             <Dashboard />
           </Route>
