@@ -78,7 +78,7 @@ const InitInfo = (props) => {
                 }
                 } 
             >
-              로그인
+              전송
             </Button >
           </Link>
         </Grid>
