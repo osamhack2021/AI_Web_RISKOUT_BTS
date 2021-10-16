@@ -13,6 +13,12 @@ import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 import { darkTheme, palette } from '../darkTheme';
 
 const RiskReport = (props) => {
+  let token = localStorage.getItem("token");
+  if(token.length==0){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
+  
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
   const [dateRange, setDateRange] = React.useState('all'); // for period select
   const [data, setData] = React.useState({});

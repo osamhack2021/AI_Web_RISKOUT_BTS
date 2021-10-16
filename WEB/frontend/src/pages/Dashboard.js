@@ -10,6 +10,12 @@ import { darkTheme, palette } from '../darkTheme';
 import { Grid } from '@mui/material';
 
 export default function Dashboard() {
+  let token = localStorage.getItem("token");
+  if(token.length==0){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
+  
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12} md={12} lg={12}>

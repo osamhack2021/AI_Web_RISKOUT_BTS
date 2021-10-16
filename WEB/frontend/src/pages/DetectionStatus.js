@@ -14,6 +14,11 @@ import useSearchInitEffect from '../hooks/useSearchInitEffect';
 import { appliedFilterListState } from '../atoms/appliedFilterMapState';
 
 export default function DetectionStatus() {
+  let token = localStorage.getItem("token");
+  if(token.length==0){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
   useSearchInitEffect(); // init
 
   const search = useRecoilValue(searchState);
@@ -31,7 +36,7 @@ export default function DetectionStatus() {
     positivity: 0,
     entities: {},
   });
-
+  
   const showDetailModal = (_id) => {
     const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     // console.log(
@@ -60,7 +65,11 @@ export default function DetectionStatus() {
     console.log('TODO: analyzePage article ', id);
     alert('TODO: analyzePage article ' + id);
   };
-
+    let token = localStorage.getItem("token");
+  if(token.length==0){
+    alert("로그인이 필요한 페이지 입니다.");
+    history.push("/login")
+  }
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={10} container spacing={3} direction="column">

@@ -8,7 +8,7 @@ import '../../css/LoginModal.css';
 const RegisterModal=(props)=>{
   let [JoinLoign,setJoinLogin] = useState('회원가입')
   const history = useHistory()
-
+  
 
   let [username, setUsername] = useState()
   let [userpassword, setUserPassword] = useState()
@@ -16,6 +16,11 @@ const RegisterModal=(props)=>{
   let [useremail, setUserEamil] = useState()
   
   const data = {username : username, password : userpassword, email : useremail}
+  let token = localStorage.getItem("token");
+
+  if(token.length!=0){
+    history.push("/")
+  }
 
   const handleNameChange = (e) => {
     setUsername(e.target.value)
@@ -49,37 +54,39 @@ const RegisterModal=(props)=>{
           <TextField label='비밀번호' placeholder='비밀번호를 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordChange}/>
           <TextField label='비밀번호 확인' placeholder='비밀번호를 다시 입력해 주세요.' type='password' fullWidth required onChange={handlePasswordCheckChange}/>
           <TextField label='이메일' placeholder='이메일을 입력해 주세요.' fullWidth required onChange={handleEmailChange}/>
-          {/* onClick={(e)=>{
-                  e.preventDefault()
-                  if(!useremail.indexOf("@")){
-                    alert("이메일 형식이 올바르지 않습니다.")
-                  }else if(userpassword !== userpasswordCheck){
-                    alert("비밀번호를 확인해 주세요.")
-                  }else{
-                    fetch('/api/user/register/', {
-                      method: 'POST',
-                      headers:{
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify(data)
-                      
-                    }).then(res => res.json())
-                    .then(json => {
-                      console.log(json)
-                      if (json.token) {
-                        props.userHasAuthenticated(true, data.username, json.token);
-                        history.push("/");
-                        props.setModal(true)
-                      }else{
-                        alert("사용불가능한 아이디입니다.")
-                      }
-                    })
-                    
-                    .catch(error => alert(error));
-                  }
-                  }
-                 } */}
-          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button"><Link href="/login">{JoinLoign}</Link></Button>
+          {/*  */}
+          <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth className="JoinLoign-button"
+          onClick={(e)=>{
+            e.preventDefault()
+            if(!useremail.indexOf("@")){
+              alert("이메일 형식이 올바르지 않습니다.")
+            }else if(userpassword !== userpasswordCheck){
+              alert("비밀번호를 확인해 주세요.")
+            }else{
+              fetch('/api/user/register/', {
+                method: 'POST',
+                headers:{
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+                
+              }).then(res => res.json())
+              .then(json => {
+                console.log(json)
+                if (json.token) {
+                  props.userHasAuthenticated(true, data.username, json.token);
+                  history.push("/");
+                  props.setModal(true)
+                }else{
+                  alert("사용불가능한 아이디입니다.")
+                }
+              })
+              
+              .catch(error => alert(error));
+            }
+            }
+           }
+          ><Link href="/login">{JoinLoign}</Link></Button>
         <br /><br /><br /><br />
         <hr />
         <Divider>or</Divider>
