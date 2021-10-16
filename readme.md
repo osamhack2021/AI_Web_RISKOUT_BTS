@@ -74,13 +74,11 @@
 * [**`📰 맞춤형 보고서 생성`**](https://riskout.ithosting.repl.co/) : 클릭 몇번으로 [보고서](https://namu.wiki/w/%EB%B3%B4%EA%B3%A0%EC%84%9C)를 커스텀 및 생성할 수 있습니다.
 
 
-<h2 id="feature1">여론 현황 대시보드</h2>
+<h3 id="feature1">여론 현황 대시보드</h3>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
 </p>
-
-여론 현황 대시보드는 여론 및 언론의 최근 동향을 실시간으로 확인할 수 있도록 다양한 **차트**로 시각화시킨 페이지입니다.
 
 ### 오늘의 키워드
 
@@ -130,13 +128,25 @@
   <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
 </p>
 
-**기밀 유출 탐지 + 허위 기사 탐지**
+### 기밀 유출 탐지 + 허위 기사 탐지
+
+> 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 [기밀 유출 현황](https://riskout.ithosting.repl.co) 및 [허위 기사](https://riskout.ithosting.repl.co)를 인공지능을 통해 분석하여 탐지해내는 페이지입니다. 인공지능은 탐지한 글들을 기반으로 2차적 검사를 실시하여 기밀어, 인물, 장소를 추출해냅니다. 추출한 항목들은 세부 분석을 위해 *커스텀 필터*로 제공됩니다.
 
-* **기밀 유출 & 허위 기사 탐지** : 탐지한 기밀 유출, 허위 기사 요약 보드 생성.
-* **개체 인식 필터** : AI 개체명 인식(Named Entity Recognition)을 통해 탐지글을 2차적으로 분석할 수 있도록 도와주는 필터.
-* **검색** : 시맨틱 검색을 통한 탐지 로그 조회 기능.
+![위협 탐지](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
+
+
+
+### 개채 인식 필터(NER Filter)
+
+> 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+
+기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
+
+![NER](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+
 
 <h3 id="feature3">맞춤형 보고서 생성</h3>
 
@@ -353,6 +363,7 @@ RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 �
 </tr>
 </tbody>
 </table>
+</br>
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
