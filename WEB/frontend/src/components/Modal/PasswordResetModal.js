@@ -41,6 +41,9 @@ const handlePassword2Change = (e) => {
   backgroundColor: 'rgb(54,57,63)'
  };
  const avatarStyle = { backgroundColor: '#1bbd7e' };
+ const btnstyle = {
+   
+ };
     return(
       <>
       <br></br>
