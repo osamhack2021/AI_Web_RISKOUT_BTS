@@ -66,7 +66,7 @@ const handlePassword2Change = (e) => {
               placeholder="비밀번호를 입력 해 주세요."
               fullWidth
               required
-              onChange={handleNameChange}
+              onChange={ handlePassword1Change}
               variant="outlined"
             />
           </Box>
@@ -77,7 +77,7 @@ const handlePassword2Change = (e) => {
               fullWidth
               required
               variant="outlined"
-              onChange={handlePasswordChange}
+              onChange={ handlePassword2Change}
             />
           </Box>
           {/* */}

@@ -114,7 +114,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/password_reset">
-            <PasswordResetModal setModal={setModal} />
+            <PasswordResetModal/>
           </Route>
         </Layout>
       </SnackbarProvider>
