@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { DataGrid, useGridSlotComponentProps } from '@mui/x-data-grid';
-import moment from 'moment';
 import ProgressBar from '../Common/ProgressBar';
 import useFetch from '../../hooks/useFetch';
 
@@ -64,9 +63,7 @@ const columns = [
     field: 'date',
     headerName: '날짜',
     width: 80,
-    renderCell: (params) => (
-      <Typography>{moment(params.value).format('YY-MM-DD')}</Typography>
-    ),
+    renderCell: (params) => <Typography>{params.value}</Typography>,
   },
   {
     field: 'emotionFilled',
