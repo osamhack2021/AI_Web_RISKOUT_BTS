@@ -840,32 +840,28 @@ class ReportDataView(generics.CreateAPIView):
         query = {}
         
         query["category"] = "news"
-
+        hours = 0
         db_result = mongo.find_item(query, "riskout", "analyzed")
 
-        if not db_result.count():
-            return response
+        if db_result.count() < 10:
+            for _ in range(5):
+                hours += 24
+                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
+                query["category"] = "news"
+            
+                db_result = mongo.find_item(query, "riskout", "analyzed")
+
+                if db_result.count() >= 10:
+                    break
+
+        if db_result.count() < 10:
+            return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
-        now = datetime.utcnow() + timedelta(hours=9)
+        now = datetime.utcnow() + timedelta(hours=9) - timedelta(hours=hours)
         today_datetime = datetime(now.year, now.month, now.day)
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
-
-        for i in range(5):
-            check = 0
-
-            for content in db_filtered:
-                if content["created_at"] == today:
-                    check += 1
-            
-            if check < 10:
-                if i == 4:
-                    return response
-                
-                now -= timedelta(days=1)
-                today_datetime = datetime(now.year, now.month, now.day)
-                today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
         yesterday = today_datetime - timedelta(days=1)
         yesterday = datetime(yesterday.year, yesterday.month, yesterday.day).strftime('%y-%m-%d')
@@ -1009,7 +1005,7 @@ class ReportDataView(generics.CreateAPIView):
         document = json.dumps(document)
 
         try:
-            ranked = requests.post(url, data=document, timeout=20)
+            ranked = requests.post(url, data=document, timeout=3)
 
             if ranked.status_code == 200:
                 try:
