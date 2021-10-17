@@ -71,15 +71,15 @@
 		<div class="inner">
 			<div class="tit">
 				<h2><b>RISKOUT</b> <br class="mob">서비스 소개</h2>
-				<p>All-in-one 리스크관리플랫폼으로 각종군사위협들을 손쉽게 파악하고, 대처할수있습니다.</p>
+				<p>All-in-one 리스크 관리 플랫폼으로 각종 군사 위협들을 손쉽게 파악하고, 대처할수있습니다.</p>
 			</div><!-- // tit -->
 			<div class="service_wrap">
 				<div class="service">
 					<div class="img"><img src="/static/img/main/service01.gif" alt=""></div>
 					<div class="txt">
-						<span>Public Relations</span>
-						<h3>여론 동향</h3>
-						<p>여론 현황 대시보드는 여론 및 언론의 최근 동향을 실시간으로 확인할 수 있도록 각종 차트로 시각화시켜줍니다.</p>
+						<span>Risk Dashboard</span>
+						<h3>위협 대시보드</h3>
+						<p>오늘의 키워드, 기사 현황등 위협을 예측할 수 있을만한 요소들을 시각화하는 대시보드입니다.</p>
 					</div><!-- // txt -->
 				</div><!-- // service -->
 				<div class="service">
@@ -87,7 +87,7 @@
 					<div class="txt">
 						<span>Risk Detection</span>
 						<h3>기밀글 · 허위글 탐지</h3>
-						<p>기밀 유출 현황 및 허위 기사를 인공지능을 통해 분석하여 탐지합니다. 빠르게 유출된 글의 출처 파악과 허위 기사의 허위도를 판별하는 수치 등을 제공합니다. </p>
+						<p>기밀 유출 현황 및 허위기사를 인공지능을 통해 자동으로 분석하여 탐지합니다. 이후 빠르게 대응할수 있도록 요약된 내용 및 출처등을 제공합니다. </p>
 					</div><!-- // txt -->
 				</div><!-- // service -->
 				<div class="service">
@@ -95,7 +95,7 @@
 					<div class="txt">
 						<span>Auto Report</span>
 						<h3>맞춤형 리포트</h3>
-						<p>클릭 몇번으로 사용자가 직접 커스텀한 내용의 맞춤형 보고서를 자동으로 생성해줍니다. 여러 위협 내용을 출처와 함께 요약해서 보여줍니다.</p>
+						<p>사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.</p>
 					</div><!-- // txt -->
 				</div><!-- // service -->
 			</div><!-- // service_wrap -->
@@ -226,6 +226,8 @@
         <li class="p-footer_group"><a href="#section1" class="anchorLink">소개</a></li>
         <li class="p-footer_group"><a href="#section3" class="anchorLink">베타</a></li>
         <li class="p-footer_group"><a href="#section5" class="anchorLink">팀</a></li>
+		<li class="p-footer_group"><a target="_blank" href="https://github.com/osamhack2021/ai_web_RISKOUT_BTS">프로젝트</a></li>
+        <li class="p-footer_group"><a target="_blank" href="https://github.com/osamhack2021/ai_web_RISKOUT_BTS">유튜브</a></li>
 			</div><!-- // foot_btm -->
 			<p class="copyright">Copyright © 2021. RISKOUT All right reserved.</p>
 		</div><!-- // inner -->
@@ -254,22 +256,25 @@
 		}); 
 	});	
 
-  $(window).scroll(function () {
-  if ($(window).scrollTop() >= 50) {
-  // $('#header').css('background','black');
-  // $('#header').css('box-shadow','0px 5px 15px rgb(0 0 0 / 10%)');
-  // $('#header .start_btn').css('border','2px solid #3079EC')
-  // $('#header .start_btn').css('color','#3079EC')
-  $('#header .gnb li a').css('color', '#FFFFFFB3')
+	$(window).scroll(function () {
+  		if ($(window).scrollTop() >= 50) {
+ 			$('#header').css('background','black');
+  			// $('#header').css('box-shadow','0px 5px 15px rgb(0 0 0 / 10%)');
+  			$('#header .start_btn').css('border','1.75px solid #3079EC')
+  			$('#header .start_btn').css('color','#3079EC')
+  			$('#header .gnb li a').css('color', 'white')
+  			$('.logo').css('opacity', '1')
   
-  } else {
-  // $('#header').css('background','transparent')
-  // $('#header').css('box-shadow','none')
-  // $('#header .start_btn').css('border','black')
-  // $('#header .start_btn').css('color','black')
-  $('#header .gnb li a').css('color', '#000')
-  }
-  });
+
+  		} else {
+  			$('#header').css('background','transparent')
+  			// $('#header').css('box-shadow','none')
+  			$('#header .gnb li a').css('color', '#000')
+  			$('#header .start_btn').css('border','1.75px solid black')
+  			$('#header .start_btn').css('color','black')
+  			$('.logo').css('opacity', '0')
+  	}
+  	});
 
 	var winW = $(window).width();
 	if (winW < 768){
