@@ -68,6 +68,7 @@ filter: brightness(0.4);
     width: 80px;
     min-width: 15px;
     height: auto;
+    opacity: 0;
 }
 img {
     vertical-align: middle;
@@ -78,14 +79,14 @@ img {
     box-sizing: border-box;
 }
 
-#header {position:fixed; top:0; left:0; width:100%; height: 81px; z-index: 10; background: black; box-shadow:none;}
+#header {position:fixed; top:0; left:0; width:100%; height: 81px; z-index: 10; background: transparent; box-shadow:none;}
 #header h1 {position:absolute; left:70px; top: 4px; background-size:contain;}
 #header .gnb {font-size: 0; text-align: center;}
 #header .gnb li {display:inline-block; font-size: 20px; font-weight: 200; margin-right: 110px; line-height: 81px; position:relative;}
 #header .gnb li:last-child {margin-right: 0;}
 #header .gnb li a {color: #000;}
-#header .gnb li:hover a {font-weight: 300; color: #3079EC;}
-#header .start_btn {position:absolute; right:70px; top: 11px; width: 200px; height: 60px; line-height: 25px; text-align: center; border-radius:15px; border:1.75px solid #FFFFFFB3;	color: #FFFFFFB3; font-size: 20px; font-weight: 400;}
+#header .gnb li:hover a {font-weight: 300; color: #3079EC !important;}
+#header .start_btn {position:absolute; right:70px; top: 11px; width: 200px; height: 60px; line-height: 25px; text-align: center; border-radius:15px; border: 1.75px solid black;	color: black; font-size: 20px; font-weight: 400;}
 #header .start_btn:hover {background: #3079EC; color: #fff !important;  transition:0.3s ease-in-out;}
 
 
@@ -94,7 +95,7 @@ img {
 
 #visual {position:relative; }
 #visual li > p {height:100vh;}
-#visual li .main_txt {width: 1110px; position:absolute; top:50%; left: 50%; transform:translate(-50%,-50%); color: #fff; }
+#visual li .main_txt {width: 1110px; position:absolute; top:48%; left: 50%; transform:translate(-50%,-50%); color: #fff; }
 #visual li .main_txt h2 {font-size: 60px; line-height: 70px; font-weight: 700; margin-top: 45px; margin-bottom: 20px; text-align: center;}
 #visual li .main_txt p {font-family: roboto; font-weight: 300; font-size: 22px; line-height: 42px; margin-bottom: 50px; text-align: center;}
 #visual li .main_txt p strong {font-weight: bold;}
@@ -188,7 +189,7 @@ img {
 
 #footer .foot_btm p:nth-child(3) {margin-right: 0;}
 #footer .foot_btm p:last-child {display:block; margin-top: 10px;}
-#footer p.copyright {font-size: 12px; line-height: 1; margin-top: 100px; margin-bottom: 20px;}
+#footer p.copyright {font-size: 12px; line-height: 1; margin-top: 80px; margin-bottom: 20px;}
 
 
 
