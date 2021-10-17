@@ -9,6 +9,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
+import LoginModal from './LoginModal';
 import SidebarLink from '../SidebarLink';
 import SidebarLinkMini from '../SidebarLinkMini';
 
@@ -33,7 +34,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function SideNavigation(props) {
   const { drawerWidth } = props;
-  const theme = useTheme();
+  const theme = useTheme(); 
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -42,6 +43,19 @@ export default function SideNavigation(props) {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  function sideMiniLogout() {
+    if(localStorage.getItem("token")) {
+      return <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" />;
+    }
+  };
+
+
+  function sideLogout() {
+    if(localStorage.getItem("token")) {
+      return <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />;
+    }
   };
 
   return (
@@ -80,7 +94,7 @@ export default function SideNavigation(props) {
             text="리포트"
             href="/riskreport"
           />
-          <SidebarLinkMini icon={LogoutIcon} text="로그아웃" href="/logout" />
+          { sideMiniLogout() }
         </Box>
       </Box>
 
@@ -128,7 +142,7 @@ export default function SideNavigation(props) {
             isOn={true}
           />
           <SidebarLink icon={AssessmentIcon} text="리포트" href="/riskreport" />
-          <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />
+          { sideLogout() }
         </List>
         <ListItem>
           <ListItemText

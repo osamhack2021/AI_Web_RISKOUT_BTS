@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Route } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -62,6 +63,7 @@ console.log(mdTheme);
 export default function App() {
   const [modal, setModal] = useState(false);
   const [user, setUser] = useState([]);
+  const history = useHistory();
 
   let [isAuthenticated, setisAuthenticated] = useState(
     localStorage.getItem('token') ? true : false
@@ -74,6 +76,17 @@ export default function App() {
     localStorage.setItem('token', token);
   }; 
 
+  const handleLogout = () => {
+    if (localStorage.getItem('token'))
+    {
+      localStorage.removeItem('token');
+      history.push("/");
+    }
+    else
+    {
+      history.push("/login");
+    }
+  }
 
 
   return (
@@ -84,10 +97,6 @@ export default function App() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Layout>
-          <Route exact path="/">
-            <Dashboard />
-          </Route>
-
           <Route exact path="/presstrends">
             <Dashboard />
           </Route>
@@ -106,6 +115,9 @@ export default function App() {
               userHasAuthenticated={userHasAuthenticated}
             />
           </Route>
+          {/* <Route exact path="/logout">
+          { handleLogout }
+          </Route> */}
           <Route exact path="/register">
             <RegisterModal setModal={setModal}
               userHasAuthenticated={userHasAuthenticated}
