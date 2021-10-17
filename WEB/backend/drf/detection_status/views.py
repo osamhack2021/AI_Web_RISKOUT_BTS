@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions, status
+from rest_framework import generics, permissions, renderers, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from knox.auth import TokenAuthentication
+from django.conf import settings
 
 from .serializers import AnalyzedDataSerializer, ReportDataSerializer
 from .mongo import DBHandler
@@ -27,6 +29,9 @@ with open(SECRET_KEYWORDS_PATH, "rt", encoding="UTF-8") as f:
 class AnalyzedDataView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = AnalyzedDataSerializer
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -218,18 +223,18 @@ class AnalyzedDataView(generics.CreateAPIView):
                         if (word in content["title"]) or (word in content["contentBody"]):
                             content["isLeaked"] = True
 
-                            if "leakedWords" in content:
-                                content["leakedWords"].append(word)
-                            else:
-                                content["leakedWords"] = [word]
+                        if "leakedWords" in content:
+                            content["leakedWords"].append(word)
+                        else:
+                            content["leakedWords"] = [word]
                     else:
                         if word in content["contentBody"]:
                                 content["isLeaked"] = True
 
-                            if "leakedWords" in content:
-                                content["leakedWords"].append(word)
-                            else:
-                                content["leakedWords"] = [word]
+                        if "leakedWords" in content:
+                            content["leakedWords"].append(word)
+                        else:
+                            content["leakedWords"] = [word]
 
         response["totalLeakedWords"] = self.getLeakedWords(response["contents"])
         response["totalContentsLength"] = len(response["contents"])
@@ -281,6 +286,9 @@ class AnalyzedDataView(generics.CreateAPIView):
 
 class TrendsDataView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
 
     def get_serializer_class(self):
@@ -387,6 +395,9 @@ class TrendsDataView(generics.GenericAPIView):
 
 class WordcloudDataView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
 
     def get_serializer_class(self):
@@ -486,6 +497,9 @@ class WordcloudDataView(generics.GenericAPIView):
 
 class ArticleVolumeDataView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
 
     def get_serializer_class(self):
@@ -606,6 +620,9 @@ class ArticleVolumeDataView(generics.GenericAPIView):
 
 class SentimentBarDataView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
 
     def get_serializer_class(self):
@@ -683,6 +700,9 @@ class SentimentBarDataView(generics.GenericAPIView):
 
 class SentimentPieDataView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
 
     def get_serializer_class(self):
@@ -754,6 +774,9 @@ class SentimentPieDataView(generics.GenericAPIView):
 class ReportDataView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = ReportDataSerializer
+    if not settings.DEBUG:
+        authentication_classes = (TokenAuthentication, )
+        renderer_classes = (renderers.JSONRenderer, )
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
