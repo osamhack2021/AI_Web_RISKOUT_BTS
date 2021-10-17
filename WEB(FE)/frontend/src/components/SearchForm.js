@@ -6,7 +6,6 @@ import SearchBar from './SearchBar';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { searchState } from '../atoms/searchState';
 import { searchSettingState } from '../atoms/searchSettingState';
-import { useFetch } from '../hooks/useFetch';
 import { searchDetected } from '../lib/api/searchDetected';
 
 export default function SearchForm() {
@@ -28,7 +27,7 @@ export default function SearchForm() {
       category,
       period: parseInt(period),
       tags: searchSetting.tags,
-      search_text: [],
+      search_text: searchSetting.tags.ETC,
       offset: 0,
       limit: 100,
     });

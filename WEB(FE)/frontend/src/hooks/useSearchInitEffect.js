@@ -21,7 +21,7 @@ export default function useSearchInitEffect() {
         tags: searchSetting.tags,
         search_text: [],
         offset: 0,
-        limit: 10,
+        limit: 100,
       });
 
       setSearch(data);
