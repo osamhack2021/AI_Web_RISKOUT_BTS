@@ -11,8 +11,8 @@ secrets.json
 database.db
 
 # commit empty dir
-WEB/backend/data/db/*
-!WEB/backend/data/db/.gitkeep
+WEB(BE)/data/db/*
+!WEB(BE)/data/db/.gitkeep
 
 # keep twitter api secrets
 # WEB/backend/crawler/crawler/model/twitter/secrets
