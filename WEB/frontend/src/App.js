@@ -76,15 +76,11 @@ export default function App() {
     localStorage.setItem('token', token);
   }; 
 
-  const handleLogout = () => {
-    if (localStorage.getItem('token'))
-    {
+  function handleLogout() {
+    if (localStorage.getItem('token') && window.location.pathname == '/logout' ) {
       localStorage.removeItem('token');
-      history.push("/");
-    }
-    else
-    {
-      history.push("/login");
+      window.location.href="/"
+      //return history.push("/riskreport");
     }
   }
 
@@ -115,9 +111,11 @@ export default function App() {
               userHasAuthenticated={userHasAuthenticated}
             />
           </Route>
-          {/* <Route exact path="/logout">
-          { handleLogout }
-          </Route> */}
+
+          <Route exact path="/logout">
+            { handleLogout }
+          </Route>
+
           <Route exact path="/register">
             <RegisterModal setModal={setModal}
               userHasAuthenticated={userHasAuthenticated}

@@ -51,7 +51,6 @@ export default function SideNavigation(props) {
     }
   };
 
-
   function sideLogout() {
     if(localStorage.getItem("token")) {
       return <SidebarLink icon={LogoutIcon} text="로그아웃" href="/logout" />;
