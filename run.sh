@@ -66,8 +66,8 @@ echo [+] Crawling and analyzing done!
 # Build React
 
 echo [+] Building React...
-mkdir -p ./drf/build
-mkdir -p ./drf/staticfiles
+mkdir -p ../backend/drf/build
+mkdir -p ../backend/drf/staticfiles
 cd ./frontend
 npm i
 npm run build
