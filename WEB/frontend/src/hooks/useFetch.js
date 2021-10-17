@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import client from '../lib/api/client';
 
 const useFetch = (url, options) => {
   const [data, setData] = useState(null);
@@ -22,7 +23,6 @@ const useFetch = (url, options) => {
           return res.json();
         })
         .then((data) => {
-          console.log(data);
           setData(data);
           setIsPending(false);
           setError(null);

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import axios from 'axios';
+import client from '../lib/api/client';
 
 import { useRecoilState } from 'recoil';
 import { searchState } from '../atoms/searchState';
@@ -13,7 +13,7 @@ export default function useSearchInitEffect() {
     //TODO: API 서버 배포시 수정
     const searchUrl = `/static/SecretData.example.json`;
     async function fetchSearch() {
-      axios.get(searchUrl).then((data) => {
+      client.get(searchUrl).then((data) => {
         console.log('처음검색', data.data);
         setSearch(data.data);
       });
