@@ -12,7 +12,7 @@ def render_react(request):
 
 
 urlpatterns = [
-    path('/', render_main),
+    path('', render_main),
     path('admin/', admin.site.urls),
     path('api/auth/', include('rest_framework.urls')),
     path('api/user/', include('accounts.urls')),
