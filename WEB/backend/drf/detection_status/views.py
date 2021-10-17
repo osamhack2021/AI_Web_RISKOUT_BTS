@@ -179,10 +179,14 @@ class AnalyzedDataView(generics.CreateAPIView):
 
         if mode == "leaked":
             for content in response["contents"]:
-                if content["true_score"] <= 0.5:
-                    content["isFakenews"] = True
+                if content["true_score"]:
+                    if content["true_score"] <= 0.5:
+                        content["isFakenews"] = True
+                    else:
+                        content["isFakenews"] = False
                 else:
                     content["isFakenews"] = False
+
                 for word in SECRET_KEYWORDS:
                     if content["category"] == "news":
                         if (word in content["title"]) or (word in content["contentBody"]):
@@ -214,10 +218,14 @@ class AnalyzedDataView(generics.CreateAPIView):
         
         else:
             for content in response["contents"]:
-                if content["true_score"] <= 0.5:
-                    content["isFakenews"] = True
+                if content["true_score"]:
+                    if content["true_score"] <= 0.5:
+                        content["isFakenews"] = True
+                    else:
+                        content["isFakenews"] = False
                 else:
                     content["isFakenews"] = False
+
                 for word in SECRET_KEYWORDS:
                     if content["category"] == "news":
                         if (word in content["title"]) or (word in content["contentBody"]):
