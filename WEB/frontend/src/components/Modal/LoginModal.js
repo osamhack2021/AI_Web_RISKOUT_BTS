@@ -21,12 +21,11 @@ const LoginModal = (props) => {
   let [useremail, setUserEamil] = useState();
 
   const data = { username: username, password: userpassword, email: useremail };
-  let token = localStorage.getItem("token");
+  let token = localStorage.getItem('token');
 
-  
-if(token!=null){
-	history.push("/")
-}
+  if (token != null) {
+    history.push('/presstrends');
+  }
 
   const handleNameChange = (e) => {
     setUsername(e.target.value);
@@ -40,7 +39,7 @@ if(token!=null){
     width: 450,
     height: 670,
     margin: '53px auto',
-    backgroundColor: 'rgb(54,57,63)'
+    backgroundColor: 'rgb(54,57,63)',
   };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
   const btnstyle = {
@@ -49,7 +48,7 @@ if(token!=null){
     width: 314,
     height: 48,
     backgroundColor: '#3a8ffb',
-    color: 'white'
+    color: 'white',
   };
   return (
     <Box className="loginModalBack">
@@ -82,39 +81,42 @@ if(token!=null){
             />
           </Box>
           {/* */}
-          <Link sx={{ textDecoration: 'none'}}>
+          <Link sx={{ textDecoration: 'none' }}>
             <Button
               type="submit"
               variant="contained"
               style={btnstyle}
               className="JoinLoign-button"
-
-              onClick={(e)=>{
-                e.preventDefault()
+              onClick={(e) => {
+                e.preventDefault();
                 fetch('/api/user/login/', {
-                method: 'POST',
+                  method: 'POST',
                   headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify(data)
+                  body: JSON.stringify(data),
                 })
-                .then(res => res.json())
-                .then(json => {
-                  if (json.token) {
-                    props.userHasAuthenticated(true, data.username, json.token);
-                    alert("환영합니다."+username+"님.")
-                    history.push("/presstrends");
-                    props.setModal(true)
-                    console.log(json)
-                  }else{
-                    alert("아이디 또는 비밀번호를 확인해주세요.")
-                  }
-                })
-                .catch(error => alert(error));
-              }} 
+                  .then((res) => res.json())
+                  .then((json) => {
+                    if (json.token) {
+                      props.userHasAuthenticated(
+                        true,
+                        data.username,
+                        json.token
+                      );
+                      alert('환영합니다.' + username + '님.');
+                      history.push('/presstrends');
+                      props.setModal(true);
+                      console.log(json);
+                    } else {
+                      alert('아이디 또는 비밀번호를 확인해주세요.');
+                    }
+                  })
+                  .catch((error) => alert(error));
+              }}
             >
               로그인
-            </Button >
+            </Button>
           </Link>
         </Grid>
         <Box sx={{ display: 'flex', marginBottom: '5em' }}>
@@ -126,7 +128,10 @@ if(token!=null){
         <Divider>or</Divider>
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
-          <Link href="/register" sx={{ textDecoration: 'none', color: '#3a8ffb' }}>
+          <Link
+            href="/register"
+            sx={{ textDecoration: 'none', color: '#3a8ffb' }}
+          >
             RISKOUT 회원이 아닌가요? 지금 가입하세요.
           </Link>
         </Typography>
