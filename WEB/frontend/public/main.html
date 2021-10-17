@@ -30,7 +30,7 @@
  <body>
   <div id="wrap">
 	<header id="header">
-		<h1><img src="/static/img/main/logo.png" class="image logo" alt=""></h1>
+		<h1 class="scroll-top" id="js-button"><button><img src="images/main/logo.png" class="image logo" alt="" /></button></h1>
 		<ul class="gnb">
 			<li><a href="#section1" class="anchorLink">소개</a></li>
 			<li><a href="#section3" class="anchorLink">베타</a></li>
@@ -237,24 +237,56 @@
  </body>
 </html>
 
-
-
 <script>
-	$(document).ready(function() {
-		$('.navi_btn').click(function(){
-			$(this).toggleClass('on');
-			$('.navi').stop().fadeToggle()
-		});
+  $('scroll-top').css({
+  "position": "fixed", 
+  "right": "20px",
+  "bottom": "20px",
+  "z-index": "100",
+  "background-color": "#999",
+  "opacity": ".8",
+  "width": "50px",
+  "height": "50px",
+  "border-radius": "50%", 
+  "border": "none",
+  "color": "#fff"});
 
-		$('#visual').bxSlider({
-			mode:'fade',
-			pager:false,
-			auto: true,	
-			controls: false,
-			autoControls: false,
-			speed: 400
-		}); 
-	});	
+  scrollTop('js-button', 500);
+  function scrollTop(elem,duration) {
+	let target = document.getElementById(elem);
+
+	target.addEventListener('click', function() {
+		let currentY = window.pageYOffset; 
+		let step = duration/currentY > 1 ? 10 : 100;
+		let timeStep = duration/currentY * step;
+		let intervalID = setInterval(scrollUp, timeStep);
+
+		function scrollUp(){
+			currentY = window.pageYOffset;
+			if(currentY === 0) {
+				clearInterval(intervalID);
+			} else {
+				scrollBy( 0, -step );
+			}
+		}
+	});
+  }
+
+  $(document).ready(function() {
+	$('.navi_btn').click(function(){
+		$(this).toggleClass('on');
+		$('.navi').stop().fadeToggle()
+	});
+
+	$('#visual').bxSlider({
+		mode:'fade',
+		pager:false,
+		auto: true,	
+		controls: false,
+		autoControls: false,
+		speed: 400
+	}); 
+});	
 
   $(window).scroll(function () {
   if ($(window).scrollTop() >= 50) {
