@@ -5,8 +5,8 @@ mkdir -p ./drf/staticfiles
 
 cd ../frontend
 
-npm i
-npm run build
+yarn
+yarn build
 
 rm -rf ../backend/drf/build/*
 cp -r ./build ../backend/drf/
