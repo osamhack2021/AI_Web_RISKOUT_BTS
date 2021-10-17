@@ -329,7 +329,7 @@ class TrendsDataView(generics.GenericAPIView):
 
         if db_result.count() < 10:
             for _ in range(5):
-                hours -= 24
+                hours += 24
                 query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
                 query["category"] = "news"
             
@@ -338,6 +338,7 @@ class TrendsDataView(generics.GenericAPIView):
                 if db_result.count() >= 10:
                     break
 
+        if db_result.count() < 10:
             return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
@@ -398,7 +399,7 @@ class TrendsDataView(generics.GenericAPIView):
             print(f"Error occured while fetching ranking data : {e}")
             quit()
 
-        return sentences[:3]
+        return sentences
 
 
 class WordcloudDataView(generics.GenericAPIView):
@@ -434,17 +435,18 @@ class WordcloudDataView(generics.GenericAPIView):
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
 
-        if db_result.count() < 10:
+        if db_result.count() < 35:
             for _ in range(5):
-                hours -= 24
+                hours += 24
                 query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
                 query["category"] = "news"
             
                 db_result = mongo.find_item(query, "riskout", "analyzed")
 
-                if db_result.count() >= 10:
+                if db_result.count() >= 35:
                     break
-                                        
+
+        if db_result.count() < 35:
             return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []

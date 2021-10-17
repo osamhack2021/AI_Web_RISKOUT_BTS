@@ -30,7 +30,7 @@ async def keywords(doc: DocumentRequest):
         verbose=False
     )
     try:
-        results["keywords"] =  keyword_extractor.summarize(doc.document, topk=10)
+        results["keywords"] =  keyword_extractor.summarize(doc.document, topk=30)
     except:
         raise HTTPException(status_code=503, detail="The server is busy processing requests.")
     finally:
