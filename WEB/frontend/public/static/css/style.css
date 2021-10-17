@@ -84,11 +84,10 @@ img {
 #header .gnb {font-size: 0; text-align: center;}
 #header .gnb li {display:inline-block; font-size: 20px; font-weight: 200; margin-right: 110px; line-height: 81px; position:relative;}
 #header .gnb li:last-child {margin-right: 0;}
-#header .gnb li a {color: #000;}
+#header .gnb li a {color: transparent;}
 #header .gnb li:hover a {font-weight: 300; color: #3079EC !important;}
-#header .start_btn {position:absolute; right:70px; top: 11px; width: 200px; height: 60px; line-height: 25px; text-align: center; border-radius:15px; border: 1.75px solid black;	color: black; font-size: 20px; font-weight: 400;}
+#header .start_btn {position:absolute; right:70px; top: 11px; width: 200px; height: 60px; line-height: 25px; text-align: center; border-radius:15px; border:1.75px solid transparent;	color: transparent; font-size: 20px; font-weight: 400;}
 #header .start_btn:hover {background: #3079EC; color: #fff !important;  transition:0.3s ease-in-out;}
-
 
 .navi {display:none;}
 .navi_btn {display:none;}
