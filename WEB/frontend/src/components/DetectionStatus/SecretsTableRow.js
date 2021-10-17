@@ -1,21 +1,14 @@
 import { Stack, Link, Typography, TableCell, TableRow } from '@mui/material';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import ForumIcon from '@mui/icons-material/Forum';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import DescriptionIcon from '@mui/icons-material/Description';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-import InfoIcon from '@mui/icons-material/Info';
 import { red, green } from '@mui/material/colors';
 
-import { VscGistSecret, VscBook } from 'react-icons/vsc';
+import { VscGistSecret, VscPreview } from 'react-icons/vsc';
 
 import ScrapButton from './ScrapButton';
 
-function CategorizedIcon({ category, true_score }) {
-  if (true_score < 0.4) return <VscBook color={red[500]} size={24} />;
-  else return <VscGistSecret color={green[500]} size={24} />;
+function CategorizedIcon({ isLeaked, isFakenews }) {
+  if (isFakenews) return <VscGistSecret color={red[500]} size={24} />;
+  else if (isLeaked) return <VscPreview color={red[500]} size={24} />;
+  else return <VscPreview color={green[500]} size={24} />;
 }
 
 export default function SecretsTableRow({
@@ -24,8 +17,17 @@ export default function SecretsTableRow({
   scrapArticle,
   isAlreadyScrapped,
 }) {
-  const { _id, title, category, summarized, author, href, true_score } =
-    article;
+  const {
+    _id,
+    title,
+    category,
+    summarized,
+    author,
+    href,
+    true_score,
+    isLeaked,
+    isFakenews,
+  } = article;
 
   return (
     <TableRow
@@ -34,7 +36,7 @@ export default function SecretsTableRow({
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          <CategorizedIcon category={category} true_score={true_score} />
+          <CategorizedIcon isLeaked={isLeaked} isFakenews={isFakenews} />
         </Link>
       </TableCell>
       <TableCell

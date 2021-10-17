@@ -6,32 +6,33 @@ import SearchBar from './SearchBar';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { searchState } from '../atoms/searchState';
 import { searchSettingState } from '../atoms/searchSettingState';
-import axios from 'axios';
+import { useFetch } from '../hooks/useFetch';
+import { searchDetected } from '../lib/api/searchDetected';
 
 export default function SearchForm() {
   const { handleSubmit, register, setValue, control } = useForm({});
   const setSearch = useSetRecoilState(searchState);
   const searchSetting = useRecoilValue(searchSettingState);
-  const onSubmit = async ({ category, type, period, searchText }) => {
-    /*
-    {
-      "category": "news",
-      "period": 0,
-      "tags": { "PER": ["김정은"], "LOC": ["서해"] },
-      "search_text": "",
-      "limit": 5,
-      "offset": 0
-    }
-    */
+  const onSubmit = async ({ category, mode, period, searchText }) => {
     console.log('[+] Fetching with Form');
     console.log('category', category);
     console.log('period', period);
-    console.log('tags', searchSetting);
-    console.log('type', type);
+    console.log('tags', searchSetting.tags);
+    console.log('mode', mode);
     console.log('search_text', searchSetting.tags.ETC);
 
-    const response = await axios.get(`/static/search.json`);
-    setSearch(response.data);
+    // const response = await client.post('/static/SecretData.example.json');
+    // console.log(response.data);
+    const data = await searchDetected({
+      mode,
+      category,
+      period: parseInt(period),
+      tags: searchSetting.tags,
+      search_text: [],
+      offset: 0,
+      limit: 100,
+    });
+    setSearch(data);
   };
 
   return (
@@ -51,17 +52,18 @@ export default function SearchForm() {
         <Select size="small" defaultValue="all" {...register('category')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="news">뉴스</MenuItem>
+          <MenuItem value="community">커뮤니티</MenuItem>
           <MenuItem value="sns">SNS</MenuItem>
         </Select>
 
-        <Select size="small" defaultValue="all" {...register('type')}>
+        <Select size="small" defaultValue="all" {...register('mode')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="leaked">기밀유출 의심</MenuItem>
           <MenuItem value="fakenews">가짜뉴스 의심</MenuItem>
         </Select>
 
         <Select size="small" defaultValue="24" {...register('period')}>
-          <MenuItem value="now">실시간</MenuItem>
+          <MenuItem value="0">실시간</MenuItem>
           <MenuItem value="1">1h</MenuItem>
           <MenuItem value="3">3h</MenuItem>
           <MenuItem value="5">5h</MenuItem>

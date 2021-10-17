@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import useFetch from '../../hooks/useFetch';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { isEmpty } from 'lodash';
 
@@ -22,6 +22,16 @@ const ArticleVolumeLine = ({ theme, colors }) => {
   const { data, error, isPending } = useFetch(requestUrl, {
     method: 'GET',
   });
+
+  const [response, setResponse] = useState([]);
+  useEffect(() => {
+    if (!isEmpty(data)) {
+      setResponse([
+        { ...data['fake'], color: 'hsl(142, 70%, 50%)' },
+        { ...data['true'], color: 'hsl(159, 70%, 50%)' },
+      ]);
+    }
+  }, [data]);
 
   return (
     <Card style={{ height: '400px' }}>
@@ -35,7 +45,7 @@ const ArticleVolumeLine = ({ theme, colors }) => {
         <Box sx={{ width: '100%', color: 'grey.500' }}>
           <LinearProgress color="inherit" />
         </Box>
-      ) : !isEmpty(data.response) ? (
+      ) : !isEmpty(response) ? (
         <CardContent>
           <Box
             sx={{
@@ -45,7 +55,7 @@ const ArticleVolumeLine = ({ theme, colors }) => {
           >
             <ResponsiveLine
               theme={theme}
-              data={data.response}
+              data={response}
               margin={{ top: 10, right: 110, bottom: 50, left: 60 }}
               xScale={{ type: 'point' }}
               yScale={{

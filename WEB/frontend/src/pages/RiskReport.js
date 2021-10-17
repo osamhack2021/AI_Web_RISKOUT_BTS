@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
-import axios from 'axios';
+import client from '../lib/api/client';
 import '../css/fonts.css';
 
 import ExclusiveSelect from '../components/RiskReport/ExclusiveSelect';
@@ -33,13 +33,13 @@ const RiskReport = (props) => {
     async function fetchSearch() {
       setPending(true);
       if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
-        axios.get(exampleSearchUrl).then((data) => {
+        client.get(exampleSearchUrl).then((data) => {
           console.log(data.data);
           setData(data.data);
           setPending(false);
         });
       } else {
-        axios
+        client
           .post(searchUrl, {
             articleIds: getCart().length ? getCart() : [30, 40, 50],
             period: 24,
