@@ -102,7 +102,7 @@ export default function SecretsDetailModal(props) {
               {/* Insert highlighted version */}
               {getHighlightedText(
                 replaceNewline(data.contentBody, 2),
-                entityNames.length ? entityNames[0] : ''
+                entityNames.length ? entityNames : ['']
               )}
 
               {/* {data.summarized} */}
