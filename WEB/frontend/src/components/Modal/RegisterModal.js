@@ -12,43 +12,40 @@ import {
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 
-const RegisterModal=(props)=>{
-  const history = useHistory()
-  
+const RegisterModal = (props) => {
+  const history = useHistory();
 
-  let [username, setUsername] = useState()
-  let [userpassword, setUserPassword] = useState()
+  let [username, setUsername] = useState();
+  let [userpassword, setUserPassword] = useState();
   let [userpasswordCheck, setUserPasswordCheck] = useState();
-  let [useremail, setUserEamil] = useState()
-  
-  const data = {username : username, password : userpassword, email : useremail}
-  let token = localStorage.getItem("token");
-  
-  if(token!=null){
-    history.push("/")
+  let [useremail, setUserEamil] = useState();
+
+  const data = { username: username, password: userpassword, email: useremail };
+  let token = localStorage.getItem('token');
+
+  if (token != null) {
+    history.push('/presstrends');
   }
 
   const handleNameChange = (e) => {
-    setUsername(e.target.value)
-  }
+    setUsername(e.target.value);
+  };
   const handlePasswordChange = (e) => {
-    setUserPassword(e.target.value)
-  }
+    setUserPassword(e.target.value);
+  };
   const handlePasswordCheckChange = (e) => {
-    setUserPasswordCheck(e.target.value)
-  }
+    setUserPasswordCheck(e.target.value);
+  };
   const handleEmailChange = (e) => {
-    setUserEamil(e.target.value)
-  }
-
-
+    setUserEamil(e.target.value);
+  };
 
   const paperStyle = {
     padding: '60px 68px 40px',
     width: 450,
     height: 670,
     margin: '53px auto',
-    backgroundColor: 'rgb(54,57,63)'
+    backgroundColor: 'rgb(54,57,63)',
   };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
   const btnstyle = {
@@ -57,10 +54,10 @@ const RegisterModal=(props)=>{
     width: 314,
     height: 48,
     backgroundColor: '#3a8ffb',
-    color: 'white'
+    color: 'white',
   };
-    return(
-      <Box className="loginModalBack">
+  return (
+    <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
         <Grid align="left">
           {/* <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar> */}
@@ -86,7 +83,7 @@ const RegisterModal=(props)=>{
               fullWidth
               required
               variant="outlined"
-              type='password'
+              type="password"
               onChange={handlePasswordChange}
             />
           </Box>
@@ -97,7 +94,7 @@ const RegisterModal=(props)=>{
               fullWidth
               required
               variant="outlined"
-              type='password'
+              type="password"
               onChange={handlePasswordCheckChange}
             />
           </Box>
@@ -111,49 +108,51 @@ const RegisterModal=(props)=>{
               onChange={handleEmailChange}
             />
           </Box>
-          <Link  sx={{ textDecoration: 'none'}}>
+          <Link sx={{ textDecoration: 'none' }}>
             <Button
               type="submit"
               variant="contained"
               style={btnstyle}
               className="JoinLoign-button"
-
-              onClick={(e)=>{
-                e.preventDefault()
-                if(!useremail.indexOf("@")){
-                  alert("이메일 형식이 올바르지 않습니다.")
-                }else if(userpassword !== userpasswordCheck){
-                  alert("비밀번호를 확인해 주세요.")
-                }else{
+              onClick={(e) => {
+                e.preventDefault();
+                if (!useremail.indexOf('@')) {
+                  alert('이메일 형식이 올바르지 않습니다.');
+                } else if (userpassword !== userpasswordCheck) {
+                  alert('비밀번호를 확인해 주세요.');
+                } else {
                   fetch('/api/user/register/', {
                     method: 'POST',
-                    headers:{
-                      'Content-Type': 'application/json'
+                    headers: {
+                      'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data)
-                    
-                  }).then(res => res.json())
-                  .then(json => {
-                    console.log(json)
-                    if (json.token) {
-                      props.userHasAuthenticated(true, data.username, json.token);
-                      history.push("/");
-                      props.setModal(true)
-                    }else{
-                      alert("사용불가능한 아이디입니다.")
-                    }
+                    body: JSON.stringify(data),
                   })
-                  
-                  .catch(error => alert(error));
+                    .then((res) => res.json())
+                    .then((json) => {
+                      console.log(json);
+                      if (json.token) {
+                        props.userHasAuthenticated(
+                          true,
+                          data.username,
+                          json.token
+                        );
+                        history.push('/presstrends');
+                        props.setModal(true);
+                      } else {
+                        alert('사용불가능한 아이디입니다.');
+                      }
+                    })
+
+                    .catch((error) => alert(error));
                 }
-                }
-               }
+              }}
             >
               가입
-            </Button >
+            </Button>
           </Link>
         </Grid>
-        { <br /> }
+        {<br />}
         <Typography align="center" variant="subtitle1">
           <Link href="/login" sx={{ textDecoration: 'none', color: '#3a8ffb' }}>
             RISKOUT 계정이 존재 하시나요? 로그인 하기
@@ -161,7 +160,7 @@ const RegisterModal=(props)=>{
         </Typography>
       </Paper>
     </Box>
-    )
-}
+  );
+};
 
-export default RegisterModal
+export default RegisterModal;
