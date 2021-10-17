@@ -8,12 +8,18 @@ import ReactDOMServer from 'react-dom/server';
  * @returns requested parts are highlighted with <b>
  */
 function getHighlightedText(text, highlight) {
-  const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+  const lowerHighlight = highlight
+    .map((h) => h.toLowerCase())
+    .filter((h) => h.length > 1);
+  const compile = new RegExp(`(${lowerHighlight.join('|')})`, 'g');
+  const parts = text.split(compile);
+  console.log('parts', parts);
+  console.log('lowerHighlight', lowerHighlight);
   return (
     <span>
       {' '}
       {parts.map((part, i) =>
-        part.toLowerCase() === highlight.toLowerCase() ? (
+        lowerHighlight.includes(part.toLowerCase()) ? (
           <mark key={i}>{part}</mark>
         ) : (
           <span key={i}>{part}</span>
