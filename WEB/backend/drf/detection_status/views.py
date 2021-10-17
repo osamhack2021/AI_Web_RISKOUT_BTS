@@ -398,7 +398,7 @@ class TrendsDataView(generics.GenericAPIView):
             print(f"Error occured while fetching ranking data : {e}")
             quit()
 
-        return sentences[:3]
+        return sentences
 
 
 class WordcloudDataView(generics.GenericAPIView):
