@@ -5,13 +5,12 @@ const useFetch = (url, options) => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     const abortCont = new AbortController();
     async function fetchData() {
       fetch(url, {
         headers: {
-          Authorization: `Token ${localStorage.getItem('token')}`
+          Authorization: `Token ${localStorage.getItem('token')}`,
         },
         credentials: 'include',
         signal: abortCont.signal,

@@ -80,7 +80,6 @@ export default function App() {
     if (localStorage.getItem('token') && window.location.pathname == '/logout' ) {
       localStorage.removeItem('token');
       window.location.href="/"
-      //return history.push("/riskreport");
     }
   }
 
