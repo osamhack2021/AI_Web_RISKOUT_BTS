@@ -18,7 +18,7 @@ export default function SearchForm() {
     console.log('category', category);
     console.log('period', period);
     console.log('tags', searchSetting.tags);
-    console.log('type', mode);
+    console.log('mode', mode);
     console.log('search_text', searchSetting.tags.ETC);
 
     // const response = await client.post('/static/SecretData.example.json');
@@ -26,11 +26,11 @@ export default function SearchForm() {
     const data = await searchDetected({
       mode,
       category,
-      period: 0,
-      tags: {},
-      search_text: '김정은',
+      period: parseInt(period),
+      tags: searchSetting.tags,
+      search_text: [],
       offset: 0,
-      limit: 10,
+      limit: 100,
     });
     setSearch(data);
   };
@@ -52,6 +52,7 @@ export default function SearchForm() {
         <Select size="small" defaultValue="all" {...register('category')}>
           <MenuItem value="all">전체</MenuItem>
           <MenuItem value="news">뉴스</MenuItem>
+          <MenuItem value="community">커뮤니티</MenuItem>
           <MenuItem value="sns">SNS</MenuItem>
         </Select>
 
@@ -62,7 +63,7 @@ export default function SearchForm() {
         </Select>
 
         <Select size="small" defaultValue="24" {...register('period')}>
-          <MenuItem value="now">실시간</MenuItem>
+          <MenuItem value="0">실시간</MenuItem>
           <MenuItem value="1">1h</MenuItem>
           <MenuItem value="3">3h</MenuItem>
           <MenuItem value="5">5h</MenuItem>
