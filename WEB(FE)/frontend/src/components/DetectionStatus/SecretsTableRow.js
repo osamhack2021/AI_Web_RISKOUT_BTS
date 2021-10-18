@@ -50,7 +50,7 @@ export default function SecretsTableRow({
             style={{ fontWeight: 'bold' }}
             color="textPrimary"
           >
-            {title}
+            {category === 'sns' ? '트위터에서 가져온 글입니다.' : title}
           </Typography>
           <Typography color="textSecondary" sx={{ fontSize: '1.1rem' }}>
             {summarized}
