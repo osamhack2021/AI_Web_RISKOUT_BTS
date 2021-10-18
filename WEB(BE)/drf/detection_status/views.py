@@ -16,8 +16,8 @@ import random
 import base64
 import os
 
-SERVER_URL = 'http://localhost:8000/'
-# SERVER_URL = 'http://host.docker.internal:8000/'
+# SERVER_URL = 'http://localhost:8000/'
+SERVER_URL = 'http://host.docker.internal:8000/'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
