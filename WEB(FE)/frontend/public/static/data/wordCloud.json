@@ -2,11 +2,11 @@
   "response": [
     {
       "text": "말하다",
-      "value": 64
+      "value": 512
     },
     {
       "text": "실수",
-      "value": 11
+      "value": 1024
     },
     {
       "text": "생각",
