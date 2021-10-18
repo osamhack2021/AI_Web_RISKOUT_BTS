@@ -5,9 +5,9 @@ import { VscGistSecret, VscPreview } from 'react-icons/vsc';
 
 import ScrapButton from './ScrapButton';
 
-function CategorizedIcon({ isLeaked, isFakenews }) {
-  if (isFakenews) return <VscGistSecret color={red[500]} size={24} />;
-  else if (isLeaked) return <VscPreview color={red[500]} size={24} />;
+function CategorizedIcon({ isLeaked, isFakeNews }) {
+  if (isFakeNews) return <VscPreview color={red[500]} size={24} />;
+  else if (isLeaked) return <VscPreview color={green[500]} size={24} />;
   else return <VscPreview color={green[500]} size={24} />;
 }
 
@@ -26,7 +26,7 @@ export default function SecretsTableRow({
     href,
     true_score,
     isLeaked,
-    isFakenews,
+    isFakeNews,
   } = article;
 
   return (
@@ -36,7 +36,7 @@ export default function SecretsTableRow({
     >
       <TableCell component="th" scope="row">
         <Link href={href} underline="hover">
-          <CategorizedIcon isLeaked={isLeaked} isFakenews={isFakenews} />
+          <CategorizedIcon isLeaked={isLeaked} isFakeNews={isFakeNews} />
         </Link>
       </TableCell>
       <TableCell

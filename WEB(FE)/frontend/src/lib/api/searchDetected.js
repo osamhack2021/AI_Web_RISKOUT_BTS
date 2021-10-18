@@ -7,7 +7,11 @@ export async function searchDetected(params) {
       .filter((k) => params.tags[k].length !== 0 && k !== 'ETC')
       .reduce((a, k) => ({ ...a, [k]: params.tags[k] }), {}),
   };
-  const response = await client.post(`/api/nlp/analyze/`, {
+  const requestUrl =
+    process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
+      ? `/static/SecretData.example.json`
+      : `/api/nlp/article/analyze/`;
+  const response = await client.get(requestUrl, {
     ...formatted,
   });
 

@@ -30,29 +30,26 @@ const RiskReport = (props) => {
     const searchUrl = '/api/nlp/report/';
     const exampleSearchUrl = '/static/ReportData.example.json';
 
-    async function fetchSearch() {
-      setPending(true);
-      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
-        client.get(exampleSearchUrl).then((data) => {
+    setPending(true);
+    if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+      client.get(exampleSearchUrl).then((data) => {
+        console.log(data.data);
+        setData(data.data);
+        setPending(false);
+      });
+    } else {
+      client
+        .post(searchUrl, {
+          articleIds: getCart().length ? getCart() : [30, 40, 50],
+          period: 24,
+          time: new Date().toTimeString(), // "uniqueness parameter"
+        })
+        .then((data) => {
           console.log(data.data);
           setData(data.data);
           setPending(false);
         });
-      } else {
-        client
-          .post(searchUrl, {
-            articleIds: getCart().length ? getCart() : [30, 40, 50],
-            period: 24,
-            time: new Date().toTimeString(), // "uniqueness parameter"
-          })
-          .then((data) => {
-            console.log(data.data);
-            setData(data.data);
-            setPending(false);
-          });
-      }
     }
-    fetchSearch();
   }, []);
 
   const pdfExportComponent = useRef(null);
