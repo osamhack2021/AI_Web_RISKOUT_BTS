@@ -16,8 +16,8 @@ import random
 import base64
 import os
 
-# SERVER_URL = 'http://localhost:8000/'
-SERVER_URL = 'http://host.docker.internal:8000/'
+SERVER_URL = 'http://localhost:8000/'
+# SERVER_URL = 'http://host.docker.internal:8000/'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEYWORDS_PATH = os.path.join(BASE_DIR, 'secret_keywords.txt')
@@ -46,7 +46,19 @@ class AnalyzedDataView(generics.CreateAPIView):
         if serializer.is_valid():
             
             tags = serializer.data.get("tags")
-            search_text = serializer.data.get("search_text") if serializer.data.get("search_text") else None
+            if len(serializer.data.get("search_text")) == 1 and serializer.data.get("search_text")[0] == '':
+                search_text = None
+            else:
+                temp = serializer.data.get("search_text")
+                search_text = []
+                
+                for c in temp:
+                    if len(c) != 0:
+                        search_text.append(c)
+
+                if len(search_text) == 0:
+                    search_text = None
+            
             limit = serializer.data.get("limit")
             offset = serializer.data.get("offset")
 
@@ -838,12 +850,12 @@ class ReportDataView(generics.CreateAPIView):
             col.create_index([("title", mongoText), ("contentBody", mongoText), ("summarized", mongoText)])
 
         query = {}
-        
+        now = datetime.utcnow() + timedelta(hours=9)
         query["category"] = "news"
         hours = 0
         db_result = mongo.find_item(query, "riskout", "analyzed")
 
-        if db_result.count() < 10:
+        if db_result.count() < 30:
             for _ in range(5):
                 hours += 24
                 query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
@@ -851,15 +863,15 @@ class ReportDataView(generics.CreateAPIView):
             
                 db_result = mongo.find_item(query, "riskout", "analyzed")
 
-                if db_result.count() >= 10:
+                if db_result.count() >= 30:
                     break
 
-        if db_result.count() < 10:
+        if db_result.count() < 30:
             return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
-        now = datetime.utcnow() + timedelta(hours=9) - timedelta(hours=hours)
+        now -= timedelta(hours=hours)
         today_datetime = datetime(now.year, now.month, now.day)
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 

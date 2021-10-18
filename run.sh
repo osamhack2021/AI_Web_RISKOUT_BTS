@@ -67,9 +67,9 @@ echo [+] Building React...
 mkdir -p "./WEB(BE)/drf/build"
 mkdir -p "./WEB(BE)/drf/staticfiles"
 cd "./WEB(FE)/frontend"
-npm i
-npm run build
-rm -rf "../../WEB(BE)/drf/build/*"
+yarn
+yarn build
+rm -rf "../../WEB(BE)/drf/build/"
 cp -r ./build "../../WEB(BE)/drf/"
 cd "../../WEB(BE)"
 
