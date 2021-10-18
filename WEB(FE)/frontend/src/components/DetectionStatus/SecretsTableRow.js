@@ -24,6 +24,7 @@ export default function SecretsTableRow({
     summarized,
     author,
     href,
+    contentBody,
     true_score,
     isLeaked,
     isFakeNews,
@@ -53,7 +54,7 @@ export default function SecretsTableRow({
             {category === 'sns' ? '트위터에서 가져온 글입니다.' : title}
           </Typography>
           <Typography color="textSecondary" sx={{ fontSize: '1.1rem' }}>
-            {summarized}
+            {category === 'sns' ? contentBody : summarized}
           </Typography>
         </Stack>
       </TableCell>
