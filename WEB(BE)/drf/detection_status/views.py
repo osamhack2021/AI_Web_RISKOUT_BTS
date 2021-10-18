@@ -46,18 +46,7 @@ class AnalyzedDataView(generics.CreateAPIView):
         if serializer.is_valid():
             
             tags = serializer.data.get("tags")
-            if len(serializer.data.get("search_text")) == 1 and serializer.data.get("search_text")[0] == '':
-                search_text = None
-            else:
-                temp = serializer.data.get("search_text")
-                search_text = []
-                
-                for c in temp:
-                    if len(c) != 0:
-                        search_text.append(c)
-
-                if len(search_text) == 0:
-                    search_text = None
+            search_text = serializer.data.get("search_text")
             
             limit = serializer.data.get("limit")
             offset = serializer.data.get("offset")

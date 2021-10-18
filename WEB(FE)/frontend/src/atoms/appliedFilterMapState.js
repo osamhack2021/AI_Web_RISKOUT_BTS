@@ -24,7 +24,7 @@ const initialState = {
   PLT: [],
   MAT: [],
   TRM: [],
-  ETC: [''], // (=search_text)
+  ETC: [], // (=search_text)
 };
 // ['GP/GOP', '정체단', '사이버작전센터'];
 
