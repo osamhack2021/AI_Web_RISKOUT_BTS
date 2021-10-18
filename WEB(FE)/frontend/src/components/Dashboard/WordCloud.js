@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import ReactWordcloud from 'react-wordcloud';
 import {
   Card,
@@ -15,6 +15,7 @@ import { isEmpty } from 'lodash';
 
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
+import { useEffect } from 'react';
 
 const WordCloud = ({ options }) => {
   const requestUrl =
