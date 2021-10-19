@@ -1,4 +1,3 @@
-![탐지현황 확대](https://user-images.githubusercontent.com/55467050/137921373-8851ea7d-aec6-484c-b5b9-7ddafc3cec6b.gif)
 
 # RISKOUT - 국방 리스크 관리 플랫폼 
 
@@ -222,9 +221,6 @@
 - [Recoil](https://recoiljs.org/)을 통한 리액트 상태 관리:
   - `Atom` — 컴포넌트 상태 단위 분리기능 사용.
   - `Selector` — Atom에 의존하는 동적인 데이터 생성 기능 사용. 
-- [Node.js](https://nodejs.org/en/)를 이용한 서버사이드 프로그래밍:
-  - `Node` — 프론트엔드 프로그래밍 툴체인(toolchain).
-  - `npm` — 패키지 관리 기능 사용.
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
@@ -372,4 +368,5 @@ RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 �
 
 프로젝트 RISKOUT은 [MIT License](https://en.wikipedia.org/wiki/MIT_License) 를 따르고 있습니다.
 
-<br />
+<br />![iOS 이미지](https://user-images.githubusercontent.com/55467050/137704748-135d4f74-bbf8-44ef-b366-e9f6f6fbb298.jpg)
+
