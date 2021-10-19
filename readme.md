@@ -151,7 +151,7 @@
 > 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
+	
 </p>
 
 ![report_full](https://user-images.githubusercontent.com/55467050/137930654-b1a9c9a8-f7ba-42f5-a3ea-1ce513ebc3a8.PNG)
