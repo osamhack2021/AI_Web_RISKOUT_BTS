@@ -16,11 +16,11 @@ import { useHistory } from 'react-router';
 
 export default function DetectionStatus() {
   const history = useHistory();
-  let token = localStorage.getItem('token');
-  if (token == null) {
-    alert('로그인이 필요한 페이지 입니다.');
-    history.push('/login');
-  }
+  // let token = localStorage.getItem('token');
+  // if (token == null) {
+  //   alert('로그인이 필요한 페이지 입니다.');
+  //   history.push('/login');
+  // }
   useSearchInitEffect(); // init
 
   const search = useRecoilValue(searchState);
@@ -50,17 +50,31 @@ export default function DetectionStatus() {
     setDetailModalOpen(true);
   };
 
-  const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
+  const [getCart, addCart, removeCart, isInCart] = useSessionStorage(
+    'riskoutShoppingCart'
+  );
   const { enqueueSnackbar } = useSnackbar();
-  const scrapArticle = (_id) => {
-    addCart(_id);
+  const toggleScrap = (_id, shouldScrap) => {
     console.log('_id', _id);
-    const article = search.contents.filter((x) => x._id == _id).pop(0);
-    console.log(search);
-    enqueueSnackbar('Scrapped article | ' + article.title, {
-      variant: 'success',
+    let message: String, variant: String;
+    if (shouldScrap) {
+      addCart(_id);
+      const article = search.contents.filter((x) => x._id == _id).pop(0);
+      console.log(search);
+      message = 'Scrapped article | ' + article.title;
+      variant = 'success';
+    } else {
+      removeCart(_id);
+      const article = search.contents.filter((x) => x._id == _id).pop(0);
+      console.log(search);
+      message = 'Removed article | ' + article.title;
+      variant = 'default';
+    }
+    enqueueSnackbar(message, {
+      variant: variant,
       autoHideDuration: 10000,
     });
+    return;
   };
 
   const analyzePage = (id) => {
@@ -81,9 +95,16 @@ export default function DetectionStatus() {
               fontWeight: '600',
             }}
           >
-          <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem', marginTop: '-10px', marginBottom: '17px' }}>
-            탐지 현황
-          </h2>
+            <h2
+              style={{
+                fontFamily: 'Noto sans KR',
+                fontSize: '2rem',
+                marginTop: '-10px',
+                marginBottom: '17px',
+              }}
+            >
+              탐지 현황
+            </h2>
           </Typography>
           <SearchForm />
           <Typography
@@ -99,7 +120,7 @@ export default function DetectionStatus() {
         <Grid item justify="center">
           <DetectionTable
             showDetailModal={showDetailModal}
-            scrapArticle={scrapArticle}
+            toggleScrap={toggleScrap}
           />
         </Grid>
       </Grid>
@@ -114,7 +135,7 @@ export default function DetectionStatus() {
       <SecretsDetailModal
         isOpen={isDetailModalOpen}
         setOpen={setDetailModalOpen}
-        scrapArticle={scrapArticle}
+        toggleScrap={toggleScrap}
         data={detailModalData}
       />
     </Grid>

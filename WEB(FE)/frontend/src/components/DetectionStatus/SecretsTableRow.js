@@ -14,7 +14,7 @@ function CategorizedIcon({ isLeaked, isFakeNews }) {
 export default function SecretsTableRow({
   article,
   showDetailModal,
-  scrapArticle,
+  toggleScrap,
   isAlreadyScrapped,
 }) {
   const {
@@ -63,7 +63,7 @@ export default function SecretsTableRow({
       </TableCell>
       <TableCell align="center">
         <ScrapButton
-          handleScrap={() => scrapArticle(_id)}
+          toggleScrap={(shouldScrap: Boolean) => toggleScrap(_id, shouldScrap)}
           isAlreadyScrapped={isAlreadyScrapped}
         />
       </TableCell>

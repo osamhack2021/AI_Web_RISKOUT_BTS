@@ -82,12 +82,21 @@ function decodeNewline(text, multiplier) {
 const useSessionStorage = (key) => {
   const getStorage = () =>
     sessionStorage.getItem(key) ? JSON.parse(sessionStorage.getItem(key)) : [];
+  const isInStorage = (item) => getStorage().indexOf(item) !== -1;
   const addStorage = (item) => {
     const sto = getStorage();
     sto.push(item);
     sessionStorage.setItem(key, JSON.stringify(sto));
   };
-  return [getStorage, addStorage];
+  const removeStorage = (item) => {
+    const sto: Array = getStorage();
+    var index = sto.indexOf(item);
+    if (index !== -1) {
+      sto.splice(index, 1);
+    }
+    sessionStorage.setItem(key, JSON.stringify(sto));
+  };
+  return [getStorage, addStorage, removeStorage, isInStorage];
 };
 
 export {
