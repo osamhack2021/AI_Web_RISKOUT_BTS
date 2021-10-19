@@ -124,7 +124,6 @@
 
 ![기사 변화량](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
 
-<h3 id="feature2">위협 탐지</h3>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
