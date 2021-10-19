@@ -2,6 +2,7 @@ import { useForm, Controller, register } from 'react-hook-form';
 
 import { Button, Stack, Select, MenuItem, FormControl } from '@mui/material';
 import SearchBar from './SearchBar';
+import Demo from './Demo';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { searchState } from '../atoms/searchState';
@@ -47,6 +48,7 @@ export default function SearchForm() {
         )}
         defaultValue={{}}
       />
+      <Demo />
       <Stack direction="row" justifyContent="flex-end" spacing={1}>
         <Select size="small" defaultValue="all" {...register('category')}>
           <MenuItem value="all">전체</MenuItem>
