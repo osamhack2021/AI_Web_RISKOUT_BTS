@@ -131,7 +131,8 @@ const RiskReport = (props) => {
   // select handler is not required.
   // when dateRange changes selected happens due to the useFetch hook
   const selectHandler = (dateRange) => {
-    alert('dateRange changed ' + dateRange);
+    // alert('dateRange changed ' + dateRange);
+    alert('데모 버전에서는 제공하지 않는 기능입니다.');
   };
 
   const ReportDivider = (
