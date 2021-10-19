@@ -139,13 +139,14 @@
 
 
 
+
 ### 개채 인식 필터(NER Filter)
 
 > 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
 
-![NER](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
 
 <h3 id="feature3">맞춤형 보고서 생성</h3>
