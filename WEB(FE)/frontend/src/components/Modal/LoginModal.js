@@ -51,9 +51,6 @@ const LoginModal = (props) => {
     color: 'white',
   };
 
-  const onClick = () => {
-    alert('데모 버전에서는 제공하지 않는 기능입니다')
-  };
   return (
     <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
@@ -133,8 +130,7 @@ const LoginModal = (props) => {
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
           <Link
-            //href="/register"
-            onClick={onClick}
+            href="/register"
             sx={{ textDecoration: 'none', color: '#3a8ffb' }}
           >
             RISKOUT 회원이 아닌가요? 지금 가입하세요.
