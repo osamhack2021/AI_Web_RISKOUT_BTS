@@ -48,6 +48,7 @@ const RiskReport = (props) => {
           console.log(data.data);
           setData(data.data);
           setPending(false);
+          console.log('아', isPending)
         });
     }
   }, []);

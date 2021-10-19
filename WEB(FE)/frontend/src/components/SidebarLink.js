@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
+import Typography from '@mui/material/Typography'
 
 export default function SidebarLink(props) {
   const { icon: ListIcon, text, href, isOn } = props;
@@ -16,7 +17,11 @@ export default function SidebarLink(props) {
       <NavLink to={href} underline="none" className="list" activeClassName="on">
         <ListItemButton className={isOn && 'on'}>
           <ListIcon className="icon" />
-          <ListItemText primary={text} className="link" />
+          <ListItemText
+            disableTypography
+            primary={<Typography style={{ fontSize: '17px' }}>{text}</Typography>}
+            className="link" 
+          />
         </ListItemButton>
       </NavLink>
     </ListItem>

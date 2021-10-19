@@ -9,7 +9,7 @@ class AnalyzedDataSerializer(serializers.Serializer):
     category = serializers.CharField(required=True)
     period = serializers.IntegerField(required=True)
     tags = serializers.DictField(required=True)
-    search_text = serializers.ListField(child=serializers.CharField(), allow_empty=True)
+    search_text = serializers.ListField(required=False, default = [])
     limit = serializers.IntegerField(required=True)
     offset = serializers.IntegerField(required=True)
 

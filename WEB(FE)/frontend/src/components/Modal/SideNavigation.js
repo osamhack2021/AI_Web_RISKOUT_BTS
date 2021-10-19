@@ -20,6 +20,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import SearchIcon from '@mui/icons-material/Search';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Typography from '@mui/material/Typography'
 
 import '../../css/SideNavigation.css';
 
@@ -145,12 +146,14 @@ export default function SideNavigation(props) {
         </List>
         <ListItem>
           <ListItemText
-            primary="Copyright © 2021. RISKOUT"
             className="copyright1"
+            disableTypography
+            primary={<Typography style={{ fontSize: '13px' }}>Copyright © 2021. RISKOUT</Typography>}
           />
           <ListItemText
-            primary="All rights reserved."
             className="copyright2"
+            disableTypography
+            primary={<Typography style={{ fontSize: '13px' }}>All rights reserved.</Typography>}
           />
         </ListItem>
       </Drawer>
