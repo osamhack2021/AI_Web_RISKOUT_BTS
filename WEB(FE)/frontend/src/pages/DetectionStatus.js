@@ -81,7 +81,9 @@ export default function DetectionStatus() {
               fontWeight: '600',
             }}
           >
+          <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem', marginTop: '-10px', marginBottom: '17px' }}>
             탐지 현황
+          </h2>
           </Typography>
           <SearchForm />
           <Typography
