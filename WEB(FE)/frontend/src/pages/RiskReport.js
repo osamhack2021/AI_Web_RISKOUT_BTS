@@ -9,6 +9,7 @@ import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
+import Demo from '../components/Demo';
 import { useHistory } from 'react-router';
 import { darkTheme, palette } from '../darkTheme';
 
@@ -184,6 +185,7 @@ const RiskReport = (props) => {
                     </Typography>
                   </Typography>
                 </Grid>
+                <Demo />
                 <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
                     {getLineBreakText(data.overview)}
