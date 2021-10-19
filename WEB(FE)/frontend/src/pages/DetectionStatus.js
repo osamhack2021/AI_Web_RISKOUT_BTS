@@ -16,10 +16,10 @@ import { useHistory } from 'react-router';
 
 export default function DetectionStatus() {
   const history = useHistory();
-  let token = localStorage.getItem("token");
-  if(token==null){
-    alert("로그인이 필요한 페이지 입니다.");
-    history.push("/login")
+  let token = localStorage.getItem('token');
+  if (token == null) {
+    alert('로그인이 필요한 페이지 입니다.');
+    history.push('/login');
   }
   useSearchInitEffect(); // init
 
@@ -38,7 +38,7 @@ export default function DetectionStatus() {
     positivity: 0,
     entities: {},
   });
-  
+
   const showDetailModal = (_id) => {
     const data = search.contents.filter((x) => x._id == _id).pop(0); // popping doesn't affect original array
     // console.log(

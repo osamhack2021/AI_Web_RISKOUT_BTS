@@ -37,6 +37,7 @@ export default function SecretsDetailModal(props) {
     setOpen(false);
     // setSaved(false); // TODO how should we handle display of 'save' button?
   };
+  const cart = sessionStorage.getItem('riskoutShoppingCart');
   useEffect(() => console.log(data));
 
   return (
