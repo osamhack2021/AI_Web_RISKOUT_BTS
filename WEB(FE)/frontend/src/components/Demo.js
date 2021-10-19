@@ -5,7 +5,7 @@ export default function Demo(demoPaddingTop, demoPaddingLeft) {
   return(
     <Box sx={{ display: "flex", marginBottom: "35px" }}>
       <Chip label="Demo" color="warning" sx={{ color: "white", fontWeight: "bold" }}/>
-      <h4 style={{ color: "darkgray", paddingTop: "6px", paddingLeft: "10px" }}>본 페이지는 실제 데이터들로 이루어진 데모페이지이며, 일부 기능 제공하지 않습니다.</h4>
+      <h4 style={{ color: "darkgray", paddingTop: "6px", paddingLeft: "10px" }}>본 페이지는 BETA 테스트 시범운영중으로 일부 오류가 발생할 수 있습니다.</h4>
     </Box> 
   );
 }
