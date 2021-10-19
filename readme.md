@@ -1,3 +1,4 @@
+![탐지현황 확대](https://user-images.githubusercontent.com/55467050/137921373-8851ea7d-aec6-484c-b5b9-7ddafc3cec6b.gif)
 
 # RISKOUT - 국방 리스크 관리 플랫폼 
 
