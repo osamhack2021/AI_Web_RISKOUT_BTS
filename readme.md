@@ -2,12 +2,11 @@
 # RISKOUT - 국방 리스크 관리 플랫폼 
 
 <div align='center'>
-<img src='https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png'>
+<img src='https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG'>
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
   
 </a>
-
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
   
@@ -79,7 +78,7 @@
 <h3 id="feature1">여론 현황 대시보드</h3>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
+  <img src="https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG" />
 </p>
 
 ### 오늘의 키워드
