@@ -9,6 +9,7 @@ import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
+import Demo from '../components/Demo';
 import { useHistory } from 'react-router';
 import { darkTheme, palette } from '../darkTheme';
 
@@ -68,12 +69,62 @@ const RiskReport = (props) => {
       }),
     }
   */
+  const loadingScreen = (
+    <section id="sub_contents" style={{ width: '100vw', height: '100vh' }}>
+      <div className="sub01_wrap" style={{ marginBottom: 40 }}>
+        <h2 className="h2_tit2">보고서 생성 중...</h2>
+      </div>
+      <div className="content clfix">
+        <Skeleton animation="wave" height={45} width="45%" />
+        <Skeleton animation="wave" height={35} width="40%" />
+        <Skeleton animation="wave" height={30} width="35%" />
+        <Skeleton
+          animation="wave"
+          height={30}
+          width="20%"
+          style={{ marginBottom: 26 }}
+        />
 
-  // select handler is not required.
-  // when dateRange changes selected happens due to the useFetch hook
-  const selectHandler = (dateRange) => {
-    alert('dateRange changed ' + dateRange);
-  };
+        <Box sx={{ display: 'flex' }}>
+          <Box>
+            {/* 일일 리스크 현황 */}
+            <Skeleton
+              sx={{
+                borderRadius: '5px',
+                marginTop: '13px',
+                marginLeft: '-10px',
+                marginRight: '30px',
+              }}
+              width={879}
+              height={450}
+              animation="wave"
+              variant="rectangular"
+            />
+          </Box>
+          <Box>
+            <Skeleton
+              sx={{ borderRadius: '5px', marginTop: '13px' }}
+              width={879}
+              height={450}
+              animation="wave"
+              variant="rectangular"
+            />
+          </Box>
+        </Box>
+
+        {/* 리스크 종류별 비율 (%) */}
+      </div>
+    </section>
+  );
+
+  const errorScreen = (
+    <section id="sub_contents">
+      <div className="sub01_wrap">
+        <h2 className="h2_tit2">Error</h2>
+      </div>
+      <div className="content clfix"></div>
+    </section>
+  );
 
   const ReportDivider = (
     <Divider
@@ -126,6 +177,7 @@ const RiskReport = (props) => {
                     </Typography>
                   </Typography>
                 </Grid>
+                <Demo />
                 <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
                     {getLineBreakText(data.overview)}
