@@ -10,8 +10,8 @@ export async function searchDetected(params) {
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
       ? `/static/SecretData.example.json`
-      : `/api/nlp/article/analyze/`;
-  const response = await client.get(requestUrl, {
+      : `/api/nlp/analyze/`;
+  const response = await client.post(requestUrl, {
     ...formatted,
   });
 

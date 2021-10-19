@@ -226,7 +226,6 @@ const RiskReport = (props) => {
                       selectOptions={['1d', '1wk', '1m', '1yr', 'all']}
                       selectedValue={dateRange}
                       setSelectedValue={setDateRange}
-                      selectHandler={selectHandler}
                     />
                   </Grid>
 

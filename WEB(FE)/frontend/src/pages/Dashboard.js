@@ -21,7 +21,7 @@ export default function Dashboard() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12} md={12} lg={12}>
-        <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem', marginBottom: '34px' }}>
+        <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem', marginTop: '-26px', marginBottom: '11px' }}>
           대시보드
         </h2>
         <Demo />
