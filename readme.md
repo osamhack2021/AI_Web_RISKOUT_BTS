@@ -124,9 +124,6 @@
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
-</p>
 
 ### 기밀 유출 탐지 + 허위 기사 탐지
 
