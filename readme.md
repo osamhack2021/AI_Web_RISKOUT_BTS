@@ -7,6 +7,7 @@
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
   
 </a>
+
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
   
@@ -135,7 +136,7 @@
 
 [기밀 유출 현황](https://riskout.ithosting.repl.co) 및 [허위 기사](https://riskout.ithosting.repl.co)를 인공지능을 통해 분석하여 탐지해내는 페이지입니다. 인공지능은 탐지한 글들을 기반으로 2차적 검사를 실시하여 기밀어, 인물, 장소를 추출해냅니다. 추출한 항목들은 세부 분석을 위해 *커스텀 필터*로 제공됩니다.
 
-![detect](https://user-images.githubusercontent.com/55467050/137923687-12cac4b5-2d7c-4fca-9e4d-df54ea933381.gif)
+![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
 
 
