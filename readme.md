@@ -167,7 +167,7 @@
 로그인 하신 후:
 
 <p align="center">
-  <img src="https://gdurl.com/YNdz" />
+  <img src="https://user-images.githubusercontent.com/55467050/137937102-0c9940bf-8b78-4a4e-9392-1376d96066cc.PNG" />
 </p>
 
 *축하해요!* *RISKOUT*의 유저가 되셨습니다.
