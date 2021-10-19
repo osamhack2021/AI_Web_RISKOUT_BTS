@@ -13,6 +13,7 @@
 <img src='https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&logo'>
   
 </a>
+
   
 </div>
 
@@ -134,7 +135,7 @@
 
 [기밀 유출 현황](https://riskout.ithosting.repl.co) 및 [허위 기사](https://riskout.ithosting.repl.co)를 인공지능을 통해 분석하여 탐지해내는 페이지입니다. 인공지능은 탐지한 글들을 기반으로 2차적 검사를 실시하여 기밀어, 인물, 장소를 추출해냅니다. 추출한 항목들은 세부 분석을 위해 *커스텀 필터*로 제공됩니다.
 
-![위협 탐지](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![detect](https://user-images.githubusercontent.com/55467050/137923687-12cac4b5-2d7c-4fca-9e4d-df54ea933381.gif)
 
 
 
