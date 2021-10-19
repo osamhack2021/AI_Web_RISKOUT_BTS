@@ -153,7 +153,8 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png" />
 </p>
-![report_full](https://user-images.githubusercontent.com/55467050/137930527-1a755203-a0c6-4803-a5cb-7f9e398632a7.PNG)
+
+![report_full](https://user-images.githubusercontent.com/55467050/137930654-b1a9c9a8-f7ba-42f5-a3ea-1ce513ebc3a8.PNG)
 
 
 * **기밀 유출 보고** : 기밀 유출 현황을 각종 수치로 시각화시킨 브리핑 보드.
