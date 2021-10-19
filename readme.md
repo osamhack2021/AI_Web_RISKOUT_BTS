@@ -97,7 +97,7 @@
 
 각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
 
-![감정차트](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![emopie1](https://user-images.githubusercontent.com/55467050/137932804-a974141b-6da4-4626-8c75-c90d64c1d8f9.PNG)
 
 ![emopie](https://user-images.githubusercontent.com/55467050/137927934-77f7da3a-a739-424c-b818-0548e87e3ca4.PNG)
 
