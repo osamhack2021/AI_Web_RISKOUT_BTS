@@ -106,7 +106,7 @@
 
 가장 많이 언급된 3가지 기사를 진짜, 가짜, 의심으로 판별하여 보여줍니다.
 
-![트렌드](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
 ### 나라별 이벤트
 
