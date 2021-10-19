@@ -57,16 +57,14 @@ export default function DetectionStatus() {
   const toggleScrap = (_id, shouldScrap) => {
     console.log('_id', _id);
     let message: String, variant: String;
+    const article = search.contents.filter((x) => x._id == _id).pop(0);
+    console.log(search);
     if (shouldScrap) {
       addCart(_id);
-      const article = search.contents.filter((x) => x._id == _id).pop(0);
-      console.log(search);
       message = 'Scrapped article | ' + article.title;
       variant = 'success';
     } else {
       removeCart(_id);
-      const article = search.contents.filter((x) => x._id == _id).pop(0);
-      console.log(search);
       message = 'Removed article | ' + article.title;
       variant = 'default';
     }
