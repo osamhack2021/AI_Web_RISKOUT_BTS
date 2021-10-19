@@ -69,7 +69,7 @@ mkdir -p "./WEB(BE)/drf/staticfiles"
 cd "./WEB(FE)/frontend"
 yarn
 yarn build
-rm -rf "../../WEB(BE)/drf/build/*"
+rm -rf "../../WEB(BE)/drf/build/"
 cp -r ./build "../../WEB(BE)/drf/"
 cd "../../WEB(BE)"
 

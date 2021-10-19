@@ -78,7 +78,14 @@ body::-webkit-scrollbar {
 .sub_header .sub_menu .list .link {
   color: rgb(248, 246, 240);
   display: block;
-  font-size: 1.1em;
+  font-size: '18.2px';
+}
+
+/* 사이드바 메뉴 글자 위치 */
+.link {
+  margin-left: 15px;
+  font-family: 'Noto Sans KR';
+  /*font-size: 17px;*/
 }
 
 .sub_header .sub_menu .list.on *,
@@ -96,7 +103,7 @@ body::-webkit-scrollbar {
   /* 메뉴 글자 크기, 폰트 */
   margin-left: 1.2em;
   text-align: left;
-  font-family: Montserrat, 'Noto Sans KR';
+  font-family: 'Noto Sans KR';
   font-size: 17px;
 }
 
@@ -108,24 +115,24 @@ body::-webkit-scrollbar {
 .sub_header .copyright1 {
   /*Copyright position*/
   position: absolute;
-  left: 0.4em;
-  top: 32em;
-  color: rgb(248, 246, 240);
+  left: 2.7em;
+  top: 31em;
+  color: #f8f6f0;
   width: 100%;
 }
 
 .sub_header .copyright2 {
   /*Copyright position*/
   position: absolute;
-  left: 1.5em;
-  top: 33em;
-  color: rgb(248, 246, 240);
+  left: 4.5em;
+  top: 32.3em;
+  color: #f8f6f0;
   width: 100%;
 }
 
 .sub_header [class$='MuiTypography-root'] {
   /*Copyright font size*/
-  font-size: 11px;
+  font-size: 12px;
   margin-left: 44px;
   font-family: 'Montserrat';
   width: 67%;

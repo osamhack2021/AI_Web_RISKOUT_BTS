@@ -9,6 +9,7 @@ import ThreatMediaCard from '../components/RiskReport/ThreatMediaCard';
 import PdfExportButton from '../components/RiskReport/PdfExportButton';
 import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
+import Demo from '../components/Demo';
 import { useHistory } from 'react-router';
 import { darkTheme, palette } from '../darkTheme';
 
@@ -30,29 +31,27 @@ const RiskReport = (props) => {
     const searchUrl = '/api/nlp/report/';
     const exampleSearchUrl = '/static/ReportData.example.json';
 
-    async function fetchSearch() {
-      setPending(true);
-      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
-        client.get(exampleSearchUrl).then((data) => {
+    setPending(true);
+    if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+      client.get(exampleSearchUrl).then((data) => {
+        console.log(data.data);
+        setData(data.data);
+        setPending(false);
+      });
+    } else {
+      client
+        .post(searchUrl, {
+          articleIds: getCart().length ? getCart() : [30, 40, 50],
+          period: 24,
+          time: new Date().toTimeString(), // "uniqueness parameter"
+        })
+        .then((data) => {
           console.log(data.data);
           setData(data.data);
           setPending(false);
+          console.log('아', isPending)
         });
-      } else {
-        client
-          .post(searchUrl, {
-            articleIds: getCart().length ? getCart() : [30, 40, 50],
-            period: 24,
-            time: new Date().toTimeString(), // "uniqueness parameter"
-          })
-          .then((data) => {
-            console.log(data.data);
-            setData(data.data);
-            setPending(false);
-          });
-      }
     }
-    fetchSearch();
   }, []);
 
   const pdfExportComponent = useRef(null);
@@ -129,12 +128,6 @@ const RiskReport = (props) => {
     </section>
   );
 
-  // select handler is not required.
-  // when dateRange changes selected happens due to the useFetch hook
-  const selectHandler = (dateRange) => {
-    alert('dateRange changed ' + dateRange);
-  };
-
   const ReportDivider = (
     <Divider
       sx={{
@@ -186,6 +179,7 @@ const RiskReport = (props) => {
                     </Typography>
                   </Typography>
                 </Grid>
+                <Demo />
                 <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
                     {getLineBreakText(data.overview)}

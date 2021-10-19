@@ -50,6 +50,7 @@ const LoginModal = (props) => {
     backgroundColor: '#3a8ffb',
     color: 'white',
   };
+
   return (
     <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>

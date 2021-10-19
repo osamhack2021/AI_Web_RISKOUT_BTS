@@ -46,7 +46,8 @@ class AnalyzedDataView(generics.CreateAPIView):
         if serializer.is_valid():
             
             tags = serializer.data.get("tags")
-            search_text = serializer.data.get("search_text") if serializer.data.get("search_text") else None
+            search_text = serializer.data.get("search_text")
+            
             limit = serializer.data.get("limit")
             offset = serializer.data.get("offset")
 
@@ -82,6 +83,7 @@ class AnalyzedDataView(generics.CreateAPIView):
         mongo = DBHandler()
         db_result = None
         response = {
+            "isDone": False,
             "totalContentsLength": 0,
             "pageContentsLength": 0,
             "contents": [],
@@ -249,6 +251,7 @@ class AnalyzedDataView(generics.CreateAPIView):
         response["filterTags"] = self.getFilterTags(response["filterTags"], response["contents"])
         response["contents"] = response["contents"][offset:(offset + limit)]
         response["pageContentsLength"] = len(response["contents"])
+        response["isDone"] = True
 
         return response
 
@@ -308,6 +311,7 @@ class TrendsDataView(generics.GenericAPIView):
         db_result = None
         
         response = { "response": [] }
+        response["isDone"] = False
 
         db = mongo.client.riskout
         col = db.analyzed
@@ -319,24 +323,12 @@ class TrendsDataView(generics.GenericAPIView):
         query = {}
         
         now = datetime.utcnow() + timedelta(hours=9)
-        hours = 24
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
-        query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
+        query["created_at"] = {"$gte" : now}
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
-
-        if db_result.count() < 10:
-            for _ in range(5):
-                hours += 24
-                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
-                query["category"] = "news"
-            
-                db_result = mongo.find_item(query, "riskout", "analyzed")
-
-                if db_result.count() >= 10:
-                    break
 
         if db_result.count() < 10:
             return Response(response)
@@ -359,6 +351,8 @@ class TrendsDataView(generics.GenericAPIView):
                         "date": today
                     }
                     response["response"].append(data)
+        
+        response["isDone"] = True
 
         return Response(response)
 
@@ -418,6 +412,7 @@ class WordcloudDataView(generics.GenericAPIView):
         db_result = None
         
         response = { "response": [] }
+        response["isDone"] = False
 
         db = mongo.client.riskout
         col = db.analyzed
@@ -429,24 +424,12 @@ class WordcloudDataView(generics.GenericAPIView):
         query = {}
         
         now = datetime.utcnow() + timedelta(hours=9)
-        hours = 24
-        query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
+        query["created_at"] = {"$gte" : now}
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
 
-        if db_result.count() < 35:
-            for _ in range(5):
-                hours += 24
-                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
-                query["category"] = "news"
-            
-                db_result = mongo.find_item(query, "riskout", "analyzed")
-
-                if db_result.count() >= 35:
-                    break
-
-        if db_result.count() < 35:
+        if db_result.count() < 10:
             return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
@@ -462,6 +445,8 @@ class WordcloudDataView(generics.GenericAPIView):
                     "value": count
             }    
             response["response"].append(data)
+        
+        response["isDone"] = True
 
         return Response(response)
 
@@ -521,6 +506,7 @@ class ArticleVolumeDataView(generics.GenericAPIView):
         db_result = None
         
         response = { 
+            "isDone": False,
             "fake": {
                 "id": "fake",
                 "data": [
@@ -597,10 +583,6 @@ class ArticleVolumeDataView(generics.GenericAPIView):
         query["category"] = "news"
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
-
-        if not db_result.count():
-            return Response(response)
-
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
         dates = []
 
@@ -618,6 +600,7 @@ class ArticleVolumeDataView(generics.GenericAPIView):
                     else:
                         response["fake"]["data"][idx]["y"] += 1
 
+        response["isDone"] = True
         return Response(response)
 
 
@@ -644,6 +627,7 @@ class SentimentBarDataView(generics.GenericAPIView):
         db_result = None
         
         response = { 
+            "isDone": False,
             "response": [
                 {
                     "category": "News",
@@ -681,7 +665,7 @@ class SentimentBarDataView(generics.GenericAPIView):
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
 
-        if not db_result.count():
+        if not db_result.count() < 10:
             return Response(response)
 
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
@@ -697,6 +681,8 @@ class SentimentBarDataView(generics.GenericAPIView):
                         response["response"][idx]["neutral"] += 1
                     else:
                         response["response"][idx]["positive"] += 1
+        
+        response["isDone"] = True
 
         return Response(response)
 
@@ -724,6 +710,7 @@ class SentimentPieDataView(generics.GenericAPIView):
         db_result = None
         
         response = { 
+            "isDone": False,
             "response": [
                 {
                     "id": "positive",
@@ -757,19 +744,20 @@ class SentimentPieDataView(generics.GenericAPIView):
         query["created_at"] = {"$gte" : (now - timedelta(days=5))}
         
         db_result = mongo.find_item(query, "riskout", "analyzed")
-
-        if not db_result.count():
-            return Response(response)
-
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
         for content in db_filtered:
-            if round(content["positivity"], 1) <= 0.4:
-                response["response"][2]["value"] += 1
-            elif 0.4 < round(content["positivity"], 1) <= 0.6:
-                response["response"][1]["value"] += 1
-            else:
-                response["response"][0]["value"] += 1
+            if "positivity" in content:
+                if round(content["positivity"], 1) <= 0.4:
+                    response["response"][2]["value"] += 1
+
+                elif 0.4 < round(content["positivity"], 1) <= 0.6:
+                    response["response"][1]["value"] += 1
+
+                else:
+                    response["response"][0]["value"] += 1
+
+        response["isDone"] = True
 
         return Response(response)
 
@@ -812,6 +800,7 @@ class ReportDataView(generics.CreateAPIView):
         mongo = DBHandler()
         db_result = None
         response = {
+            "isDone": False,
             "overview": None,
             "period" : period,
             "briefingGraphData": 
@@ -838,28 +827,11 @@ class ReportDataView(generics.CreateAPIView):
             col.create_index([("title", mongoText), ("contentBody", mongoText), ("summarized", mongoText)])
 
         query = {}
-        
         query["category"] = "news"
-        hours = 0
         db_result = mongo.find_item(query, "riskout", "analyzed")
-
-        if db_result.count() < 10:
-            for _ in range(5):
-                hours += 24
-                query["created_at"] = {"$gte" : (now - timedelta(hours=hours))}
-                query["category"] = "news"
-            
-                db_result = mongo.find_item(query, "riskout", "analyzed")
-
-                if db_result.count() >= 10:
-                    break
-
-        if db_result.count() < 10:
-            return Response(response)
-
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
-        now = datetime.utcnow() + timedelta(hours=9) - timedelta(hours=hours)
+        now = datetime.utcnow() + timedelta(hours=9)
         today_datetime = datetime(now.year, now.month, now.day)
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
@@ -876,6 +848,12 @@ class ReportDataView(generics.CreateAPIView):
         for content in db_filtered:
             if content["created_at"] == today:
                 today_count += 1
+        
+        if today_count < 10:
+            return response
+
+        for content in db_filtered:
+            if content["created_at"] == today:
                 for secret in SECRET_KEYWORDS:
                     if secret in content["contentBody"]:
                         response["briefingGraphData"]["secretsCount"] += 1
@@ -883,7 +861,7 @@ class ReportDataView(generics.CreateAPIView):
                 if round(content["true_score"], 1) < 0.5:
                     response["briefingGraphData"]["fakeNewsCount"] += 1
                 today_sentiment += content["positivity"]
-        
+
         today_sentiment = round(today_sentiment / today_count, 2)
         today_fake_ratio = round(today_fake_ratio / today_count, 2)
 
@@ -955,6 +933,8 @@ class ReportDataView(generics.CreateAPIView):
                     }
             
             response["majorEvents"].append(data)
+        
+        response["isDone"] = True
 
         return response
 
