@@ -29,9 +29,9 @@ const WordCloud = ({ options }) => {
   useEffect(() => {
     if (data && data['response']) {
       setResponse(
-        data['response'].map(({ text, value }) => ({
+        data.response.map(({ text, value }) => ({
           text,
-          value: Math.ceil(Math.log2(value)),
+          value: Math.ceil(Math.log2(value + 1)),
         }))
       );
     }

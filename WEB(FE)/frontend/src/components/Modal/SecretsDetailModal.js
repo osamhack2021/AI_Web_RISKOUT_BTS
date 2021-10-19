@@ -37,6 +37,7 @@ export default function SecretsDetailModal(props) {
     setOpen(false);
     // setSaved(false); // TODO how should we handle display of 'save' button?
   };
+  const cart = sessionStorage.getItem('riskoutShoppingCart');
   useEffect(() => console.log(data));
 
   return (
@@ -69,6 +70,7 @@ export default function SecretsDetailModal(props) {
               aria-label="add to scrap"
               onClick={() => scrapArticle(data._id)}
               icon={<AddIcon />}
+              color={cart && cart.includes(data._id) ? 'disabled' : ''}
               label="Save"
             />
             <Chip

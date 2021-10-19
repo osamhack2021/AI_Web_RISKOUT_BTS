@@ -28,11 +28,11 @@ const ArticleVolumeLine = ({ theme, colors }) => {
     if (!isEmpty(data)) {
       setResponse(
         process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-          ? [
-              { ...data.response[0], color: 'hsl(142, 70%, 50%)' },
-              { ...data.response[1], color: 'hsl(159, 70%, 50%)' },
+          ? data.response
+          : [
+              { ...data.fake, color: 'hsl(142, 70%, 50%)' },
+              { ...data.true, color: 'hsl(159, 70%, 50%)' },
             ]
-          : data.response
       );
     }
   }, [data]);
