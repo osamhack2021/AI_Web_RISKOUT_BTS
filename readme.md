@@ -98,7 +98,7 @@
 
 ![감정차트](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
 
-![감정차트2](https://user-images.githubusercontent.com/55467050/136731593-c5206924-6d2d-42dd-a470-4dd9bf0660aa.png)
+![emopie](https://user-images.githubusercontent.com/55467050/137927934-77f7da3a-a739-424c-b818-0548e87e3ca4.PNG)
 
 ### 오늘의 트렌드
 
