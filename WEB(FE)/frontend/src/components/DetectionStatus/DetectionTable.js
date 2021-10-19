@@ -44,9 +44,6 @@ function TablePaginationActions(props) {
     onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
   };
 
-  const cart = sessionStorage.getItem('riskoutShoppingCart');
-  useEffect(() => console.log('카트', cart), [cart]);
-
   return (
     <Box sx={{ flexShrink: 0, ml: 2.5 }}>
       <IconButton
@@ -179,7 +176,6 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
                 article={article}
                 showDetailModal={showDetailModal}
                 scrapArticle={scrapArticle}
-                isAlreadyScrapped={cart.includes(article._id)}
               />
             ))}
           {emptyRows > 0 && (

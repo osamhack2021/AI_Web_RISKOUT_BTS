@@ -70,7 +70,6 @@ export default function SecretsDetailModal(props) {
               aria-label="add to scrap"
               onClick={() => scrapArticle(data._id)}
               icon={<AddIcon />}
-              color={cart && cart.includes(data._id) ? 'disabled' : ''}
               label="Save"
             />
             <Chip
