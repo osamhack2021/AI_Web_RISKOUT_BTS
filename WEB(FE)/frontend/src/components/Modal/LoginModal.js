@@ -34,6 +34,30 @@ const LoginModal = (props) => {
     setUserPassword(e.target.value);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    fetch('/api/user/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.token) {
+          props.userHasAuthenticated(true, data.username, json.token);
+          alert('환영합니다.' + username + '님.');
+          history.push('/presstrends');
+          props.setModal(true);
+          console.log(json);
+        } else {
+          alert('아이디 또는 비밀번호를 확인해주세요.');
+        }
+      })
+      .catch((error) => alert(error));
+  };
+
   const paperStyle = {
     padding: '60px 68px 40px',
     width: 450,
@@ -57,69 +81,49 @@ const LoginModal = (props) => {
         <Grid align="left">
           <h1 style={{ fontSize: '32px' }}>로그인</h1>
         </Grid>
-        <Grid align="center">
-          <Box
-            sx={{ width: 314, height: 50, marginBottom: '1.2em', marginTop: 5 }}
-          >
-            <TextField
-              label="아이디"
-              placeholder="아이디를 입력해 주세요"
-              fullWidth
-              required
-              onChange={handleNameChange}
-              variant="outlined"
-            />
-          </Box>
-          <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
-            <TextField
-              label="비밀번호"
-              placeholder="비밀번호를 입력해 주세요."
-              fullWidth
-              type="password"
-              required
-              variant="outlined"
-              onChange={handlePasswordChange}
-            />
-          </Box>
-          {/* */}
-          <Link sx={{ textDecoration: 'none' }}>
-            <Button
-              type="submit"
-              variant="contained"
-              style={btnstyle}
-              className="JoinLoign-button"
-              onClick={(e) => {
-                e.preventDefault();
-                fetch('/api/user/login/', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data),
-                })
-                  .then((res) => res.json())
-                  .then((json) => {
-                    if (json.token) {
-                      props.userHasAuthenticated(
-                        true,
-                        data.username,
-                        json.token
-                      );
-                      alert('환영합니다.' + username + '님.');
-                      history.push('/presstrends');
-                      props.setModal(true);
-                      console.log(json);
-                    } else {
-                      alert('아이디 또는 비밀번호를 확인해주세요.');
-                    }
-                  })
-                  .catch((error) => alert(error));
+        <form onSubmit={onSubmit}>
+          <Grid align="center">
+            <Box
+              sx={{
+                width: 314,
+                height: 50,
+                marginBottom: '1.2em',
+                marginTop: 5,
               }}
             >
-              로그인
-            </Button>
-          </Link>
-        </Grid>
+              <TextField
+                label="아이디"
+                placeholder="아이디를 입력해 주세요"
+                fullWidth
+                required
+                onChange={handleNameChange}
+                variant="outlined"
+              />
+            </Box>
+            <Box sx={{ width: 314, height: 50, marginBottom: '2em' }}>
+              <TextField
+                label="비밀번호"
+                placeholder="비밀번호를 입력해 주세요."
+                fullWidth
+                type="password"
+                required
+                variant="outlined"
+                onChange={handlePasswordChange}
+              />
+            </Box>
+            {/* */}
+            <Link sx={{ textDecoration: 'none' }}>
+              <Button
+                type="submit"
+                variant="contained"
+                style={btnstyle}
+                className="JoinLoign-button"
+              >
+                로그인
+              </Button>
+            </Link>
+          </Grid>
+        </form>
         <Box sx={{ display: 'flex', marginBottom: '5em' }}>
           <Typography variant="subtitle1" sx={{}}>
             <input type="checkbox" style={{ marginTop: '7px' }} />
