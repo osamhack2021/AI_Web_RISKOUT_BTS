@@ -220,13 +220,15 @@
 
 먼저, **node.js**, **yarn**, **docker**, 그리고 **docker-compose**를 다운로드하세요. **node.js**는 버전 `14.x`이상이어야 합니다.
 
-> **Secret 파일 작성**에 관해서는 [여기서](https://github.com/create-go-app/cli/tree/v2) 확인하세요.
-
+프로젝트를 Clone 합니다.
 ```bash
 git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 ```
-**Secret 파일들**을 작성합니다.
 
+**Secret 파일들**을 작성합니다.
+> **Secret 파일 작성**에 관해서는 [여기서](https://github.com/create-go-app/cli/tree/v2) 확인하세요.
+
+프로젝트를 빌드 및 실행합니다.
 ```bash
 ./run.sh
 ```
