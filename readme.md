@@ -2,10 +2,9 @@
 # RISKOUT - All-in-One 국방 리스크 관리 플랫폼 
 
 <div align='center'>
-<img src='https://user-images.githubusercontent.com/55467050/138042604-ad1aa313-c342-4f7c-aa3e-7e35ce20ce8e.gif'>
+<img src='https://user-images.githubusercontent.com/55467050/138075451-2b49214f-5720-4fc2-9c79-6c52eaad17cc.gif'>
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
-  
 </a>
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
