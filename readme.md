@@ -104,7 +104,7 @@
 
 > 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-그날 가장 많이 언급된 3가지 기사를 선정하여 FactCheck를 통해 진실 추정, 중립 추정, 허위 추정으로 판별 및 분류하여 보여줍니다.
+그날 가장 많이 언급된 기사들을 선정하여 FactCheck를 통해 진실 추정, 중립 추정, 허위 추정으로 판별 및 분류하여 보여줍니다.
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
