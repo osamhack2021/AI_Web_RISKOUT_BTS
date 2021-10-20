@@ -4,10 +4,11 @@ import ArticleVolumeLine from '../components/Dashboard/ArticleVolumeLine';
 import GeoEventPlot from '../components/Dashboard/GeoEventPlot';
 import WordCloud from '../components/Dashboard/WordCloud';
 import TrendsCard from '../components/Dashboard/TrendsCard';
+import Demo from '../components/Demo';
 
 import { darkTheme, palette } from '../darkTheme';
 import { useHistory } from 'react-router';
-import { Grid } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 
 export default function Dashboard() {
   const history = useHistory();
@@ -20,9 +21,10 @@ export default function Dashboard() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={12} md={12} lg={12}>
-        <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem' }}>
+        <h2 style={{ fontFamily: 'Noto sans KR', fontSize: '2rem', marginBottom: '34px' }}>
           대시보드
         </h2>
+        <Demo />
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={4}>
         <WordCloud options={options} />
