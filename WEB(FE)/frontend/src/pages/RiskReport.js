@@ -30,7 +30,7 @@ const RiskReport = (props) => {
 
   const loadData = async () => {
 
-    const searchUrl = '/api/nlp/report/';
+    const searchUrl = '/static/data/ReportData.example.json';
     const client = axios.create({
       headers: {
         Authorization: `Token ${localStorage.getItem('token')}`,
@@ -38,13 +38,7 @@ const RiskReport = (props) => {
       withCredentials: true,
     });
 
-    client.post(searchUrl, {
-      articleIds: getCart().length ? getCart() : [30, 40, 50],
-      period: 24,
-      time: new Date().toTimeString(), // "uniqueness parameter"
-    });
-
-    const data = await client.post(searchUrl, {
+    const data = await client.get(searchUrl, {
       articleIds: getCart().length ? getCart() : [30, 40, 50],
       period: 24,
       time: new Date().toTimeString(), // "uniqueness parameter"

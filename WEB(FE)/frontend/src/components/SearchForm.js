@@ -35,6 +35,10 @@ export default function SearchForm() {
     setSearch(data);
   };
 
+  const onClick = () => {
+    alert("데모 버전에서는 제공하지 않는 기능입니다.");
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="search-form">
       <Controller
@@ -74,7 +78,7 @@ export default function SearchForm() {
           <MenuItem value="148">7d</MenuItem>
         </Select>
 
-        <Button size="small" variant="outlined" type="submit">
+        <Button size="small" variant="outlined" type="submit" onClick={onClick}>
           search
         </Button>
       </Stack>

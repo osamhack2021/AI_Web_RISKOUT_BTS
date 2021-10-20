@@ -140,8 +140,8 @@ const LoginModal = (props) => {
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
           <Link
-            // href="/register"
-            onClick={onClick}
+            href="/register"
+            // onClick={onClick}
             sx={{ textDecoration: 'none', color: '#3a8ffb' }}
           >
             RISKOUT 회원이 아닌가요? 지금 가입하세요.

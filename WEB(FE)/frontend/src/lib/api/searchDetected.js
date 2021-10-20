@@ -14,14 +14,17 @@ export async function searchDetected(params) {
     },
     withCredentials: true,
   });
+
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/static/SecretData.example.json`
+      ? `/static/data/SecretData.example.json`
       : `/api/nlp/analyze/`;
+
   const requestMethod =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
       ? client.get
       : client.post;
+
   const response = await requestMethod(requestUrl, {
     ...formatted,
   });
