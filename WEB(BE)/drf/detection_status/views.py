@@ -831,7 +831,7 @@ class ReportDataView(generics.CreateAPIView):
         db_result = mongo.find_item(query, "riskout", "analyzed")
         db_filtered = self.datetimeFormatter([v for _, v in enumerate(db_result)]) if (db_result.count()) else []
 
-        now = datetime.utcnow() + timedelta(hours=9)
+        now = datetime.utcnow() + timedelta(hours=9) - timedelta(days=4)
         today_datetime = datetime(now.year, now.month, now.day)
         today = datetime(now.year, now.month, now.day).strftime('%y-%m-%d')
 
