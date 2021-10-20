@@ -14,6 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
+import { useSessionStorage } from '../../js/util';
 import { useContents } from '../../atoms/searchState';
 import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
@@ -93,7 +94,7 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-export default function DetectionTable({ showDetailModal, scrapArticle }) {
+export default function DetectionTable({ showDetailModal, toggleScrap }) {
   useSearchInitEffect();
   const contents = useContents();
   const [page, setPage] = useState(0);
@@ -106,6 +107,8 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+
+  const [, , , isInCart] = useSessionStorage('riskoutShoppingCart');
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
@@ -173,9 +176,8 @@ export default function DetectionTable({ showDetailModal, scrapArticle }) {
             ).map((article, id) => (
               <SecretsTableRow
                 key={id}
-                article={article}
-                showDetailModal={showDetailModal}
-                scrapArticle={scrapArticle}
+                isAlreadyScrapped={isInCart(article._id)}
+                {...{ article, showDetailModal, toggleScrap }}
               />
             ))}
           {emptyRows > 0 && (
