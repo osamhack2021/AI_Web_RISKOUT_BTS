@@ -2,7 +2,7 @@
 # RISKOUT - All-in-One 국방 리스크 관리 플랫폼 
 
 <div align='center'>
-<img src='https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG'>
+<img src='https://user-images.githubusercontent.com/55467050/138042604-ad1aa313-c342-4f7c-aa3e-7e35ce20ce8e.gif'>
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
   
@@ -64,7 +64,7 @@
 > 담당 부서에서 근무하고 있는 동기병에 따르면, 현재 군대에서는 인터넷에 유출된 기밀글들 및 허위 기사등의 악성글을 추려내기 위해 24시간동안 여러 포털 사이트에서 무한정 검색 및 캡처하고 각종 신문에서 군 관련 기사들을 일일히 오려냅니다. 모은 자료들은 사람이 하나하나 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리하여 대응팀한테 넘기는 등 고된 작업들을 반복하고 계십니다.
 그러다보니 놓치는 일이 발생하거나, 개개인의 판단으로는 허위 기사등을 정확하게 식별하지 못할 수 있습니다.
 >
-> 그래서 생각했습니다. 군사 기밀 및 허위글등의 악성글들을 자동으로 찾아주고 정리해주는 All-in-One 플랫폼을 만들어보자.
+> 그래서 생각했습니다. 군사 기밀 및 허위글등의 악성글들을 자동으로 찾아주고 정리해주는 All-in-One 플랫폼을 만들어보자. RISKOUT이 탄생한 이유입니다.
 
 <h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
 
