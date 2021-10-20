@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
-import client from '../lib/api/client';
+// import client from '../lib/api/client';
+import axios from 'axios'
 import '../css/fonts.css';
 
 import ExclusiveSelect from '../components/RiskReport/ExclusiveSelect';
@@ -30,6 +31,12 @@ const RiskReport = (props) => {
   const loadData = async () => {
 
     const searchUrl = '/api/nlp/report/';
+    const client = axios.create({
+      headers: {
+        Authorization: `Token ${localStorage.getItem('token')}`,
+      },
+      withCredentials: true,
+    });
 
     client.post(searchUrl, {
       articleIds: getCart().length ? getCart() : [30, 40, 50],
