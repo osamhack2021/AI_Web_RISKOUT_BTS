@@ -43,7 +43,7 @@
     <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
     <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
       <ul>
-        <li><a href="#여론 현황 대시보드">여론 현황 대시보드</a></li>
+        <li><a href="#feature1">위협 대시보드</a></li>
         <li><a href="#feature2">위협 탐지</a></li>
         <li><a href="#feature3">자동 보고서 생성</a></li>
       </ul>
@@ -118,8 +118,7 @@
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
-
-### 기밀 유출 탐지 + 허위 기사 탐지
+<h3 id="feature2">위협 탐지</h3>
 
 > 탐지 현황에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 기밀 유출 현황 및 허위기사를 인공지능을 통해 자동으로 분석하여 탐지합니다. 이후 빠르게 대응할수 있도록 요약된 내용 및 출처등을 제공합니다.
