@@ -23,7 +23,7 @@
 ### Quick Links
   
 <a href='https://riskout.ithosting.repl.co/'>
-<img src='https://img.shields.io/badge/HOMEPAGE-gray?style=for-the-badge'>
+<img src='https://img.shields.io/badge/HOMEPAGE-blue?style=for-the-badge'>
 </a>
   
 <a href='https://riskout.ithosting.repl.co/'>
