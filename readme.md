@@ -97,10 +97,6 @@
 각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 막대 차트입니다.
 ![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
-![emopie1](https://user-images.githubusercontent.com/55467050/137932804-a974141b-6da4-4626-8c75-c90d64c1d8f9.PNG)
-
-![emopie](https://user-images.githubusercontent.com/55467050/137927934-77f7da3a-a739-424c-b818-0548e87e3ca4.PNG)
-
 ### 오늘의 트렌드
 
 > 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
@@ -152,6 +148,7 @@
 사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.
 <p align="center">
 </p>
+![report](https://user-images.githubusercontent.com/55467050/138045051-024e3bed-7502-4aa2-8eb0-e75cb574c0a3.gif)
 
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
 
