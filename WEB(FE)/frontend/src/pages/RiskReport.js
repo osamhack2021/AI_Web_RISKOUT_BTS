@@ -28,20 +28,27 @@ const RiskReport = (props) => {
 
   useEffect(() => {
     const loadData = async () => {
-      const searchUrl = '/api/nlp/report/';
-      client.post(searchUrl, {
-        articleIds: getCart().length ? getCart() : [30, 40, 50],
-        period: 24,
-        time: new Date().toTimeString(), // "uniqueness parameter"
-      });
+      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+        const searchUrl = `/static/data/ReportData.example.json`;
+        const response = await client.get(searchUrl);
+        setData(response.data);
+        setPending(false);
+      } else {
+        const searchUrl = '/api/nlp/report/';
+        client.post(searchUrl, {
+          articleIds: getCart().length ? getCart() : [30, 40, 50],
+          period: 24,
+          time: new Date().toTimeString(), // "uniqueness parameter"
+        });
 
-      const data = await client.post(searchUrl, {
-        articleIds: getCart().length ? getCart() : [30, 40, 50],
-        period: 24,
-        time: new Date().toTimeString(), // "uniqueness parameter"
-      });
-      await setData(data.data);
-      await setPending(false);
+        const data = await client.post(searchUrl, {
+          articleIds: getCart().length ? getCart() : [30, 40, 50],
+          period: 24,
+          time: new Date().toTimeString(), // "uniqueness parameter"
+        });
+        await setData(data.data);
+        await setPending(false);
+      }
     };
     loadData();
   }, []);

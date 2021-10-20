@@ -27,29 +27,28 @@ export default function useSeacrh() {
       alert('로그인이 필요한 화면 입니다.');
       history.push('/login');
     } else {
-      fetch('/api/nlp/analyze/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((json) => {
-          console.log('=========[api/nlp/analyze/]========');
-          console.log(json);
+      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+        const searchUrl = `/static/SecretData.example.json`;
+        client.get(searchUrl).then((data) => {
+          setSearchList(data.data);
+          console.log('야효', data.data);
         });
+      } else {
+        fetch('/api/nlp/analyze/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((json) => {
+            console.log('=========[api/nlp/analyze/]========');
+            console.log(json);
+          });
+      }
     }
-
-    const searchUrl = `/static/SecretData.example.json`;
-    async function fetchSearch() {
-      client.get(searchUrl).then((data) => {
-        setSearchList(data.data);
-        console.log(data.data);
-      });
-    }
-
     fetchSearch();
   }, [filterList]);
 }

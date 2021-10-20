@@ -1,5 +1,5 @@
 // import client from './client';
-import axios from 'axios'
+import axios from 'axios';
 
 export async function searchDetected(params) {
   const formatted = {
@@ -16,7 +16,7 @@ export async function searchDetected(params) {
   });
   const requestUrl =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'
-      ? `/static/SecretData.example.json`
+      ? `/static/data/SecretData.example.json`
       : `/api/nlp/analyze/`;
   const requestMethod =
     process.env.REACT_APP_USE_STATIC_RESPONSE == 'True'

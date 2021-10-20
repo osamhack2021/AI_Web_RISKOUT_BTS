@@ -12,7 +12,6 @@ import {
   TablePagination,
   TableFooter,
   Typography,
-  LinearProgress,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
 import { searchState, useContents } from '../../atoms/searchState';
@@ -179,9 +178,8 @@ export default function DetectionTable({ showDetailModal, toggleScrap }) {
               ).map((article, id) => (
                 <SecretsTableRow
                   key={id}
-                  article={article}
-                  showDetailModal={showDetailModal}
-                  scrapArticle={scrapArticle}
+                  isAlreadyScrapped={isInCart(article._id)}
+                  {...{ article, showDetailModal, toggleScrap }}
                 />
               ))}
               {emptyRows > 0 && (
