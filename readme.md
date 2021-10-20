@@ -132,23 +132,21 @@
 
 ### 개채 인식 필터(NER Filter)
 
-> 개체 인식 필터에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
-
 <h3 id="feature3">자동 보고서 생성</h3>
 
-> 보고서 생성에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 보고서 생성에 대한 세부적인 내용은 [여기](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e)에서 확인하실 수 있습니다.
 사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.
 <p align="center">
 </p>
 
-
 ![report](https://user-images.githubusercontent.com/55467050/138045273-d5312cdd-6842-492d-8bfe-c77a7a7b6f22.gif)
 
-
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
+
 
 <h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
 
@@ -161,7 +159,7 @@
 *축하해요!* *RISKOUT*의 유저가 되셨습니다.
 
 이제 사용하실 수 있습니다! 🎉
-- 📺 Full 영상: https://riskout.ithosting.repl.co
+- 📺 Full 영상: https://www.youtube.com/watch?v=Lwg-OQIIvGA
 
 <h2 id="prerequisites"> :fork_and_knife: 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 <h3> :earth_asia: Browser</h3>
@@ -342,6 +340,7 @@
 
 프로젝트 RISKOUT은 MIT License를 따르고 있습니다.
 
+<br />
 <br />
 <br />
 <p align="center">
