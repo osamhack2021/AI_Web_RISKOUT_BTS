@@ -95,6 +95,7 @@
 > 감정 통계에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 막대 차트입니다.
+![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
 ![emopie1](https://user-images.githubusercontent.com/55467050/137932804-a974141b-6da4-4626-8c75-c90d64c1d8f9.PNG)
 
