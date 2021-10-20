@@ -61,16 +61,18 @@ export default function DetectionStatus() {
     console.log(search);
     if (shouldScrap) {
       addCart(_id);
-      message = 'Scrapped article | ' + article.title;
+      message = article.title ? article.title : 'Twitter Article';
+      message = 'Scrapped article | ' + message;
       variant = 'success';
     } else {
       removeCart(_id);
+      message = article.title ? article.title : 'Twitter Article';
       message = 'Removed article | ' + article.title;
       variant = 'default';
     }
     enqueueSnackbar(message, {
       variant: variant,
-      autoHideDuration: 10000,
+      autoHideDuration: 3000,
     });
     return;
   };

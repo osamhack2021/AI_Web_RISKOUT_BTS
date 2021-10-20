@@ -13,7 +13,7 @@ export default function Graphs({ data }) {
   const barData = [
     { category: '기밀 유출 횟수', value: data.secretsCount },
     { category: '허위 뉴스 개수', value: data.fakeNewsCount },
-    { category: '부정적 기사 비율 (%)', value: data.negativeSentiment * 100 },
+    { category: '부정적 기사 비율 (%)', value: (data.negativeSentiment * 100).toFixed(2) },
   ];
 
   let total = 0;
