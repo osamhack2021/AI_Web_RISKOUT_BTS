@@ -182,13 +182,6 @@
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
 
 ### AI
-| Model Accuracy | Train | Validation | Test |
-|----------------|-------|------------|------|
-| LSTM           | 0.9774 | 0.98381   | 0.7544 |
-| SenCNN         | 0.9624 | 0.8016    | 0.7827 |
-| BERT           | 0.9662 | 0.8299    | 0.8070 |
-
-- 세 모델 전부 Early Stopping 적용
 - [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
   - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
   - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
