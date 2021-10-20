@@ -40,12 +40,12 @@
 ## :book: 목차 (Table of Contents)
 <details open="open">
   <ol>
-    <a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a>
-    <a href="#features"> ➤ 기능 설명 (Features)</a>
+    <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
+    <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
       <ul>
-       <a href="#여론 현황 대시보드">여론 현황 대시보드</a>
-        <a href="#feature2">위협 탐지</a>
-       <a href="#feature3">자동 보고서 생성</a>
+        <li><a href="#여론 현황 대시보드">여론 현황 대시보드</a></li>
+        <li><a href="#feature2">위협 탐지</a></li>
+        <li><a href="#feature3">자동 보고서 생성</a></li>
       </ul>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
     <li><a href="#techniques"> ➤ 기술 스택 (Techniques Used)</a></li>
