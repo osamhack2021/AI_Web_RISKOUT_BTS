@@ -148,7 +148,10 @@
 사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.
 <p align="center">
 </p>
-![report](https://user-images.githubusercontent.com/55467050/138045051-024e3bed-7502-4aa2-8eb0-e75cb574c0a3.gif)
+
+
+![report](https://user-images.githubusercontent.com/55467050/138045273-d5312cdd-6842-492d-8bfe-c77a7a7b6f22.gif)
+
 
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
 
