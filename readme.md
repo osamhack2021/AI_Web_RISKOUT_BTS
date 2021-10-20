@@ -223,17 +223,15 @@
 > **Secret 파일 작성**에 관해서는 [여기서](https://github.com/create-go-app/cli/tree/v2) 확인하세요.
 
 ```bash
-1. git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
-2. __secret 파일들 작성__
-3. ./run.sh
-4. http://localhost:8002 접속
+git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
+```
+**Secret 파일들**을 작성합니다.
+
+```bash
+./run.sh
 ```
 
-
-
-
-
-
+[http://localhost:8002](http://localhost:8002)로 접속합니다.
 
 
 
