@@ -1,6 +1,7 @@
 {
   "overview": "북한 대외선전매체 우리민족끼리 와 통일의 메아리, 조선의 오늘 은 각각 김정은 집권 10년을 기념하는 특별 웹페이지를 신설하고 홈페이지 첫 화면에 연결 배너를 띄웠다.",
   "period": 24,
+  "isDone": true,
   "briefingGraphData": {
     "secretsCount": 52,
     "fakeNewsCount": 4,

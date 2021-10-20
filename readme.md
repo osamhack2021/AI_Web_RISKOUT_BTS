@@ -2,15 +2,14 @@
 # RISKOUT - 국방 리스크 관리 플랫폼 
 
 <div align='center'>
-<img src='https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG'>
+<img src='https://user-images.githubusercontent.com/55467050/138075451-2b49214f-5720-4fc2-9c79-6c52eaad17cc.gif'>
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
-  
 </a>
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
   
-<img src='https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&logo'>
+<img src='https://img.shields.io/badge/License-MIT-black?style=for-the-badge&logo'>
   
 </a>
 
@@ -23,17 +22,22 @@
   
 ### Quick Links
   
-<a href='https://riskout.ithosting.repl.co/'>
+<a href='https://riskout.org'>
 <img src='https://img.shields.io/badge/HOMEPAGE-gray?style=for-the-badge'>
 </a>
   
-<a href='https://riskout.ithosting.repl.co/'>
+<a href='https://youtu.be/Lwg-OQIIvGA'>
 <img src='https://img.shields.io/badge/VIDEO-blue?style=for-the-badge'>
 </a>
   
-<a href='https://riskout.ithosting.repl.co/'>
-<img src='https://img.shields.io/badge/DOCS-lightgrey?style=for-the-badge'>
+<a href='https://navycert.notion.site/RISKOUT-401be9201053401c8654592d4264b6cd'>
+<img src='https://img.shields.io/badge/DOCS-00ADD8?style=for-the-badge'>
 </a>
+	
+<a href='https://openapi.riskout.org/docs'>
+<img src='https://img.shields.io/badge/OPEN API-black?style=for-the-badge'>
+</a>
+	
 </div>
 
 ---
@@ -44,14 +48,14 @@
     <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
     <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
       <ul>
-        <li><a href="#여론 현황 대시보드">여론 현황 대시보드</a></li>
+        <li><a href="#feature1">위협 대시보드</a></li>
         <li><a href="#feature2">위협 탐지</a></li>
-        <li><a href="#feature3">맞춤형 보고서 생성</a></li>
+        <li><a href="#feature3">보고서 생성</a></li>
       </ul>
+    <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
     <li><a href="#techniques"> ➤ 기술 스택 (Techniques Used)</a></li>
     <li><a href="#Install"> ➤ 설치 안내 (Installation Process)</a></li>
-    <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#team"> ➤ 팀 정보 (Team Information)</a></li>
     <li><a href="#license"> ➤ 저작권 및 사용권 정보 (Copyleft / End User License)</a></li>
   </ol>
@@ -59,107 +63,96 @@
 
 <h2 id="about-the-project"> :monocle_face: 프로젝트 소개</h2>
 
-> 현재 군대에서는, 군 관련 허위 기사나 인터넷에 유포된 기밀글들을 추려내기 위해, 각종 신문에서 군 관련 기사들을 일일히 오려 내고, 여러 사이트들을 캡처합니다. 모은 자료들은 사람이 하나하나 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리하여 대응팀한테 넘기는 등, 번거로운 작업들을 반복하고 있습니다.
-그러다보니 놓치는 사항이 발생하거나 개인적인 편향이 보고서에 포함되는 등의 문제가 발생할 수 있습니다.
+> 군대에게는 여러 risk(위협)들이 존재합니다. 스파이, 해커, 테러리스트 등의 외부적인 위협들도 존재하지만, 시스템이 잘 구축된 현재의 군대의 실질적인 위협은 군사 기밀 유출, 허위 기사, 악성 게시글 등의 내부적인 위협들입니다. 그럼 군대는 이런 내부 위협들을 어떻게 식별하고 관리할까요? 
 > 
-> 저희 BTS (방탄수병단)은 이 모든 과정을 자동화시켰습니다. RISKOUT은 인공지능으로 유출된 기밀을 찾아주고, 허위기사를 판별하는 플랫폼입니다. 찾은 문제의 글은 사용자가 커스텀 가능한 맞춤형 보고서로 출력됩니다.
-이를 통해 정확도 보장, 인력 감축, 속도 향상 등의 효과 를 얻게 됩니다.
-
+> 담당 부서에서 근무하고 있는 동기병에 따르면, 현재 군대에서는 인터넷에 유출된 기밀글들 및 허위 기사등의 악성글을 추려내기 위해 24시간동안 여러 포털 사이트에서 무한정 검색 및 캡처하고 각종 신문에서 군 관련 기사들을 일일히 오려냅니다. 모은 자료들은 사람이 하나하나 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리해서 대응팀한테 넘기는 등 번거로운 작업들을 반복하고 있습니다.
+그러다보니 놓치는 일이 발생하거나, 대응이 늦어지는 일이 발생할 수 있습니다. 게다가, 개개인의 판단으로는 허위 기사등을 정확하게 식별하지 못할 수 있습니다.
+>
+> 그래서 생각했습니다. 군사 기밀 및 허위기사등의 악성글들을 자동으로 식별하고 관리 할 수 있는 All-in-One 플랫폼을 만들어보자. RISKOUT이 탄생하게 된 이유입니다.
 
 <h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
 
-**3가지 핵심기능** 은 다음과 같습니다.
+**3가지 핵심기능**은 다음과 같습니다.
 
-* [**`💀 여론 현황 대시보드`**](https://riskout.ithosting.repl.co/) : [여론의 감정 상태](https://namu.wiki/w/%EC%97%AC%EB%A1%A0), [언론 보도](https://namu.wiki/w/%EC%96%B8%EB%A1%A0) 등을 시각화 시켜서 보여주는 대시보드입니다.
-* [**`😤 위협 탐지`**](https://riskout.ithosting.repl.co/) : [군사 기밀 유출](https://namu.wiki/w/%EA%B5%B0%EC%82%AC%EA%B8%B0%EB%B0%80), [허위 기사](https://namu.wiki/w/%EA%B0%80%EC%A7%9C%20%EB%89%B4%EC%8A%A4)를 탐지하여 시각화 해줍니다.
-* [**`📰 맞춤형 보고서 생성`**](https://riskout.ithosting.repl.co/) : 클릭 몇번으로 [보고서](https://namu.wiki/w/%EB%B3%B4%EA%B3%A0%EC%84%9C)를 커스텀 및 생성할 수 있습니다.
+* [**`💀 위협 대시보드`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
+* [**`😤 위협 탐지`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
+* [**`📰 보고서 생성`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
 
 
-<h3 id="feature1">여론 현황 대시보드</h3>
-
+<h3 id="feature1">위협 대시보드</h3>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG" />
+  <img src="https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif" />
 </p>
 
 ### 오늘의 키워드
 
-> 여론 현황에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 오늘의 키워드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 보여주는 [워드 클라우드](https://riskout.ithosting.repl.co)입니다.
+각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 시각화한 워드 클라우드입니다.
 
 ![words](https://user-images.githubusercontent.com/55467050/137931048-52ce6c3e-ca33-4845-9af4-b282a3ecc6c5.PNG)
 
-
 ### 감정 통계 차트
 
-> 감정 통계에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 감정 통계에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
+각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어 표현한 차트들입니다.
 
-![emopie1](https://user-images.githubusercontent.com/55467050/137932804-a974141b-6da4-4626-8c75-c90d64c1d8f9.PNG)
-
-![emopie](https://user-images.githubusercontent.com/55467050/137927934-77f7da3a-a739-424c-b818-0548e87e3ca4.PNG)
+![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
 ### 오늘의 트렌드
 
-> 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-가장 많이 언급된 3가지 기사를 진짜, 가짜, 의심으로 판별하여 보여줍니다.
+그날 가장 많이 언급된 기사들을 선정하여 FactCheck를 통해 진실 추정, 중립 추정, 허위 추정으로 판별 및 분류하여 보여줍니다.
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
 ### 나라별 이벤트
 
-> 나라별 이벤트에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 나라별 이벤트에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
+국제 기사들을 분석해 국가별 이벤트 트래픽을 보여주는 지도입니다.
 
 ![events](https://user-images.githubusercontent.com/55467050/137927295-facce426-7fab-44a5-8dc3-e7f02f850586.PNG)
 
 ### 기사 변화량
 
-> 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 기사 변화량에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-최근 기사량과 대조하여 급격하게 기사량의 변화가 있었는지 보여주는 기사 변화량 차트입니다.
+최근 기사량들을 대조하여 기사량의 변화를 시각화한 차트입니다.
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
+<h3 id="feature2">위협 탐지</h3>
 
-### 기밀 유출 탐지 + 허위 기사 탐지
+> 탐지 현황에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
-> 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
-[기밀 유출 현황](https://riskout.ithosting.repl.co) 및 [허위 기사](https://riskout.ithosting.repl.co)를 인공지능을 통해 분석하여 탐지해내는 페이지입니다. 인공지능은 탐지한 글들을 기반으로 2차적 검사를 실시하여 기밀어, 인물, 장소를 추출해냅니다. 추출한 항목들은 세부 분석을 위해 *커스텀 필터*로 제공됩니다.
+기밀 유출 및 허위기사등의 악성글들을 인공지능을 통해 자동으로 분석하여 탐지합니다. 이후 빠르게 대응할수 있도록 요약된 내용 및 글의 출처 등을 제공합니다.
 
 ![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
 
+### 개체 인식 필터(NER Filter)
 
+> 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
-
-### 개채 인식 필터(NER Filter)
-
-> 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
-기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
+개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 추출, 보다 세부적인 분석을 할 수 있게 도와주는 검색 필터로 제공합니다.
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
+<h3 id="feature3">자동 보고서 생성</h3>
 
-<h3 id="feature3">맞춤형 보고서 생성</h3>
+> 보고서 생성에 대한 세부적인 내용은 [여기](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e)에서 확인하실 수 있습니다.
 
-> 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
+사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF로 출력가능합니다.
 <p align="center">
 </p>
 
+![report](https://user-images.githubusercontent.com/55467050/138045273-d5312cdd-6842-492d-8bfe-c77a7a7b6f22.gif)
 
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
 
-
-* **기밀 유출 보고** : 기밀 유출 현황을 각종 수치로 시각화시킨 브리핑 보드.
-* **허위 기사 보고** : 사용자가 선택한 허위 기사 탐지글들을 기반으로 제작된 AI 자동 요약본.
-* **허위 기사 개요** : 타임라인으로 구분된 현재까지의 허위 기사 현황.
 
 <h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
 
@@ -172,7 +165,7 @@
 *축하해요!* *RISKOUT*의 유저가 되셨습니다.
 
 이제 사용하실 수 있습니다! 🎉
-- 📺 Full 영상: https://riskout.ithosting.repl.co
+- 📺 Full 영상: https://www.youtube.com/watch?v=Lwg-OQIIvGA
 
 <h2 id="prerequisites"> :fork_and_knife: 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 <h3> :earth_asia: Browser</h3>
@@ -194,18 +187,17 @@
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
 
 ### AI
-
-- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
-  - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공.
-  - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현.
 - [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
   - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
-  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
+  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개체명인식)에 사용.
 - 사용한 데이터셋:
   - [`Naver-nsmc`](https://github.com/e9t/nsmc) — 감성분석모델에 사용한 데이터셋.
   - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — 한국어 문서 추출요약에 사용한 데이터셋.
   - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — 가짜뉴스 판별에 사용한 데이터셋.
-  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개채명인식)에 사용한 데이터셋.
+  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개체명인식)에 사용한 데이터셋.
+- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
+  - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공.
+  - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현.
 
 ### Backend
 
@@ -225,35 +217,26 @@
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
-#### Analyzer
-1. ```~/WEB/NLP/```로 이동합니다.
-2. run command ```docker-compose up```
-3. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
-4. Run command ```./analyzer.sh```
 
-#### Django
-1. Move to ```~/WEB/backend/``` and run command ```cp web-docker-env-example web-docker-env```
-2. Edit ```web-docker-env``` with your own credentials.
-3. Move to ```~/WEB/backend/drf/``` and run command ```cp secrets.example.json secrets.json```
-4. Edit ```secrets.json``` with your own credentials.
-5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
-6. Run command ```./web.sh```
+먼저, **node.js**, **yarn**, **docker**, 그리고 **docker-compose**를 다운로드하세요. **node.js**는 버전 `14.x`이상이어야 합니다.
 
-## 🚚 로드맵(Road Map)
+프로젝트를 **Clone** 합니다.
+```bash
+git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
+```
 
-RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
+**Secret 파일들**을 작성합니다.
+> **Secret 파일 작성**에 관해서는 [여기서](https://navycert.notion.site/851fa5b94b874ddbbd12652ad3a81542) 확인하세요.
 
-- [x] [SNS Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
-- [x] [News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
-- [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
-- [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [ ] [100,000+ 웹사이트 크롤링 기능 구현]()
-- [ ] [10,000+건의 위협 탐지 및 신고]()
-- [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
+프로젝트를 빌드 및 실행합니다.
+```bash
+./run.sh
+```
 
-RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 남겨주세요.
+[http://localhost:8002](http://localhost:8002)로 접속합니다.
+<br />
+
+이제 사용하실 수 있습니다! 🎉
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
@@ -367,7 +350,12 @@ RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 �
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
-프로젝트 RISKOUT은 [MIT License](https://en.wikipedia.org/wiki/MIT_License) 를 따르고 있습니다.
+프로젝트 RISKOUT은 MIT License를 따르고 있습니다.
 
-<br />![iOS 이미지](https://user-images.githubusercontent.com/55467050/137704748-135d4f74-bbf8-44ef-b366-e9f6f6fbb298.jpg)
+<br />
+<br />
+<br />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/55467050/138046262-7102663a-e3e7-4b40-b386-d0bfe463c31f.jpg" />
+</p>
 

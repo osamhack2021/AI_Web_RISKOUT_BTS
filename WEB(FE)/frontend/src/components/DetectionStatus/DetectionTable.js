@@ -14,8 +14,8 @@ import {
   Typography,
 } from '@mui/material';
 import SecretsTableRow from './SecretsTableRow';
+import { searchState, useContents } from '../../atoms/searchState';
 import { useSessionStorage } from '../../js/util';
-import { useContents } from '../../atoms/searchState';
 import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
 import { useTheme } from '@mui/material/styles';
@@ -24,6 +24,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import PropTypes from 'prop-types';
+import { useRecoilValue } from 'recoil';
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -97,9 +98,9 @@ TablePaginationActions.propTypes = {
 export default function DetectionTable({ showDetailModal, toggleScrap }) {
   useSearchInitEffect();
   const contents = useContents();
+  const { isDone } = useRecoilValue(searchState);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(4);
-
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - contents.length) : 0;
@@ -165,41 +166,53 @@ export default function DetectionTable({ showDetailModal, toggleScrap }) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {contents &&
-            (rowsPerPage > 0
-              ? contents.slice(
-                  page * rowsPerPage,
-                  page * rowsPerPage + rowsPerPage
-                )
-              : contents
-            ).map((article, id) => (
-              <SecretsTableRow
-                key={id}
-                isAlreadyScrapped={isInCart(article._id)}
-                {...{ article, showDetailModal, toggleScrap }}
-              />
-            ))}
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[4]}
-              colSpan={4}
-              count={contents.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
+        {contents || isDone ? (
+          <>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? contents.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : contents
+              ).map((article, id) => (
+                <SecretsTableRow
+                  key={id}
+                  isAlreadyScrapped={isInCart(article._id)}
+                  {...{ article, showDetailModal, toggleScrap }}
+                />
+              ))}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[4]}
+                  colSpan={4}
+                  count={contents.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </>
+        ) : (
+          <TableBody>
+            <TableCell></TableCell>
+            <TableCell align="center">
+              <Typography>현재 데이터가 존재하지 않습니다.</Typography>
+            </TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+          </TableBody>
+        )}
       </Table>
     </TableContainer>
   );

@@ -75,7 +75,7 @@ class NaverNewsSite(Site):
         return article_id
 
     def contentCheck(self, content):
-        if(len(content.body) < 800 or len(content.body) > 2000):
+        if(len(content.body) < 500 or len(content.body) > 2000):
             raise length_error
 
         return
