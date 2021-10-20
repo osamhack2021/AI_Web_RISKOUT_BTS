@@ -45,7 +45,7 @@
       <ul>
         <li><a href="#feature1">위협 대시보드</a></li>
         <li><a href="#feature2">위협 탐지</a></li>
-        <li><a href="#feature3">자동 보고서 생성</a></li>
+        <li><a href="#feature3">보고서 생성</a></li>
       </ul>
     <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
@@ -70,8 +70,8 @@
 **3가지 핵심기능** 은 다음과 같습니다.
 
 * [**`💀 위협 대시보드`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
-* [**`😤 위협 탐지`**](https://riskout.ithosting.repl.co/) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지 입니다.
-* [**`📰 맞춤형 보고서 생성`**](https://riskout.ithosting.repl.co/) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
+* [**`😤 위협 탐지`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지 입니다.
+* [**`📰 보고서 생성`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
 
 
 <h3 id="feature1">위협 대시보드</h3>
