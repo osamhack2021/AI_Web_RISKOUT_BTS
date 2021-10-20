@@ -120,7 +120,7 @@
 
 > 기사 변화량에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
-최근 기사량들을 대조하여 기사량의 변화도를 시각화한 차트입니다.
+최근 기사량들을 대조하여 기사량의 변화를 시각화한 차트입니다.
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
