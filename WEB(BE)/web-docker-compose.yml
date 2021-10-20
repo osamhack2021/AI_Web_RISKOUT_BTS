@@ -1,6 +1,18 @@
 version: "3"
 
 services:
+
+  nginx:
+    container_name: nginx_service
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./drf/staticfiles:/static
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+
   web:
     container_name: web_service
     image: python:3.8.12-slim-bullseye
@@ -20,8 +32,8 @@ services:
        pip install --no-cache-dir -r requirements.txt
        python -u manage.py makemigrations
        python -u manage.py migrate
-       python -u manage.py collectstatic --noinput --clear
+       python -u manage.py collectstatic --noinput
        python -u init_superuser.py
-       gunicorn drf.wsgi:application --bind 0.0.0.0:8000 --workers=4 --threads=4 --worker-class=gthread
-    ports:
-      - "8002:8000"
+       gunicorn drf.wsgi:application --bind 0.0.0.0:8002 --workers=4 --threads=4 --worker-class=gthread
+    expose:
+      - "8002"
