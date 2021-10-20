@@ -30,12 +30,12 @@ const RiskReport = (props) => {
     const searchUrl = '/api/nlp/report/';
     const exampleSearchUrl = '/static/ReportData.example.json';
     async function fetchReport() {
+      setPending(true);
       if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
         const response = await client.get(exampleSearchUrl);
         setData(response.data);
         setPending(false);
       } else {
-        setPending(true);
         const response = await client.post(searchUrl, {
           articleIds: getCart().length ? getCart() : [30, 40, 50],
           period: 24,
@@ -45,7 +45,6 @@ const RiskReport = (props) => {
         setPending(false);
       }
     }
-    fetchReport();
     fetchReport();
   }, []);
 
