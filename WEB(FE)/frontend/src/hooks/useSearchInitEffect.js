@@ -10,7 +10,7 @@ export default function useSearchInitEffect() {
   const searchSetting = useRecoilValue(searchSettingState);
   /* TODO searchSetting 을 이용해서 params 넘겨주는 코드 작성 */
   useEffect(() => {
-    if (Object.keys(search.contents).length !== 0) return;
+    if (!search.contents || Object.keys(search.contents).length !== 0) return;
 
     //TODO: API 서버 배포시 수정
     async function fetchData() {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
 // import client from '../lib/api/client';
 import axios from 'axios'
@@ -12,7 +12,6 @@ import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 import Demo from '../components/Demo';
 import { useHistory } from 'react-router';
-import { darkTheme, palette } from '../darkTheme';
 
 const RiskReport = (props) => {
   const history = useHistory();
@@ -23,37 +22,28 @@ const RiskReport = (props) => {
   }
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-  const [dateRange, setDateRange] = React.useState('all'); // for period select
-  const [data, setData] = React.useState({});
-  const [isPending, setPending] = React.useState(true);
+  const [dateRange, setDateRange] = useState('all'); // for period select
+  const [data, setData] = useState({});
+  const [isPending, setPending] = useState(true);
   const error = false;
 
-  const loadData = async () => {
-
-    const searchUrl = '/api/nlp/report/';
-    const client = axios.create({
-      headers: {
-        Authorization: `Token ${localStorage.getItem('token')}`,
-      },
-      withCredentials: true,
-    });
-
-    client.post(searchUrl, {
-      articleIds: getCart().length ? getCart() : [30, 40, 50],
-      period: 24,
-      time: new Date().toTimeString(), // "uniqueness parameter"
-    });
-
-    const data = await client.post(searchUrl, {
-      articleIds: getCart().length ? getCart() : [30, 40, 50],
-      period: 24,
-      time: new Date().toTimeString(), // "uniqueness parameter"
-    })
-    await setData(data.data);
-    await setPending(false);
-  }
-
   useEffect(() => {
+    const loadData = async () => {
+      const searchUrl = '/api/nlp/report/';
+      client.post(searchUrl, {
+        articleIds: getCart().length ? getCart() : [30, 40, 50],
+        period: 24,
+        time: new Date().toTimeString(), // "uniqueness parameter"
+      });
+
+      const data = await client.post(searchUrl, {
+        articleIds: getCart().length ? getCart() : [30, 40, 50],
+        period: 24,
+        time: new Date().toTimeString(), // "uniqueness parameter"
+      })
+      await setData(data.data);
+      await setPending(false);
+    }
     loadData();
   }, []);
 
@@ -131,6 +121,8 @@ const RiskReport = (props) => {
         loadingScreen
       ) : error ? (
         errorScreen
+      ) : !data ? (
+        '데이터가 없습니다.'
       ) : (
         <>
           <PdfExportButton exportTarget={pdfExportComponent} />
