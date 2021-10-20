@@ -1,5 +1,5 @@
 
-# RISKOUT - All-in-One 국방 리스크 관리 플랫폼 
+# RISKOUT - 국방 리스크 관리 플랫폼 
 
 <div align='center'>
 <img src='https://user-images.githubusercontent.com/55467050/138075451-2b49214f-5720-4fc2-9c79-6c52eaad17cc.gif'>
