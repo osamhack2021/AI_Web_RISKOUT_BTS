@@ -76,8 +76,6 @@
 
 
 <h3 id="feature1">위협 대시보드</h3>
-> 오늘의 키워드, 기사 현황등 위협을 예측할 수 있을만한 요소들을 시각화하는 대시보드입니다.
-
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG" />
 </p>
