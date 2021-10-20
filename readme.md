@@ -87,6 +87,7 @@
 각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 보여주는 [워드 클라우드](https://riskout.ithosting.repl.co)입니다.
 
 ![words](https://user-images.githubusercontent.com/55467050/137931048-52ce6c3e-ca33-4845-9af4-b282a3ecc6c5.PNG)
+![cloud](https://user-images.githubusercontent.com/55467050/138074003-c07d08ae-145a-44d6-84d7-4aeb85e1a7cb.gif)
 
 
 ### 감정 통계 차트
@@ -135,8 +136,6 @@
 ### 개채 인식 필터(NER Filter)
 
 > 개체 인식 필터에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
-ㅜ
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
