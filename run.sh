@@ -2,7 +2,7 @@
 
 web_docker_secret="./WEB(BE)/web-docker-env"
 web_drf_secret="./WEB(BE)/drf/secrets.json"
-crawler_twitter_secret="./WEB(BE)/crawler/crawler/model/twitter/secrets.py"
+# crawler_twitter_secret="./WEB(BE)/crawler/crawler/model/twitter/secrets.py"
 
 # Check if the credential file exists.
 if [ -s $web_docker_secret ] ; then
@@ -19,20 +19,20 @@ else
     exit
 fi
 
-if [ -s $crawler_twitter_secret ] ; then
-    :
-else
-    echo "[!] The '$crawler_twitter_secret' file does not exist or is empty!"
-    while true; do
-        read -p "Do you want to exclude Twitter from crawling list? (Y/N) : " yn
-        case $yn in
-            [Yy]* )
-                break;;
-            [Nn]* ) exit;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
-fi
+# if [ -s $crawler_twitter_secret ] ; then
+#     :
+# else
+#     echo "[!] The '$crawler_twitter_secret' file does not exist or is empty!"
+#     while true; do
+#         read -p "Do you want to exclude Twitter from crawling list? (Y/N) : " yn
+#         case $yn in
+#             [Yy]* )
+#                 break;;
+#             [Nn]* ) exit;;
+#             * ) echo "Please answer yes or no.";;
+#         esac
+#     done
+# fi
 
 
 # Build & Run NLP Server
@@ -46,19 +46,19 @@ echo [+] NLP Server started!
 
 # Build & Run Analyzer
 
-echo [+] Building Analyzer Server...
-cd "./WEB(BE)"
-sudo docker-compose -f analyzer-docker-compose.yml up --build -d
-cd ../
+# echo [+] Building Analyzer Server...
+# cd "./WEB(BE)"
+# sudo docker-compose -f analyzer-docker-compose.yml up --build -d
+# cd ../
 
 
 # Wait until crawling and analyzing done
 
-echo [+] Wait until crawling and analyzing done... \(This might take tens of minutes to complete.\)
-until [ "`sudo docker inspect -f {{.State.Status}} analyzer_service`" = "exited" ]; do
-    sleep 5;
-done;
-echo [+] Crawling and analyzing done!
+# echo [+] Wait until crawling and analyzing done... \(This might take tens of minutes to complete.\)
+# until [ "`sudo docker inspect -f {{.State.Status}} analyzer_service`" = "exited" ]; do
+#     sleep 5;
+# done;
+# echo [+] Crawling and analyzing done!
 
 
 # Build React
