@@ -27,29 +27,27 @@ const RiskReport = (props) => {
   const [isPending, setPending] = React.useState(true);
   const error = false;
 
-  useEffect(() => {
-    const searchUrl = '/api/nlp/report/';
-    const exampleSearchUrl = '/static/ReportData.example.json';
+  const loadData = async () => {
 
-    if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
-      client.get(exampleSearchUrl).then((data) => {
-        console.log(data.data);
-        setData(data.data);
-        setPending(false);
-      });
-    } else {
-      client
-        .post(searchUrl, {
-          articleIds: getCart().length ? getCart() : [30, 40, 50],
-          period: 24,
-          time: new Date().toTimeString(), // "uniqueness parameter"
-        })
-        .then((data) => {
-          console.log(data.data);
-          setData(data.data);
-          setPending(false);
-        })
-    }
+    const searchUrl = '/api/nlp/report/';
+
+    client.post(searchUrl, {
+      articleIds: getCart().length ? getCart() : [30, 40, 50],
+      period: 24,
+      time: new Date().toTimeString(), // "uniqueness parameter"
+    });
+
+    const data = await client.post(searchUrl, {
+      articleIds: getCart().length ? getCart() : [30, 40, 50],
+      period: 24,
+      time: new Date().toTimeString(), // "uniqueness parameter"
+    })
+    await setData(data.data);
+    await setPending(false);
+  }
+
+  useEffect(() => {
+    loadData();
   }, []);
 
   const pdfExportComponent = useRef(null);
