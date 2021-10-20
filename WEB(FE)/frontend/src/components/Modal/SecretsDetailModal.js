@@ -64,7 +64,7 @@ export default function SecretsDetailModal(props) {
             <hr align="left" />
           </Typography>
           <Stack direction="row" justifyContent="flex-end" spacing={1}>
-            <Chip
+            {/* <Chip
               style={{ borderRadius: '6px' }}
               variant="outlined"
               aria-label="add to scrap"
@@ -79,13 +79,14 @@ export default function SecretsDetailModal(props) {
               onClick={() => analyzePage(data._id)}
               icon={<AnalyzeIcon />}
               label="Analyze"
-            />
+            /> */}
 
             <Chip
               style={{ borderRadius: '6px' }}
               variant="outlined"
               onClick={() => {
-                window.open(data.site_url, '_blank').focus();
+                let url = (data.category === 'sns') ? ('https://twitter.com/search?q=' + data.author + '&src=typed_query&f=user') : data.site_url;
+                window.open(url, '_blank').focus();
               }}
               icon={<NavigationIcon sx={{ mr: 1 }} />}
               label="Source"

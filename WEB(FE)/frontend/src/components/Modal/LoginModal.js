@@ -75,12 +75,49 @@ const LoginModal = (props) => {
     color: 'white',
   };
 
+  const onClick = () => {
+    alert('데모 버전에서는 제공하지 않는 기능입니다')
+  };
+
+  const fetchLoginApi = (e) => {
+    fetch('/api/user/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.token) {
+          props.userHasAuthenticated(
+            true,
+            data.username,
+            json.token
+          );
+          alert('환영합니다.' + username + '님.');
+          history.push('/presstrends');
+          props.setModal(true);
+          console.log(json);
+        } else {
+          alert('아이디 또는 비밀번호를 확인해주세요.');
+        }
+      })
+      .catch((error) => alert(error));
+  }
+
+  const keyDown = (e) => {
+    if (e.key === 'Enter')
+      fetchLoginApi();
+  }
+
   return (
     <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
         <Grid align="left">
           <h1 style={{ fontSize: '32px' }}>로그인</h1>
         </Grid>
+
         <form onSubmit={onSubmit}>
           <Grid align="center">
             <Box
@@ -134,7 +171,8 @@ const LoginModal = (props) => {
         {/* <br /> */}
         <Typography align="center" variant="subtitle1">
           <Link
-            href="/register"
+            // href="/register"
+            onClick={onClick}
             sx={{ textDecoration: 'none', color: '#3a8ffb' }}
           >
             RISKOUT 회원이 아닌가요? 지금 가입하세요.
