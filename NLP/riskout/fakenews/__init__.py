@@ -1,2 +1,0 @@
-from .fakenews_classifier import FakeNewsClassifier
-from .fakenews_classifier import get_tokenizer

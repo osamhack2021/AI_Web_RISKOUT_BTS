@@ -1,10 +1,8 @@
 #!/bin/bash
 
-web_docker_secret="./WEB/backend/web-docker-env"
-web_drf_secret="./WEB/backend/drf/secrets.json"
-crawler_twitter_secret="./WEB/backend/crawler/crawler/model/twitter/secrets.py"
-crawler_setting="./WEB/backend/crawler/crawler/setting.py"
-crawler_site_instance="./WEB/backend/crawler/crawler/model/siteInstanceServer.py"
+web_docker_secret="./WEB(BE)/web-docker-env"
+web_drf_secret="./WEB(BE)/drf/secrets.json"
+crawler_twitter_secret="./WEB(BE)/crawler/crawler/model/twitter/secrets.py"
 
 # Check if the credential file exists.
 if [ -s $web_docker_secret ] ; then
@@ -40,7 +38,7 @@ fi
 # Build & Run NLP Server
 
 echo [+] Building NLP Server...
-cd ./NLP
+cd "./AI(BE)"
 sudo docker-compose up --build -d
 cd ../
 echo [+] NLP Server started!
@@ -49,7 +47,7 @@ echo [+] NLP Server started!
 # Build & Run Analyzer
 
 echo [+] Building Analyzer Server...
-cd ./WEB/backend
+cd "./WEB(BE)"
 sudo docker-compose -f analyzer-docker-compose.yml up --build -d
 cd ../
 
@@ -66,14 +64,14 @@ echo [+] Crawling and analyzing done!
 # Build React
 
 echo [+] Building React...
-mkdir -p ./drf/build
-mkdir -p ./drf/staticfiles
-cd ./frontend
-npm i
-npm run build
-rm -rf ../backend/drf/build/*
-cp -r ./build ../backend/drf/
-cd ../backend
+mkdir -p "./WEB(BE)/drf/build"
+mkdir -p "./WEB(BE)/drf/staticfiles"
+cd "./WEB(FE)/frontend"
+yarn
+yarn build
+rm -rf "../../WEB(BE)/drf/build/"
+cp -r ./build "../../WEB(BE)/drf/"
+cd "../../WEB(BE)"
 
 
 # Build & Run Django Server

@@ -1,0 +1,22 @@
+.period-select {
+  /* display: inline-block; */
+  vertical-align: middle;
+  /* margin-left: 25px; */
+}
+
+.period-select .MuiToggleButton-root {
+  float: left;
+  background: #fff;
+  color: #000;
+  height: 2em;
+  width: 5em;
+  margin-right: 6px;
+  font-size: 13px;
+  line-height: 45px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.period-select .MuiToggleButton-root:last-child {
+  margin-right: 0;
+}

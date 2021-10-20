@@ -1,0 +1,14 @@
+.k-pdf-export#sub_contents {
+  /* border: 2px dashed #aaa; */
+  padding: 80px;
+  /* background-color: red; */
+}
+
+.k-pdf-export#sub_contents > div > div.MuiGrid-root {
+  width: 100%;
+}
+
+.k-pdf-export#sub_contents .MuiCard-root > div {
+  padding-left: 0;
+  margin-left: 0;
+}

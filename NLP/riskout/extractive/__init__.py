@@ -1,1 +1,0 @@
-from .extraction import ExtractiveSummarizer

@@ -11,8 +11,8 @@ secrets.json
 database.db
 
 # commit empty dir
-WEB/backend/data/db/*
-!WEB/backend/data/db/.gitkeep
+WEB(BE)/data/db/*
+!WEB(BE)/data/db/.gitkeep
 
 # keep twitter api secrets
 # WEB/backend/crawler/crawler/model/twitter/secrets
@@ -251,6 +251,8 @@ psd
 thumb
 sketch
 
+kendo-ui-license.txt
+
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
 [Bb]in
@@ -263,3 +265,5 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/django,react,python,venv
+.env.development
+.env.production

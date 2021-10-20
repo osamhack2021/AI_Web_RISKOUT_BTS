@@ -1,0 +1,180 @@
+{
+  "response": [
+    {
+      "text": "말하다",
+      "value": 512
+    },
+    {
+      "text": "실수",
+      "value": 1024
+    },
+    {
+      "text": "생각",
+      "value": 16
+    },
+    {
+      "text": "나쁜",
+      "value": 17
+    },
+    {
+      "text": "정확한",
+      "value": 10
+    },
+    {
+      "text": "날",
+      "value": 54
+    },
+    {
+      "text": "처방",
+      "value": 12
+    },
+    {
+      "text": "시간",
+      "value": 77
+    },
+    {
+      "text": "것",
+      "value": 45
+    },
+    {
+      "text": "왼쪽",
+      "value": 19
+    },
+    {
+      "text": "지불하다",
+      "value": 13
+    },
+    {
+      "text": "사람",
+      "value": 32
+    },
+    {
+      "text": "월",
+      "value": 22
+    },
+    {
+      "text": "다시",
+      "value": 35
+    },
+    {
+      "text": "리뷰",
+      "value": 24
+    },
+    {
+      "text": "전화",
+      "value": 38
+    },
+    {
+      "text": "의사",
+      "value": 70
+    },
+    {
+      "text": "물었다",
+      "value": 26
+    },
+    {
+      "text": "마침내",
+      "value": 14
+    },
+    {
+      "text": "보험",
+      "value": 29
+    },
+    {
+      "text": "주",
+      "value": 41
+    },
+    {
+      "text": "요청하다",
+      "value": 49
+    },
+    {
+      "text": "문제",
+      "value": 20
+    },
+    {
+      "text": "가다",
+      "value": 59
+    },
+    {
+      "text": "도움",
+      "value": 49
+    },
+    {
+      "text": "느꼈다",
+      "value": 45
+    },
+    {
+      "text": "불편함",
+      "value": 11
+    },
+    {
+      "text": "적은",
+      "value": 22
+    },
+    {
+      "text": "심각한",
+      "value": 12
+    },
+    {
+      "text": "자유",
+      "value": 38
+    },
+    {
+      "text": "나은",
+      "value": 54
+    },
+    {
+      "text": "근육",
+      "value": 14
+    },
+    {
+      "text": "목",
+      "value": 41
+    },
+    {
+      "text": "뿌리",
+      "value": 24
+    },
+    {
+      "text": "조정하다",
+      "value": 16
+    },
+    {
+      "text": "테라피",
+      "value": 29
+    },
+    {
+      "text": "부상",
+      "value": 20
+    },
+    {
+      "text": "극심한",
+      "value": 10
+    },
+    {
+      "text": "치유",
+      "value": 59
+    },
+    {
+      "text": "이",
+      "value": 32
+    },
+    {
+      "text": "통합",
+      "value": 10
+    },
+    {
+      "text": "허브",
+      "value": 13
+    },
+    {
+      "text": "운동",
+      "value": 22
+    },
+    {
+      "text": "외과",
+      "value": 41
+    }
+  ]
+}

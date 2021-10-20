@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  analyzer:
+    container_name: analyzer_service
+    build:
+      context: .
+      dockerfile: ./analyzer-dockerfile
+    volumes:
+      - ./analyzer:/analyzer
+      - ./crawler:/crawler
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    entrypoint: ["/bin/bash","-c"]
+    command:
+      - |
+        pip install --no-cache-dir -r /analyzer/requirements.txt
+        python -u /crawler/main.py
+        python -u /analyzer/analyzer.py
+    depends_on:
+      - mongo
+      - mongo-seed
+
+  mongo:
+    container_name: mongo_service
+    image: mongo:4.4
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "8001:27017"
+  
+  mongo-seed:
+    container_name: mongo-seed_service
+    build:
+      context: .
+      dockerfile: ./mongo-seed-dockerfile
+    depends_on:
+      - mongo
+
+  analyzer-restarter:
+    container_name: analyzer-restarter_service
+    image: docker
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+    command: ["/bin/sh", "-c", "while true; do sleep 3600; docker restart analyzer_service; done"]
+    restart: unless-stopped

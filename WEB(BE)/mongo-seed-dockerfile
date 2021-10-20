@@ -1,0 +1,5 @@
+FROM mongo:4.4
+
+COPY ./data/riskout_db.json /riskout_db.json
+COPY ./data/analyzed_sample.json /analyzed_sample.json
+CMD ["mongoimport", "--host=mongo:27017", "--db=riskout", "--collection=counter", "--jsonArray", "--file=/riskout_db.json"]
