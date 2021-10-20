@@ -35,7 +35,7 @@
 </a>
 	
 <a href='https://openapi.riskout.org/docs'>
-<img src='https://img.shields.io/badge/API-black?style=for-the-badge'>
+<img src='https://img.shields.io/badge/OPEN API-black?style=for-the-badge'>
 </a>
 	
 </div>
