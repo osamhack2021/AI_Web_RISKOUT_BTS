@@ -22,16 +22,16 @@
   
 ### Quick Links
   
-<a href='https://riskout.ithosting.repl.co/'>
-<img src='https://img.shields.io/badge/HOMEPAGE-blue?style=for-the-badge'>
+<a href='https://riskout.org'>
+<img src='https://img.shields.io/badge/HOMEPAGE-gray?style=for-the-badge'>
 </a>
   
 <a href='https://riskout.ithosting.repl.co/'>
 <img src='https://img.shields.io/badge/VIDEO-blue?style=for-the-badge'>
 </a>
   
-<a href='https://riskout.ithosting.repl.co/'>
-<img src='https://img.shields.io/badge/DOCS-lightgrey?style=for-the-badge'>
+<a href='https://navycert.notion.site/RISKOUT-401be9201053401c8654592d4264b6cd'>
+<img src='https://img.shields.io/badge/DOCS-9cf?style=for-the-badge'>
 </a>
 </div>
 
