@@ -31,7 +31,6 @@ export default function useSeacrh() {
         const searchUrl = `/static/SecretData.example.json`;
         client.get(searchUrl).then((data) => {
           setSearchList(data.data);
-          console.log('야효', data.data);
         });
       } else {
         fetch('/api/nlp/analyze/', {
@@ -44,11 +43,9 @@ export default function useSeacrh() {
         })
           .then((res) => res.json())
           .then((json) => {
-            console.log('=========[api/nlp/analyze/]========');
             console.log(json);
           });
       }
     }
-    fetchSearch();
   }, [filterList]);
 }
