@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
-// import client from '../lib/api/client';
-import axios from 'axios'
+import client from '../lib/api/client';
 import '../css/fonts.css';
 
 import ExclusiveSelect from '../components/RiskReport/ExclusiveSelect';
@@ -40,10 +39,10 @@ const RiskReport = (props) => {
         articleIds: getCart().length ? getCart() : [30, 40, 50],
         period: 24,
         time: new Date().toTimeString(), // "uniqueness parameter"
-      })
+      });
       await setData(data.data);
       await setPending(false);
-    }
+    };
     loadData();
   }, []);
 
@@ -161,7 +160,9 @@ const RiskReport = (props) => {
                 <Demo />
                 <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
-                    {data.isDone ? getLineBreakText(data.overview) : '현재 데이터가 존재하지 않습니다.'}
+                    {data.isDone
+                      ? getLineBreakText(data.overview)
+                      : '현재 데이터가 존재하지 않습니다.'}
                   </Typography>
                 </Grid>
                 <Grid item>
