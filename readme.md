@@ -78,6 +78,7 @@
 <h3 id="feature1">위협 대시보드</h3>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG" />
+  <img src="https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif" />
 </p>
 
 ### 오늘의 키워드
