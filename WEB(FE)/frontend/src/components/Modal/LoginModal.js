@@ -55,6 +55,38 @@ const LoginModal = (props) => {
     alert('데모 버전에서는 제공하지 않는 기능입니다')
   };
 
+  const fetchLoginApi = (e) => {
+    fetch('/api/user/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.token) {
+          props.userHasAuthenticated(
+            true,
+            data.username,
+            json.token
+          );
+          alert('환영합니다.' + username + '님.');
+          history.push('/presstrends');
+          props.setModal(true);
+          console.log(json);
+        } else {
+          alert('아이디 또는 비밀번호를 확인해주세요.');
+        }
+      })
+      .catch((error) => alert(error));
+  }
+
+  const keyDown = (e) => {
+    if (e.key === 'Enter')
+      fetchLoginApi();
+  }
+
   return (
     <Box className="loginModalBack">
       <Paper elevation={10} style={paperStyle}>
@@ -83,42 +115,16 @@ const LoginModal = (props) => {
               required
               variant="outlined"
               onChange={handlePasswordChange}
+              onKeyDown={keyDown}
             />
           </Box>
           {/* */}
           <Link sx={{ textDecoration: 'none' }}>
             <Button
-              type="submit"
               variant="contained"
               style={btnstyle}
               className="JoinLoign-button"
-              onClick={(e) => {
-                e.preventDefault();
-                fetch('/api/user/login/', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data),
-                })
-                  .then((res) => res.json())
-                  .then((json) => {
-                    if (json.token) {
-                      props.userHasAuthenticated(
-                        true,
-                        data.username,
-                        json.token
-                      );
-                      alert('환영합니다.' + username + '님.');
-                      history.push('/presstrends');
-                      props.setModal(true);
-                      console.log(json);
-                    } else {
-                      alert('아이디 또는 비밀번호를 확인해주세요.');
-                    }
-                  })
-                  .catch((error) => alert(error));
-              }}
+              onClick={fetchLoginApi}
             >
               로그인
             </Button>
