@@ -312,7 +312,7 @@ def main():
         if tup[9] not in date_list:
             date_list.append(tup[9])
 
-    for date in date_list:
+    for date in date_list[:len(date_list) - 1]:
         cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0 AND category = 'news' AND created_at = ?", (date,))
         ranked_list = dataRanker(cur.fetchall())
         
@@ -321,7 +321,8 @@ def main():
             cur.execute("UPDATE CrawlContents SET isAnalyzed = 1 WHERE isAnalyzed = 0 AND category = 'news' AND created_at = ?", (date,))
             conn.commit()
     
-    cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0") # news는 이미 analyzed 되었기 때문에 sns와 community만 남는다
+    # 오늘 이전의 news는 이미 analyzed 되었기 때문에 "크롤링 시점 오늘 뉴스 전부", sns, community가 남는다
+    cur.execute("SELECT * FROM CrawlContents WHERE isAnalyzed = 0") 
     important_data_list.extend(cur.fetchall())
 
 
