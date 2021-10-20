@@ -12,6 +12,8 @@ services:
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
+    networks:
+      - demo-was
 
   web:
     container_name: web_service
@@ -37,3 +39,10 @@ services:
        gunicorn drf.wsgi:application --bind 0.0.0.0:8002 --workers=4 --threads=4 --worker-class=gthread
     expose:
       - "8002"
+    networks:
+      - demo-was
+
+networks:
+  demo-was:
+    external:
+     name: demo_network

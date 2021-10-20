@@ -2,9 +2,16 @@ version: "3.3"
 
 services:
   nlptools:
+    container_name: nlptools_service
     build:
       context: .
       dockerfile: ./Dockerfile
     expose:
       - "8000"
     restart: always
+    networks:
+      - demo-nlp
+
+networks:
+  demo-nlp:
+    name: demo_network
