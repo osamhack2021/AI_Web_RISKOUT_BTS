@@ -3,25 +3,25 @@
     {
       "id": 1,
       "trueScore": 0.6,
-      "title": "9월 수출 558억 달러, 65년 무역 역사상 최고치…두 달 만에 기록 경신",
-      "date": "2021-10-01",
-      "site_url": "https://www.naver.com",
+      "title": "수도권 최대 8명 허용..영업시간 일부 확대",
+      "date": "2021-10-16",
+      "site_url": "https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=214&aid=0001154132",
       "emotionFilled": 0.9
     },
     {
       "id": 2,
       "trueScore": 0.2,
-      "title": "억지 부리지 말라”…野주자들, 이준석 때린 조수진 질타",
-      "date": "2021-10-01",
-      "site_url": "https://www.naver.com",
+      "title": "울릉도는 확진자 다녀가도 확진자 안 나와.. 염분이 코로나 19 바이러스 박멸",
+      "date": "2021-10-16",
+      "site_url": "https://news.v.daum.net/v/20201130102122336",
       "emotionFilled": 0.15
     },
     {
       "id": 3,
       "trueScore": 0.4,
-      "title": "급성 복통으로 출석 미룬 유동규…검찰, 응급실서 체포",
-      "date": "2021-10-01",
-      "site_url": "https://www.naver.com",
+      "title": "어젠 반팔, 오늘은 패딩…가을도 없이 돌연 한파 온 이유",
+      "date": "2021-10-16",
+      "site_url": "https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=025&aid=0003142854&rankingType=RANKING",
       "emotionFilled": 0.55
     }
   ]
