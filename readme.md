@@ -226,7 +226,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 ```
 
 **Secret 파일들**을 작성합니다.
-> **Secret 파일 작성**에 관해서는 [여기서](https://github.com/create-go-app/cli/tree/v2) 확인하세요.
+> **Secret 파일 작성**에 관해서는 [여기서](https://navycert.notion.site/851fa5b94b874ddbbd12652ad3a81542) 확인하세요.
 
 프로젝트를 빌드 및 실행합니다.
 ```bash
