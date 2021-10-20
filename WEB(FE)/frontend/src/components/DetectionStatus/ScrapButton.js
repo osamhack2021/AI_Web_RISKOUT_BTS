@@ -4,15 +4,12 @@ import { FiFilePlus, FiFileMinus } from 'react-icons/fi';
 import { IconButton } from '@mui/material';
 
 const ScrapButton = (props) => {
-  const { handleScrap, isAlreadyScrapped } = props;
-  const [isScrapped, setScrapped] = useState(false);
-  const color = isScrapped || isAlreadyScrapped ? 'disabled' : 'primary';
+  const { toggleScrap, isAlreadyScrapped } = props;
+  const [isScrapped, setScrapped] = useState(isAlreadyScrapped);
+  const color = isScrapped ? 'disabled' : 'primary';
 
   const handleClick = () => {
-    if (isScrapped || isAlreadyScrapped) {
-      return;
-    }
-    handleScrap();
+    toggleScrap(!isScrapped);
     setScrapped(!isScrapped);
   };
 

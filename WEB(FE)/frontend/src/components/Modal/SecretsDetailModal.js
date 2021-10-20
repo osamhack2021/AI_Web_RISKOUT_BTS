@@ -28,7 +28,7 @@ const style = {
 };
 
 export default function SecretsDetailModal(props) {
-  const { isOpen, setOpen, data, scrapArticle, analyzePage } = props;
+  const { isOpen, setOpen, data, toggleScrap, analyzePage } = props;
   const { isSaved, setSaved } = useState(false);
   const entityNames = Object.entries(data.entities).flatMap((x) => x[1]);
   // console.log(entityNames, getHighlightedText);
@@ -68,7 +68,7 @@ export default function SecretsDetailModal(props) {
               style={{ borderRadius: '6px' }}
               variant="outlined"
               aria-label="add to scrap"
-              onClick={() => scrapArticle(data._id)}
+              onClick={() => toggleScrap(data._id)}
               icon={<AddIcon />}
               label="Save"
             />
@@ -92,7 +92,7 @@ export default function SecretsDetailModal(props) {
             />
           </Stack>
           {/* <Link href="#" color="inherit" underline="hover">Page Analysis</Link>
-                    <Button onClick={scrapArticle}>Save article</Button> */}
+                    <Button onClick={toggleScrap}>Save article</Button> */}
 
           <Typography
             id="secrets-modal-description"
