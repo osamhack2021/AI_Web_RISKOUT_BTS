@@ -132,13 +132,14 @@
 
 > 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
-개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 인식, 보다 세부적인 분석을 도와주는 검색 필터로  제공합니다.
+개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 추출, 보다 세부적인 분석을 할 수 있게 도와주는 검색 필터로 제공합니다.
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
 <h3 id="feature3">자동 보고서 생성</h3>
 
 > 보고서 생성에 대한 세부적인 내용은 [여기](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e)에서 확인하실 수 있습니다.
+
 사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.
 <p align="center">
 </p>
