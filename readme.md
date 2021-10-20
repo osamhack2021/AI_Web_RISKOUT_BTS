@@ -132,7 +132,7 @@
 
 > 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
-개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 인식, 보다 세부적인 분석을 도와주는 검색 필터를 제공합니다.
+개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 인식, 보다 세부적인 분석을 도와주는 검색 필터로  제공합니다.
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
