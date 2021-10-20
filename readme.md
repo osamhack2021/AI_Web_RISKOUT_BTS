@@ -184,12 +184,12 @@
 ### AI
 - [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
   - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
-  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개채명인식)에 사용.
+  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개체명인식)에 사용.
 - 사용한 데이터셋:
   - [`Naver-nsmc`](https://github.com/e9t/nsmc) — 감성분석모델에 사용한 데이터셋.
   - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — 한국어 문서 추출요약에 사용한 데이터셋.
   - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — 가짜뉴스 판별에 사용한 데이터셋.
-  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개채명인식)에 사용한 데이터셋.
+  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개체명인식)에 사용한 데이터셋.
 - [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
   - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공.
   - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현.
