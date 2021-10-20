@@ -33,6 +33,11 @@
 <a href='https://navycert.notion.site/RISKOUT-401be9201053401c8654592d4264b6cd'>
 <img src='https://img.shields.io/badge/DOCS-9cf?style=for-the-badge'>
 </a>
+	
+<a href='https://openapi.riskout.org/docs'>
+<img src='https://img.shields.io/badge/API-black?style=for-the-badge'>
+</a>
+	
 </div>
 
 ---
