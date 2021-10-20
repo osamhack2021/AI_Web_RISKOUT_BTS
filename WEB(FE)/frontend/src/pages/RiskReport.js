@@ -29,27 +29,23 @@ const RiskReport = (props) => {
   useEffect(() => {
     const searchUrl = '/api/nlp/report/';
     const exampleSearchUrl = '/static/ReportData.example.json';
-
-    setPending(true);
-    if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
-      client.get(exampleSearchUrl).then((data) => {
-        console.log(data.data);
-        setData(data.data);
+    async function fetchReport() {
+      if (process.env.REACT_APP_USE_STATIC_RESPONSE == 'True') {
+        const response = await client.get(exampleSearchUrl);
+        setData(response.data);
         setPending(false);
-      });
-    } else {
-      client
-        .post(searchUrl, {
+      } else {
+        const response = await client.post(searchUrl, {
           articleIds: getCart().length ? getCart() : [30, 40, 50],
           period: 24,
           time: new Date().toTimeString(), // "uniqueness parameter"
-        })
-        .then((data) => {
-          console.log(data.data);
-          setData(data.data);
-          setPending(false);
         });
+        console.log(response.data);
+        setData(response.data);
+        setPending(false);
+      }
     }
+    fetchReport();
   }, []);
 
   const pdfExportComponent = useRef(null);
@@ -91,6 +87,8 @@ const RiskReport = (props) => {
         loadingScreen
       ) : error ? (
         errorScreen
+      ) : !data ? (
+        '데이터가 없습니다.'
       ) : (
         <>
           <PdfExportButton exportTarget={pdfExportComponent} />
@@ -128,7 +126,7 @@ const RiskReport = (props) => {
                 </Grid>
                 <Grid item pb={3}>
                   <Typography sx={{ fontSize: '20px' }}>
-                    {getLineBreakText(data.overview)}
+                    {data.overview ? getLineBreakText(data.overview) : ''}
                   </Typography>
                 </Grid>
                 <Grid item>
