@@ -167,41 +167,54 @@ export default function DetectionTable({ showDetailModal, toggleScrap }) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {contents &&
-            (rowsPerPage > 0
-              ? contents.slice(
-                  page * rowsPerPage,
-                  page * rowsPerPage + rowsPerPage
-                )
-              : contents
-            ).map((article, id) => (
-              <SecretsTableRow
-                key={id}
-                isAlreadyScrapped={isInCart(article._id)}
-                {...{ article, showDetailModal, toggleScrap }}
-              />
-            ))}
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[4]}
-              colSpan={4}
-              count={contents.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
+        {contents || isDone ? (
+          <>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? contents.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : contents
+              ).map((article, id) => (
+                <SecretsTableRow
+                  key={id}
+                  article={article}
+                  showDetailModal={showDetailModal}
+                  scrapArticle={scrapArticle}
+                />
+              ))}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[4]}
+                  colSpan={4}
+                  count={contents.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </>
+        ) : (
+          <TableBody>
+            <TableCell></TableCell>
+            <TableCell align="center">
+              <Typography>현재 데이터가 존재하지 않습니다.</Typography>
+            </TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+          </TableBody>
+        )}
       </Table>
     </TableContainer>
   );
