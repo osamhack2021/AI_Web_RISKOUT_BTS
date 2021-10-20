@@ -17,7 +17,6 @@ import {
 import SecretsTableRow from './SecretsTableRow';
 import { searchState, useContents } from '../../atoms/searchState';
 import { useSessionStorage } from '../../js/util';
-import { useContents } from '../../atoms/searchState';
 import useSearchInitEffect from '../../hooks/useSearchInitEffect';
 
 import { useTheme } from '@mui/material/styles';

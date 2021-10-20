@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Box, Grid, Typography, Skeleton, Divider } from '@mui/material';
 import client from '../lib/api/client';
 import '../css/fonts.css';
@@ -11,7 +11,6 @@ import Graphs from '../components/RiskReport/Graphs';
 import ScrappedArticle from '../components/RiskReport/ScrappedArticle';
 import Demo from '../components/Demo';
 import { useHistory } from 'react-router';
-import { darkTheme, palette } from '../darkTheme';
 
 const RiskReport = (props) => {
   const history = useHistory();
@@ -22,9 +21,9 @@ const RiskReport = (props) => {
   }
 
   const [getCart, addCart] = useSessionStorage('riskoutShoppingCart');
-  const [dateRange, setDateRange] = React.useState('all'); // for period select
-  const [data, setData] = React.useState({});
-  const [isPending, setPending] = React.useState(true);
+  const [dateRange, setDateRange] = useState('all'); // for period select
+  const [data, setData] = useState({});
+  const [isPending, setPending] = useState(true);
   const error = false;
 
   useEffect(() => {
@@ -36,16 +35,17 @@ const RiskReport = (props) => {
         setData(response.data);
         setPending(false);
       } else {
+        setPending(true);
         const response = await client.post(searchUrl, {
           articleIds: getCart().length ? getCart() : [30, 40, 50],
           period: 24,
           time: new Date().toTimeString(), // "uniqueness parameter"
         });
-        console.log(response.data);
         setData(response.data);
         setPending(false);
       }
     }
+    fetchReport();
     fetchReport();
   }, []);
 
