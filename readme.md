@@ -224,7 +224,7 @@
 
 ```bash
 1. git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
-2. 'secret 파일들 작성'
+2. __secret 파일들 작성__
 3. ./run.sh
 4. http://localhost:8002 접속
 ```
