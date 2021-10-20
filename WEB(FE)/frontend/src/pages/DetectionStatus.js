@@ -67,7 +67,7 @@ export default function DetectionStatus() {
     } else {
       removeCart(_id);
       message = article.title ? article.title : 'Twitter Article';
-      message = 'Removed article | ' + article.title;
+      message = 'Removed article | ' + message;
       variant = 'default';
     }
     enqueueSnackbar(message, {
