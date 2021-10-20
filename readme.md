@@ -348,5 +348,8 @@
 
 프로젝트 RISKOUT은 MIT License를 따르고 있습니다.
 
-<br />![iOS 이미지](https://user-images.githubusercontent.com/55467050/137704748-135d4f74-bbf8-44ef-b366-e9f6f6fbb298.jpg)
+<br />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/55467050/138046262-7102663a-e3e7-4b40-b386-d0bfe463c31f.jpg" />
+</p>
 
