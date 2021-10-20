@@ -220,7 +220,7 @@
 
 먼저, **node.js**, **yarn**, **docker**, 그리고 **docker-compose**를 다운로드하세요. **node.js**는 버전 `14.x`이상이어야 합니다.
 
-프로젝트를 Clone 합니다.
+프로젝트를 **Clone** 합니다.
 ```bash
 git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 ```
