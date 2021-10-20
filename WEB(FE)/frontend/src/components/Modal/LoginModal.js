@@ -52,7 +52,7 @@ const LoginModal = (props) => {
   };
 
   const onClick = () => {
-    alert('데모 버전에서는 제공하지 않는 기능입니다')
+    alert('베타 버전은 사전에 승인된 인원만 사용 가능합니다.')
   };
 
   const fetchLoginApi = (e) => {
