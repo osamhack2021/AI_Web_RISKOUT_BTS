@@ -217,19 +217,25 @@
 
 <h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
 
-#### Analyzer
-1. ```~/WEB/NLP/```로 이동합니다.
-2. run command ```docker-compose up```
-3. Move to ```~/WEB/backend/``` and run command ```chmod a+x analyzer.sh```
-4. Run command ```./analyzer.sh```
 
-#### Django
-1. Move to ```~/WEB/backend/``` and run command ```cp web-docker-env-example web-docker-env```
-2. Edit ```web-docker-env``` with your own credentials.
-3. Move to ```~/WEB/backend/drf/``` and run command ```cp secrets.example.json secrets.json```
-4. Edit ```secrets.json``` with your own credentials.
-5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
-6. Run command ```./web.sh```
+
+
+> **Secret 파일 작성**에 관해서는 [여기서](https://github.com/create-go-app/cli/tree/v2) 확인하세요.
+
+
+```bash
+1. git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
+2. **secret 파일들 작성**
+3. ./run.sh
+4. http://localhost:8002 접속
+```
+
+
+
+
+
+
+
 
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
