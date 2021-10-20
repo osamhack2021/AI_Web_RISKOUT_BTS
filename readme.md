@@ -9,7 +9,7 @@
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
   
-<img src='https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo'>
+<img src='https://img.shields.io/badge/License-MIT-black?style=for-the-badge&logo'>
   
 </a>
 
