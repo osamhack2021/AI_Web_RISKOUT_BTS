@@ -1,5 +1,5 @@
 
-# RISKOUT - 국방 리스크 관리 플랫폼 
+# RISKOUT - All-in-One 국방 리스크 관리 플랫폼 
 
 <div align='center'>
 <img src='https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG'>
@@ -46,7 +46,7 @@
       <ul>
         <li><a href="#여론 현황 대시보드">여론 현황 대시보드</a></li>
         <li><a href="#feature2">위협 탐지</a></li>
-        <li><a href="#feature3">맞춤형 보고서 생성</a></li>
+        <li><a href="#feature3">자동 보고서 생성</a></li>
       </ul>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
     <li><a href="#techniques"> ➤ 기술 스택 (Techniques Used)</a></li>
@@ -59,23 +59,24 @@
 
 <h2 id="about-the-project"> :monocle_face: 프로젝트 소개</h2>
 
-> 현재 군대에서는, 군 관련 허위 기사나 인터넷에 유포된 기밀글들을 추려내기 위해, 각종 신문에서 군 관련 기사들을 일일히 오려 내고, 여러 사이트들을 캡처합니다. 모은 자료들은 사람이 하나하나 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리하여 대응팀한테 넘기는 등, 번거로운 작업들을 반복하고 있습니다.
-그러다보니 놓치는 사항이 발생하거나 개인적인 편향이 보고서에 포함되는 등의 문제가 발생할 수 있습니다.
+> 군대에게는 여러 risk(위협)들이 존재합니다. 스파이, 해커, 테러리스트 등의 외부적인 위협들도 존재하지만, 시스템이 잘 구축된 현재의 군대에게 실질적인 위협은 군사 기밀 유출, 허위 기사, 악성 게시글 등의 내부적인 위협들입니다. 그럼 군대는 이런 내부 위협들을 어떻게 식별하고 관리할까요? 
 > 
-> 저희 BTS (방탄수병단)은 이 모든 과정을 자동화시켰습니다. RISKOUT은 인공지능으로 유출된 기밀을 찾아주고, 허위기사를 판별하는 플랫폼입니다. 찾은 문제의 글은 사용자가 커스텀 가능한 맞춤형 보고서로 출력됩니다.
-이를 통해 정확도 보장, 인력 감축, 속도 향상 등의 효과 를 얻게 됩니다.
-
+> 담당 부서에서 근무하고 있는 동기병에 따르면, 현재 군대에서는 인터넷에 유출된 기밀글들 및 허위 기사등의 악성글을 추려내기 위해 24시간동안 여러 포털 사이트에서 무한정 검색 및 캡처하고 각종 신문에서 군 관련 기사들을 일일히 오려냅니다. 모은 자료들은 사람이 하나하나 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리하여 대응팀한테 넘기는 등 고된 작업들을 반복하고 계십니다.
+그러다보니 놓치는 일이 발생하거나, 개개인의 판단으로는 허위 기사등을 정확하게 식별하지 못할 수 있습니다.
+>
+> 그래서 생각했습니다. 군사 기밀 및 허위글등의 악성글들을 자동으로 찾아주고 정리해주는 All-in-One 플랫폼을 만들어보자.
 
 <h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
 
 **3가지 핵심기능** 은 다음과 같습니다.
 
-* [**`💀 여론 현황 대시보드`**](https://riskout.ithosting.repl.co/) : [여론의 감정 상태](https://namu.wiki/w/%EC%97%AC%EB%A1%A0), [언론 보도](https://namu.wiki/w/%EC%96%B8%EB%A1%A0) 등을 시각화 시켜서 보여주는 대시보드입니다.
+* [**`💀 위협 대시보드`**](https://riskout.ithosting.repl.co/): 언론 보도 현황 등을 시각화 시켜서 보여주는 대시보드입니다.
 * [**`😤 위협 탐지`**](https://riskout.ithosting.repl.co/) : [군사 기밀 유출](https://namu.wiki/w/%EA%B5%B0%EC%82%AC%EA%B8%B0%EB%B0%80), [허위 기사](https://namu.wiki/w/%EA%B0%80%EC%A7%9C%20%EB%89%B4%EC%8A%A4)를 탐지하여 시각화 해줍니다.
 * [**`📰 맞춤형 보고서 생성`**](https://riskout.ithosting.repl.co/) : 클릭 몇번으로 [보고서](https://namu.wiki/w/%EB%B3%B4%EA%B3%A0%EC%84%9C)를 커스텀 및 생성할 수 있습니다.
 
 
-<h3 id="feature1">여론 현황 대시보드</h3>
+<h3 id="feature1">위협 대시보드</h3>
+> 오늘의 키워드, 기사 현황등 위협을 예측할 수 있을만한 요소들을 시각화하는 대시보드입니다.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/137937349-f9ee1d1f-f8e7-4f9e-8a05-1f4d10a9397c.PNG" />
@@ -83,7 +84,7 @@
 
 ### 오늘의 키워드
 
-> 여론 현황에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 오늘의 키워드에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
 각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 보여주는 [워드 클라우드](https://riskout.ithosting.repl.co)입니다.
 
@@ -94,7 +95,7 @@
 
 > 감정 통계에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
-각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 [막대 차트](https://riskout.ithosting.repl.co)입니다.
+각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어서 표현한 막대 차트입니다.
 
 ![emopie1](https://user-images.githubusercontent.com/55467050/137932804-a974141b-6da4-4626-8c75-c90d64c1d8f9.PNG)
 
@@ -104,7 +105,7 @@
 
 > 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
-가장 많이 언급된 3가지 기사를 진짜, 가짜, 의심으로 판별하여 보여줍니다.
+그날 가장 많이 언급된 3가지 기사를 선정하여 FactCheck를 통해 진실 추정, 중립 추정, 허위 추정으로 판별 및 분류하여 보여줍니다.
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
@@ -127,9 +128,8 @@
 
 ### 기밀 유출 탐지 + 허위 기사 탐지
 
-> 기사 변화량에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
-[기밀 유출 현황](https://riskout.ithosting.repl.co) 및 [허위 기사](https://riskout.ithosting.repl.co)를 인공지능을 통해 분석하여 탐지해내는 페이지입니다. 인공지능은 탐지한 글들을 기반으로 2차적 검사를 실시하여 기밀어, 인물, 장소를 추출해냅니다. 추출한 항목들은 세부 분석을 위해 *커스텀 필터*로 제공됩니다.
+> 탐지 현황에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+기밀 유출 현황 및 허위기사를 인공지능을 통해 자동으로 분석하여 탐지합니다. 이후 빠르게 대응할수 있도록 요약된 내용 및 출처등을 제공합니다.
 
 ![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
@@ -139,27 +139,21 @@
 
 ### 개채 인식 필터(NER Filter)
 
-> 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+> 개체 인식 필터에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
 
-기사들중 나라이름을 추출해 내어, 나라별로 특별한 이벤트가 있는지 지도로 보여줍니다.
+ㅜ
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
 
-<h3 id="feature3">맞춤형 보고서 생성</h3>
+<h3 id="feature3">자동 보고서 생성</h3>
 
-> 개체 인식에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
-
+> 보고서 생성에 대한 세부적인 내용은 [여기](https://riskout.ithosting.repl.co)에서 확인하실 수 있습니다.
+사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF등으로 출력가능합니다.
 <p align="center">
 </p>
 
-
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
-
-
-* **기밀 유출 보고** : 기밀 유출 현황을 각종 수치로 시각화시킨 브리핑 보드.
-* **허위 기사 보고** : 사용자가 선택한 허위 기사 탐지글들을 기반으로 제작된 AI 자동 요약본.
-* **허위 기사 개요** : 타임라인으로 구분된 현재까지의 허위 기사 현황.
 
 <h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
 
@@ -239,21 +233,6 @@
 5. Move to ```~/WEB/backend/``` and run command ```chmod a+x web.sh```
 6. Run command ```./web.sh```
 
-## 🚚 로드맵(Road Map)
-
-RISKOUT에 새로운 기능을 보고 싶으시거나 직접 추가해보고 싶으시면 [이슈를 남겨주세요!](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/new) 아래는 저희가 걸어왔던, 그리고 앞으로 나아갈 계획 및 목표입니다:
-
-- [x] [SNS Data Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/115)
-- [x] [News Crawling](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/64)
-- [x] [Data Visualization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/41)
-- [x] [AI Extractive Summarization](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Named-entity recognition](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [x] [Sentiment Classifier](https://github.com/osamhack2021/ai_web_RISKOUT_BTS/issues/1)
-- [ ] [100,000+ 웹사이트 크롤링 기능 구현]()
-- [ ] [10,000+건의 위협 탐지 및 신고]()
-- [ ] [대한민국 전군 RISKOUT 플랫폼 도입]()
-
-RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 남겨주세요.
 
 <h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
 
@@ -367,7 +346,7 @@ RISkOUT(리스크아웃)의 여정에 동참하고 싶으시다면 "Issue"를 �
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
-프로젝트 RISKOUT은 [MIT License](https://en.wikipedia.org/wiki/MIT_License) 를 따르고 있습니다.
+프로젝트 RISKOUT은 MIT License를 따르고 있습니다.
 
 <br />![iOS 이미지](https://user-images.githubusercontent.com/55467050/137704748-135d4f74-bbf8-44ef-b366-e9f6f6fbb298.jpg)
 
