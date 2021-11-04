@@ -9,7 +9,7 @@
   
 <a href='https://github.com/osamhack2021/ai_web_RISKOUT_BTS/blob/master/license.md'>
   
-<img src='https://img.shields.io/badge/License-MIT-black?style=for-the-badge&logo'>
+<img src='https://img.shields.io/badge/License-GPL 3.0-black?style=for-the-badge&logo'>
   
 </a>
 
@@ -350,7 +350,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
-프로젝트 RISKOUT은 MIT License를 따르고 있습니다.
+프로젝트 RISKOUT은 GPL 3.0 License를 따르고 있습니다.
 
 <br />
 <br />
