@@ -2,7 +2,7 @@
 # RISKOUT - 국방 리스크 관리 플랫폼 (Risk Management Platform for Military)
 
 <div align='center'>
-<img src='https://user-images.githubusercontent.com/55467050/138075451-2b49214f-5720-4fc2-9c79-6c52eaad17cc.gif'>
+<img src='https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif'>
 <p>&nbsp;</p>
 <img src='https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge&logo'>
 </a>
