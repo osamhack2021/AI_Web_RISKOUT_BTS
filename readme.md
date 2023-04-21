@@ -48,9 +48,9 @@
     <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
     <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
       <ul>
-        <li><a href="#feature1">위협 대시보드(Risk Dashboard)</a></li>
-        <li><a href="#feature2">위협 탐지(Risk Detection)</a></li>
-        <li><a href="#feature3">보고서 생성(Report Generator)</a></li>
+        <li><a href="#feature1">위협 대시보드 (Risk Dashboard)</a></li>
+        <li><a href="#feature2">위협 탐지 (Risk Detection)</a></li>
+        <li><a href="#feature3">보고서 생성 (Report Generator)</a></li>
       </ul>
     <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
@@ -65,7 +65,7 @@
 
 > 군대에게는 여러 Risk(위협)이 존재합니다. 스파이, 해커, 테러리스트 등의 외부적인 위협도 존재하지만, 시스템이 잘 구축된 현재의 군대의 실질적인 위협은 군사 기밀 유출, 허위 기사, 악성 게시글 등의 내부적인 위협들입니다. 그럼 군대는 이런 내부 위협을 어떻게 식별하고 관리할까요?
 > 
-> 담당 부서에서 근무하고 있는 동기병에 따르면, 현재 군대는 인터넷에 유출된 기밀글 및 허위기사등의 악성글을 추려내기 위해 24시간동안 무한정 검색 및 캡처하고 각종 신문에서 기사들을 일일히 오려냅니다. 모은 자료는 사람이 일일이 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리해서 대응팀한테 넘기는 등 번거로운 작업들을 반복하고 있습니다. 그러다보니 놓치는 일이 발생하거나, 대응이 늦어지는 일이 발생할 수 있습니다.
+> 현재 군대는 인터넷에 유출된 기밀글 및 허위기사등의 악성글을 추려내기 위해 24시간동안 무한정 검색 및 캡처하고 각종 신문에서 기사를 일일히 오려냅니다. 모은 자료는 사람이 일일이 읽어보면서 문제가 될 글들을 식별하고, 보고서로 정리해서 대응팀한테 넘기는 등 번거로운 작업들을 반복하고 있습니다. 그러다보니 놓치는 일이 발생하거나, 대응이 늦어지는 일이 발생할 수 있습니다.
 >
 > 그래서 생각했습니다. 군사기밀 및 허위기사등의 악성글을 자동으로 식별하고 관리 할 수 있는 All-in-One 플랫폼을 만들어보자. RISKOUT이 탄생하게 된 이유입니다.
 
@@ -73,9 +73,9 @@
 
 **3가지 핵심기능**은 다음과 같습니다.
 
-* [**`💀 위협 대시보드 (Risk Dashboard)`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
-* [**`😤 위협 탐지 (Risk Detection)`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
-* [**`📰 보고서 생성 (Report Generator)`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
+* [**`💀 위협 대시보드(Risk Dashboard)`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
+* [**`😤 위협 탐지(Risk Detection)`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
+* [**`📰 보고서 생성(Report Generator)`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
 
 
 <h3 id="feature1">위협 대시보드 (Risk Dashboard)</h3>
