@@ -74,17 +74,17 @@
 
 **3가지 핵심기능**은 다음과 같습니다.
 
-* [**`💀 위협 대시보드`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
-* [**`😤 위협 탐지`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
-* [**`📰 보고서 생성`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
+* [**`💀 위협 대시보드 (Risk Dashboard)`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
+* [**`😤 위협 탐지 (Risk Detection)`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
+* [**`📰 보고서 생성 (Report Generator)`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
 
 
-<h3 id="feature1">위협 대시보드</h3>
+<h3 id="feature1">위협 대시보드 (Risk Dashboard)</h3>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif" />
 </p>
 
-### 오늘의 키워드
+### 오늘의 키워드 (Keywords for Today)
 
 > 오늘의 키워드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -92,7 +92,7 @@
 
 ![words](https://user-images.githubusercontent.com/55467050/137931048-52ce6c3e-ca33-4845-9af4-b282a3ecc6c5.PNG)
 
-### 감정 통계 차트
+### 감정 통계 차트 (Emotion Recognition Chart)
 
 > 감정 통계에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -100,7 +100,7 @@
 
 ![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
-### 오늘의 트렌드
+### 오늘의 트렌드 (Today's Top Trend)
 
 > 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -108,7 +108,7 @@
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
-### 나라별 이벤트
+### 나라별 이벤트 (Events by Country)
 
 > 나라별 이벤트에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -116,7 +116,7 @@
 
 ![events](https://user-images.githubusercontent.com/55467050/137927295-facce426-7fab-44a5-8dc3-e7f02f850586.PNG)
 
-### 기사 변화량
+### 기사 변화량 (Article Variation)
 
 > 기사 변화량에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -133,7 +133,7 @@
 ![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
 
-### 개체 인식 필터(NER Filter)
+### 개체 인식 필터 (NER Filter)
 
 > 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
