@@ -69,9 +69,9 @@
 >
 > 그래서 생각했습니다. 군사기밀 및 허위기사등의 악성글을 자동으로 식별하고 관리 할 수 있는 All-in-One 플랫폼을 만들어보자. RISKOUT이 탄생하게 된 이유입니다.
 
-> There are numerous threats to military. There are external threats such as spies, hackers, terrorists, but the actual threats of current well-established military are internal threats such as leaked secrets, fake articles, and malicious posts. So how does military identify and manage these?
+> There are numerous threats to military. There are external threats such as spies, hackers, terrorists, but the actual threats of current well-established military are internal threats such as leaked secrets, fake news, and malicious posts. So how does military identify and manage these?
 > 
-> Currently, military searches and captures leaked documents and fake news for 24/7 and manually cuts news from newspapers. The collected data is then read and organized by soldiers into reports, finally handing them over to the response team. As a result, missing things or delayed responses may occur.
+> Currently, military searches and captures leaked documents and fake news 24/7 and manually cuts news from newspapers. The collected data is then read and organized by soldiers into reports, finally handing them over to the response team. Due to the long and comoplex process, human error or delayed responses may occur.
 >
 > So I thought. Let's create an all-in-one platform that can automatically identify and manage malicious risks such as leaked secrets and fake news. That's when RISKOUT was born.
 
