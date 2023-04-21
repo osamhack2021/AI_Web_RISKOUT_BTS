@@ -1,5 +1,5 @@
 
-# RISKOUT - 국방 리스크 관리 플랫폼 
+# RISKOUT - 국방 리스크 관리 플랫폼 (Risk Management Platform for Military)
 
 <div align='center'>
 <img src='https://user-images.githubusercontent.com/55467050/138075451-2b49214f-5720-4fc2-9c79-6c52eaad17cc.gif'>
@@ -48,9 +48,9 @@
     <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
     <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
       <ul>
-        <li><a href="#feature1">위협 대시보드</a></li>
-        <li><a href="#feature2">위협 탐지</a></li>
-        <li><a href="#feature3">보고서 생성</a></li>
+        <li><a href="#feature1">위협 대시보드 (Risk Dashboard)</a></li>
+        <li><a href="#feature2">위협 탐지 (Risk Detection)</a></li>
+        <li><a href="#feature3">보고서 생성 (Report Generator)</a></li>
       </ul>
     <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
     <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
@@ -61,7 +61,7 @@
   </ol>
 </details>
 
-<h2 id="about-the-project"> :monocle_face: 프로젝트 소개</h2>
+<h2 id="about-the-project"> :monocle_face: 프로젝트 소개 (Intro)</h2>
 
 > 군대에게는 여러 risk(위협)들이 존재합니다. 스파이, 해커, 테러리스트 등의 외부적인 위협들도 존재하지만, 시스템이 잘 구축된 현재의 군대의 실질적인 위협은 군사 기밀 유출, 허위 기사, 악성 게시글 등의 내부적인 위협들입니다. 그럼 군대는 이런 내부 위협들을 어떻게 식별하고 관리할까요? 
 > 
@@ -350,12 +350,9 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 
 <h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
 
-프로젝트 RISKOUT은 GPL 3.0 License를 따르고 있습니다.
+프로젝트 RISKOUT은 [GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html)를 따르고 있습니다.
 
 <br />
 <br />
 <br />
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/55467050/138046262-7102663a-e3e7-4b40-b386-d0bfe463c31f.jpg" />
-</p>
 
