@@ -124,7 +124,7 @@
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
-<h3 id="feature2">위협 탐지</h3>
+<h3 id="feature2">위협 탐지 (Risk Detection)</h3>
 
 > 탐지 현황에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
@@ -141,7 +141,7 @@
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
-<h3 id="feature3">자동 보고서 생성</h3>
+<h3 id="feature3">자동 보고서 생성 (Automated Report Generation)</h3>
 
 > 보고서 생성에 대한 세부적인 내용은 [여기](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e)에서 확인하실 수 있습니다.
 
@@ -352,7 +352,6 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 
 프로젝트 RISKOUT은 [GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html)를 따르고 있습니다.
 
-<br />
 <br />
 <br />
 
