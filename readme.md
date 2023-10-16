@@ -319,7 +319,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	</a>
 </td>
 <td width="300" align="center">
-<a href="mailto:wblee800@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=wonbinlee00@gmail.com&color=lightblue&style=flat-square&logo=gmail"></a>
+<a href="mailto:wblee800@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=wblee800@gmail.com&color=lightblue&style=flat-square&logo=gmail"></a>
 </tr>
 	
 <tr>
