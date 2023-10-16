@@ -315,7 +315,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 <td width="250">Frontend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/wblee800">
-	<img src="https://img.shields.io/badge/liboto00-655ced?style=social&logo=github"/>
+	<img src="https://img.shields.io/badge/wblee800-655ced?style=social&logo=github"/>
 	</a>
 </td>
 <td width="300" align="center">
