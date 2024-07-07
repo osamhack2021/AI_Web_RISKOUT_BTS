@@ -85,13 +85,13 @@
 
 ### Keywords for Today
 
-> 오늘의 키워드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
+> You can find more details about "Keywords for Today" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-각종 기사글, 게시판 등의 커뮤니티 사이트들을 기반으로 언급 비중이 놓은 단어들을 시각화한 워드 클라우드입니다.
+A word cloud that visualizes the most frequently mentioned words based on various articles, forums, and other communities online.
 
 ![words](https://user-images.githubusercontent.com/55467050/137931048-52ce6c3e-ca33-4845-9af4-b282a3ecc6c5.PNG)
 
-### 감정 통계 차트 (Emotion Recognition Chart)
+### Emotion Recognition Chart
 
 > 감정 통계에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -99,7 +99,7 @@
 
 ![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
-### 오늘의 트렌드 (Today's Top Trend)
+### Today's Top Trend
 
 > 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -107,7 +107,7 @@
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
-### 나라별 이벤트 (Events by Country)
+### Events by Country
 
 > 나라별 이벤트에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -115,7 +115,7 @@
 
 ![events](https://user-images.githubusercontent.com/55467050/137927295-facce426-7fab-44a5-8dc3-e7f02f850586.PNG)
 
-### 기사 변화량 (Article Variation)
+### Article Variation
 
 > 기사 변화량에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
@@ -132,7 +132,7 @@
 ![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
 
-### 개체 인식 필터 (NER Filter)
+### NER Filter
 
 > 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
 
