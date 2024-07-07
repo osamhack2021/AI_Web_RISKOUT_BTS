@@ -1,5 +1,5 @@
 
-# RISKOUT - 국방 리스크 관리 플랫폼 (Risk Management Platform for Military)
+# RISKOUT - Risk Management Platform for Military
 
 <div align='center'>
 <img src='https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif'>
@@ -42,32 +42,26 @@
 
 ---
 
-## :book: 목차 (Table of Contents)
+## :book: Table of Contents
 <details open="open">
   <ol>
-    <li><a href="#about-the-project"> ➤ 프로젝트 소개 (Intro)</a></li>
-    <li><a href="#features"> ➤ 기능 설명 (Features)</a></li>
+    <li><a href="#about-the-project"> ➤ Intro</a></li>
+    <li><a href="#features"> ➤ Features</a></li>
       <ul>
-        <li><a href="#feature1">위협 대시보드 (Risk Dashboard)</a></li>
-        <li><a href="#feature2">위협 탐지 (Risk Detection)</a></li>
-        <li><a href="#feature3">보고서 생성 (Report Generator)</a></li>
+        <li><a href="#feature1">Risk Dashboard</a></li>
+        <li><a href="#feature2">Risk Detection</a></li>
+        <li><a href="#feature3">Report Generator</a></li>
       </ul>
-    <li><a href="#getstarted"> ➤ 프로젝트 사용법 (Getting Started)</a></li>
-    <li><a href="#prerequisites"> ➤ 컴퓨터 구성 / 필수 조건 안내 (Prequisites)</a></li>
-    <li><a href="#techniques"> ➤ 기술 스택 (Techniques Used)</a></li>
-    <li><a href="#Install"> ➤ 설치 안내 (Installation Process)</a></li>
-    <li><a href="#team"> ➤ 팀 정보 (Team Information)</a></li>
-    <li><a href="#license"> ➤ 저작권 및 사용권 정보 (Copyleft / End User License)</a></li>
+    <li><a href="#getstarted"> ➤ Getting Started</a></li>
+    <li><a href="#prerequisites"> ➤ Prequisites</a></li>
+    <li><a href="#techniques"> ➤ Techniques Used</a></li>
+    <li><a href="#Install"> ➤ Installation Process</a></li>
+    <li><a href="#team"> ➤ Team Information</a></li>
+    <li><a href="#license"> ➤ Copyleft / End User License</a></li>
   </ol>
 </details>
 
-<h2 id="about-the-project"> :monocle_face: 프로젝트 소개 (Intro)</h2>
-
-> 군대에게는 여러 Risk(위협)이 존재합니다. 스파이, 해커, 테러리스트 등의 외부적인 위협도 존재하지만, 시스템이 잘 구축된 현재의 군대의 실질적인 위협은 군사 기밀 유출, 허위 기사, 악성 게시글 등의 내부적인 위협들입니다. 그럼 군대는 이런 내부 위협을 어떻게 식별하고 관리할까요?
-> 
-> 현재 군대는 유출된 기밀글 및 허위기사등의 악성글을 추려내기 위해 24시간동안 무한정 검색 및 캡처하고 각종신문에서 기사를 일일히 오려냅니다. 모은 자료는 사람이 읽어보면서 문제가 될 글을 식별하고, 보고서로 정리해서 대응팀한테 넘기는 등 번거로운 작업들을 반복하고 있습니다. 그러다보니 놓치는 일이 발생하거나, 대응이 늦어지는 일이 발생할 수 있습니다.
->
-> 그래서 생각했습니다. 군사기밀 및 허위기사등의 악성글을 자동으로 식별하고 관리 할 수 있는 All-in-One 플랫폼을 만들어보자. RISKOUT이 탄생하게 된 이유입니다.
+<h2 id="about-the-project"> :monocle_face: Intro</h2>
 
 > There are numerous threats to military. There are external threats such as spies, hackers, terrorists, but the actual threats of current well-established military are internal threats such as leaked secrets, fake news, and malicious posts. So how does military identify and manage these?
 > 
