@@ -191,7 +191,7 @@ That's all you need to get started! 🎉
   - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — for Named Entity Recognition (NER).
 - Datasets used:
   - [`Naver-nsmc`](https://github.com/e9t/nsmc) — Datasets used for the sentiment analysis model.
-  - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — Datasets used for Korean document extraction and summarization.
+  - [`Dacon document summarization AI`](https://dacon.io/competitions/official/235671/data) — Datasets used for Korean document extraction and summarization.
   - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — Datasets used for fake news detection.
   - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Datasets used for Named Entity Recognition (NER).
 - [Pytorch](https://pytorch.org/) Libraries used for deep learning build.
