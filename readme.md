@@ -69,21 +69,21 @@
 >
 > So I thought. Let's create an all-in-one platform that can automatically identify and manage malicious risks such as leaked secrets and fake news. That's when RISKOUT was born.
 
-<h2 id="features"> :plate_with_cutlery: 기능 설명 (Features)</h2>
+<h2 id="features"> :plate_with_cutlery: Features</h2>
 
-**3가지 핵심기능**은 다음과 같습니다.
+**3 Main Features are**:
 
-* [**`💀 위협 대시보드(Risk Dashboard)`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): 여론의 감정 상태, 언론 보도 현황등을 시각화해주는 대시보드입니다.
-* [**`😤 위협 탐지(Risk Detection)`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : 군사 기밀 유출, 허위 기사 등의 악성글을 자동으로 탐지분석해주는 위협 탐지페이지 입니다.
-* [**`📰 보고서 생성(Report Generator)`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : 클릭 몇번만으로 커스텀 가능한 위협 보고서를 자동으로 생성해줍니다.
+* [**`💀 Risk Dashboard`**](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a): Dashboard that visualizes public sentiment and the current state of media coverage
+* [**`😤 Risk Detection`**](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d) : Threat detection page that automatically identifies and analyzes malicious posts, such as leaks of military secrets and fake articles
+* [**`📰 Report Generator`**](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e) : Generates customizable threat reports with just a few clicks
 
 
-<h3 id="feature1">위협 대시보드 (Risk Dashboard)</h3>
+<h3 id="feature1">Risk Dashboard</h3>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/138043876-fcd5d91c-fc02-4941-ade1-680ddc3011eb.gif" />
 </p>
 
-### 오늘의 키워드 (Keywords for Today)
+### Keywords for Today
 
 > 오늘의 키워드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
 
