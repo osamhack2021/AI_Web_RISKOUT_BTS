@@ -67,7 +67,7 @@
 > 
 > Currently, military searches and captures leaked documents and fake news 24/7 and manually cuts news from newspapers. The collected data is then read and organized by soldiers into reports, finally handing them over to the response team. Due to the long and complex process, human errors or delayed responses may occur.
 >
-> So I thought. Let's create an all-in-one platform that can automatically identify and manage malicious risks such as leaked secrets and fake news. That's when RISKOUT was born.
+> So we thought. Let's create an all-in-one platform that can automatically identify and manage malicious risks such as leaked secrets and fake news. That's when RISKOUT was born.
 
 <h2 id="features"> :plate_with_cutlery: Features</h2>
 
