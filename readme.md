@@ -87,64 +87,64 @@
 
 > You can find more details about "Keywords for Today" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-A word cloud that visualizes the most frequently mentioned words based on various articles, forums, and other communities online.
+A word cloud that visualizes the most frequently mentioned words based on various articles, news, and various online communities.
 
 ![words](https://user-images.githubusercontent.com/55467050/137931048-52ce6c3e-ca33-4845-9af4-b282a3ecc6c5.PNG)
 
 ### Emotion Recognition Chart
 
-> 감정 통계에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
+> You can find more details about "Emotion Recognition Chart" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-각종 SNS 및 커뮤니티 사이트들을 기반으로 여론의 감정 상태를 분석하여 positive, neutral, negative로 나누어 표현한 차트들입니다.
+Charts that analyze the sentiment of public opinion based on various social media and community sites, categorizing it into positive, neutral, and negative.
 
 ![emopies](https://user-images.githubusercontent.com/55467050/138044572-2d646ec9-1055-43df-8d68-0055744e778a.gif)
 
 ### Today's Top Trend
 
-> 오늘의 트렌드에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
+> You can find more details about "Today's Top Trend" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-그날 가장 많이 언급된 기사들을 선정하여 FactCheck를 통해 진실 추정, 중립 추정, 허위 추정으로 판별 및 분류하여 보여줍니다.
+Selects the most mentioned articles of the day and uses FactCheck to classify and display them as likely true, neutral, or false.
 
 ![trend](https://user-images.githubusercontent.com/55467050/137927004-f375f4ca-7548-494f-ac3d-caa087b6563d.PNG)
 
 ### Events by Country
 
-> 나라별 이벤트에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
+> You can find more details about "Events by Country" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-국제 기사들을 분석해 국가별 이벤트 트래픽을 보여주는 지도입니다.
+A map that analyzes international articles to show event traffic by country.
 
 ![events](https://user-images.githubusercontent.com/55467050/137927295-facce426-7fab-44a5-8dc3-e7f02f850586.PNG)
 
 ### Article Variation
 
-> 기사 변화량에 대한 세부적인 내용은 [여기](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a)에서 확인하실 수 있습니다.
+> You can find more details about "Article Variation" feature [here](https://navycert.notion.site/4a6b066671cc44e78ca5be32b29aa72a).
 
-최근 기사량들을 대조하여 기사량의 변화를 시각화한 차트입니다.
+A chart that visualizes changes in the volume of articles by comparing recent article quantities.
 
 ![num_articles](https://user-images.githubusercontent.com/55467050/137926297-1c4b6417-4507-49e1-8f94-09cde4b437f4.PNG)
 
-<h3 id="feature2">위협 탐지 (Risk Detection)</h3>
+<h3 id="feature2">Risk Detection</h3>
 
-> 탐지 현황에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
+> You can find more details about "Risk Detection" feature [here](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d).
 
-기밀 유출 및 허위기사등의 악성글들을 인공지능을 통해 자동으로 분석하여 탐지합니다. 이후 빠르게 대응할수 있도록 요약된 내용 및 글의 출처 등을 제공합니다.
+Using artificial intelligence, it automatically analyzes and detects malicious posts such as leaks of confidential information and fake articles. It then provides summarized content and sources to enable a quick response.
 
 ![detect](https://user-images.githubusercontent.com/55467050/137923976-61f54c5a-aa1a-4258-a27d-a95eb1620c48.gif)
 
 
 ### NER Filter
 
-> 개체 인식 필터에 대한 세부적인 내용은 [여기](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d)에서 확인하실 수 있습니다.
+> You can find more details about "NER Filter" feature [here](https://navycert.notion.site/503f48a54cfb451a8074ed904140538d).
 
-개체명 인식(Named Entity Recognition) 기술로 사람, 조직, 시간 등의 유형들을 추출, 보다 세부적인 분석을 할 수 있게 도와주는 검색 필터로 제공합니다.
+Utilizes Named Entity Recognition technology to extract types such as people, organizations, and dates, offering search filters to enable more detailed analysis.
 
 ![ner](https://user-images.githubusercontent.com/55467050/137922056-ff4942aa-feba-4a8d-b1c0-76106321b10f.gif)
 
-<h3 id="feature3">자동 보고서 생성 (Automated Report Generation)</h3>
+<h3 id="feature3">Automated Report Generation</h3>
 
-> 보고서 생성에 대한 세부적인 내용은 [여기](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e)에서 확인하실 수 있습니다.
+> You can find more details about "Automated Report Generation" feature [here](https://navycert.notion.site/2726ca50f1ac4d0aae28792aa8ae117e).
 
-사용자가 확인한 위협들을 클릭 몇번만으로 자동으로 정돈 및 요약하여 보고서의 형태로 생성해줍니다. 생성된 보고서는 PDF로 출력가능합니다.
+Automatically organizes and summarizes the threats identified into a report format with just a few clicks. The generated report can be exported as a PDF.
 <p align="center">
 </p>
 
@@ -153,20 +153,20 @@ A word cloud that visualizes the most frequently mentioned words based on variou
 ![report_full](https://user-images.githubusercontent.com/55467050/137937761-929347ff-c8a5-4ac1-8608-bfa8da408e5d.PNG)
 
 
-<h2 id="getstarted"> :zap: 프로젝트 사용법 (Getting Started)</h2>
+<h2 id="getstarted"> :zap: Getting Started</h2>
 
-로그인 하신 후:
+After loggin in:
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/55467050/137937102-0c9940bf-8b78-4a4e-9392-1376d96066cc.PNG" />
 </p>
 
-*축하해요!* *RISKOUT*의 유저가 되셨습니다.
+*Congratulations!* You joined *RISKOUT*!.
 
-이제 사용하실 수 있습니다! 🎉
-- 📺 Full 영상: https://www.youtube.com/watch?v=Lwg-OQIIvGA
+That's all you need to get started! 🎉
+- 📺 Full video: https://www.youtube.com/watch?v=Lwg-OQIIvGA
 
-<h2 id="prerequisites"> :fork_and_knife: 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
+<h2 id="prerequisites"> :fork_and_knife: Prerequisites</h2>
 <h3> :earth_asia: Browser</h3>
 
 | <img src="https://user-images.githubusercontent.com/55467050/137036906-a6c0f879-5b51-49d3-8e02-d01994f64d18.png" alt="Chrome" width="16px" height="16px" /> Chrome | <img src="https://user-images.githubusercontent.com/55467050/137036911-ccb70714-15fc-46fb-a074-19bb769727e9.png" alt="IE" width="16px" height="16px" /> Internet Explorer | <img src="https://user-images.githubusercontent.com/55467050/137036913-033a988f-b9c9-4980-8540-5994cfa7e465.jpg" alt="Edge" width="16px" height="16px" /> Edge | <img src="https://user-images.githubusercontent.com/55467050/137036914-1a1f080e-9fb3-4b29-a143-517be979e78f.png" alt="Safari" width="16px" height="16px" /> Safari | <img src="https://user-images.githubusercontent.com/55467050/137036916-91328771-5dd5-41fb-a842-8562db3c480c.png" alt="Firefox" width="16px" height="16px" /> Firefox |
@@ -181,63 +181,63 @@ A word cloud that visualizes the most frequently mentioned words based on variou
 | 1.9.0+ | 17.0.2+ | 3.0.7+ | 4.4+ | 20.10.x+ | 5.0.1+ |
 <br/>
 
-<h2 id="techniques"> 🧱 기술 스택 (Technique Used)</h2>
+<h2 id="techniques"> 🧱 Technique Used</h2>
 
 ![techstack](https://user-images.githubusercontent.com/55467050/136777598-e5134090-7747-4b5a-9b08-57c111521d6b.PNG)
 
 ### AI
-- [Colab](https://colab.research.google.com/)으로 AI 모델 학습:
-  - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — 감성분석, 가짜뉴스판별, 보고서요약에 사용.
-  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — Named Entity Recognition(개체명인식)에 사용.
-- 사용한 데이터셋:
-  - [`Naver-nsmc`](https://github.com/e9t/nsmc) — 감성분석모델에 사용한 데이터셋.
-  - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — 한국어 문서 추출요약에 사용한 데이터셋.
-  - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — 가짜뉴스 판별에 사용한 데이터셋.
-  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Named Entity Recognition(개체명인식)에 사용한 데이터셋.
-- [Pytorch](https://pytorch.org/) 라이브러리를 통한 딥러닝 빌드:
-  - [`Transformers`](https://huggingface.co/transformers/) — NLP모델의 아키텍처 제공.
-  - [`FastAPI`](https://fastapi.tiangolo.com/) — AI 기능 API 구현.
+- [Colab](https://colab.research.google.com/)for AI model training:
+  - [`KoBERT`](https://github.com/SKTBrain/KoBERT) — for sentiment analysis, fake news detection, and report summarization.
+  - [`DistilKoBERT`](https://github.com/monologg/DistilKoBERT) — for Named Entity Recognition (NER).
+- Datasets used:
+  - [`Naver-nsmc`](https://github.com/e9t/nsmc) — Datasets used for the sentiment analysis model.
+  - [`Dacon 문서요약`](https://dacon.io/competitions/official/235671/data) — Datasets used for Korean document extraction and summarization.
+  - [`SNU Factcheck`](https://factcheck.snu.ac.kr/) — Datasets used for fake news detection.
+  - [`Naver NLP Challenge 2018`](https://github.com/monologg/naver-nlp-challenge-2018) — Datasets used for Named Entity Recognition (NER).
+- [Pytorch](https://pytorch.org/) Libraries used for deep learning build.
+  - [`Transformers`](https://huggingface.co/transformers/) — Provided architecture for NLP models.
+  - [`FastAPI`](https://fastapi.tiangolo.com/) — Implementing AI functionality through APIs.
 
 ### Backend
 
-- [DRF](https://www.django-rest-framework.org/)를 통한 백엔드 구축:
-  - [`Mongo DB`](https://www.mongodb.com/) — 데이터베이스 구축.
-- [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 이용하여 크롤링:
-  - `Crawler` — 각종 오픈게시판, SNS, 뉴스사이트에서 언어데이터를 추출하는데에 사용.
+- [DRF](https://www.django-rest-framework.org/) for backend development:
+  - [`Mongo DB`](https://www.mongodb.com/) — for database development.
+- [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) Crawling using:
+  - `Crawler` — For extracting language data from various open forums, social media platforms, and news sites.
 
 ### Frontend
 
-- [React](https://reactjs.org/)를 이용한 프론트엔드 구축:
-  - [`MUI`](https://mui.com/) — MUI(Material UI) 컴포넌트 라이브러리 활용.
-  - `React router` — 컴포넌트 네비게이션에 사용.
-- [Recoil](https://recoiljs.org/)을 통한 리액트 상태 관리:
-  - `Atom` — 컴포넌트 상태 단위 분리기능 사용.
-  - `Selector` — Atom에 의존하는 동적인 데이터 생성 기능 사용. 
+- [React](https://reactjs.org/) for frontend development:
+  - [`MUI`](https://mui.com/) — Utilizing the MUI (Material UI) component library.
+  - `React router` — Used for component navigation.
+- [Recoil](https://recoiljs.org/)for state management in React.
+  - `Atom` — for separating component state units.
+  - `Selector` — for generating dynamic data dependent on Atoms.
 
-<h2 id="install"> :file_folder: 설치 안내 (Installation Process)</h2>
+<h2 id="install"> :file_folder: Installation Process</h2>
 
 
-먼저, **node.js**, **yarn**, **docker**, 그리고 **docker-compose**를 다운로드하세요. **node.js**는 버전 `14.x`이상이어야 합니다.
+First, download **node.js**, **yarn**, **docker**, and **docker-compose**. Ensure that **node.js** is version 14.x or higher.
 
-프로젝트를 **Clone** 합니다.
+**Clone** the project.
 ```bash
 git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 ```
 
-**Secret 파일들**을 작성합니다.
-> **Secret 파일 작성**에 관해서는 [여기서](https://navycert.notion.site/851fa5b94b874ddbbd12652ad3a81542) 확인하세요.
+Create the **Secret files**.
+> For information on **creating Secret files**, please refer [here](https://navycert.notion.site/851fa5b94b874ddbbd12652ad3a81542).
 
-프로젝트를 빌드 및 실행합니다.
+Build and run the project.
 ```bash
 ./run.sh
 ```
 
-[http://localhost:8002](http://localhost:8002)로 접속합니다.
+Access the project at[http://localhost:8002](http://localhost:8002).
 <br />
 
-이제 사용하실 수 있습니다! 🎉
+You can now start using it! 🎉
 
-<h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ 팀 정보 (Team Information)</h2>
+<h2 id="team"> 💁🏻‍♀️💁🏻‍♂️ Team Information</h2>
 
 <table width="900">
 <thead>
@@ -253,8 +253,8 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719709-4d184f89-ba47-4db8-be91-ea50456b4bb5.png" width="60" height="60"></td>
-<td width="100" align="center">이민석<br>(팀장)</td>
-<td width="250">Product Manager<br>AI Developer</td>
+<td width="100" align="center">Minseok Lee<br>(Team Leader)</td>
+<td width="250">Product Manager,<br>Full-stack Developer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/mslee300">
 	<img src="https://img.shields.io/badge/mslee300-655ced?style=social&logo=github"/>
@@ -266,7 +266,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719707-7ded6f27-5360-4f8e-bf25-f1217da6e068.png" width="60" height="60"></td>
-<td width="100" align="center">조정환</td>
+<td width="100" align="center">Junghwan Cho</td>
 <td width="250">AI Developer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/playff">
@@ -279,7 +279,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719706-de01f100-7f5b-4a9e-ad89-899764c9949f.png" width="60" height="60"></td>
-<td width="100" align="center">서명근</td>
+<td width="100" align="center">Myeonggeun Seo</td>
 <td width="250">Frontend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/simonseo">
@@ -292,7 +292,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719704-ea182337-b327-41c9-a7d7-9b26957ef01c.png" width="60" height="60"></td>
-<td width="100" align="center">김태원</td>
+<td width="100" align="center">Taewon Kim</td>
 <td width="250">Backend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/dev-taewon-kim">
@@ -305,7 +305,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719703-84288e35-1269-4dc7-a510-c65a41c09346.png" width="60" height="60"></td>
-<td width="100" align="center">이원빈</td>
+<td width="100" align="center">Wonbin Lee</td>
 <td width="250">Frontend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/wblee800">
@@ -318,7 +318,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719700-f2e9120e-1250-4d6c-9935-a89af62d3b64.png" width="60" height="60"></td>
-<td width="100" align="center">박용준</td>
+<td width="100" align="center">Yongjun Park</td>
 <td width="250">Backend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/flydog98">
@@ -331,7 +331,7 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 	
 <tr>
 <td width="100" align="center"><img src="https://user-images.githubusercontent.com/55467050/136719708-dfea5244-8922-4c1c-879e-23aa58689de8.png" width="60" height="60"></td>
-<td width="100" align="center">서종찬</td>
+<td width="100" align="center">Jongchan Seo</td>
 <td width="250">Frontend Engineer</td>
 <td width="150" align="center">	
 	<a href="https://github.com/Seo-Faper">
@@ -347,9 +347,9 @@ git clone https://github.com/osamhack2021/ai_web_RISKOUT_BTS
 </table>
 </br>
 
-<h2 id="license"> 📜 저작권 및 사용권 정보 (Copyleft / End User License)</h2>
+<h2 id="license"> 📜 Copyleft / End User License</h2>
 
-프로젝트 RISKOUT은 [GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html)를 따르고 있습니다.
+The project RISKOUT follows the [GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 <br />
 <br />
